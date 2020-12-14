@@ -1,0 +1,550 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>Answer | moonrailgun - _(:зゝ∠)_</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="一个兴趣使然的软件攻城狮的个人博客。兴趣是最好的老师。"/>
+  <meta name="description" content="关键技术 HTML5 CSS3 APICloud Restful API 查看数据库结构  更新日志v0.0.1测试版： Android iOS 实现功能 首页&#x2F;侧边页 滚动banner 首页 答题 资料 个人 排名 娱乐 留言 更多 设置   用户管理 登陆 注册 用户昵称 头像修改 用户二维码   积分管理 答题加分(每道题只加一次)   答题 按学科 参考资料 章节练习 按章节">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Answer">
+<meta property="og:url" content="http://www.moonrailgun.com/show/Answer/index.html">
+<meta property="og:site_name" content="moonrailgun - _(:зゝ∠)_">
+<meta property="og:description" content="关键技术 HTML5 CSS3 APICloud Restful API 查看数据库结构  更新日志v0.0.1测试版： Android iOS 实现功能 首页&#x2F;侧边页 滚动banner 首页 答题 资料 个人 排名 娱乐 留言 更多 设置   用户管理 登陆 注册 用户昵称 头像修改 用户二维码   积分管理 答题加分(每道题只加一次)   答题 按学科 参考资料 章节练习 按章节">
+<meta property="og:locale">
+<meta property="og:image" content="http://www.moonrailgun.com/show/Answer/1.PNG">
+<meta property="og:image" content="http://www.moonrailgun.com/show/Answer/2.PNG">
+<meta property="og:image" content="http://www.moonrailgun.com/show/Answer/3.PNG">
+<meta property="og:image" content="http://www.moonrailgun.com/show/Answer/4.PNG">
+<meta property="og:image" content="data:image/png;base64,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">
+<meta property="og:image" content="data:image/png;base64,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">
+<meta property="article:published_time" content="2015-11-25T08:02:26.000Z">
+<meta property="article:modified_time" content="2018-09-04T05:33:52.617Z">
+<meta property="article:author" content="moonrailgun">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://www.moonrailgun.com/show/Answer/1.PNG">
+  
+    <link rel="alternative" href="/atom.xml" title="moonrailgun - _(:зゝ∠)_" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  <link rel="stylesheet" href="/font-awesome/css/font-awesome.min.css">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  
+  <meta name="referrer" content="no-referrer-when-downgrade">
+<meta name="generator" content="Hexo 5.2.0"></head>
+
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+    <header id="header" class="inner">
+        <a href="/" class="profilepic">
+            
+            <img lazy-src="/img/avatar.png" class="js-avatar">
+            
+        </a>
+
+        <hgroup>
+          <h1 class="header-author"><a href="/"></a></h1>
+        </hgroup>
+
+        
+                
+
+
+        
+            <div id="switch-btn" class="switch-btn">
+                <div class="icon">
+                    <div class="icon-ctn">
+                        <div class="icon-wrap icon-house" data-idx="0">
+                            <div class="birdhouse"></div>
+                            <div class="birdhouse_holes"></div>
+                        </div>
+                        <div class="icon-wrap icon-ribbon hide" data-idx="1">
+                            <div class="ribbon"></div>
+                        </div>
+                        
+                        <div class="icon-wrap icon-link hide" data-idx="2">
+                            <div class="loopback_l"></div>
+                            <div class="loopback_r"></div>
+                        </div>
+                        
+                        
+                        <div class="icon-wrap icon-me hide" data-idx="3">
+                            <div class="user"></div>
+                            <div class="shoulder"></div>
+                        </div>
+                        
+                    </div>
+                    
+                </div>
+                <div class="tips-box hide">
+                    <div class="tips-arrow"></div>
+                    <ul class="tips-inner">
+                        <li>菜单</li>
+                        <li>标签</li>
+                        
+                        <li>友情链接</li>
+                        
+                        
+                        <li>关于我</li>
+                        
+                    </ul>
+                </div>
+            </div>
+        
+
+        <div id="switch-area" class="switch-area">
+            <div class="switch-wrap">
+                <section class="switch-part switch-part1">
+                    <nav class="header-menu">
+                        <ul>
+                        
+                            <li><a href="/">主页</a></li>
+                        
+                            <li><a href="/archives/">所有文章</a></li>
+                        
+                            <li><a href="/show/">作品展示</a></li>
+                        
+                            <li><a href="/tags/">标签云</a></li>
+                        
+                            <li><a href="/about/">关于我</a></li>
+                        
+                        </ul>
+                    </nav>
+                    <nav class="header-nav">
+                        <ul class="social">
+                            
+                                <li id="Email"><a class="Email" target="_blank" href="mailto:moonrailgun@gmail.com" title="Email"></a></li>
+                            
+                                <li id="GitHub"><a class="GitHub" target="_blank" href="https://github.com/moonrailgun" title="GitHub"></a></li>
+                            
+                        </ul>
+                    </nav>
+                </section>
+                
+                
+                <section class="switch-part switch-part2">
+                    <div class="widget tagcloud" id="js-tagcloud">
+                        <a href="/tags/Apache/" style="font-size: 10px;">Apache</a> <a href="/tags/Apicloud/" style="font-size: 10px;">Apicloud</a> <a href="/tags/Blender/" style="font-size: 14px;">Blender</a> <a href="/tags/C/" style="font-size: 10px;">C++</a> <a href="/tags/CCLog/" style="font-size: 10px;">CCLog</a> <a href="/tags/CSLoader/" style="font-size: 10px;">CSLoader</a> <a href="/tags/ES6/" style="font-size: 10px;">ES6</a> <a href="/tags/GMT/" style="font-size: 10px;">GMT</a> <a href="/tags/HTTPS/" style="font-size: 10px;">HTTPS</a> <a href="/tags/LINK1104/" style="font-size: 10px;">LINK1104</a> <a href="/tags/Linux/" style="font-size: 16px;">Linux</a> <a href="/tags/MMD/" style="font-size: 12px;">MMD</a> <a href="/tags/MikuMikuCombat/" style="font-size: 14px;">MikuMikuCombat</a> <a href="/tags/MySQL/" style="font-size: 10px;">MySQL</a> <a href="/tags/NSURL/" style="font-size: 12px;">NSURL</a> <a href="/tags/NodeJS/" style="font-size: 12px;">NodeJS</a> <a href="/tags/OOM-Killer/" style="font-size: 10px;">OOM Killer</a> <a href="/tags/PHP/" style="font-size: 10px;">PHP</a> <a href="/tags/React/" style="font-size: 12px;">React</a> <a href="/tags/ReactNative/" style="font-size: 12px;">ReactNative</a> <a href="/tags/Ref/" style="font-size: 10px;">Ref</a> <a href="/tags/SQL/" style="font-size: 10px;">SQL</a> <a href="/tags/SSL/" style="font-size: 10px;">SSL</a> <a href="/tags/Session/" style="font-size: 10px;">Session</a> <a href="/tags/Shader/" style="font-size: 10px;">Shader</a> <a href="/tags/Snowpack/" style="font-size: 10px;">Snowpack</a> <a href="/tags/Steam/" style="font-size: 10px;">Steam</a> <a href="/tags/Swap/" style="font-size: 10px;">Swap</a> <a href="/tags/TRPG/" style="font-size: 10px;">TRPG</a> <a href="/tags/TRPG-Engine/" style="font-size: 10px;">TRPG Engine</a> <a href="/tags/TexturePacker/" style="font-size: 10px;">TexturePacker</a> <a href="/tags/Ubuntu-18-04/" style="font-size: 10px;">Ubuntu 18.04</a> <a href="/tags/Unicode/" style="font-size: 10px;">Unicode</a> <a href="/tags/Unity/" style="font-size: 10px;">Unity</a> <a href="/tags/Unreal/" style="font-size: 18px;">Unreal</a> <a href="/tags/Vue/" style="font-size: 10px;">Vue</a> <a href="/tags/Webpack/" style="font-size: 12px;">Webpack</a> <a href="/tags/Weex/" style="font-size: 10px;">Weex</a> <a href="/tags/WhiteWord/" style="font-size: 12px;">WhiteWord</a> <a href="/tags/adb/" style="font-size: 10px;">adb</a> <a href="/tags/android/" style="font-size: 10px;">android</a> <a href="/tags/atom/" style="font-size: 10px;">atom</a> <a href="/tags/autorelease/" style="font-size: 10px;">autorelease</a> <a href="/tags/blender/" style="font-size: 12px;">blender</a> <a href="/tags/c/" style="font-size: 10px;">c++</a> <a href="/tags/cherry-pick/" style="font-size: 10px;">cherry-pick</a> <a href="/tags/chrome/" style="font-size: 10px;">chrome</a> <a href="/tags/cluster/" style="font-size: 10px;">cluster</a> <a href="/tags/cocoapods/" style="font-size: 10px;">cocoapods</a> <a href="/tags/cocos2dx/" style="font-size: 18px;">cocos2dx</a> <a href="/tags/cookie/" style="font-size: 10px;">cookie</a> <a href="/tags/css/" style="font-size: 10px;">css</a> <a href="/tags/cycle/" style="font-size: 10px;">cycle</a> <a href="/tags/debounce/" style="font-size: 10px;">debounce</a> <a href="/tags/docker/" style="font-size: 10px;">docker</a> <a href="/tags/docusaurus/" style="font-size: 10px;">docusaurus</a> <a href="/tags/docusaurus-v2/" style="font-size: 10px;">docusaurus v2</a> <a href="/tags/extensions/" style="font-size: 10px;">extensions</a> <a href="/tags/firefox/" style="font-size: 10px;">firefox</a> <a href="/tags/git/" style="font-size: 16px;">git</a> <a href="/tags/gulp/" style="font-size: 10px;">gulp</a> <a href="/tags/hao360/" style="font-size: 10px;">hao360</a> <a href="/tags/http/" style="font-size: 10px;">http</a> <a href="/tags/iOS/" style="font-size: 12px;">iOS</a> <a href="/tags/ionic/" style="font-size: 10px;">ionic</a> <a href="/tags/ios/" style="font-size: 10px;">ios</a> <a href="/tags/javascript/" style="font-size: 12px;">javascript</a> <a href="/tags/js/" style="font-size: 12px;">js</a> <a href="/tags/lambda%E8%A1%A8%E8%BE%BE%E5%BC%8F/" style="font-size: 10px;">lambda表达式</a> <a href="/tags/libcocos2d-2013-lib/" style="font-size: 10px;">libcocos2d_2013.lib</a> <a href="/tags/lodash/" style="font-size: 10px;">lodash</a> <a href="/tags/nginx/" style="font-size: 10px;">nginx</a> <a href="/tags/node/" style="font-size: 12px;">node</a> <a href="/tags/node-orm/" style="font-size: 10px;">node-orm</a> <a href="/tags/nodejs/" style="font-size: 10px;">nodejs</a> <a href="/tags/nox/" style="font-size: 10px;">nox</a> <a href="/tags/npm/" style="font-size: 10px;">npm</a> <a href="/tags/objective-c/" style="font-size: 10px;">objective-c</a> <a href="/tags/ohmyzsh/" style="font-size: 10px;">ohmyzsh</a> <a href="/tags/pod/" style="font-size: 10px;">pod</a> <a href="/tags/pomelo/" style="font-size: 12px;">pomelo</a> <a href="/tags/pubg/" style="font-size: 10px;">pubg</a> <a href="/tags/python/" style="font-size: 10px;">python</a> <a href="/tags/safari/" style="font-size: 10px;">safari</a> <a href="/tags/sequelizejs/" style="font-size: 10px;">sequelizejs</a> <a href="/tags/session/" style="font-size: 10px;">session</a> <a href="/tags/stacking-context/" style="font-size: 10px;">stacking context</a> <a href="/tags/sticky/" style="font-size: 10px;">sticky</a> <a href="/tags/swarm/" style="font-size: 10px;">swarm</a> <a href="/tags/swift/" style="font-size: 10px;">swift</a> <a href="/tags/throttle/" style="font-size: 10px;">throttle</a> <a href="/tags/traefik/" style="font-size: 10px;">traefik</a> <a href="/tags/typescript/" style="font-size: 12px;">typescript</a> <a href="/tags/unity/" style="font-size: 10px;">unity</a> <a href="/tags/upyun/" style="font-size: 10px;">upyun</a> <a href="/tags/utf-8/" style="font-size: 10px;">utf-8</a> <a href="/tags/vmware/" style="font-size: 10px;">vmware</a> <a href="/tags/webpack-dev-server/" style="font-size: 10px;">webpack-dev-server</a> <a href="/tags/weixin/" style="font-size: 10px;">weixin</a> <a href="/tags/wsl/" style="font-size: 10px;">wsl</a> <a href="/tags/wsl2/" style="font-size: 10px;">wsl2</a> <a href="/tags/z-index/" style="font-size: 10px;">z-index</a> <a href="/tags/%E5%89%8D%E7%AB%AF/" style="font-size: 10px;">前端</a> <a href="/tags/%E5%90%8E%E5%8F%B0/" style="font-size: 10px;">后台</a> <a href="/tags/%E5%A3%81%E7%BA%B8/" style="font-size: 12px;">壁纸</a> <a href="/tags/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" style="font-size: 10px;">学习笔记</a> <a href="/tags/%E5%AE%88%E6%9C%9B%E5%85%88%E9%94%8B/" style="font-size: 10px;">守望先锋</a> <a href="/tags/%E5%AE%89%E5%85%A8/" style="font-size: 10px;">安全</a> <a href="/tags/%E5%B8%B8%E7%94%A8%E6%8A%80%E5%B7%A7/" style="font-size: 10px;">常用技巧</a> <a href="/tags/%E5%BC%80%E5%8F%91%E7%AC%94%E8%AE%B0/" style="font-size: 14px;">开发笔记</a> <a href="/tags/%E5%BE%AE%E4%BF%A1/" style="font-size: 10px;">微信</a> <a href="/tags/%E5%BF%AB%E6%8D%B7%E6%96%B9%E5%BC%8F/" style="font-size: 10px;">快捷方式</a> <a href="/tags/%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/" style="font-size: 10px;">性能优化</a> <a href="/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/" style="font-size: 10px;">数据库</a> <a href="/tags/%E6%96%87%E6%A1%A3/" style="font-size: 10px;">文档</a> <a href="/tags/%E6%97%B6%E9%97%B4%E6%A0%BC%E5%BC%8F/" style="font-size: 10px;">时间格式</a> <a href="/tags/%E6%9C%8D%E5%8A%A1%E5%99%A8/" style="font-size: 10px;">服务器</a> <a href="/tags/%E6%B3%A8%E5%86%8C%E8%A1%A8/" style="font-size: 10px;">注册表</a> <a href="/tags/%E6%B8%B2%E6%9F%93/" style="font-size: 12px;">渲染</a> <a href="/tags/%E6%B8%B8%E6%88%8F%E5%BC%80%E5%8F%91/" style="font-size: 20px;">游戏开发</a> <a href="/tags/%E7%88%B6%E5%AD%90%E5%85%B3%E7%B3%BB/" style="font-size: 10px;">父子关系</a> <a href="/tags/%E7%89%88%E6%9C%AC%E5%8F%B7/" style="font-size: 10px;">版本号</a> <a href="/tags/%E7%BD%91%E7%AB%99%E5%8A%AB%E6%8C%81/" style="font-size: 10px;">网站劫持</a> <a href="/tags/%E7%BD%91%E7%BB%9C/" style="font-size: 10px;">网络</a> <a href="/tags/%E8%93%9D%E5%9B%BE/" style="font-size: 10px;">蓝图</a> <a href="/tags/%E8%B7%A8%E5%9F%9F/" style="font-size: 10px;">跨域</a> <a href="/tags/%E8%B8%A9%E5%9D%91/" style="font-size: 10px;">踩坑</a> <a href="/tags/%E9%92%93%E9%B1%BC%E7%BD%91%E7%AB%99/" style="font-size: 10px;">钓鱼网站</a> <a href="/tags/%E9%97%AD%E5%8C%85/" style="font-size: 10px;">闭包</a> <a href="/tags/%E9%9B%86%E7%BE%A4/" style="font-size: 10px;">集群</a> <a href="/tags/%E9%9D%99%E6%80%81%E7%BD%91%E7%AB%99/" style="font-size: 10px;">静态网站</a>
+                    </div>
+                </section>
+                
+                
+                
+                <section class="switch-part switch-part3">
+                    <div id="js-friends">
+                    
+                      <a target="_blank" class="main-nav-link switch-friends-link" href="https://hexo.io">Hexo</a>
+                    
+                      <a target="_blank" class="main-nav-link switch-friends-link" href="https://pages.github.com/">GitHub</a>
+                    
+                      <a target="_blank" class="main-nav-link switch-friends-link" href="http://moxfive.xyz/">MOxFIVE</a>
+                    
+                    </div>
+                </section>
+                
+
+                
+                
+                <section class="switch-part switch-part4">
+                
+                    <div id="js-aboutme">一个兴趣使然的程序员 上海,学生,20岁. 熟练掌握Nodejs, Html5, C Sharp, Unity技术</div>
+                </section>
+                
+            </div>
+        </div>
+    </header>                
+</div>
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+      <div class="overlay">
+          <div class="slider-trigger"></div>
+          <h1 class="header-author js-mobile-header hide"><a href="/" title="回到主页"></a></h1>
+      </div>
+    <div class="intrude-less">
+        <header id="header" class="inner">
+            <a href="/" class="profilepic">
+                <img lazy-src="/img/avatar.png" class="js-avatar">
+            </a>
+            <hgroup>
+              <h1 class="header-author"><a href="/" title="回到主页"></a></h1>
+            </hgroup>
+            
+            <nav class="header-menu">
+                <ul>
+                
+                    <li><a href="/">主页</a></li>
+                
+                    <li><a href="/archives/">所有文章</a></li>
+                
+                    <li><a href="/show/">作品展示</a></li>
+                
+                    <li><a href="/tags/">标签云</a></li>
+                
+                    <li><a href="/about/">关于我</a></li>
+                
+                <div class="clearfix"></div>
+                </ul>
+            </nav>
+            <nav class="header-nav">
+                        <ul class="social">
+                            
+                                <li id="Email"><a class="Email" target="_blank" href="mailto:moonrailgun@gmail.com" title="Email"></a></li>
+                            
+                                <li id="GitHub"><a class="GitHub" target="_blank" href="https://github.com/moonrailgun" title="GitHub"></a></li>
+                            
+                        </ul>
+            </nav>
+        </header>                
+    </div>
+</nav>
+      <div class="body-wrap"><article id="page-" class="article article-type-page" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/show/Answer/index.html" class="article-date">
+      <time datetime="2015-11-25T08:02:26.000Z" itemprop="datePublished">2015-11-25</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Answer
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+
+        
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+              <style>
+    .article-meta {
+        display: none;
+    }
+    #container .article .article-title {
+        padding-right: 0;
+    }
+    .article-header {
+        padding: 0;
+        padding-top: 26px;
+        border-left: none;
+        text-align: center;
+    }
+    .article-header:hover {
+        border-left: none;
+    }
+    .article-title {
+        font-size: 1.6em
+    }
+    .article-meta {
+        display: none;
+    }
+    .article-entry hr {
+        margin: 0;
+    }
+    #container .article-info-post.article-info {
+      display: none;
+      }
+    #container .article .article-title {
+    padding: 0;
+    }
+</style>
+
+
+          
+        <p><img src="./1.PNG" alt=""> <img src="./2.PNG" alt=""> <img src="./3.PNG" alt=""> <img src="./4.PNG" alt=""></p>
+<h3 id="关键技术"><a href="#关键技术" class="headerlink" title="关键技术"></a>关键技术</h3><ul>
+<li>HTML5</li>
+<li>CSS3</li>
+<li>APICloud</li>
+<li>Restful API <a href="./db.html">查看数据库结构</a></li>
+</ul>
+<h2 id="更新日志"><a href="#更新日志" class="headerlink" title="更新日志"></a>更新日志</h2><h3 id="v0-0-1"><a href="#v0-0-1" class="headerlink" title="v0.0.1"></a>v0.0.1</h3><p>测试版：</p>
+<p><img src="data:image/png;base64,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" alt=""><a href="./v0.0.1 - Beta.apk">Android</a></p>
+<p><img src="data:image/png;base64,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" alt=""><a href="./v0.0.1 - Beta.ipa">iOS</a></p>
+<h4 id="实现功能"><a href="#实现功能" class="headerlink" title="实现功能"></a>实现功能</h4><ul>
+<li>首页/侧边页<ul>
+<li>滚动banner</li>
+<li>首页</li>
+<li>答题</li>
+<li>资料</li>
+<li>个人</li>
+<li>排名</li>
+<li>娱乐</li>
+<li>留言</li>
+<li>更多</li>
+<li>设置</li>
+</ul>
+</li>
+<li>用户管理<ul>
+<li>登陆</li>
+<li>注册</li>
+<li>用户昵称</li>
+<li>头像修改</li>
+<li>用户二维码</li>
+</ul>
+</li>
+<li>积分管理<ul>
+<li>答题加分(每道题只加一次)</li>
+</ul>
+</li>
+<li>答题<ul>
+<li>按学科<ul>
+<li>参考资料</li>
+<li>章节练习<ul>
+<li>按章节</li>
+</ul>
+</li>
+<li>模拟练习<ul>
+<li>按试卷</li>
+</ul>
+</li>
+<li>真题检测<ul>
+<li>按年份<ul>
+<li>按试卷</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>资料<ul>
+<li>找资料<ul>
+<li>关键字查询</li>
+</ul>
+</li>
+<li>资料库<ul>
+<li>按学科<ul>
+<li>预览</li>
+<li>下载(停止)</li>
+<li>收藏</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>最新上传<ul>
+<li>按时间取最新三个</li>
+</ul>
+</li>
+<li>我的资料(收藏)</li>
+</ul>
+</li>
+<li>用户设置<ul>
+<li>获取缓存</li>
+<li>清空缓存</li>
+<li>推荐给好友<ul>
+<li>通讯录发送短信推荐</li>
+</ul>
+</li>
+<li>是否允许3G下载</li>
+<li>意见反馈<ul>
+<li>添加留言</li>
+</ul>
+</li>
+<li>关于作品</li>
+</ul>
+</li>
+<li>用户收藏<ul>
+<li>文档收藏与取消收藏</li>
+<li>题目收藏与取消收藏</li>
+</ul>
+</li>
+<li>用户错题本<ul>
+<li>错题统计</li>
+<li>错题查看</li>
+<li>错题详解</li>
+</ul>
+</li>
+<li>排行榜<ul>
+<li>用户个人积分</li>
+<li>用户个人排名</li>
+<li>总用户前20名</li>
+</ul>
+</li>
+<li>扫码<ul>
+<li>打开网页二维码</li>
+</ul>
+</li>
+<li>更多<ul>
+<li>FAQ</li>
+</ul>
+</li>
+</ul>
+
+      
+    </div>
+    
+  </div>
+  
+    
+
+
+  
+</article>
+
+
+<div class="share">
+    <div class="bdsharebuttonbox">
+    <a href="#" class="bds_more" data-cmd="more"></a>
+    <a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
+    <a href="#" class="bds_sqq" data-cmd="sqq" title="分享给 QQ 好友"></a>
+    <a href="#" class="bds_copy" data-cmd="copy" title="复制网址"></a>
+    <a href="#" class="bds_mail" data-cmd="mail" title="通过邮件分享"></a>
+    <a href="#" class="bds_weixin" data-cmd="weixin" title="生成文章二维码"></a>
+    </div>
+    <script>
+        window._bd_share_config={
+            "common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+    </script>
+</div>
+
+
+
+    
+
+
+
+
+
+    
+        
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+        <script>
+            var yiliaConfig = {
+            fancybox: true,
+            mathjax: true,
+            animate: true,
+            isHome: false,
+            isPost: false,
+            isArchive: false,
+            isTag: false,
+            isCategory: false,
+            open_in_new: false
+            }
+        </script>
+        
+</div>
+      <footer id="footer">
+    <div class="outer">
+        <div id="footer-info">
+            <div class="footer-left">
+                &copy; 2020 moonrailgun | <a target="_blank" rel="noopener" href="http://www.beian.miit.gov.cn">沪ICP备19001187号-1</a>
+                | <a title="本网站由又拍云提供CDN加速/云存储服务" href="https://www.upyun.com/?utm_source=lianmeng&utm_medium=referral" target="_blank" rel="noopener noreferrer"><img src="/img/upyun_logo.png" height="18" style="vertical-align: bottom;" /></a>
+            </div>
+            <div class="footer-right">
+                <a href="http://hexo.io/" target="_blank" rel="noopener noreferrer" title="快速、简洁且高效的静态博客框架">Hexo</a>  Theme <a href="https://github.com/MOxFIVE/hexo-theme-yelee" target="_blank" title="简而不减双栏 Hexo 博客主题">Yelee</a> by MOxFIVE
+            </div>
+        </div>
+        <div class="visit">
+            <span id="busuanzi_container_site_pv" style='display:none'>
+                <span id="site-visit" >本站到访数:
+                    <span id="busuanzi_value_site_uv"></span>
+                </span>
+            </span>
+            <span id="busuanzi_container_page_pv" style='display:none'>
+                <span id="page-visit">, 本页阅读量:
+                    <span id="busuanzi_value_page_pv"></span>
+                </span>
+            </span>
+        </div>
+    </div>
+</footer>
+
+    </div>
+    
+
+
+<script src="http://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+
+
+<script src="/js/main.js"></script>
+
+
+    <script>
+        $(document).ready(function() {
+            var iPad = window.navigator.userAgent.indexOf('iPad');
+            if (iPad > -1 || $(".left-col").css("display") === "none") {
+                var bgColorList = ["#9db3f4", "#414141", "#e5a859", "#f5dfc6", "#c084a0", "#847e72", "#cd8390", "#996731"];
+                var bgColor = Math.ceil(Math.random() * (bgColorList.length - 1));
+                $("body").css({"background-color": bgColorList[bgColor], "background-size": "cover"});
+            }
+            else {
+                var backgroundnum = 10;
+                var backgroundimg = "url(/background/bg-x.jpg)".replace(/x/gi, Math.ceil(Math.random() * backgroundnum));
+                $("body").css({"background": backgroundimg, "background-attachment": "fixed", "background-size": "cover"});
+            }
+        })
+    </script>
+
+
+
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+});
+</script>
+
+<!-- <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"> -->
+<script type="text/javascript" src="https://cdn.bootcss.com/mathjax/2.7.6/MathJax.js">
+</script>
+
+
+<div class="scroll" id="scroll">
+    <a href="#" title="返回顶部"><i class="fa fa-arrow-up"></i></a>
+    <a href="#comments" title="查看评论"><i class="fa fa-comments-o"></i></a>
+    <a href="#footer" title="转到底部"><i class="fa fa-arrow-down"></i></a>
+</div>
+
+<script>
+    $(document).ready(function() {
+        if ($("#comments").length < 1) {
+            $("#scroll > a:nth-child(2)").hide();
+        };
+    })
+</script>
+
+<script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js">
+</script>
+
+  </div>
+</body>
+</html>

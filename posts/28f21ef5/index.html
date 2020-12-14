@@ -1,0 +1,537 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>如何开发与坚持维护一个企业级的开源项目 | moonrailgun - _(:зゝ∠)_</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="一个兴趣使然的软件攻城狮的个人博客。兴趣是最好的老师。"/>
+  <meta name="description" content="TRPG Engine 是我一直坚持维护的一个开源项目。正如所有的开源项目都起源于开发者的兴趣，TRPG Engine也是我对于跑团这一小众领域的兴趣。 我个人，在没有支援没有赞助，单凭个人爱好独立坚持开发3年以上不间断。前端代码累计提交2700+, 后端代码累计提交1200+ 谨以此文，分享一下我维护这个开源项目的经历。并与千千万万独立坚持的开源人共勉。 起初所有的个人项目都起源于想做。因为我想">
+<meta property="og:type" content="article">
+<meta property="og:title" content="如何开发与坚持维护一个企业级的开源项目">
+<meta property="og:url" content="http://www.moonrailgun.com/posts/28f21ef5/index.html">
+<meta property="og:site_name" content="moonrailgun - _(:зゝ∠)_">
+<meta property="og:description" content="TRPG Engine 是我一直坚持维护的一个开源项目。正如所有的开源项目都起源于开发者的兴趣，TRPG Engine也是我对于跑团这一小众领域的兴趣。 我个人，在没有支援没有赞助，单凭个人爱好独立坚持开发3年以上不间断。前端代码累计提交2700+, 后端代码累计提交1200+ 谨以此文，分享一下我维护这个开源项目的经历。并与千千万万独立坚持的开源人共勉。 起初所有的个人项目都起源于想做。因为我想">
+<meta property="og:locale">
+<meta property="article:published_time" content="2020-12-14T07:03:11.000Z">
+<meta property="article:modified_time" content="2020-12-14T09:03:54.868Z">
+<meta property="article:author" content="moonrailgun">
+<meta property="article:tag" content="typescript">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternative" href="/atom.xml" title="moonrailgun - _(:зゝ∠)_" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  <link rel="stylesheet" href="/font-awesome/css/font-awesome.min.css">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  
+  <meta name="referrer" content="no-referrer-when-downgrade">
+<meta name="generator" content="Hexo 5.2.0"></head>
+
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+    <header id="header" class="inner">
+        <a href="/" class="profilepic">
+            
+            <img lazy-src="/img/avatar.png" class="js-avatar">
+            
+        </a>
+
+        <hgroup>
+          <h1 class="header-author"><a href="/"></a></h1>
+        </hgroup>
+
+        
+                
+
+
+        
+            <div id="switch-btn" class="switch-btn">
+                <div class="icon">
+                    <div class="icon-ctn">
+                        <div class="icon-wrap icon-house" data-idx="0">
+                            <div class="birdhouse"></div>
+                            <div class="birdhouse_holes"></div>
+                        </div>
+                        <div class="icon-wrap icon-ribbon hide" data-idx="1">
+                            <div class="ribbon"></div>
+                        </div>
+                        
+                        <div class="icon-wrap icon-link hide" data-idx="2">
+                            <div class="loopback_l"></div>
+                            <div class="loopback_r"></div>
+                        </div>
+                        
+                        
+                        <div class="icon-wrap icon-me hide" data-idx="3">
+                            <div class="user"></div>
+                            <div class="shoulder"></div>
+                        </div>
+                        
+                    </div>
+                    
+                </div>
+                <div class="tips-box hide">
+                    <div class="tips-arrow"></div>
+                    <ul class="tips-inner">
+                        <li>菜单</li>
+                        <li>标签</li>
+                        
+                        <li>友情链接</li>
+                        
+                        
+                        <li>关于我</li>
+                        
+                    </ul>
+                </div>
+            </div>
+        
+
+        <div id="switch-area" class="switch-area">
+            <div class="switch-wrap">
+                <section class="switch-part switch-part1">
+                    <nav class="header-menu">
+                        <ul>
+                        
+                            <li><a href="/">主页</a></li>
+                        
+                            <li><a href="/archives/">所有文章</a></li>
+                        
+                            <li><a href="/show/">作品展示</a></li>
+                        
+                            <li><a href="/tags/">标签云</a></li>
+                        
+                            <li><a href="/about/">关于我</a></li>
+                        
+                        </ul>
+                    </nav>
+                    <nav class="header-nav">
+                        <ul class="social">
+                            
+                                <li id="Email"><a class="Email" target="_blank" href="mailto:moonrailgun@gmail.com" title="Email"></a></li>
+                            
+                                <li id="GitHub"><a class="GitHub" target="_blank" href="https://github.com/moonrailgun" title="GitHub"></a></li>
+                            
+                        </ul>
+                    </nav>
+                </section>
+                
+                
+                <section class="switch-part switch-part2">
+                    <div class="widget tagcloud" id="js-tagcloud">
+                        <a href="/tags/Apache/" style="font-size: 10px;">Apache</a> <a href="/tags/Apicloud/" style="font-size: 10px;">Apicloud</a> <a href="/tags/Blender/" style="font-size: 14px;">Blender</a> <a href="/tags/C/" style="font-size: 10px;">C++</a> <a href="/tags/CCLog/" style="font-size: 10px;">CCLog</a> <a href="/tags/CSLoader/" style="font-size: 10px;">CSLoader</a> <a href="/tags/ES6/" style="font-size: 10px;">ES6</a> <a href="/tags/GMT/" style="font-size: 10px;">GMT</a> <a href="/tags/HTTPS/" style="font-size: 10px;">HTTPS</a> <a href="/tags/LINK1104/" style="font-size: 10px;">LINK1104</a> <a href="/tags/Linux/" style="font-size: 16px;">Linux</a> <a href="/tags/MMD/" style="font-size: 12px;">MMD</a> <a href="/tags/MikuMikuCombat/" style="font-size: 14px;">MikuMikuCombat</a> <a href="/tags/MySQL/" style="font-size: 10px;">MySQL</a> <a href="/tags/NSURL/" style="font-size: 12px;">NSURL</a> <a href="/tags/NodeJS/" style="font-size: 12px;">NodeJS</a> <a href="/tags/OOM-Killer/" style="font-size: 10px;">OOM Killer</a> <a href="/tags/PHP/" style="font-size: 10px;">PHP</a> <a href="/tags/React/" style="font-size: 12px;">React</a> <a href="/tags/ReactNative/" style="font-size: 12px;">ReactNative</a> <a href="/tags/Ref/" style="font-size: 10px;">Ref</a> <a href="/tags/SQL/" style="font-size: 10px;">SQL</a> <a href="/tags/SSL/" style="font-size: 10px;">SSL</a> <a href="/tags/Session/" style="font-size: 10px;">Session</a> <a href="/tags/Shader/" style="font-size: 10px;">Shader</a> <a href="/tags/Snowpack/" style="font-size: 10px;">Snowpack</a> <a href="/tags/Steam/" style="font-size: 10px;">Steam</a> <a href="/tags/Swap/" style="font-size: 10px;">Swap</a> <a href="/tags/TRPG/" style="font-size: 10px;">TRPG</a> <a href="/tags/TRPG-Engine/" style="font-size: 10px;">TRPG Engine</a> <a href="/tags/TexturePacker/" style="font-size: 10px;">TexturePacker</a> <a href="/tags/Ubuntu-18-04/" style="font-size: 10px;">Ubuntu 18.04</a> <a href="/tags/Unicode/" style="font-size: 10px;">Unicode</a> <a href="/tags/Unity/" style="font-size: 10px;">Unity</a> <a href="/tags/Unreal/" style="font-size: 18px;">Unreal</a> <a href="/tags/Vue/" style="font-size: 10px;">Vue</a> <a href="/tags/Webpack/" style="font-size: 12px;">Webpack</a> <a href="/tags/Weex/" style="font-size: 10px;">Weex</a> <a href="/tags/WhiteWord/" style="font-size: 12px;">WhiteWord</a> <a href="/tags/adb/" style="font-size: 10px;">adb</a> <a href="/tags/android/" style="font-size: 10px;">android</a> <a href="/tags/atom/" style="font-size: 10px;">atom</a> <a href="/tags/autorelease/" style="font-size: 10px;">autorelease</a> <a href="/tags/blender/" style="font-size: 12px;">blender</a> <a href="/tags/c/" style="font-size: 10px;">c++</a> <a href="/tags/cherry-pick/" style="font-size: 10px;">cherry-pick</a> <a href="/tags/chrome/" style="font-size: 10px;">chrome</a> <a href="/tags/cluster/" style="font-size: 10px;">cluster</a> <a href="/tags/cocoapods/" style="font-size: 10px;">cocoapods</a> <a href="/tags/cocos2dx/" style="font-size: 18px;">cocos2dx</a> <a href="/tags/cookie/" style="font-size: 10px;">cookie</a> <a href="/tags/css/" style="font-size: 10px;">css</a> <a href="/tags/cycle/" style="font-size: 10px;">cycle</a> <a href="/tags/debounce/" style="font-size: 10px;">debounce</a> <a href="/tags/docker/" style="font-size: 10px;">docker</a> <a href="/tags/docusaurus/" style="font-size: 10px;">docusaurus</a> <a href="/tags/docusaurus-v2/" style="font-size: 10px;">docusaurus v2</a> <a href="/tags/extensions/" style="font-size: 10px;">extensions</a> <a href="/tags/firefox/" style="font-size: 10px;">firefox</a> <a href="/tags/git/" style="font-size: 16px;">git</a> <a href="/tags/gulp/" style="font-size: 10px;">gulp</a> <a href="/tags/hao360/" style="font-size: 10px;">hao360</a> <a href="/tags/http/" style="font-size: 10px;">http</a> <a href="/tags/iOS/" style="font-size: 12px;">iOS</a> <a href="/tags/ionic/" style="font-size: 10px;">ionic</a> <a href="/tags/ios/" style="font-size: 10px;">ios</a> <a href="/tags/javascript/" style="font-size: 12px;">javascript</a> <a href="/tags/js/" style="font-size: 12px;">js</a> <a href="/tags/lambda%E8%A1%A8%E8%BE%BE%E5%BC%8F/" style="font-size: 10px;">lambda表达式</a> <a href="/tags/libcocos2d-2013-lib/" style="font-size: 10px;">libcocos2d_2013.lib</a> <a href="/tags/lodash/" style="font-size: 10px;">lodash</a> <a href="/tags/nginx/" style="font-size: 10px;">nginx</a> <a href="/tags/node/" style="font-size: 12px;">node</a> <a href="/tags/node-orm/" style="font-size: 10px;">node-orm</a> <a href="/tags/nodejs/" style="font-size: 10px;">nodejs</a> <a href="/tags/nox/" style="font-size: 10px;">nox</a> <a href="/tags/npm/" style="font-size: 10px;">npm</a> <a href="/tags/objective-c/" style="font-size: 10px;">objective-c</a> <a href="/tags/ohmyzsh/" style="font-size: 10px;">ohmyzsh</a> <a href="/tags/pod/" style="font-size: 10px;">pod</a> <a href="/tags/pomelo/" style="font-size: 12px;">pomelo</a> <a href="/tags/pubg/" style="font-size: 10px;">pubg</a> <a href="/tags/python/" style="font-size: 10px;">python</a> <a href="/tags/safari/" style="font-size: 10px;">safari</a> <a href="/tags/sequelizejs/" style="font-size: 10px;">sequelizejs</a> <a href="/tags/session/" style="font-size: 10px;">session</a> <a href="/tags/stacking-context/" style="font-size: 10px;">stacking context</a> <a href="/tags/sticky/" style="font-size: 10px;">sticky</a> <a href="/tags/swarm/" style="font-size: 10px;">swarm</a> <a href="/tags/swift/" style="font-size: 10px;">swift</a> <a href="/tags/throttle/" style="font-size: 10px;">throttle</a> <a href="/tags/traefik/" style="font-size: 10px;">traefik</a> <a href="/tags/typescript/" style="font-size: 12px;">typescript</a> <a href="/tags/unity/" style="font-size: 10px;">unity</a> <a href="/tags/upyun/" style="font-size: 10px;">upyun</a> <a href="/tags/utf-8/" style="font-size: 10px;">utf-8</a> <a href="/tags/vmware/" style="font-size: 10px;">vmware</a> <a href="/tags/webpack-dev-server/" style="font-size: 10px;">webpack-dev-server</a> <a href="/tags/weixin/" style="font-size: 10px;">weixin</a> <a href="/tags/wsl/" style="font-size: 10px;">wsl</a> <a href="/tags/wsl2/" style="font-size: 10px;">wsl2</a> <a href="/tags/z-index/" style="font-size: 10px;">z-index</a> <a href="/tags/%E5%89%8D%E7%AB%AF/" style="font-size: 10px;">前端</a> <a href="/tags/%E5%90%8E%E5%8F%B0/" style="font-size: 10px;">后台</a> <a href="/tags/%E5%A3%81%E7%BA%B8/" style="font-size: 12px;">壁纸</a> <a href="/tags/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" style="font-size: 10px;">学习笔记</a> <a href="/tags/%E5%AE%88%E6%9C%9B%E5%85%88%E9%94%8B/" style="font-size: 10px;">守望先锋</a> <a href="/tags/%E5%AE%89%E5%85%A8/" style="font-size: 10px;">安全</a> <a href="/tags/%E5%B8%B8%E7%94%A8%E6%8A%80%E5%B7%A7/" style="font-size: 10px;">常用技巧</a> <a href="/tags/%E5%BC%80%E5%8F%91%E7%AC%94%E8%AE%B0/" style="font-size: 14px;">开发笔记</a> <a href="/tags/%E5%BE%AE%E4%BF%A1/" style="font-size: 10px;">微信</a> <a href="/tags/%E5%BF%AB%E6%8D%B7%E6%96%B9%E5%BC%8F/" style="font-size: 10px;">快捷方式</a> <a href="/tags/%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/" style="font-size: 10px;">性能优化</a> <a href="/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/" style="font-size: 10px;">数据库</a> <a href="/tags/%E6%96%87%E6%A1%A3/" style="font-size: 10px;">文档</a> <a href="/tags/%E6%97%B6%E9%97%B4%E6%A0%BC%E5%BC%8F/" style="font-size: 10px;">时间格式</a> <a href="/tags/%E6%9C%8D%E5%8A%A1%E5%99%A8/" style="font-size: 10px;">服务器</a> <a href="/tags/%E6%B3%A8%E5%86%8C%E8%A1%A8/" style="font-size: 10px;">注册表</a> <a href="/tags/%E6%B8%B2%E6%9F%93/" style="font-size: 12px;">渲染</a> <a href="/tags/%E6%B8%B8%E6%88%8F%E5%BC%80%E5%8F%91/" style="font-size: 20px;">游戏开发</a> <a href="/tags/%E7%88%B6%E5%AD%90%E5%85%B3%E7%B3%BB/" style="font-size: 10px;">父子关系</a> <a href="/tags/%E7%89%88%E6%9C%AC%E5%8F%B7/" style="font-size: 10px;">版本号</a> <a href="/tags/%E7%BD%91%E7%AB%99%E5%8A%AB%E6%8C%81/" style="font-size: 10px;">网站劫持</a> <a href="/tags/%E7%BD%91%E7%BB%9C/" style="font-size: 10px;">网络</a> <a href="/tags/%E8%93%9D%E5%9B%BE/" style="font-size: 10px;">蓝图</a> <a href="/tags/%E8%B7%A8%E5%9F%9F/" style="font-size: 10px;">跨域</a> <a href="/tags/%E8%B8%A9%E5%9D%91/" style="font-size: 10px;">踩坑</a> <a href="/tags/%E9%92%93%E9%B1%BC%E7%BD%91%E7%AB%99/" style="font-size: 10px;">钓鱼网站</a> <a href="/tags/%E9%97%AD%E5%8C%85/" style="font-size: 10px;">闭包</a> <a href="/tags/%E9%9B%86%E7%BE%A4/" style="font-size: 10px;">集群</a> <a href="/tags/%E9%9D%99%E6%80%81%E7%BD%91%E7%AB%99/" style="font-size: 10px;">静态网站</a>
+                    </div>
+                </section>
+                
+                
+                
+                <section class="switch-part switch-part3">
+                    <div id="js-friends">
+                    
+                      <a target="_blank" class="main-nav-link switch-friends-link" href="https://hexo.io">Hexo</a>
+                    
+                      <a target="_blank" class="main-nav-link switch-friends-link" href="https://pages.github.com/">GitHub</a>
+                    
+                      <a target="_blank" class="main-nav-link switch-friends-link" href="http://moxfive.xyz/">MOxFIVE</a>
+                    
+                    </div>
+                </section>
+                
+
+                
+                
+                <section class="switch-part switch-part4">
+                
+                    <div id="js-aboutme">一个兴趣使然的程序员 上海,学生,20岁. 熟练掌握Nodejs, Html5, C Sharp, Unity技术</div>
+                </section>
+                
+            </div>
+        </div>
+    </header>                
+</div>
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+      <div class="overlay">
+          <div class="slider-trigger"></div>
+          <h1 class="header-author js-mobile-header hide"><a href="/" title="回到主页"></a></h1>
+      </div>
+    <div class="intrude-less">
+        <header id="header" class="inner">
+            <a href="/" class="profilepic">
+                <img lazy-src="/img/avatar.png" class="js-avatar">
+            </a>
+            <hgroup>
+              <h1 class="header-author"><a href="/" title="回到主页"></a></h1>
+            </hgroup>
+            
+            <nav class="header-menu">
+                <ul>
+                
+                    <li><a href="/">主页</a></li>
+                
+                    <li><a href="/archives/">所有文章</a></li>
+                
+                    <li><a href="/show/">作品展示</a></li>
+                
+                    <li><a href="/tags/">标签云</a></li>
+                
+                    <li><a href="/about/">关于我</a></li>
+                
+                <div class="clearfix"></div>
+                </ul>
+            </nav>
+            <nav class="header-nav">
+                        <ul class="social">
+                            
+                                <li id="Email"><a class="Email" target="_blank" href="mailto:moonrailgun@gmail.com" title="Email"></a></li>
+                            
+                                <li id="GitHub"><a class="GitHub" target="_blank" href="https://github.com/moonrailgun" title="GitHub"></a></li>
+                            
+                        </ul>
+            </nav>
+        </header>                
+    </div>
+</nav>
+      <div class="body-wrap"><article id="post-如何开发与坚持维护一个企业级的开源项目" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/posts/28f21ef5/" class="article-date">
+      <time datetime="2020-12-14T07:03:11.000Z" itemprop="datePublished">2020-12-14</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      如何开发与坚持维护一个企业级的开源项目
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+
+        
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/typescript/" rel="tag">typescript</a></li></ul>
+    </div>
+
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <p><a href="https://github.com/TRPGEngine/Client" target="_blank" rel="noopener">TRPG Engine</a> 是我一直坚持维护的一个开源项目。正如所有的开源项目都起源于开发者的兴趣，<code>TRPG Engine</code>也是我对于跑团这一小众领域的兴趣。</p>
+<p>我个人，在没有支援没有赞助，单凭个人爱好独立坚持开发3年以上不间断。前端代码累计提交2700+, 后端代码累计提交1200+</p>
+<p>谨以此文，分享一下我维护这个开源项目的经历。并与千千万万独立坚持的开源人共勉。</p>
+<h2 id="起初"><a href="#起初" class="headerlink" title="起初"></a>起初</h2><p>所有的个人项目都起源于想做。因为我想做，因此我建立了这样的项目。最初的目的很单纯，就是作为我学习React的一个实践。</p>
+<p>最初选用的技术栈是<code>React</code> + <code>Redux</code>。之所以用<code>React</code>是为了可以共享一部分的代码到<code>React Native</code>, 这样的搭配会很大的减少重复逻辑的开发与后期的维护，以减少成本。</p>
+<blockquote>
+<p>而事实是我在两者共存与中间代码上花费了很多的精力，写了很多中间脚本使网页版与RN版能够相互协作。</p>
+</blockquote>
+<h2 id="开发"><a href="#开发" class="headerlink" title="开发"></a>开发</h2><p>因为技术在不断更新。而有的库又逐步步入生命周期的终结，很多情况不得不花费时间去迁移。</p>
+<p><code>TRPG Engine</code>经历过几次大的迁移/迭代:</p>
+<ul>
+<li>原来<code>TRPG Engine</code>的后端是使用的<a href="https://github.com/dresende/node-orm2" target="_blank" rel="noopener">node-orm2</a>. 然后这个库被弃用了。因此花了很大经历将其迁移到<a href="https://github.com/sequelize/sequelize" target="_blank" rel="noopener">sequelize</a>，包括代码的修改与数据库的变更。这个没什么好分享的，纯粹是当时的选择有限，而库的生命周期比较短。</li>
+<li>最早的<code>TRPG Engine</code>使用的是用纯粹的js写的，但是随着业务的不断增多，代码复杂度的变高，我选择使用<a href="https://www.typescriptlang.org/" target="_blank" rel="noopener">Typescript</a>对我的项目进行重构。从长远来看这一步是非常值得的，TS的类型系统长远的帮助到了一个项目的健康发展。（其实有点小遗憾，从目前的角度来看flow在一些细节做得比ts更加好）。</li>
+<li>从<code>React ClassComponent</code> 到 <code>React Hooks</code>: hooks无疑拥有更高的抽象性，使用Hooks能抛弃HOC这种很难被typescript支持的写法。同时更方便代码的复用，特别是对于React和React Native代码并存的项目来说。</li>
+<li>前端重构, 重写界面。原来的TRPG Engine是参考的钉钉设计的，但实际的迭代中，频道的需求更为突出。即需要由原来的单层消息列表变成双层消息列表。因此花费了几个月时间写了一版类似于<code>Discord</code>设计的新版页面，并且颜色也从原来的亮色变成保护眼睛的暗色。</li>
+</ul>
+<h3 id="善用单元测试"><a href="#善用单元测试" class="headerlink" title="善用单元测试"></a>善用单元测试</h3><p>为了一个项目的长远发展，测试用例与持续集成都是必要的。特别是单元测试，在很多时候能帮助到项目的提前预知问题。坚持每个bug都有一个对应的单元测试用例，防止再次出现类似的问题。</p>
+<h3 id="学会数据迁移"><a href="#学会数据迁移" class="headerlink" title="学会数据迁移"></a>学会数据迁移</h3><p>为了方便数据库的升级，自己fork了一个<a href="https://github.com/TRPGEngine/sequelize-auto-migrations" target="_blank" rel="noopener">sequelize-auto-migrations</a>库用于生成数据库的迁移脚本, 因为原作者已经不维护了。</p>
+<p>数据库迁移脚本可以保证在任意环境下都能生成正确的数据库格式。这对于关系型数据库来说非常重要。</p>
+<h3 id="兴趣是原始驱动力"><a href="#兴趣是原始驱动力" class="headerlink" title="兴趣是原始驱动力"></a>兴趣是原始驱动力</h3><p>与商业项目不同的是，个人项目可以把一切自己感兴趣、想做的东西都想办法以某种形式糅合到自己的项目中。</p>
+<p><code>TRPG Engine</code>就拥有这些有意思的系统:</p>
+<ul>
+<li>基于xml描述与js沙盒的动态计算的表单系统</li>
+<li>基于<a href="https://github.com/ianstormtaylor/slate" target="_blank" rel="noopener">slate</a>实现的笔记系统与富文本输入框</li>
+<li>基于meta信息的动态面板</li>
+<li>基于BBCode的消息解释器</li>
+</ul>
+<h3 id="自己是第一用户"><a href="#自己是第一用户" class="headerlink" title="自己是第一用户"></a>自己是第一用户</h3><p>对于个人项目来说，自己才是自己产品最忠实的用户，只有这样才能不断发掘产品的不足，并不断改善。如果自己都不想用自己的产品，那么这个产品还有存在的必要么？</p>
+<h3 id="维护自己的门面"><a href="#维护自己的门面" class="headerlink" title="维护自己的门面"></a>维护自己的门面</h3><p>如果一个项目想要宣传，一个门面则非常重要。这可能是一个README, 一片文章，一个官网。但是如果没有任何说明，告诉别人这是什么，你在做什么。又能期待谁来阅读你的源码呢？</p>
+<h2 id="维护"><a href="#维护" class="headerlink" title="维护"></a>维护</h2><p>为了维护与运营这个项目，唯一的支出就是在服务器和OSS上了，零零散散也花费了几千元在上面了。一台2核4G的主服务器, 在主服务器上运行Mysql, Redis与Mysql。另外还有一台1核1G的小型服务器作为语音服务器与测试服务器。前端的代码都是本地编译好后提交到第三方对象存储上，这样用户的访问会更加迅速与快捷。</p>
+<h2 id="赞助"><a href="#赞助" class="headerlink" title="赞助?"></a>赞助?</h2><p>曾经也考虑过要不要和别人一样放出二维码，看看能不能获得一些打赏，后来想了想还是算了。一方面没有多少的关注，我本人也比较低调不善于宣传。另一方面感觉，掺杂了利益后的开源项目，总感觉失去了纯粹性。爱好只能是爱好，如果成为一种牟利方式，那么可能就不像当初那么纯粹了。</p>
+<h2 id="感谢"><a href="#感谢" class="headerlink" title="感谢"></a>感谢</h2><p>最后感谢所有开源作者的无私奉献，正是你们存在才能让这个互联网世界变得更加精彩。</p>
+
+      
+    </div>
+    
+  </div>
+  
+    
+    <div class="copyright">
+        <p><span>本文标题:</span><a href="/posts/28f21ef5/">如何开发与坚持维护一个企业级的开源项目</a></p>
+        <p><span>文章作者:</span><a href="/" title="访问  的个人博客"></a></p>
+        <p><span>发布时间:</span>2020年12月14日 - 15时03分</p>
+        <p><span>最后更新:</span>2020年12月14日 - 17时03分</p>
+        <p>
+            <span>原始链接:</span><a class="post-url" href="/posts/28f21ef5/" title="如何开发与坚持维护一个企业级的开源项目">http://www.moonrailgun.com/posts/28f21ef5/</a>
+            <span class="copy-path" data-clipboard-text="原文: http://www.moonrailgun.com/posts/28f21ef5/　　作者: " title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
+            <script src="/js/clipboard.min.js"></script>
+            <script> var clipboard = new Clipboard('.copy-path'); </script>
+        </p>
+        <p>
+            <span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license noopener" target="_blank" href="http://creativecommons.org/licenses/by-nc-sa/3.0/cn/" title="中国大陆 (CC BY-NC-SA 3.0 CN)">"署名-非商用-相同方式共享 3.0"</a> 转载请保留原文链接及作者。
+        </p>
+    </div>
+
+
+
+    <nav id="article-nav">
+        
+        
+            <div id="article-nav-older" class="article-nav-title">
+                <a href="/posts/74598ef5/">
+                    从 Webpack 到 Snowpack, 编译速度提升十倍以上——TRPG Engine迁移小记
+                </a>
+            </div>
+        
+    </nav>
+
+  
+</article>
+
+    <div id="toc" class="toc-article">
+    <strong class="toc-title">文章目录</strong>
+    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%B5%B7%E5%88%9D"><span class="toc-number">1.</span> <span class="toc-text">起初</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%BC%80%E5%8F%91"><span class="toc-number">2.</span> <span class="toc-text">开发</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%96%84%E7%94%A8%E5%8D%95%E5%85%83%E6%B5%8B%E8%AF%95"><span class="toc-number">2.1.</span> <span class="toc-text">善用单元测试</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AD%A6%E4%BC%9A%E6%95%B0%E6%8D%AE%E8%BF%81%E7%A7%BB"><span class="toc-number">2.2.</span> <span class="toc-text">学会数据迁移</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%85%B4%E8%B6%A3%E6%98%AF%E5%8E%9F%E5%A7%8B%E9%A9%B1%E5%8A%A8%E5%8A%9B"><span class="toc-number">2.3.</span> <span class="toc-text">兴趣是原始驱动力</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%87%AA%E5%B7%B1%E6%98%AF%E7%AC%AC%E4%B8%80%E7%94%A8%E6%88%B7"><span class="toc-number">2.4.</span> <span class="toc-text">自己是第一用户</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%BB%B4%E6%8A%A4%E8%87%AA%E5%B7%B1%E7%9A%84%E9%97%A8%E9%9D%A2"><span class="toc-number">2.5.</span> <span class="toc-text">维护自己的门面</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%BB%B4%E6%8A%A4"><span class="toc-number">3.</span> <span class="toc-text">维护</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%B5%9E%E5%8A%A9"><span class="toc-number">4.</span> <span class="toc-text">赞助?</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%84%9F%E8%B0%A2"><span class="toc-number">5.</span> <span class="toc-text">感谢</span></a></li></ol>
+</div>
+<style>
+    .left-col .switch-btn {
+        display: none;
+    }
+    .left-col .switch-area {
+        display: none;
+    }
+</style>
+
+<input type="button" id="tocButton" value="隐藏目录"  title="点击按钮隐藏或者显示文章目录">
+
+
+<script src="http://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+
+<script>
+    var valueHide = "隐藏目录";
+    var valueShow = "显示目录";
+
+    if ($(".left-col").is(":hidden")) {
+        $("#tocButton").attr("value", valueShow);
+    }
+
+    $("#tocButton").click(function() {
+        if ($("#toc").is(":hidden")) {
+            $("#tocButton").attr("value", valueHide);
+            $("#toc").slideDown(320);
+            $(".switch-btn, .switch-area").fadeOut(300);
+        }
+        else {
+            $("#tocButton").attr("value", valueShow);
+            $("#toc").slideUp(350);
+            $(".switch-btn, .switch-area").fadeIn(500);
+        }
+    })
+
+    if ($(".toc").length < 1) {
+        $("#toc, #tocButton").hide();
+        $(".switch-btn, .switch-area").show();
+    }
+</script>
+
+
+
+
+<div class="share">
+    <div class="bdsharebuttonbox">
+    <a href="#" class="bds_more" data-cmd="more"></a>
+    <a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
+    <a href="#" class="bds_sqq" data-cmd="sqq" title="分享给 QQ 好友"></a>
+    <a href="#" class="bds_copy" data-cmd="copy" title="复制网址"></a>
+    <a href="#" class="bds_mail" data-cmd="mail" title="通过邮件分享"></a>
+    <a href="#" class="bds_weixin" data-cmd="weixin" title="生成文章二维码"></a>
+    </div>
+    <script>
+        window._bd_share_config={
+            "common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+    </script>
+</div>
+
+
+
+    
+
+
+
+
+    <div class="scroll" id="post-nav-button">
+        
+            <a href="/" title="回到主页"><i class="fa fa-home"></i></a>
+        
+
+        <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
+
+        
+            <a href="/posts/74598ef5/" title="下一篇: 从 Webpack 到 Snowpack, 编译速度提升十倍以上——TRPG Engine迁移小记">
+                <i class="fa fa-angle-right"></i>
+            </a>
+        
+    </div>
+
+    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/posts/28f21ef5/">如何开发与坚持维护一个企业级的开源项目</a></li><li class="post-list-item"><a class="post-list-link" href="/posts/74598ef5/">从 Webpack 到 Snowpack, 编译速度提升十倍以上——TRPG Engine迁移小记</a></li><li class="post-list-item"><a class="post-list-link" href="/posts/191d7ea8/">TRPG Engine —— 一个功能完善即时通讯解决方案</a></li><li class="post-list-item"><a class="post-list-link" href="/posts/c09e1fbc/">又拍云整站网页存放到OSS的解决方案</a></li><li class="post-list-item"><a class="post-list-link" href="/posts/bdc192d2/">记一次重启网络服务后网络不通的调试</a></li><li class="post-list-item"><a class="post-list-link" href="/posts/ed7510e5/">让Chrome显示完整网址</a></li><li class="post-list-item"><a class="post-list-link" href="/posts/86a1d2a7/">adb devices无法获取夜神模拟器的解决方案</a></li><li class="post-list-item"><a class="post-list-link" href="/posts/303de4fd/">新服务器必做二三事</a></li><li class="post-list-item"><a class="post-list-link" href="/posts/856c955/">快速构建软件文档——docusaurus v2</a></li><li class="post-list-item"><a class="post-list-link" href="/posts/87881b14/">wsl2入坑指南</a></li><li class="post-list-item"><a class="post-list-link" href="/posts/3d731f17/">浅谈节流(throttle)与防抖动(debounce)</a></li><li class="post-list-item"><a class="post-list-link" href="/posts/3acd928b/">Docker Swarm 模型配合 traefik 实现集群sticky实践</a></li><li class="post-list-item"><a class="post-list-link" href="/posts/b0357b9f/">zIndex与层叠上下文Stacking Context</a></li><li class="post-list-item"><a class="post-list-link" href="/posts/d0843649/">Unicode编码解明</a></li><li class="post-list-item"><a class="post-list-link" href="/posts/ec6df031/">Git骚操作之从一个分支中批量将离散的commit 迁移到另一个分支</a></li><li class="post-list-item"><a class="post-list-link" href="/posts/5cf47e08/">Let's Encrypt免费通配符证书申请</a></li><li class="post-list-item"><a class="post-list-link" href="/posts/c9e0808c/">MySQL 查询优化笔记</a></li><li class="post-list-item"><a class="post-list-link" href="/posts/6769ba51/">Linux 小资源服务器使用经验总结</a></li><li class="post-list-item"><a class="post-list-link" href="/posts/f3750712/">玩PUBG时运行VMware被禁止进入游戏的解决方案</a></li><li class="post-list-item"><a class="post-list-link" href="/posts/74202a7b/">TRPG Engine开发手册——数据库框架迁移</a></li><li class="post-list-item"><a class="post-list-link" href="/posts/c2b55725/">zsh插件推荐</a></li><li class="post-list-item"><a class="post-list-link" href="/posts/87b6010f/">git使用方法简明教程 - 团队篇</a></li><li class="post-list-item"><a class="post-list-link" href="/posts/71513ccb/">Vue学习笔记</a></li><li class="post-list-item"><a class="post-list-link" href="/posts/84bdf0ad/">如何实现方法既能实现函数式编程又能获取结果进行比较——实现形如add(1)(2)(3)...(n)的方法</a></li><li class="post-list-item"><a class="post-list-link" href="/posts/113e84a8/">Firefox、safari的session无法匹配的原因</a></li><li class="post-list-item"><a class="post-list-link" href="/posts/5d639031/">nginx使用笔记</a></li><li class="post-list-item"><a class="post-list-link" href="/posts/33f59699/">ReactNative踩坑记录与学习笔记</a></li><li class="post-list-item"><a class="post-list-link" href="/posts/30a497b6/">Linux常用命令记录</a></li><li class="post-list-item"><a class="post-list-link" href="/posts/1555da82/">微信开发踩过的坑</a></li><li class="post-list-item"><a class="post-list-link" href="/posts/61069dee/">Linux服务安全——记一次网络攻击</a></li><li class="post-list-item"><a class="post-list-link" href="/posts/743c31e9/">python学习笔记</a></li><li class="post-list-item"><a class="post-list-link" href="/posts/481f2de4/">前端编写全栈应用技术选型——rn、weex、apicloud到底选哪个</a></li><li class="post-list-item"><a class="post-list-link" href="/posts/e5320d32/">node遇见问题汇总</a></li><li class="post-list-item"><a class="post-list-link" href="/posts/13f139b9/">blender学习笔记 - 权重传递</a></li><li class="post-list-item"><a class="post-list-link" href="/posts/484f55d5/">如何配置Apache虚拟主机服务</a></li><li class="post-list-item"><a class="post-list-link" href="/posts/82986f1f/">gulp工具使用笔记</a></li><li class="post-list-item"><a class="post-list-link" href="/posts/993cf839/">Webpack打包工具性能优化</a></li><li class="post-list-item"><a class="post-list-link" href="/posts/8857c74e/">团队使用git方法简明教程</a></li><li class="post-list-item"><a class="post-list-link" href="/posts/3d280206/">blender渲染笔记 - Cycle渲染</a></li><li class="post-list-item"><a class="post-list-link" href="/posts/a1900bf0/">blender建模笔记 - 多拉多</a></li><li class="post-list-item"><a class="post-list-link" href="/posts/546fd07e/">Atom编辑器使用记录</a></li><li class="post-list-item"><a class="post-list-link" href="/posts/6eb62c08/">Unreal学习笔记 - 扇形攻击范围检测</a></li><li class="post-list-item"><a class="post-list-link" href="/posts/78c43660/">Unreal学习笔记 - 创建边沿发光材质</a></li><li class="post-list-item"><a class="post-list-link" href="/posts/bf34fac6/">MikuMikuCombat开发笔记 - 武器</a></li><li class="post-list-item"><a class="post-list-link" href="/posts/e6d9d22d/">MikuMikuCombat开发笔记 - 道具</a></li><li class="post-list-item"><a class="post-list-link" href="/posts/fbf9499/">MikuMikuCombat开发笔记 - 角色</a></li><li class="post-list-item"><a class="post-list-link" href="/posts/e8bbfe80/">Unreal学习笔记 - 蓝图使用手册</a></li><li class="post-list-item"><a class="post-list-link" href="/posts/b9028042/">blender学习笔记 - 常用快捷键</a></li><li class="post-list-item"><a class="post-list-link" href="/posts/bbd25313/">Unreal学习笔记 - 绘制准心</a></li><li class="post-list-item"><a class="post-list-link" href="/posts/4b5cc73c/">Unreal学习笔记 - 图形选项</a></li><li class="post-list-item"><a class="post-list-link" href="/posts/a16e855a/">blender学习笔记 - 自动切换透视模式</a></li><li class="post-list-item"><a class="post-list-link" href="/posts/67516082/">Unreal学习笔记 - 使用JoinSession成功加入服务器但是无法跳转到服务器当前地图</a></li><li class="post-list-item"><a class="post-list-link" href="/posts/4de36f08/">Unreal学习笔记 - 使用steam来进行多人联机</a></li><li class="post-list-item"><a class="post-list-link" href="/posts/754e67fa/">Unreal学习笔记 - 修复右键菜单</a></li><li class="post-list-item"><a class="post-list-link" href="/posts/bc2e19a6/">Unreal学习笔记 - 综合</a></li><li class="post-list-item"><a class="post-list-link" href="/posts/7e9cc815/">MMD静画渲染2</a></li><li class="post-list-item"><a class="post-list-link" href="/posts/d0f79e7e/">ionic——使用本地代理服务器解决http跨域问题</a></li><li class="post-list-item"><a class="post-list-link" href="/posts/22ded819/">MMD静画渲染</a></li><li class="post-list-item"><a class="post-list-link" href="/posts/b97c82c9/">网络不好怎么办？通过分析找出原因</a></li><li class="post-list-item"><a class="post-list-link" href="/posts/8efd96c8/">Unity物理碰撞</a></li><li class="post-list-item"><a class="post-list-link" href="/posts/39072aba/">总结一些好用的ios第三方库</a></li><li class="post-list-item"><a class="post-list-link" href="/posts/61ce6e4d/">iOS编程——让NSURL认识特殊字符</a></li><li class="post-list-item"><a class="post-list-link" href="/posts/5d2107c5/">任务栏快速启动真实地址</a></li><li class="post-list-item"><a class="post-list-link" href="/posts/47ac9736/">iOS编程时需要注意的一些问题</a></li><li class="post-list-item"><a class="post-list-link" href="/posts/bb904004/">国际化标准时间格式</a></li><li class="post-list-item"><a class="post-list-link" href="/posts/862a051d/">Mac中的字符中英文问题</a></li><li class="post-list-item"><a class="post-list-link" href="/posts/49910e89/">解决Unity跑酷模板Endless Run中shader报错的问题</a></li><li class="post-list-item"><a class="post-list-link" href="/posts/49add7c0/">Cocos2dx学习笔记——lambda表达式的引用捕获</a></li><li class="post-list-item"><a class="post-list-link" href="/posts/922ef0f9/">Cocos2dx学习笔记——Ref对象管理之保留与释放</a></li><li class="post-list-item"><a class="post-list-link" href="/posts/664de550/">Cocos2dx学习笔记——编译器提示LINK1104无法打开文件“libcocos2d_2013.lib”的问题</a></li><li class="post-list-item"><a class="post-list-link" href="/posts/e80f349e/">如何获取TexturePacker 1年免费软件授权</a></li><li class="post-list-item"><a class="post-list-link" href="/posts/d0d3ce00/">Cocos2dx学习笔记——节点与层的父子坐标区别</a></li><li class="post-list-item"><a class="post-list-link" href="/posts/a79c8a43/">Cocos2dx学习笔记——CCLog无法使用的问题</a></li><li class="post-list-item"><a class="post-list-link" href="/posts/900c706f/">新型钓鱼网站骗术</a></li><li class="post-list-item"><a class="post-list-link" href="/posts/74057083/">Cocos2dx学习笔记——C++的一些约定</a></li><li class="post-list-item"><a class="post-list-link" href="/posts/1ba44de6/">Cocos2dx学习笔记——引擎版本号的选择</a></li><li class="post-list-item"><a class="post-list-link" href="/posts/531c197b/">Cocos2dx学习笔记——CSLoader创建FileNode的报错问题</a></li><li class="post-list-item"><a class="post-list-link" href="/posts/990c5d7a/">Cocos2dx学习笔记——cocos-ext头文件编译问题</a></li><li class="post-list-item"><a class="post-list-link" href="/posts/44a80e28/">git使用方法简明教程 - 个人篇</a></li><li class="post-list-item"><a class="post-list-link" href="/posts/fa08ab46/">pomelo框架制作游戏初探(二) - 登陆模块</a></li><li class="post-list-item"><a class="post-list-link" href="/posts/2d40853/">pomelo框架制作游戏初探(一)</a></li></ul>
+    <script src="http://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+    <script>
+        $(".post-list").addClass("toc-article");
+        $(".post-list-item a").attr("target","_blank");
+        $("#post-nav-button > a:nth-child(2)").click(function() {
+            $(".fa-bars, .fa-times").toggle();
+            $(".post-list").toggle(300);
+            if ($(".toc").length > 0) {
+                $("#toc, #tocButton").toggle(200, function() {
+                    if ($(".switch-area").is(":visible")) {
+                        $("#toc, .switch-btn, .switch-area").toggle();
+                        $("#tocButton").attr("value", valueHide);
+                        }
+                    })
+            }
+            else {
+                $(".switch-btn, .switch-area").fadeToggle(300);
+            }
+        })
+    </script>
+
+
+
+
+    
+        
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+        <script>
+            var yiliaConfig = {
+            fancybox: true,
+            mathjax: true,
+            animate: true,
+            isHome: false,
+            isPost: true,
+            isArchive: false,
+            isTag: false,
+            isCategory: false,
+            open_in_new: false
+            }
+        </script>
+        
+</div>
+      <footer id="footer">
+    <div class="outer">
+        <div id="footer-info">
+            <div class="footer-left">
+                &copy; 2020 moonrailgun | <a target="_blank" rel="noopener" href="http://www.beian.miit.gov.cn">沪ICP备19001187号-1</a>
+                | <a title="本网站由又拍云提供CDN加速/云存储服务" href="https://www.upyun.com/?utm_source=lianmeng&utm_medium=referral" target="_blank" rel="noopener noreferrer"><img src="/img/upyun_logo.png" height="18" style="vertical-align: bottom;" /></a>
+            </div>
+            <div class="footer-right">
+                <a href="http://hexo.io/" target="_blank" rel="noopener noreferrer" title="快速、简洁且高效的静态博客框架">Hexo</a>  Theme <a href="https://github.com/MOxFIVE/hexo-theme-yelee" target="_blank" title="简而不减双栏 Hexo 博客主题">Yelee</a> by MOxFIVE
+            </div>
+        </div>
+        <div class="visit">
+            <span id="busuanzi_container_site_pv" style='display:none'>
+                <span id="site-visit" >本站到访数:
+                    <span id="busuanzi_value_site_uv"></span>
+                </span>
+            </span>
+            <span id="busuanzi_container_page_pv" style='display:none'>
+                <span id="page-visit">, 本页阅读量:
+                    <span id="busuanzi_value_page_pv"></span>
+                </span>
+            </span>
+        </div>
+    </div>
+</footer>
+
+    </div>
+    
+
+
+<script src="http://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+
+
+<script src="/js/main.js"></script>
+
+
+    <script>
+        $(document).ready(function() {
+            var iPad = window.navigator.userAgent.indexOf('iPad');
+            if (iPad > -1 || $(".left-col").css("display") === "none") {
+                var bgColorList = ["#9db3f4", "#414141", "#e5a859", "#f5dfc6", "#c084a0", "#847e72", "#cd8390", "#996731"];
+                var bgColor = Math.ceil(Math.random() * (bgColorList.length - 1));
+                $("body").css({"background-color": bgColorList[bgColor], "background-size": "cover"});
+            }
+            else {
+                var backgroundnum = 10;
+                var backgroundimg = "url(/background/bg-x.jpg)".replace(/x/gi, Math.ceil(Math.random() * backgroundnum));
+                $("body").css({"background": backgroundimg, "background-attachment": "fixed", "background-size": "cover"});
+            }
+        })
+    </script>
+
+
+
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+});
+</script>
+
+<!-- <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"> -->
+<script type="text/javascript" src="https://cdn.bootcss.com/mathjax/2.7.6/MathJax.js">
+</script>
+
+
+<div class="scroll" id="scroll">
+    <a href="#" title="返回顶部"><i class="fa fa-arrow-up"></i></a>
+    <a href="#comments" title="查看评论"><i class="fa fa-comments-o"></i></a>
+    <a href="#footer" title="转到底部"><i class="fa fa-arrow-down"></i></a>
+</div>
+
+<script>
+    $(document).ready(function() {
+        if ($("#comments").length < 1) {
+            $("#scroll > a:nth-child(2)").hide();
+        };
+    })
+</script>
+
+<script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js">
+</script>
+
+  </div>
+</body>
+</html>
