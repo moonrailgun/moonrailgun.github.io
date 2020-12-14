@@ -6,15 +6,15 @@
   <title>如何开发与坚持维护一个企业级的开源项目 | moonrailgun - _(:зゝ∠)_</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="一个兴趣使然的软件攻城狮的个人博客。兴趣是最好的老师。"/>
-  <meta name="description" content="TRPG Engine 是我一直坚持维护的一个开源项目。正如所有的开源项目都起源于开发者的兴趣，TRPG Engine也是我对于跑团这一小众领域的兴趣。 我个人，在没有支援没有赞助，单凭个人爱好独立坚持开发3年以上不间断。前端代码累计提交2700+, 后端代码累计提交1200+ 谨以此文，分享一下我维护这个开源项目的经历。并与千千万万独立坚持的开源人共勉。 起初所有的个人项目都起源于想做。因为我想">
+  <meta name="description" content="TRPG Engine 是我一直坚持维护的一个开源项目。正如所有的开源项目都起源于开发者的兴趣，TRPG Engine也是我对于跑团这一小众领域的兴趣。 我在没有支援没有赞助，单凭个人爱好独立坚持开发3年以上不间断。前端代码累计提交2700+, 后端代码累计提交1200+，风雨无阻。 谨以此文，分享一下我维护这个开源项目的经历。并与千千万万独立坚持的开源人共勉。 起初所有的个人项目都起源于想做。因">
 <meta property="og:type" content="article">
 <meta property="og:title" content="如何开发与坚持维护一个企业级的开源项目">
 <meta property="og:url" content="http://www.moonrailgun.com/posts/28f21ef5/index.html">
 <meta property="og:site_name" content="moonrailgun - _(:зゝ∠)_">
-<meta property="og:description" content="TRPG Engine 是我一直坚持维护的一个开源项目。正如所有的开源项目都起源于开发者的兴趣，TRPG Engine也是我对于跑团这一小众领域的兴趣。 我个人，在没有支援没有赞助，单凭个人爱好独立坚持开发3年以上不间断。前端代码累计提交2700+, 后端代码累计提交1200+ 谨以此文，分享一下我维护这个开源项目的经历。并与千千万万独立坚持的开源人共勉。 起初所有的个人项目都起源于想做。因为我想">
+<meta property="og:description" content="TRPG Engine 是我一直坚持维护的一个开源项目。正如所有的开源项目都起源于开发者的兴趣，TRPG Engine也是我对于跑团这一小众领域的兴趣。 我在没有支援没有赞助，单凭个人爱好独立坚持开发3年以上不间断。前端代码累计提交2700+, 后端代码累计提交1200+，风雨无阻。 谨以此文，分享一下我维护这个开源项目的经历。并与千千万万独立坚持的开源人共勉。 起初所有的个人项目都起源于想做。因">
 <meta property="og:locale">
 <meta property="article:published_time" content="2020-12-14T07:03:11.000Z">
-<meta property="article:modified_time" content="2020-12-14T09:03:54.868Z">
+<meta property="article:modified_time" content="2020-12-14T10:00:03.776Z">
 <meta property="article:author" content="moonrailgun">
 <meta property="article:tag" content="typescript">
 <meta name="twitter:card" content="summary">
@@ -239,36 +239,42 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <p><a href="https://github.com/TRPGEngine/Client" target="_blank" rel="noopener">TRPG Engine</a> 是我一直坚持维护的一个开源项目。正如所有的开源项目都起源于开发者的兴趣，<code>TRPG Engine</code>也是我对于跑团这一小众领域的兴趣。</p>
-<p>我个人，在没有支援没有赞助，单凭个人爱好独立坚持开发3年以上不间断。前端代码累计提交2700+, 后端代码累计提交1200+</p>
+        <p><a target="_blank" rel="noopener" href="https://github.com/TRPGEngine/Client">TRPG Engine</a> 是我一直坚持维护的一个开源项目。正如所有的开源项目都起源于开发者的兴趣，<code>TRPG Engine</code>也是我对于跑团这一小众领域的兴趣。</p>
+<p>我在没有支援没有赞助，单凭个人爱好独立坚持开发3年以上不间断。前端代码累计提交2700+, 后端代码累计提交1200+，风雨无阻。</p>
 <p>谨以此文，分享一下我维护这个开源项目的经历。并与千千万万独立坚持的开源人共勉。</p>
 <h2 id="起初"><a href="#起初" class="headerlink" title="起初"></a>起初</h2><p>所有的个人项目都起源于想做。因为我想做，因此我建立了这样的项目。最初的目的很单纯，就是作为我学习React的一个实践。</p>
 <p>最初选用的技术栈是<code>React</code> + <code>Redux</code>。之所以用<code>React</code>是为了可以共享一部分的代码到<code>React Native</code>, 这样的搭配会很大的减少重复逻辑的开发与后期的维护，以减少成本。</p>
 <blockquote>
 <p>而事实是我在两者共存与中间代码上花费了很多的精力，写了很多中间脚本使网页版与RN版能够相互协作。</p>
 </blockquote>
-<h2 id="开发"><a href="#开发" class="headerlink" title="开发"></a>开发</h2><p>因为技术在不断更新。而有的库又逐步步入生命周期的终结，很多情况不得不花费时间去迁移。</p>
-<p><code>TRPG Engine</code>经历过几次大的迁移/迭代:</p>
+<h2 id="明确定位"><a href="#明确定位" class="headerlink" title="明确定位"></a>明确定位</h2><p>一个项目，如果要走的长远，必须明确你的产品定位与目标用户。比如同样作为即时通讯应用, 钉钉瞄准的用户群是上班族，slack的用户群是开发者，discord的目标用户是游戏玩家，而qq的用户群是小学生。以此为原点，钉钉开发出了一系列日历，考勤，协同，已读未读，ding等功能。slack只做了大量机器人，discord专注于语音会话与大用户群组聊天，而qq则整出了很多花样。</p>
+<p>明确自己的定位，其目标一定是解决某种痛点与缺陷，做出任何的抉择都需要考虑是不是符合自己的定位。一个明确的定位可以帮助你不会花费无意义的时间在没有收益的功能上。</p>
+<h2 id="时刻保持热情与思考"><a href="#时刻保持热情与思考" class="headerlink" title="时刻保持热情与思考"></a>时刻保持热情与思考</h2><p>时刻记住，项目是为自己做的。它不是一种谋生工具，而是一种兴趣爱好。它最初应当起源于你对现状的小小不满，终止于对此兴趣的终止。不妨增加一些筹码：比如它可以作为你的游戏场，比如他可以作为你谋求更高事业渠道的凭证，比如他可以是你与你伴侣之间的小小私人空间，比如你可以这样告诉自己，你的每一行代码都有可能帮助到素未蒙面的陌生人，而他会感谢你的无私付出。这些会帮助你时刻保持热情与动力，而不至于让这个项目半途而废。</p>
+<h2 id="维护自己的门面"><a href="#维护自己的门面" class="headerlink" title="维护自己的门面"></a>维护自己的门面</h2><p>如果一个项目想要宣传，一个门面则非常重要。这可能是一个README, 一片文章，一个官网。但是如果没有任何说明，告诉别人这是什么，你在做什么。又能期待谁来阅读你的源码呢？</p>
+<h2 id="自己是第一用户"><a href="#自己是第一用户" class="headerlink" title="自己是第一用户"></a>自己是第一用户</h2><p>对于个人项目来说，自己才是自己产品最忠实的用户，只有这样才能不断发掘产品的不足，并不断改善。如果自己都不想用自己的产品，那么这个产品还有存在的必要么？</p>
+<h2 id="开发"><a href="#开发" class="headerlink" title="开发"></a>开发</h2><p>回到技术细节:</p>
+<p>因为技术在不断更新。而有的库又逐步步入生命周期的终结，很多情况不得不花费时间去迁移。</p>
+<p>而<code>TRPG Engine</code>经历过几次大的迁移/迭代:</p>
 <ul>
-<li>原来<code>TRPG Engine</code>的后端是使用的<a href="https://github.com/dresende/node-orm2" target="_blank" rel="noopener">node-orm2</a>. 然后这个库被弃用了。因此花了很大经历将其迁移到<a href="https://github.com/sequelize/sequelize" target="_blank" rel="noopener">sequelize</a>，包括代码的修改与数据库的变更。这个没什么好分享的，纯粹是当时的选择有限，而库的生命周期比较短。</li>
-<li>最早的<code>TRPG Engine</code>使用的是用纯粹的js写的，但是随着业务的不断增多，代码复杂度的变高，我选择使用<a href="https://www.typescriptlang.org/" target="_blank" rel="noopener">Typescript</a>对我的项目进行重构。从长远来看这一步是非常值得的，TS的类型系统长远的帮助到了一个项目的健康发展。（其实有点小遗憾，从目前的角度来看flow在一些细节做得比ts更加好）。</li>
+<li>原来<code>TRPG Engine</code>的后端是使用的<a target="_blank" rel="noopener" href="https://github.com/dresende/node-orm2">node-orm2</a>. 然后这个库被弃用了。因此花了很大经历将其迁移到<a target="_blank" rel="noopener" href="https://github.com/sequelize/sequelize">sequelize</a>，包括代码的修改与数据库的变更。这个没什么好分享的，纯粹是当时的选择有限，而库的生命周期比较短。</li>
+<li>最早的<code>TRPG Engine</code>使用的是用纯粹的js写的，但是随着业务的不断增多，代码复杂度的变高，我选择使用<a target="_blank" rel="noopener" href="https://www.typescriptlang.org/">Typescript</a>对我的项目进行重构。从长远来看这一步是非常值得的，TS的类型系统长远的帮助到了一个项目的健康发展。（其实有点小遗憾，从目前的角度来看flow在一些细节做得比ts更加好）。</li>
 <li>从<code>React ClassComponent</code> 到 <code>React Hooks</code>: hooks无疑拥有更高的抽象性，使用Hooks能抛弃HOC这种很难被typescript支持的写法。同时更方便代码的复用，特别是对于React和React Native代码并存的项目来说。</li>
 <li>前端重构, 重写界面。原来的TRPG Engine是参考的钉钉设计的，但实际的迭代中，频道的需求更为突出。即需要由原来的单层消息列表变成双层消息列表。因此花费了几个月时间写了一版类似于<code>Discord</code>设计的新版页面，并且颜色也从原来的亮色变成保护眼睛的暗色。</li>
 </ul>
 <h3 id="善用单元测试"><a href="#善用单元测试" class="headerlink" title="善用单元测试"></a>善用单元测试</h3><p>为了一个项目的长远发展，测试用例与持续集成都是必要的。特别是单元测试，在很多时候能帮助到项目的提前预知问题。坚持每个bug都有一个对应的单元测试用例，防止再次出现类似的问题。</p>
-<h3 id="学会数据迁移"><a href="#学会数据迁移" class="headerlink" title="学会数据迁移"></a>学会数据迁移</h3><p>为了方便数据库的升级，自己fork了一个<a href="https://github.com/TRPGEngine/sequelize-auto-migrations" target="_blank" rel="noopener">sequelize-auto-migrations</a>库用于生成数据库的迁移脚本, 因为原作者已经不维护了。</p>
+<p><code>TRPG Engine</code> 虽然开始写测试用例比较晚，但是一旦有机会就会补充一些测试用例，以防止出现一些边缘问题。</p>
+<p>目前<code>TRPG Engine</code>前端有223个测试用例，后端有284个测试用例，还远远不够一个项目的健康发展。</p>
+<h3 id="学会数据迁移"><a href="#学会数据迁移" class="headerlink" title="学会数据迁移"></a>学会数据迁移</h3><p>为了方便数据库的升级，自己fork了一个<a target="_blank" rel="noopener" href="https://github.com/TRPGEngine/sequelize-auto-migrations">sequelize-auto-migrations</a>库用于生成数据库的迁移脚本, 因为原作者已经不维护了。</p>
 <p>数据库迁移脚本可以保证在任意环境下都能生成正确的数据库格式。这对于关系型数据库来说非常重要。</p>
 <h3 id="兴趣是原始驱动力"><a href="#兴趣是原始驱动力" class="headerlink" title="兴趣是原始驱动力"></a>兴趣是原始驱动力</h3><p>与商业项目不同的是，个人项目可以把一切自己感兴趣、想做的东西都想办法以某种形式糅合到自己的项目中。</p>
 <p><code>TRPG Engine</code>就拥有这些有意思的系统:</p>
 <ul>
 <li>基于xml描述与js沙盒的动态计算的表单系统</li>
-<li>基于<a href="https://github.com/ianstormtaylor/slate" target="_blank" rel="noopener">slate</a>实现的笔记系统与富文本输入框</li>
+<li>基于<a target="_blank" rel="noopener" href="https://github.com/ianstormtaylor/slate">slate</a>实现的笔记系统与富文本输入框</li>
 <li>基于meta信息的动态面板</li>
 <li>基于BBCode的消息解释器</li>
 </ul>
-<h3 id="自己是第一用户"><a href="#自己是第一用户" class="headerlink" title="自己是第一用户"></a>自己是第一用户</h3><p>对于个人项目来说，自己才是自己产品最忠实的用户，只有这样才能不断发掘产品的不足，并不断改善。如果自己都不想用自己的产品，那么这个产品还有存在的必要么？</p>
-<h3 id="维护自己的门面"><a href="#维护自己的门面" class="headerlink" title="维护自己的门面"></a>维护自己的门面</h3><p>如果一个项目想要宣传，一个门面则非常重要。这可能是一个README, 一片文章，一个官网。但是如果没有任何说明，告诉别人这是什么，你在做什么。又能期待谁来阅读你的源码呢？</p>
-<h2 id="维护"><a href="#维护" class="headerlink" title="维护"></a>维护</h2><p>为了维护与运营这个项目，唯一的支出就是在服务器和OSS上了，零零散散也花费了几千元在上面了。一台2核4G的主服务器, 在主服务器上运行Mysql, Redis与Mysql。另外还有一台1核1G的小型服务器作为语音服务器与测试服务器。前端的代码都是本地编译好后提交到第三方对象存储上，这样用户的访问会更加迅速与快捷。</p>
+<h2 id="运维"><a href="#运维" class="headerlink" title="运维"></a>运维</h2><p>为了维护与运营这个项目，唯一的支出就是在服务器和OSS上了，零零散散也花费了几千元在上面了。一台2核4G的主服务器, 在主服务器上运行Mysql, Redis与Mysql。另外还有一台1核1G的小型服务器作为语音服务器与测试服务器。前端的代码都是本地编译好后提交到第三方对象存储上，这样用户的访问会更加迅速与快捷。</p>
 <h2 id="赞助"><a href="#赞助" class="headerlink" title="赞助?"></a>赞助?</h2><p>曾经也考虑过要不要和别人一样放出二维码，看看能不能获得一些打赏，后来想了想还是算了。一方面没有多少的关注，我本人也比较低调不善于宣传。另一方面感觉，掺杂了利益后的开源项目，总感觉失去了纯粹性。爱好只能是爱好，如果成为一种牟利方式，那么可能就不像当初那么纯粹了。</p>
 <h2 id="感谢"><a href="#感谢" class="headerlink" title="感谢"></a>感谢</h2><p>最后感谢所有开源作者的无私奉献，正是你们存在才能让这个互联网世界变得更加精彩。</p>
 
@@ -282,7 +288,7 @@
         <p><span>本文标题:</span><a href="/posts/28f21ef5/">如何开发与坚持维护一个企业级的开源项目</a></p>
         <p><span>文章作者:</span><a href="/" title="访问  的个人博客"></a></p>
         <p><span>发布时间:</span>2020年12月14日 - 15时03分</p>
-        <p><span>最后更新:</span>2020年12月14日 - 17时03分</p>
+        <p><span>最后更新:</span>2020年12月14日 - 18时00分</p>
         <p>
             <span>原始链接:</span><a class="post-url" href="/posts/28f21ef5/" title="如何开发与坚持维护一个企业级的开源项目">http://www.moonrailgun.com/posts/28f21ef5/</a>
             <span class="copy-path" data-clipboard-text="原文: http://www.moonrailgun.com/posts/28f21ef5/　　作者: " title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
@@ -312,7 +318,7 @@
 
     <div id="toc" class="toc-article">
     <strong class="toc-title">文章目录</strong>
-    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%B5%B7%E5%88%9D"><span class="toc-number">1.</span> <span class="toc-text">起初</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%BC%80%E5%8F%91"><span class="toc-number">2.</span> <span class="toc-text">开发</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%96%84%E7%94%A8%E5%8D%95%E5%85%83%E6%B5%8B%E8%AF%95"><span class="toc-number">2.1.</span> <span class="toc-text">善用单元测试</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AD%A6%E4%BC%9A%E6%95%B0%E6%8D%AE%E8%BF%81%E7%A7%BB"><span class="toc-number">2.2.</span> <span class="toc-text">学会数据迁移</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%85%B4%E8%B6%A3%E6%98%AF%E5%8E%9F%E5%A7%8B%E9%A9%B1%E5%8A%A8%E5%8A%9B"><span class="toc-number">2.3.</span> <span class="toc-text">兴趣是原始驱动力</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%87%AA%E5%B7%B1%E6%98%AF%E7%AC%AC%E4%B8%80%E7%94%A8%E6%88%B7"><span class="toc-number">2.4.</span> <span class="toc-text">自己是第一用户</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%BB%B4%E6%8A%A4%E8%87%AA%E5%B7%B1%E7%9A%84%E9%97%A8%E9%9D%A2"><span class="toc-number">2.5.</span> <span class="toc-text">维护自己的门面</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%BB%B4%E6%8A%A4"><span class="toc-number">3.</span> <span class="toc-text">维护</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%B5%9E%E5%8A%A9"><span class="toc-number">4.</span> <span class="toc-text">赞助?</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%84%9F%E8%B0%A2"><span class="toc-number">5.</span> <span class="toc-text">感谢</span></a></li></ol>
+    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%B5%B7%E5%88%9D"><span class="toc-number">1.</span> <span class="toc-text">起初</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%98%8E%E7%A1%AE%E5%AE%9A%E4%BD%8D"><span class="toc-number">2.</span> <span class="toc-text">明确定位</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%97%B6%E5%88%BB%E4%BF%9D%E6%8C%81%E7%83%AD%E6%83%85%E4%B8%8E%E6%80%9D%E8%80%83"><span class="toc-number">3.</span> <span class="toc-text">时刻保持热情与思考</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%BB%B4%E6%8A%A4%E8%87%AA%E5%B7%B1%E7%9A%84%E9%97%A8%E9%9D%A2"><span class="toc-number">4.</span> <span class="toc-text">维护自己的门面</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%87%AA%E5%B7%B1%E6%98%AF%E7%AC%AC%E4%B8%80%E7%94%A8%E6%88%B7"><span class="toc-number">5.</span> <span class="toc-text">自己是第一用户</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%BC%80%E5%8F%91"><span class="toc-number">6.</span> <span class="toc-text">开发</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%96%84%E7%94%A8%E5%8D%95%E5%85%83%E6%B5%8B%E8%AF%95"><span class="toc-number">6.1.</span> <span class="toc-text">善用单元测试</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AD%A6%E4%BC%9A%E6%95%B0%E6%8D%AE%E8%BF%81%E7%A7%BB"><span class="toc-number">6.2.</span> <span class="toc-text">学会数据迁移</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%85%B4%E8%B6%A3%E6%98%AF%E5%8E%9F%E5%A7%8B%E9%A9%B1%E5%8A%A8%E5%8A%9B"><span class="toc-number">6.3.</span> <span class="toc-text">兴趣是原始驱动力</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%BF%90%E7%BB%B4"><span class="toc-number">7.</span> <span class="toc-text">运维</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%B5%9E%E5%8A%A9"><span class="toc-number">8.</span> <span class="toc-text">赞助?</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%84%9F%E8%B0%A2"><span class="toc-number">9.</span> <span class="toc-text">感谢</span></a></li></ol>
 </div>
 <style>
     .left-col .switch-btn {
