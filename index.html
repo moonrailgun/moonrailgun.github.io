@@ -231,6 +231,10 @@
       
           
         <h2 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h2><p>本文主要是阐述与总结现代浏览器的跨域问题</p>
+<h2 id="同源策略"><a href="#同源策略" class="headerlink" title="同源策略"></a>同源策略</h2><p><strong>同源策略</strong>是一个重要的安全策略，它用于限制一个origin的文档或者它加载的脚本如何能与另一个源的资源进行交互。它能帮助阻隔恶意文档，减少可能被攻击的媒介。</p>
+<h4 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h4><p>如果两个 URL 的 protocol、port (en-US) (如果有指定的话)和 host 都相同的话，则这两个 URL 是同源。这个方案也被称为“协议/主机/端口元组”，或者直接是 “元组”。（“元组” 是指一组项目构成的整体，双重/三重/四重/五重/等的通用形式）。</p>
+<p>下表给出了与 URL <a target="_blank" rel="noopener" href="http://store.company.com/dir/page.html">http://store.company.com/dir/page.html</a> 的源进行对比的示例:</p>
+<p>| URL | 结果 | 原因 |<br>| <a target="_blank" rel="noopener" href="http://store.company.com/dir2/other.html">http://store.company.com/dir2/other.html</a> | 同源 | 只有路径不同 |<br>| <a target="_blank" rel="noopener" href="http://store.company.com/dir/inner/another.html">http://store.company.com/dir/inner/another.html</a> | 同源 | 只有路径不同 |<br>| <a target="_blank" rel="noopener" href="https://store.company.com/secure.html">https://store.company.com/secure.html</a>     | 失败 | 协议不同 |<br>| <a target="_blank" rel="noopener" href="http://store.company.com:81/dir/etc.html">http://store.company.com:81/dir/etc.html</a>     | 失败 | 端口不同 (http:// 默认端口是80) |<br>| <a target="_blank" rel="noopener" href="http://news.company.com/dir/other.html">http://news.company.com/dir/other.html</a> | 失败 | 主机不同 |</p>
 <h2 id="开始一个跨域请求"><a href="#开始一个跨域请求" class="headerlink" title="开始一个跨域请求"></a>开始一个跨域请求</h2><p>你可以使用<code>XMLHttpRequest</code>或<code>Fetch</code>发起一个跨域请求</p>
 <p>你可以在网站<code>http://foo.com</code>发起一个对<code>http://bar.com</code>的请求，如果对方网站许可，那么便能拿到对应的响应，否则则失败。</p>
 <h2 id="请求分两类"><a href="#请求分两类" class="headerlink" title="请求分两类"></a>请求分两类</h2><h3 id="预检请求"><a href="#预检请求" class="headerlink" title="预检请求"></a>预检请求</h3><p>预检请求是一个OPTIONS 请求，在跨域时预先发送到服务端以获取该服务器对跨域访问控制的一些配置，以决定接下来的请求是否会被发送。一般以<code>Header</code>头的形式返回, 相关配置一般以<code>Access-Control-*</code>作为开头</p>
@@ -295,6 +299,7 @@
 <li><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/257860705">SameSite 属性变为 lax，我们应该怎么办</a></li>
 </ul>
 <h2 id="参考文章"><a href="#参考文章" class="headerlink" title="参考文章"></a>参考文章</h2><ul>
+<li><a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Web/Security/Same-origin_policy">Same-origin policy</a></li>
 <li><a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS">跨源资源共享（CORS）</a></li>
 <li><a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Set-Cookie/SameSite">SameSite cookies</a></li>
 <li><a target="_blank" rel="noopener" href="https://fetch.spec.whatwg.org/">Fetch</a></li>
@@ -1401,7 +1406,12 @@
     <div class="outer">
         <div id="footer-info">
             <div class="footer-left">
-                &copy; 2021 moonrailgun | <a target="_blank" rel="noopener" href="http://www.beian.miit.gov.cn">沪ICP备19001187号-1</a>
+                &copy; 2021 moonrailgun
+                | <a target="_blank" rel="noopener" href="http://www.beian.miit.gov.cn">沪ICP备19001187号-1</a>
+                | <a target="_blank" href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=31011302006539">
+                    <img src="/img/beian.png"/>
+                    <span>沪公网安备 31011302006539号</span>
+                  </a>
                 | <a title="本网站由又拍云提供CDN加速/云存储服务" href="https://www.upyun.com/?utm_source=lianmeng&utm_medium=referral" target="_blank" rel="noopener noreferrer"><img src="/img/upyun_logo.png" height="18" style="vertical-align: bottom;" /></a>
             </div>
             <div class="footer-right">
