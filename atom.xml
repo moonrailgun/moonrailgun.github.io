@@ -1,0 +1,531 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>moonrailgun - _(:зゝ∠)_</title>
+  <icon>http://www.moonrailgun.com/icon.png</icon>
+  
+  <link href="http://www.moonrailgun.com/atom.xml" rel="self"/>
+  
+  <link href="http://www.moonrailgun.com/"/>
+  <updated>2021-12-03T15:49:31.993Z</updated>
+  <id>http://www.moonrailgun.com/</id>
+  
+  <author>
+    <name>moonrailgun</name>
+    
+  </author>
+  
+  <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>国际标准保留端口列表</title>
+    <link href="http://www.moonrailgun.com/posts/9ec26053/"/>
+    <id>http://www.moonrailgun.com/posts/9ec26053/</id>
+    <published>2021-12-03T15:49:31.993Z</published>
+    <updated>2021-12-03T15:49:31.993Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;https://www.iana.org/assignments/service-names-port-numbers/service-names-port-numbers.xhtml&quot;&gt;Service Name and Transport</summary>
+        
+      
+    
+    
+    
+    
+    <category term="rfc" scheme="http://www.moonrailgun.com/tags/rfc/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>k3s安装 OpenFaaS小记</title>
+    <link href="http://www.moonrailgun.com/posts/e7e551d1/"/>
+    <id>http://www.moonrailgun.com/posts/e7e551d1/</id>
+    <published>2021-12-01T12:47:23.000Z</published>
+    <updated>2021-12-03T15:49:31.981Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;官方手册&quot;&gt;&lt;a href=&quot;#官方手册&quot; class=&quot;headerlink&quot; title=&quot;官方手册&quot;&gt;&lt;/a&gt;官方手册&lt;/h2&gt;&lt;p&gt;&lt;a</summary>
+        
+      
+    
+    
+    
+    
+    <category term="学习笔记" scheme="http://www.moonrailgun.com/tags/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
+    
+    <category term="k3s" scheme="http://www.moonrailgun.com/tags/k3s/"/>
+    
+    <category term="k8s" scheme="http://www.moonrailgun.com/tags/k8s/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>为什么我选择Tailwindcss</title>
+    <link href="http://www.moonrailgun.com/posts/f9bc948a/"/>
+    <id>http://www.moonrailgun.com/posts/f9bc948a/</id>
+    <published>2021-07-16T01:27:09.000Z</published>
+    <updated>2021-12-03T15:49:31.988Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;前端的CSS发展经历了许多方案, 从早期的无序到后面的BEM，从自写到&lt;code&gt;bootstrap&lt;/code&gt;的火爆，从 &lt;code&gt;single css file&lt;/code&gt; 到 &lt;code&gt;css module&lt;/code&gt; 到 &lt;code&gt;css in</summary>
+        
+      
+    
+    
+    
+    
+    <category term="css" scheme="http://www.moonrailgun.com/tags/css/"/>
+    
+    <category term="tailwindcss" scheme="http://www.moonrailgun.com/tags/tailwindcss/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>每日一题 —— 混杂整数序列按规则进行重新排序</title>
+    <link href="http://www.moonrailgun.com/posts/e536db3/"/>
+    <id>http://www.moonrailgun.com/posts/e536db3/</id>
+    <published>2021-06-07T02:02:42.000Z</published>
+    <updated>2021-12-03T15:49:32.000Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;&lt;strong&gt;背景:&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;假设我们取一个数字 x 并执行以下任一操作：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;a:将 x 除以 3 (如果可以被 3 除)&lt;/li&gt;
+&lt;li&gt;b:将 x 乘以 2&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;每次操作后，记下结果。如果从</summary>
+        
+      
+    
+    
+    
+    
+    <category term="算法" scheme="http://www.moonrailgun.com/tags/%E7%AE%97%E6%B3%95/"/>
+    
+    <category term="每日一题" scheme="http://www.moonrailgun.com/tags/%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%98/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Webpack是个什么鬼——了解编译结果</title>
+    <link href="http://www.moonrailgun.com/posts/a409424d/"/>
+    <id>http://www.moonrailgun.com/posts/a409424d/</id>
+    <published>2021-06-05T12:46:30.000Z</published>
+    <updated>2021-12-03T15:49:31.972Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;简述&quot;&gt;&lt;a href=&quot;#简述&quot; class=&quot;headerlink&quot; title=&quot;简述&quot;&gt;&lt;/a&gt;简述&lt;/h2&gt;&lt;p&gt;&lt;code&gt;webpack&lt;/code&gt;</summary>
+        
+      
+    
+    
+    
+    
+    <category term="webpack" scheme="http://www.moonrailgun.com/tags/webpack/"/>
+    
+    <category term="esmodule" scheme="http://www.moonrailgun.com/tags/esmodule/"/>
+    
+    <category term="commonjs" scheme="http://www.moonrailgun.com/tags/commonjs/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>TRPG Engine 的项目工程化实践</title>
+    <link href="http://www.moonrailgun.com/posts/1daba7c3/"/>
+    <id>http://www.moonrailgun.com/posts/1daba7c3/</id>
+    <published>2021-06-04T09:08:01.000Z</published>
+    <updated>2021-12-03T15:49:31.960Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;First-of-all&quot;&gt;&lt;a href=&quot;#First-of-all&quot; class=&quot;headerlink&quot; title=&quot;First of all&quot;&gt;&lt;/a&gt;First of all&lt;/h2&gt;&lt;p&gt;一个人维护一个项目很久了,</summary>
+        
+      
+    
+    
+    
+    
+    <category term="TRPG Engine" scheme="http://www.moonrailgun.com/tags/TRPG-Engine/"/>
+    
+    <category term="工程化" scheme="http://www.moonrailgun.com/tags/%E5%B7%A5%E7%A8%8B%E5%8C%96/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>记一个多平台End of Line的坑</title>
+    <link href="http://www.moonrailgun.com/posts/4b9f1f29/"/>
+    <id>http://www.moonrailgun.com/posts/4b9f1f29/</id>
+    <published>2021-06-04T02:06:20.000Z</published>
+    <updated>2021-12-03T15:49:32.006Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;问题&quot;&gt;&lt;a href=&quot;#问题&quot; class=&quot;headerlink&quot; title=&quot;问题&quot;&gt;&lt;/a&gt;问题&lt;/h2&gt;&lt;p&gt;在执行自己编译的cli时出现:&lt;/p&gt;
+&lt;figure class=&quot;highlight crmsh&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td</summary>
+        
+      
+    
+    
+    
+    
+    <category term="node" scheme="http://www.moonrailgun.com/tags/node/"/>
+    
+    <category term="npm" scheme="http://www.moonrailgun.com/tags/npm/"/>
+    
+    <category term="跨平台" scheme="http://www.moonrailgun.com/tags/%E8%B7%A8%E5%B9%B3%E5%8F%B0/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>requirejs踩坑记录</title>
+    <link href="http://www.moonrailgun.com/posts/4c9731f9/"/>
+    <id>http://www.moonrailgun.com/posts/4c9731f9/</id>
+    <published>2021-05-27T08:16:47.000Z</published>
+    <updated>2021-12-03T15:49:31.986Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;灵异事件之薛定谔的白屏&quot;&gt;&lt;a href=&quot;#灵异事件之薛定谔的白屏&quot; class=&quot;headerlink&quot; title=&quot;灵异事件之薛定谔的白屏&quot;&gt;&lt;/a&gt;灵异事件之薛定谔的白屏&lt;/h2&gt;&lt;h4 id=&quot;场景复现&quot;&gt;&lt;a href=&quot;#场景复现&quot;</summary>
+        
+      
+    
+    
+    
+    
+    <category term="requirejs" scheme="http://www.moonrailgun.com/tags/requirejs/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Chrome 笔记 - 处理异常 ERR_UNSAFE_PORT</title>
+    <link href="http://www.moonrailgun.com/posts/a118f8f2/"/>
+    <id>http://www.moonrailgun.com/posts/a118f8f2/</id>
+    <published>2021-05-21T01:36:53.000Z</published>
+    <updated>2021-12-03T15:49:31.939Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;在chrome进行本地开发时，可能会出现如下问题:&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/images/chrome/1.png&quot;&gt;&lt;/p&gt;
+&lt;h2 id=&quot;解决方案&quot;&gt;&lt;a href=&quot;#解决方案&quot; class=&quot;headerlink&quot;</summary>
+        
+      
+    
+    
+    
+    
+    <category term="chrome" scheme="http://www.moonrailgun.com/tags/chrome/"/>
+    
+    <category term="chromium" scheme="http://www.moonrailgun.com/tags/chromium/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Vercel 国内无法访问</title>
+    <link href="http://www.moonrailgun.com/posts/968454a3/"/>
+    <id>http://www.moonrailgun.com/posts/968454a3/</id>
+    <published>2021-05-20T01:25:18.000Z</published>
+    <updated>2021-12-03T15:49:31.969Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;https://www.vercel-status.com/incidents/r758bhbklgfd&quot;&gt;Errors Accessing From</summary>
+        
+      
+    
+    
+    
+    
+    <category term="vercel" scheme="http://www.moonrailgun.com/tags/vercel/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>关于人生, 关于生老病死</title>
+    <link href="http://www.moonrailgun.com/posts/6719aaf5/"/>
+    <id>http://www.moonrailgun.com/posts/6719aaf5/</id>
+    <published>2021-05-10T07:23:36.000Z</published>
+    <updated>2021-12-03T15:49:31.990Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;今天凌晨4点多, 噩耗传来。小时候一直疼爱我的外公结束了自己的一生。自然死亡,</summary>
+        
+      
+    
+    
+    
+    
+    <category term="胡言乱语" scheme="http://www.moonrailgun.com/tags/%E8%83%A1%E8%A8%80%E4%B9%B1%E8%AF%AD/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>HTTPS客户端证书校验</title>
+    <link href="http://www.moonrailgun.com/posts/Infinity/"/>
+    <id>http://www.moonrailgun.com/posts/Infinity/</id>
+    <published>2021-05-08T08:44:11.000Z</published>
+    <updated>2021-12-03T15:49:31.949Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;简介&quot;&gt;&lt;a href=&quot;#简介&quot; class=&quot;headerlink&quot; title=&quot;简介&quot;&gt;&lt;/a&gt;简介&lt;/h2&gt;&lt;p&gt;互联网正在逐步走向越来越安全的趋势, &lt;code&gt;Chrome 90&lt;/code&gt;</summary>
+        
+      
+    
+    
+    
+    
+    <category term="auth" scheme="http://www.moonrailgun.com/tags/auth/"/>
+    
+    <category term="https" scheme="http://www.moonrailgun.com/tags/https/"/>
+    
+    <category term="ssl" scheme="http://www.moonrailgun.com/tags/ssl/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>字节跳动面试记录</title>
+    <link href="http://www.moonrailgun.com/posts/443581a5/"/>
+    <id>http://www.moonrailgun.com/posts/443581a5/</id>
+    <published>2021-04-01T08:13:45.000Z</published>
+    <updated>2021-12-03T15:49:31.996Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;一面&quot;&gt;&lt;a href=&quot;#一面&quot; class=&quot;headerlink&quot; title=&quot;一面&quot;&gt;&lt;/a&gt;一面&lt;/h2&gt;&lt;p&gt;关于项目:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;抽象结构树&lt;ul&gt;
+&lt;li&gt;如何根据一颗 AST</summary>
+        
+      
+    
+    
+    
+    
+    <category term="字节跳动" scheme="http://www.moonrailgun.com/tags/%E5%AD%97%E8%8A%82%E8%B7%B3%E5%8A%A8/"/>
+    
+    <category term="面试" scheme="http://www.moonrailgun.com/tags/%E9%9D%A2%E8%AF%95/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>CORS 现代浏览器跨域请求简明手册</title>
+    <link href="http://www.moonrailgun.com/posts/db9cb7ec/"/>
+    <id>http://www.moonrailgun.com/posts/db9cb7ec/</id>
+    <published>2021-03-01T07:50:59.000Z</published>
+    <updated>2021-12-03T15:49:31.939Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;简介&quot;&gt;&lt;a href=&quot;#简介&quot; class=&quot;headerlink&quot; title=&quot;简介&quot;&gt;&lt;/a&gt;简介&lt;/h2&gt;&lt;p&gt;本文主要是阐述与总结现代浏览器的跨域问题&lt;/p&gt;
+&lt;h2 id=&quot;同源策略&quot;&gt;&lt;a href=&quot;#同源策略&quot;</summary>
+        
+      
+    
+    
+    
+    
+    <category term="CORS" scheme="http://www.moonrailgun.com/tags/CORS/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>HTTP中的各种缓存标签</title>
+    <link href="http://www.moonrailgun.com/posts/da49e84e/"/>
+    <id>http://www.moonrailgun.com/posts/da49e84e/</id>
+    <published>2020-12-30T01:50:28.000Z</published>
+    <updated>2021-12-03T15:49:31.950Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;ETag&lt;/code&gt;(如: &lt;code&gt;50b1c1d4f775c61:df3&lt;/code&gt;):&lt;br&gt; </summary>
+        
+      
+    
+    
+    
+    
+    <category term="HTML" scheme="http://www.moonrailgun.com/tags/HTML/"/>
+    
+    <category term="HTML5" scheme="http://www.moonrailgun.com/tags/HTML5/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>如何开发与坚持维护一个企业级的开源项目</title>
+    <link href="http://www.moonrailgun.com/posts/28f21ef5/"/>
+    <id>http://www.moonrailgun.com/posts/28f21ef5/</id>
+    <published>2020-12-14T07:03:11.000Z</published>
+    <updated>2021-12-03T15:49:31.995Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;&lt;a href=&quot;https://github.com/TRPGEngine/Client&quot;&gt;TRPG Engine&lt;/a&gt; 是我一直坚持维护的一个开源项目。正如所有的开源项目都起源于开发者的兴趣，&lt;code&gt;TRPG</summary>
+        
+      
+    
+    
+    
+    
+    <category term="typescript" scheme="http://www.moonrailgun.com/tags/typescript/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>从 Webpack 到 Snowpack, 编译速度提升十倍以上——TRPG Engine迁移小记</title>
+    <link href="http://www.moonrailgun.com/posts/74598ef5/"/>
+    <id>http://www.moonrailgun.com/posts/74598ef5/</id>
+    <published>2020-10-17T11:41:35.000Z</published>
+    <updated>2021-12-03T15:49:31.989Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;动机&quot;&gt;&lt;a href=&quot;#动机&quot; class=&quot;headerlink&quot; title=&quot;动机&quot;&gt;&lt;/a&gt;动机&lt;/h2&gt;&lt;p&gt;&lt;a href=&quot;https://github.com/TRPGEngine/Client&quot;&gt;&lt;code&gt;TRPG</summary>
+        
+      
+    
+    
+    
+    
+    <category term="TRPG Engine" scheme="http://www.moonrailgun.com/tags/TRPG-Engine/"/>
+    
+    <category term="Webpack" scheme="http://www.moonrailgun.com/tags/Webpack/"/>
+    
+    <category term="Snowpack" scheme="http://www.moonrailgun.com/tags/Snowpack/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>TRPG Engine —— 一个功能完善即时通讯解决方案</title>
+    <link href="http://www.moonrailgun.com/posts/191d7ea8/"/>
+    <id>http://www.moonrailgun.com/posts/191d7ea8/</id>
+    <published>2020-09-25T15:51:35.000Z</published>
+    <updated>2021-12-03T15:49:31.959Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;项目背景&quot;&gt;&lt;a href=&quot;#项目背景&quot; class=&quot;headerlink&quot;</summary>
+        
+      
+    
+    
+    
+    
+    <category term="typescript" scheme="http://www.moonrailgun.com/tags/typescript/"/>
+    
+    <category term="nodejs" scheme="http://www.moonrailgun.com/tags/nodejs/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>React 注意事项</title>
+    <link href="http://www.moonrailgun.com/posts/80587f52/"/>
+    <id>http://www.moonrailgun.com/posts/80587f52/</id>
+    <published>2020-09-09T08:17:17.000Z</published>
+    <updated>2021-12-03T15:49:31.957Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;Inline-Style-内联样式&quot;&gt;&lt;a href=&quot;#Inline-Style-内联样式&quot; class=&quot;headerlink&quot; title=&quot;Inline Style 内联样式&quot;&gt;&lt;/a&gt;Inline Style</summary>
+        
+      
+    
+    
+    
+    
+    <category term="学习笔记" scheme="http://www.moonrailgun.com/tags/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
+    
+    <category term="React" scheme="http://www.moonrailgun.com/tags/React/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>又拍云整站网页存放到OSS的解决方案</title>
+    <link href="http://www.moonrailgun.com/posts/c09e1fbc/"/>
+    <id>http://www.moonrailgun.com/posts/c09e1fbc/</id>
+    <published>2020-08-29T16:06:11.000Z</published>
+    <updated>2021-12-03T15:49:31.991Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;背景&quot;&gt;&lt;a href=&quot;#背景&quot; class=&quot;headerlink&quot;</summary>
+        
+      
+    
+    
+    
+    
+    <category term="upyun" scheme="http://www.moonrailgun.com/tags/upyun/"/>
+    
+  </entry>
+  
+</feed>
