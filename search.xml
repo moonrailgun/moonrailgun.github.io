@@ -4,6 +4,27 @@
   
     
     <entry>
+      <title>CentOS7 安装gcc手册</title>
+      <link href="/posts/406cd832/"/>
+      <url>/posts/406cd832/</url>
+      
+        <content type="html"><![CDATA[<p>众所周知，<code>gcc</code>版本数都已经两位数了，yum源的直接安装gcc的最新版本还停留在<code>4.8.5</code>。而对于部分c++的应用来说，高版本的<code>gcc</code>是必不可少的。而现在中文网络上教你升级gcc的办法都是手动下载<code>gcc</code>源码然后去编译。</p><p>别急！在你选择去按照教程手动一步步编译前，静下心来。手动编译的坑数不胜数，而<code>Redhat</code> 官方早就提供了解决方案, 那就是<code>devtoolset</code>(在centos8中改名为gcc-toolset)</p><p><code>devtoolset</code>类似于node中的nvm，允许你在同一环境下安装多个gcc环境而不冲突</p><p>使用方法很简单:</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">yum install centos-release-scl <span class="comment"># 通过centos-release-scl源安装devtoolset包</span></span><br><span class="line">yum install devtoolset-8</span><br></pre></td></tr></table></figure><p>其中</p><figure class="highlight apache"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">devtoolset</span>-<span class="number">3</span>对应gcc<span class="number">4</span>.x.x版本</span><br><span class="line"><span class="attribute">devtoolset</span>-<span class="number">4</span>对应gcc<span class="number">5</span>.x.x版本</span><br><span class="line"><span class="attribute">devtoolset</span>-<span class="number">6</span>对应gcc<span class="number">6</span>.x.x版本</span><br><span class="line"><span class="attribute">devtoolset</span>-<span class="number">7</span>对应gcc<span class="number">7</span>.x.x版本</span><br><span class="line"><span class="attribute">devtoolset</span>-<span class="number">8</span>对应gcc<span class="number">8</span>.x.x版本</span><br><span class="line"><span class="attribute">devtoolset</span>-<span class="number">9</span>对应gcc<span class="number">9</span>.x.x版本</span><br><span class="line"><span class="attribute">devtoolset</span>-<span class="number">10</span>对应gcc<span class="number">10</span>.x.x版本</span><br></pre></td></tr></table></figure><p>为使其生效还需要手动执行切换一下版本</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">source</span> /opt/rh/devtoolset-8/<span class="built_in">enable</span></span><br></pre></td></tr></table></figure><p>当然可以把这行代码保存在 <code>.bashrc</code> / <code>.zshrc</code> 中以每次连接shell都自动执行</p>]]></content>
+      
+      
+      
+        <tags>
+            
+            <tag> centos7 </tag>
+            
+            <tag> gcc </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>国际标准保留端口列表</title>
       <link href="/posts/9ec26053/"/>
       <url>/posts/9ec26053/</url>
@@ -234,8 +255,8 @@
     
     <entry>
       <title>HTTPS客户端证书校验</title>
-      <link href="/posts/Infinity/"/>
-      <url>/posts/Infinity/</url>
+      <link href="/posts/null/"/>
+      <url>/posts/null/</url>
       
         <content type="html"><![CDATA[<h2 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h2><p>互联网正在逐步走向越来越安全的趋势, <code>Chrome 90</code> 将默认使用<code>https</code>。而但凡对这方面有一定了解的都会知道<code>https</code>: 证书, 校验, 签发机构…等等等等。</p><p>而这些我们所熟知的东西, 即一般我们所说的通过ssl层进行传输与校验的, 一般指的是服务端证书。而我们今天要说说客户端安全证书。</p><h2 id="Client-Authenticate"><a href="#Client-Authenticate" class="headerlink" title="Client Authenticate"></a>Client Authenticate</h2><p>客户端安全证书一般不常见, 只出现在对安全有一定需求的内部系统中。他的作用是规定哪些人可以访问: 客户端根据服务端配置的证书签发来下的子证书来对服务端的资源进行访问, 而服务端会对其进行校验 —— 校验不通过则不允许访问。</p><p>服务端证书恰恰相反: 他是客户端来校验服务端是否是一个正确的, 没有被篡改过的服务端。</p><h2 id="Handshake"><a href="#Handshake" class="headerlink" title="Handshake"></a>Handshake</h2><p>以下是一个客户端进行TLS握手授权的示例:</p><ul><li>协商阶段<ul><li>客户端发送一个 <code>ClientHello</code> 消息到服务端</li><li>服务端返回一个 <code>ServerHello</code> 消息</li><li>服务端发送他的 <code>Certificate</code> 消息</li><li>服务端发送他的 <code>ServerKeyExchange</code> 消息以用于交换秘钥</li><li>服务端发送一个 <code>CertificateRequest</code> 来请求客户端发送他的证书</li><li>服务端发送一个 <code>ServerHelloDone</code> 消息表示服务端已经完成了协商消息的发送</li><li>客户端返回一个 <code>Certificate</code> 消息, 其中包含了客户端的证书</li><li>客户端发送 <code>ClientKeyExchange</code> 消息, 其中包含了公钥或者公钥加密的 <code>PreMasterSecret</code></li><li>客户端发送 <code>CertificateVerify</code> 消息, 这是使用客户机证书的私钥对先前握手消息的签名。可以使用客户端证书的公钥来验证此签名。这让服务器知道客户端可以访问证书的私钥，以确保客户端是合法的。</li><li>协商完毕, 现在他们双方有一个用于对称加密的随机数秘钥了</li></ul></li><li>客户端发送一个<code>ChangeCipherSpec</code> 记录来告知服务器: 所有的信息都将进行身份验证</li><li>服务端返回 <code>ChangeCipherSpec</code></li><li>握手完毕</li></ul><h2 id="参考文档"><a href="#参考文档" class="headerlink" title="参考文档"></a>参考文档</h2><ul><li><a href="https://en.wikipedia.org/wiki/Transport_Layer_Security#Client-authenticated_TLS_handshake">Transport_Layer_Security</a></li><li><a href="https://fardog.io/blog/2017/12/30/client-side-certificate-authentication-with-nginx/">CLIENT-SIDE CERTIFICATE AUTHENTICATION WITH NGINX</a></li></ul>]]></content>
       

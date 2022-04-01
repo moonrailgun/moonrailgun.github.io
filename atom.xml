@@ -6,7 +6,7 @@
   <link href="http://www.moonrailgun.com/atom.xml" rel="self"/>
   
   <link href="http://www.moonrailgun.com/"/>
-  <updated>2021-12-03T15:49:31.993Z</updated>
+  <updated>2022-03-25T15:59:24.897Z</updated>
   <id>http://www.moonrailgun.com/</id>
   
   <author>
@@ -15,6 +15,31 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>CentOS7 安装gcc手册</title>
+    <link href="http://www.moonrailgun.com/posts/406cd832/"/>
+    <id>http://www.moonrailgun.com/posts/406cd832/</id>
+    <published>2022-03-25T15:52:36.000Z</published>
+    <updated>2022-03-25T15:59:24.897Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;众所周知，&lt;code&gt;gcc&lt;/code&gt;版本数都已经两位数了，yum源的直接安装gcc的最新版本还停留在&lt;code&gt;4.8.5&lt;/code&gt;。而对于部分c++的应用来说，高版本的&lt;code&gt;gcc&lt;/code&gt;是必不可少的。而现在中文网络上教你升级gcc的办法都是手动下载</summary>
+        
+      
+    
+    
+    
+    
+    <category term="centos7" scheme="http://www.moonrailgun.com/tags/centos7/"/>
+    
+    <category term="gcc" scheme="http://www.moonrailgun.com/tags/gcc/"/>
+    
+  </entry>
   
   <entry>
     <title>国际标准保留端口列表</title>
@@ -302,8 +327,8 @@
   
   <entry>
     <title>HTTPS客户端证书校验</title>
-    <link href="http://www.moonrailgun.com/posts/Infinity/"/>
-    <id>http://www.moonrailgun.com/posts/Infinity/</id>
+    <link href="http://www.moonrailgun.com/posts/null/"/>
+    <id>http://www.moonrailgun.com/posts/null/</id>
     <published>2021-05-08T08:44:11.000Z</published>
     <updated>2021-12-03T15:49:31.949Z</updated>
     
@@ -502,29 +527,6 @@
     <category term="学习笔记" scheme="http://www.moonrailgun.com/tags/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
     
     <category term="React" scheme="http://www.moonrailgun.com/tags/React/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>又拍云整站网页存放到OSS的解决方案</title>
-    <link href="http://www.moonrailgun.com/posts/c09e1fbc/"/>
-    <id>http://www.moonrailgun.com/posts/c09e1fbc/</id>
-    <published>2020-08-29T16:06:11.000Z</published>
-    <updated>2021-12-03T15:49:31.991Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h2 id=&quot;背景&quot;&gt;&lt;a href=&quot;#背景&quot; class=&quot;headerlink&quot;</summary>
-        
-      
-    
-    
-    
-    
-    <category term="upyun" scheme="http://www.moonrailgun.com/tags/upyun/"/>
     
   </entry>
   
