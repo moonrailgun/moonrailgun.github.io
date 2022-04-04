@@ -273,6 +273,74 @@
 </nav>
       <div class="body-wrap">
   
+    <article id="post-Chrome 笔记 - 处理异常 ERR_UNSAFE_PORT" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/posts/a118f8f2/" class="article-date">
+      <time datetime="2021-05-21T01:36:53.000Z" itemprop="datePublished">2021-05-21</time>
+</a>
+
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/posts/a118f8f2/">Chrome 笔记 - 处理异常 ERR_UNSAFE_PORT</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <p>在chrome进行本地开发时，可能会出现如下问题:</p>
+<p><img src="/images/chrome/1.png"></p>
+<h2 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h2><ul>
+<li><a target="_blank" rel="noopener" href="https://superuser.com/questions/188006/how-to-fix-err-unsafe-port-error-on-chrome-when-browsing-to-unsafe-ports">https://superuser.com/questions/188006/how-to-fix-err-unsafe-port-error-on-chrome-when-browsing-to-unsafe-ports</a></li>
+</ul>
+<h2 id="本质原因"><a href="#本质原因" class="headerlink" title="本质原因"></a>本质原因</h2><p>请不要使用如下列出的端口, 因为这些端口被视为有意义的:</p>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://github.com/chromium/chromium/blob/805f50e9d42cf0ac5e3108ae2c6b36baa0ea5a90/net/base/port_util.cc#L64-L147">https://github.com/chromium/chromium/blob/805f50e9d42cf0ac5e3108ae2c6b36baa0ea5a90/net/base/port_util.cc#L64-L147</a></li>
+</ul>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/chrome/" rel="tag">chrome</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/chromium/" rel="tag">chromium</a></li></ul>
+    </div>
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
     <article id="post-Vercel 国内无法访问" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
@@ -1479,106 +1547,9 @@ console.log(getHandCardStack([1,2,3,4,5,6,7,8,9,10,11,12,13]));
 
 
   
-    <article id="post-React 注意事项" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/posts/80587f52/" class="article-date">
-      <time datetime="2020-09-09T08:17:17.000Z" itemprop="datePublished">2020-09-09</time>
-</a>
-
-
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/posts/80587f52/">React 注意事项</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-        <h2 id="Inline-Style-内联样式"><a href="#Inline-Style-内联样式" class="headerlink" title="Inline Style 内联样式"></a>Inline Style 内联样式</h2><p>内联样式有一些简写操作</p>
-<p>比如:</p>
-<figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;div style=&#123;&#123;<span class="attr">height</span>: <span class="number">10</span>&#125;&#125;&gt;&lt;/div&gt;</span><br></pre></td></tr></table></figure>
-<p>转化为</p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">style</span>=<span class="string">&quot;height: 10px&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
-<hr>
-<p>在jsx中会自动加上px单位。但需要注意的是, 并不是每种属性都会自动加上单位的。容易出问题的比如<code>lineHeight</code></p>
-<p>这里有一个列表，以下属性不会自动加上px</p>
-<ul>
-<li>animationIterationCount</li>
-<li>boxFlex</li>
-<li>boxFlexGroup</li>
-<li>boxOrdinalGroup</li>
-<li>columnCount</li>
-<li>fillOpacity</li>
-<li>flex</li>
-<li>flexGrow</li>
-<li>flexPositive</li>
-<li>flexShrink</li>
-<li>flexNegative</li>
-<li>flexOrder</li>
-<li>fontWeight</li>
-<li>lineClamp</li>
-<li>lineHeight</li>
-<li>opacity</li>
-<li>order</li>
-<li>orphans</li>
-<li>stopOpacity</li>
-<li>strokeDashoffset</li>
-<li>strokeOpacity</li>
-<li>strokeWidth</li>
-<li>tabSize</li>
-<li>widows</li>
-<li>zIndex</li>
-<li>zoom</li>
-</ul>
-<p>参考文章: <a target="_blank" rel="noopener" href="https://react-cn.github.io/react/tips/style-props-value-px.html">Shorthand for Specifying Pixel Values in style props</a></p>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-
-      
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/React/" rel="tag">React</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" rel="tag">学习笔记</a></li></ul>
-    </div>
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
   
     <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/">Prev</a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><span class="space">&hellip;</span><a class="page-number" href="/page/10/">10</a><a class="extend next" rel="next" href="/page/3/">Next</a>
+      <a class="extend prev" rel="prev" href="/">Prev</a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><span class="space">&hellip;</span><a class="page-number" href="/page/11/">11</a><a class="extend next" rel="next" href="/page/3/">Next</a>
     </nav>
   
 
