@@ -6,7 +6,7 @@
   <link href="http://www.moonrailgun.com/atom.xml" rel="self"/>
   
   <link href="http://www.moonrailgun.com/"/>
-  <updated>2022-05-25T16:29:00.604Z</updated>
+  <updated>2022-07-07T07:58:22.737Z</updated>
   <id>http://www.moonrailgun.com/</id>
   
   <author>
@@ -17,11 +17,63 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>源码定位工具source-ref的使用</title>
+    <link href="http://www.moonrailgun.com/posts/da6d1d53/"/>
+    <id>http://www.moonrailgun.com/posts/da6d1d53/</id>
+    <published>2022-07-06T03:23:29.000Z</published>
+    <updated>2022-07-07T07:58:22.737Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;背景&quot;&gt;&lt;a href=&quot;#背景&quot; class=&quot;headerlink&quot; title=&quot;背景&quot;&gt;&lt;/a&gt;背景&lt;/h2&gt;&lt;p&gt;&lt;code&gt;source-ref&lt;/code&gt;</summary>
+        
+      
+    
+    
+    
+    
+    <category term="源码定位" scheme="http://www.moonrailgun.com/tags/%E6%BA%90%E7%A0%81%E5%AE%9A%E4%BD%8D/"/>
+    
+    <category term="产研效能" scheme="http://www.moonrailgun.com/tags/%E4%BA%A7%E7%A0%94%E6%95%88%E8%83%BD/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Garfish 源码解析 —— 一个微应用是如何被挂载的</title>
+    <link href="http://www.moonrailgun.com/posts/a9d2669b/"/>
+    <id>http://www.moonrailgun.com/posts/a9d2669b/</id>
+    <published>2022-06-29T03:50:27.000Z</published>
+    <updated>2022-07-07T07:58:22.737Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;背景&quot;&gt;&lt;a href=&quot;#背景&quot; class=&quot;headerlink&quot; title=&quot;背景&quot;&gt;&lt;/a&gt;背景&lt;/h2&gt;&lt;p&gt;&lt;code&gt;Garfish&lt;/code&gt; 是字节跳动 &lt;code&gt;web infra&lt;/code&gt;</summary>
+        
+      
+    
+    
+    
+    
+    <category term="学习笔记" scheme="http://www.moonrailgun.com/tags/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
+    
+    <category term="Garfish" scheme="http://www.moonrailgun.com/tags/Garfish/"/>
+    
+    <category term="源码解析" scheme="http://www.moonrailgun.com/tags/%E6%BA%90%E7%A0%81%E8%A7%A3%E6%9E%90/"/>
+    
+  </entry>
+  
+  <entry>
     <title>把代码仓库当做数据库，github action持久化存储新思路</title>
     <link href="http://www.moonrailgun.com/posts/e678c77b/"/>
     <id>http://www.moonrailgun.com/posts/e678c77b/</id>
     <published>2022-05-25T16:04:48.000Z</published>
-    <updated>2022-05-25T16:29:00.604Z</updated>
+    <updated>2022-05-26T02:32:03.300Z</updated>
     
     
       
@@ -479,56 +531,6 @@
     <category term="HTML" scheme="http://www.moonrailgun.com/tags/HTML/"/>
     
     <category term="HTML5" scheme="http://www.moonrailgun.com/tags/HTML5/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>如何开发与坚持维护一个企业级的开源项目</title>
-    <link href="http://www.moonrailgun.com/posts/28f21ef5/"/>
-    <id>http://www.moonrailgun.com/posts/28f21ef5/</id>
-    <published>2020-12-14T07:03:11.000Z</published>
-    <updated>2021-12-03T15:49:31.995Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;p&gt;&lt;a href=&quot;https://github.com/TRPGEngine/Client&quot;&gt;TRPG Engine&lt;/a&gt; 是我一直坚持维护的一个开源项目。正如所有的开源项目都起源于开发者的兴趣，&lt;code&gt;TRPG</summary>
-        
-      
-    
-    
-    
-    
-    <category term="typescript" scheme="http://www.moonrailgun.com/tags/typescript/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>从 Webpack 到 Snowpack, 编译速度提升十倍以上——TRPG Engine迁移小记</title>
-    <link href="http://www.moonrailgun.com/posts/74598ef5/"/>
-    <id>http://www.moonrailgun.com/posts/74598ef5/</id>
-    <published>2020-10-17T11:41:35.000Z</published>
-    <updated>2021-12-03T15:49:31.989Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h2 id=&quot;动机&quot;&gt;&lt;a href=&quot;#动机&quot; class=&quot;headerlink&quot; title=&quot;动机&quot;&gt;&lt;/a&gt;动机&lt;/h2&gt;&lt;p&gt;&lt;a href=&quot;https://github.com/TRPGEngine/Client&quot;&gt;&lt;code&gt;TRPG</summary>
-        
-      
-    
-    
-    
-    
-    <category term="TRPG Engine" scheme="http://www.moonrailgun.com/tags/TRPG-Engine/"/>
-    
-    <category term="Webpack" scheme="http://www.moonrailgun.com/tags/Webpack/"/>
-    
-    <category term="Snowpack" scheme="http://www.moonrailgun.com/tags/Snowpack/"/>
     
   </entry>
   
