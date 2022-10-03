@@ -6,7 +6,7 @@
   <link href="http://www.moonrailgun.com/atom.xml" rel="self"/>
   
   <link href="http://www.moonrailgun.com/"/>
-  <updated>2022-07-07T07:58:22.737Z</updated>
+  <updated>2022-10-03T06:37:57.034Z</updated>
   <id>http://www.moonrailgun.com/</id>
   
   <author>
@@ -17,11 +17,89 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>源码定位工具source-ref的使用</title>
+    <title>webpack 打包分析 —— 通过分析工具优化体积问题</title>
+    <link href="http://www.moonrailgun.com/posts/1.5675e+46/"/>
+    <id>http://www.moonrailgun.com/posts/1.5675e+46/</id>
+    <published>2022-10-03T05:42:50.000Z</published>
+    <updated>2022-10-03T06:37:57.034Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;背景&quot;&gt;&lt;a href=&quot;#背景&quot; class=&quot;headerlink&quot;</summary>
+        
+      
+    
+    
+    
+    
+    <category term="javascript" scheme="http://www.moonrailgun.com/tags/javascript/"/>
+    
+    <category term="webpack" scheme="http://www.moonrailgun.com/tags/webpack/"/>
+    
+    <category term="代码优化" scheme="http://www.moonrailgun.com/tags/%E4%BB%A3%E7%A0%81%E4%BC%98%E5%8C%96/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>元编程快速入门</title>
+    <link href="http://www.moonrailgun.com/posts/8aa07df9/"/>
+    <id>http://www.moonrailgun.com/posts/8aa07df9/</id>
+    <published>2022-09-20T09:27:49.000Z</published>
+    <updated>2022-10-03T05:57:06.789Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;什么是元编程-Metaprogramming&quot;&gt;&lt;a href=&quot;#什么是元编程-Metaprogramming&quot; class=&quot;headerlink&quot;</summary>
+        
+      
+    
+    
+    
+    
+    <category term="meta program" scheme="http://www.moonrailgun.com/tags/meta-program/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>k3s安装小记</title>
+    <link href="http://www.moonrailgun.com/posts/32dfd7d0/"/>
+    <id>http://www.moonrailgun.com/posts/32dfd7d0/</id>
+    <published>2022-08-31T02:52:43.000Z</published>
+    <updated>2022-10-03T05:49:14.062Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;&lt;a href=&quot;https://k3s.io/&quot;&gt;官方网站&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id=&quot;外网访问k3s集群&quot;&gt;&lt;a href=&quot;#外网访问k3s集群&quot; class=&quot;headerlink&quot;</summary>
+        
+      
+    
+    
+    
+    
+    <category term="学习笔记" scheme="http://www.moonrailgun.com/tags/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
+    
+    <category term="k3s" scheme="http://www.moonrailgun.com/tags/k3s/"/>
+    
+    <category term="devops" scheme="http://www.moonrailgun.com/tags/devops/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>源码快速定位工具 source-ref</title>
     <link href="http://www.moonrailgun.com/posts/da6d1d53/"/>
     <id>http://www.moonrailgun.com/posts/da6d1d53/</id>
     <published>2022-07-06T03:23:29.000Z</published>
-    <updated>2022-07-07T07:58:22.737Z</updated>
+    <updated>2022-07-22T17:08:15.419Z</updated>
     
     
       
@@ -453,84 +531,6 @@
     <category term="https" scheme="http://www.moonrailgun.com/tags/https/"/>
     
     <category term="ssl" scheme="http://www.moonrailgun.com/tags/ssl/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>字节跳动面试记录</title>
-    <link href="http://www.moonrailgun.com/posts/443581a5/"/>
-    <id>http://www.moonrailgun.com/posts/443581a5/</id>
-    <published>2021-04-01T08:13:45.000Z</published>
-    <updated>2021-12-03T15:49:31.996Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h2 id=&quot;一面&quot;&gt;&lt;a href=&quot;#一面&quot; class=&quot;headerlink&quot; title=&quot;一面&quot;&gt;&lt;/a&gt;一面&lt;/h2&gt;&lt;p&gt;关于项目:&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;抽象结构树&lt;ul&gt;
-&lt;li&gt;如何根据一颗 AST</summary>
-        
-      
-    
-    
-    
-    
-    <category term="字节跳动" scheme="http://www.moonrailgun.com/tags/%E5%AD%97%E8%8A%82%E8%B7%B3%E5%8A%A8/"/>
-    
-    <category term="面试" scheme="http://www.moonrailgun.com/tags/%E9%9D%A2%E8%AF%95/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>CORS 现代浏览器跨域请求简明手册</title>
-    <link href="http://www.moonrailgun.com/posts/db9cb7ec/"/>
-    <id>http://www.moonrailgun.com/posts/db9cb7ec/</id>
-    <published>2021-03-01T07:50:59.000Z</published>
-    <updated>2021-12-03T15:49:31.939Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h2 id=&quot;简介&quot;&gt;&lt;a href=&quot;#简介&quot; class=&quot;headerlink&quot; title=&quot;简介&quot;&gt;&lt;/a&gt;简介&lt;/h2&gt;&lt;p&gt;本文主要是阐述与总结现代浏览器的跨域问题&lt;/p&gt;
-&lt;h2 id=&quot;同源策略&quot;&gt;&lt;a href=&quot;#同源策略&quot;</summary>
-        
-      
-    
-    
-    
-    
-    <category term="CORS" scheme="http://www.moonrailgun.com/tags/CORS/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>HTTP中的各种缓存标签</title>
-    <link href="http://www.moonrailgun.com/posts/da49e84e/"/>
-    <id>http://www.moonrailgun.com/posts/da49e84e/</id>
-    <published>2020-12-30T01:50:28.000Z</published>
-    <updated>2021-12-03T15:49:31.950Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;ul&gt;
-&lt;li&gt;&lt;code&gt;ETag&lt;/code&gt;(如: &lt;code&gt;50b1c1d4f775c61:df3&lt;/code&gt;):&lt;br&gt; </summary>
-        
-      
-    
-    
-    
-    
-    <category term="HTML" scheme="http://www.moonrailgun.com/tags/HTML/"/>
-    
-    <category term="HTML5" scheme="http://www.moonrailgun.com/tags/HTML5/"/>
     
   </entry>
   
