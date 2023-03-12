@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
-  <title>moonrailgun - _(:зゝ∠)_</title>
+  <title>moonrailgun - 兴趣使然的工程师 — 个人技术展示</title>
   <icon>http://www.moonrailgun.com/icon.png</icon>
   
   <link href="http://www.moonrailgun.com/atom.xml" rel="self"/>
   
   <link href="http://www.moonrailgun.com/"/>
-  <updated>2022-10-17T08:23:16.306Z</updated>
+  <updated>2023-03-11T08:47:29.284Z</updated>
   <id>http://www.moonrailgun.com/</id>
   
   <author>
@@ -15,6 +15,62 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>React Query 简明设计哲学入门指北</title>
+    <link href="http://www.moonrailgun.com/posts/6c6ef04/"/>
+    <id>http://www.moonrailgun.com/posts/6c6ef04/</id>
+    <published>2023-03-09T11:35:11.000Z</published>
+    <updated>2023-03-11T08:47:29.284Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;&lt;img src=&quot;/images/react-query/1.png&quot;&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Github &lt;a</summary>
+        
+      
+    
+    
+    
+    
+    <category term="React" scheme="http://www.moonrailgun.com/tags/React/"/>
+    
+    <category term="React Query" scheme="http://www.moonrailgun.com/tags/React-Query/"/>
+    
+    <category term="状态管理" scheme="http://www.moonrailgun.com/tags/%E7%8A%B6%E6%80%81%E7%AE%A1%E7%90%86/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>小即是美 —— 简约而不简单的状态管理工具zustand</title>
+    <link href="http://www.moonrailgun.com/posts/14043fbf/"/>
+    <id>http://www.moonrailgun.com/posts/14043fbf/</id>
+    <published>2022-12-13T09:27:12.000Z</published>
+    <updated>2023-03-11T08:47:29.285Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;我用过或了解过前端业界大部分流行的状态管理库。他们有的很复杂，有的很简单。有的用了一些深度改造的手段来优化细节，有的则是平铺直叙的告诉所有使用者发生了变化。在技术方案诡异多变与层出不穷的当下，只有一个状态管理库让我深深着迷，她极度精简到让我觉得不能再简单了，但是她也足够完备</summary>
+        
+      
+    
+    
+    
+    
+    <category term="typescript" scheme="http://www.moonrailgun.com/tags/typescript/"/>
+    
+    <category term="状态管理" scheme="http://www.moonrailgun.com/tags/%E7%8A%B6%E6%80%81%E7%AE%A1%E7%90%86/"/>
+    
+    <category term="zustand" scheme="http://www.moonrailgun.com/tags/zustand/"/>
+    
+  </entry>
   
   <entry>
     <title>谈论从把多项目合并成一个项目中获得的收益</title>
@@ -487,53 +543,6 @@
     <category term="chrome" scheme="http://www.moonrailgun.com/tags/chrome/"/>
     
     <category term="chromium" scheme="http://www.moonrailgun.com/tags/chromium/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Vercel 国内无法访问</title>
-    <link href="http://www.moonrailgun.com/posts/968454a3/"/>
-    <id>http://www.moonrailgun.com/posts/968454a3/</id>
-    <published>2021-05-20T01:25:18.000Z</published>
-    <updated>2021-12-03T15:49:31.969Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;ul&gt;
-&lt;li&gt;&lt;a href=&quot;https://www.vercel-status.com/incidents/r758bhbklgfd&quot;&gt;Errors Accessing From</summary>
-        
-      
-    
-    
-    
-    
-    <category term="vercel" scheme="http://www.moonrailgun.com/tags/vercel/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>关于人生, 关于生老病死</title>
-    <link href="http://www.moonrailgun.com/posts/6719aaf5/"/>
-    <id>http://www.moonrailgun.com/posts/6719aaf5/</id>
-    <published>2021-05-10T07:23:36.000Z</published>
-    <updated>2021-12-03T15:49:31.990Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;p&gt;今天凌晨4点多, 噩耗传来。小时候一直疼爱我的外公结束了自己的一生。自然死亡,</summary>
-        
-      
-    
-    
-    
-    
-    <category term="胡言乱语" scheme="http://www.moonrailgun.com/tags/%E8%83%A1%E8%A8%80%E4%B9%B1%E8%AF%AD/"/>
     
   </entry>
   
