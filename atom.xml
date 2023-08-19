@@ -6,7 +6,7 @@
   <link href="http://www.moonrailgun.com/atom.xml" rel="self"/>
   
   <link href="http://www.moonrailgun.com/"/>
-  <updated>2023-03-11T08:47:29.284Z</updated>
+  <updated>2023-06-07T12:32:20.502Z</updated>
   <id>http://www.moonrailgun.com/</id>
   
   <author>
@@ -15,6 +15,64 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>你可能不需要微前端，但你一定会需要微内核</title>
+    <link href="http://www.moonrailgun.com/posts/cecd0a5c/"/>
+    <id>http://www.moonrailgun.com/posts/cecd0a5c/</id>
+    <published>2023-05-24T11:20:36.000Z</published>
+    <updated>2023-06-07T12:32:20.502Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;先聊聊微前端&quot;&gt;&lt;a href=&quot;#先聊聊微前端&quot; class=&quot;headerlink&quot; title=&quot;先聊聊微前端&quot;&gt;&lt;/a&gt;先聊聊微前端&lt;/h2&gt;&lt;p&gt;阿里巴巴的一篇 &lt;a</summary>
+        
+      
+    
+    
+    
+    
+    <category term="微前端" scheme="http://www.moonrailgun.com/tags/%E5%BE%AE%E5%89%8D%E7%AB%AF/"/>
+    
+    <category term="微内核" scheme="http://www.moonrailgun.com/tags/%E5%BE%AE%E5%86%85%E6%A0%B8/"/>
+    
+    <category term="mini-star" scheme="http://www.moonrailgun.com/tags/mini-star/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>利用 webpack-stats-viewer 分析 react-virtualized 摇树优化失效问题</title>
+    <link href="http://www.moonrailgun.com/posts/8a830324/"/>
+    <id>http://www.moonrailgun.com/posts/8a830324/</id>
+    <published>2023-03-31T07:51:34.000Z</published>
+    <updated>2023-06-07T12:32:20.502Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;背景&quot;&gt;&lt;a href=&quot;#背景&quot; class=&quot;headerlink&quot; title=&quot;背景&quot;&gt;&lt;/a&gt;背景&lt;/h2&gt;&lt;p&gt;在项目性能优化过程中，发现 react-virtualized 依赖过重，经过初步分析是因为react-virtualized</summary>
+        
+      
+    
+    
+    
+    
+    <category term="webpack" scheme="http://www.moonrailgun.com/tags/webpack/"/>
+    
+    <category term="性能优化" scheme="http://www.moonrailgun.com/tags/%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/"/>
+    
+    <category term="webpack-stats-viewer" scheme="http://www.moonrailgun.com/tags/webpack-stats-viewer/"/>
+    
+    <category term="react-virtualized" scheme="http://www.moonrailgun.com/tags/react-virtualized/"/>
+    
+    <category term="摇树优化" scheme="http://www.moonrailgun.com/tags/%E6%91%87%E6%A0%91%E4%BC%98%E5%8C%96/"/>
+    
+  </entry>
   
   <entry>
     <title>React Query 简明设计哲学入门指北</title>
@@ -493,56 +551,6 @@
     <category term="npm" scheme="http://www.moonrailgun.com/tags/npm/"/>
     
     <category term="跨平台" scheme="http://www.moonrailgun.com/tags/%E8%B7%A8%E5%B9%B3%E5%8F%B0/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>requirejs踩坑记录</title>
-    <link href="http://www.moonrailgun.com/posts/4c9731f9/"/>
-    <id>http://www.moonrailgun.com/posts/4c9731f9/</id>
-    <published>2021-05-27T08:16:47.000Z</published>
-    <updated>2021-12-03T15:49:31.986Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h2 id=&quot;灵异事件之薛定谔的白屏&quot;&gt;&lt;a href=&quot;#灵异事件之薛定谔的白屏&quot; class=&quot;headerlink&quot; title=&quot;灵异事件之薛定谔的白屏&quot;&gt;&lt;/a&gt;灵异事件之薛定谔的白屏&lt;/h2&gt;&lt;h4 id=&quot;场景复现&quot;&gt;&lt;a href=&quot;#场景复现&quot;</summary>
-        
-      
-    
-    
-    
-    
-    <category term="requirejs" scheme="http://www.moonrailgun.com/tags/requirejs/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Chrome 笔记 - 处理异常 ERR_UNSAFE_PORT</title>
-    <link href="http://www.moonrailgun.com/posts/a118f8f2/"/>
-    <id>http://www.moonrailgun.com/posts/a118f8f2/</id>
-    <published>2021-05-21T01:36:53.000Z</published>
-    <updated>2021-12-03T15:49:31.939Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;p&gt;在chrome进行本地开发时，可能会出现如下问题:&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;/images/chrome/1.png&quot;&gt;&lt;/p&gt;
-&lt;h2 id=&quot;解决方案&quot;&gt;&lt;a href=&quot;#解决方案&quot; class=&quot;headerlink&quot;</summary>
-        
-      
-    
-    
-    
-    
-    <category term="chrome" scheme="http://www.moonrailgun.com/tags/chrome/"/>
-    
-    <category term="chromium" scheme="http://www.moonrailgun.com/tags/chromium/"/>
     
   </entry>
   
