@@ -6,7 +6,7 @@
   <link href="http://www.moonrailgun.com/atom.xml" rel="self"/>
   
   <link href="http://www.moonrailgun.com/"/>
-  <updated>2023-06-07T12:32:20.502Z</updated>
+  <updated>2023-10-12T14:24:51.757Z</updated>
   <id>http://www.moonrailgun.com/</id>
   
   <author>
@@ -15,6 +15,32 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>打工人必备！实现JS控制的SVG渐变图标，让你的页面更加生动有趣</title>
+    <link href="http://www.moonrailgun.com/posts/8aed9be/"/>
+    <id>http://www.moonrailgun.com/posts/8aed9be/</id>
+    <published>2023-10-12T14:22:01.000Z</published>
+    <updated>2023-10-12T14:24:51.757Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;在我们开发界面时，有时候渐变的图像会相比固定颜色的图形更加富有层次感与有趣。熟悉css的同学都知道，我们可以通过样式让背景呈现一个线性的渐变图片，比如这样:&lt;/p&gt;
+&lt;figure class=&quot;highlight css&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td</summary>
+        
+      
+    
+    
+    
+    
+    <category term="svg" scheme="http://www.moonrailgun.com/tags/svg/"/>
+    
+    <category term="gradient" scheme="http://www.moonrailgun.com/tags/gradient/"/>
+    
+  </entry>
   
   <entry>
     <title>你可能不需要微前端，但你一定会需要微内核</title>
@@ -523,34 +549,6 @@
     <category term="TRPG Engine" scheme="http://www.moonrailgun.com/tags/TRPG-Engine/"/>
     
     <category term="工程化" scheme="http://www.moonrailgun.com/tags/%E5%B7%A5%E7%A8%8B%E5%8C%96/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>记一个多平台End of Line的坑</title>
-    <link href="http://www.moonrailgun.com/posts/4b9f1f29/"/>
-    <id>http://www.moonrailgun.com/posts/4b9f1f29/</id>
-    <published>2021-06-04T02:06:20.000Z</published>
-    <updated>2021-12-03T15:49:32.006Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h2 id=&quot;问题&quot;&gt;&lt;a href=&quot;#问题&quot; class=&quot;headerlink&quot; title=&quot;问题&quot;&gt;&lt;/a&gt;问题&lt;/h2&gt;&lt;p&gt;在执行自己编译的cli时出现:&lt;/p&gt;
-&lt;figure class=&quot;highlight crmsh&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td</summary>
-        
-      
-    
-    
-    
-    
-    <category term="node" scheme="http://www.moonrailgun.com/tags/node/"/>
-    
-    <category term="npm" scheme="http://www.moonrailgun.com/tags/npm/"/>
-    
-    <category term="跨平台" scheme="http://www.moonrailgun.com/tags/%E8%B7%A8%E5%B9%B3%E5%8F%B0/"/>
     
   </entry>
   
