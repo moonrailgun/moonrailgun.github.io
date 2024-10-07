@@ -1,0 +1,756 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+
+    <!--[if lt IE 9]>
+        <style>body {display: none; background: none !important} </style>
+        <meta http-equiv="Refresh" Content="0; url=//outdatedbrowser.com/" />
+    <![endif]-->
+
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<meta name="format-detection" content="telephone=no" />
+<meta name="author" content="moonrailgun" />
+<meta name="description" content="一个兴趣使然的软件攻城狮的个人博客。兴趣是最好的老师。"/>
+<script async defer data-website-id="be33e45e-5666-46a7-8080-e9e2be720b72" src="https://umami.moonrailgun.com/script.js"></script>
+<script async defer src="https://tianji.moonrailgun.com/tracker.js" data-website-id="clp2l64d2435nmm5dcfc6hcoz"></script>
+
+
+
+<meta name="description" content="前言本文主要是经过部分调研，几种技术栈的初步调研与入门使用。以及部分网络资料的整理下得出的带有一部分主观判断的结论，并因互联网发展迅速的关系可能会有一定的时效性，因此在阅读本文的时候请读者酌情根据当前情况进行自己的思考与结论。 关于Apicloudapicloud是国内一家闭源的html5移动端app解决方案提供商。用纯html的方式生成页面并通过原生注入jsbridge来与js进行交互。处理原生">
+<meta property="og:type" content="article">
+<meta property="og:title" content="前端编写全栈应用技术选型——rn、weex、apicloud到底选哪个">
+<meta property="og:url" content="http://www.moonrailgun.com/posts/481f2de4/index.html">
+<meta property="og:site_name" content="moonrailgun - 兴趣使然的工程师 — 个人技术展示">
+<meta property="og:description" content="前言本文主要是经过部分调研，几种技术栈的初步调研与入门使用。以及部分网络资料的整理下得出的带有一部分主观判断的结论，并因互联网发展迅速的关系可能会有一定的时效性，因此在阅读本文的时候请读者酌情根据当前情况进行自己的思考与结论。 关于Apicloudapicloud是国内一家闭源的html5移动端app解决方案提供商。用纯html的方式生成页面并通过原生注入jsbridge来与js进行交互。处理原生">
+<meta property="og:locale">
+<meta property="article:published_time" content="2017-10-24T06:20:47.000Z">
+<meta property="article:modified_time" content="2024-10-07T06:18:00.809Z">
+<meta property="article:author" content="moonrailgun">
+<meta property="article:tag" content="js">
+<meta property="article:tag" content="ReactNative">
+<meta property="article:tag" content="Weex">
+<meta property="article:tag" content="Apicloud">
+<meta name="twitter:card" content="summary">
+
+<link rel="apple-touch-icon" href= "/apple-touch-icon.png">
+
+
+    <link rel="alternate" href="/atom.xml" title="moonrailgun - 兴趣使然的工程师 — 个人技术展示" type="application/atom+xml">
+
+
+
+    <link rel="shortcut icon" href="/favicon.png">
+
+
+
+
+
+    <link href="https://lib.baomitu.com/fancybox/2.1.5/jquery.fancybox.min.css" rel="stylesheet">
+
+
+
+    <script src="https://lib.baomitu.com/pace/1.0.2/pace.min.js"></script>
+    <link href="https://lib.baomitu.com/pace/1.0.2/themes/blue/pace-theme-minimal.css" rel="stylesheet">
+
+
+
+<link rel="stylesheet" href="/css/style.css">
+
+
+
+
+<link href="https://lib.baomitu.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
+
+
+<title>前端编写全栈应用技术选型——rn、weex、apicloud到底选哪个 | moonrailgun - 兴趣使然的工程师 — 个人技术展示</title>
+
+<script src="https://lib.baomitu.com/jquery/2.2.4/jquery.min.js"></script>
+<script src="https://lib.baomitu.com/clipboard.js/1.5.10/clipboard.min.js"></script>
+
+<script>
+    var yiliaConfig = {
+        fancybox: true,
+        animate: false,
+        isHome: false,
+        isPost: true,
+        isArchive: false,
+        isTag: false,
+        isCategory: false,
+        fancybox_js: "https://lib.baomitu.com/fancybox/2.1.5/jquery.fancybox.min.js",
+        scrollreveal: "https://lib.baomitu.com/scrollReveal.js/3.1.4/scrollreveal.min.js",
+        search: true
+    }
+</script>
+
+
+    <script> yiliaConfig.jquery_ui = [false]; </script>
+
+
+
+    <script> yiliaConfig.rootUrl = "\/";</script>
+
+
+
+
+
+
+<!-- plausible.io -->
+<script defer data-domain="moonrailgun.com" src="https://plausible.io/js/script.file-downloads.hash.outbound-links.pageview-props.revenue.tagged-events.js"></script>
+<script>window.plausible = window.plausible || function() { (window.plausible.q = window.plausible.q || []).push(arguments) }</script>
+
+<meta name="generator" content="Hexo 5.2.0"></head>
+
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+    <header id="header" class="inner">
+        <a href="/" class="profilepic">
+            <img src="/img/avatar.png" class="animated zoomIn">
+        </a>
+        <hgroup>
+          <h1 class="header-author"><a href="/"></a></h1>
+        </hgroup>
+
+        
+
+        
+            <form id="search-form">
+            <input type="text" id="local-search-input" name="q" placeholder="search..." class="search form-control" autocomplete="off" autocorrect="off" searchonload="false" />
+            <i class="fa fa-times" onclick="resetSearch()"></i>
+            </form>
+            <div id="local-search-result"></div>
+            <p class='no-result'>No results found <i class='fa fa-spinner fa-pulse'></i></p>
+        
+
+
+        
+            <div id="switch-btn" class="switch-btn">
+                <div class="icon">
+                    <div class="icon-ctn">
+                        <div class="icon-wrap icon-house" data-idx="0">
+                            <div class="birdhouse"></div>
+                            <div class="birdhouse_holes"></div>
+                        </div>
+                        <div class="icon-wrap icon-ribbon hide" data-idx="1">
+                            <div class="ribbon"></div>
+                        </div>
+                        
+                        <div class="icon-wrap icon-link hide" data-idx="2">
+                            <div class="loopback_l"></div>
+                            <div class="loopback_r"></div>
+                        </div>
+                        
+                        
+                        <div class="icon-wrap icon-me hide" data-idx="3">
+                            <div class="user"></div>
+                            <div class="shoulder"></div>
+                        </div>
+                        
+                    </div>
+                    
+                </div>
+                <div class="tips-box hide">
+                    <div class="tips-arrow"></div>
+                    <ul class="tips-inner">
+                        <li>菜单</li>
+                        <li>标签</li>
+                        
+                        <li>友情链接</li>
+                        
+                        
+                        <li>关于我</li>
+                        
+                    </ul>
+                </div>
+            </div>
+        
+
+        <div id="switch-area" class="switch-area">
+            <div class="switch-wrap">
+                <section class="switch-part switch-part1">
+                    <nav class="header-menu">
+                        <ul>
+                        
+                            <li><a href="/">主页</a></li>
+                        
+                            <li><a href="/archives/">所有文章</a></li>
+                        
+                            <li><a href="/show/">作品展示</a></li>
+                        
+                            <li><a href="/tags/">标签云</a></li>
+                        
+                            <li><a href="/about/">关于我</a></li>
+                        
+                        </ul>
+                    </nav>
+                    <nav class="header-nav">
+                        <ul class="social">
+                            
+                                <a class="fa Email" href="mailto:moonrailgun@gmail.com" title="Email"></a>
+                            
+                                <a class="fa GitHub" target="_blank" rel="noopener" href="https://github.com/moonrailgun" title="GitHub"></a>
+                            
+                                <a class="fa RSS" href="/atom.xml" title="RSS"></a>
+                            
+                        </ul>
+                    </nav>
+                </section>
+                
+                
+                <section class="switch-part switch-part2">
+                    <div class="widget tagcloud" id="js-tagcloud">
+                        <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Apache/" rel="tag">Apache</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Apicloud/" rel="tag">Apicloud</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Blender/" rel="tag">Blender</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/C/" rel="tag">C++</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/CCLog/" rel="tag">CCLog</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/CORS/" rel="tag">CORS</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/CSLoader/" rel="tag">CSLoader</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ES6/" rel="tag">ES6</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/GMT/" rel="tag">GMT</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Garfish/" rel="tag">Garfish</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Github/" rel="tag">Github</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Github-Action/" rel="tag">Github Action</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/HTML/" rel="tag">HTML</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/HTML5/" rel="tag">HTML5</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/HTTPS/" rel="tag">HTTPS</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/LINK1104/" rel="tag">LINK1104</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Linux/" rel="tag">Linux</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/MMD/" rel="tag">MMD</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/MikuMikuCombat/" rel="tag">MikuMikuCombat</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/MySQL/" rel="tag">MySQL</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/NSURL/" rel="tag">NSURL</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/NodeJS/" rel="tag">NodeJS</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/OOM-Killer/" rel="tag">OOM Killer</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/PHP/" rel="tag">PHP</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/React/" rel="tag">React</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/React-Query/" rel="tag">React Query</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ReactNative/" rel="tag">ReactNative</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Ref/" rel="tag">Ref</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/SQL/" rel="tag">SQL</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/SSL/" rel="tag">SSL</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Session/" rel="tag">Session</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Shader/" rel="tag">Shader</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Snowpack/" rel="tag">Snowpack</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Steam/" rel="tag">Steam</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Swap/" rel="tag">Swap</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/TRPG/" rel="tag">TRPG</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/TRPG-Engine/" rel="tag">TRPG Engine</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Tailchat/" rel="tag">Tailchat</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/TexturePacker/" rel="tag">TexturePacker</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Ubuntu-18-04/" rel="tag">Ubuntu 18.04</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Unicode/" rel="tag">Unicode</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Unity/" rel="tag">Unity</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Unreal/" rel="tag">Unreal</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Vue/" rel="tag">Vue</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Webpack/" rel="tag">Webpack</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Weex/" rel="tag">Weex</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/WhiteWord/" rel="tag">WhiteWord</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/adb/" rel="tag">adb</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/android/" rel="tag">android</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/atom/" rel="tag">atom</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/auth/" rel="tag">auth</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/autorelease/" rel="tag">autorelease</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/blender/" rel="tag">blender</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/c/" rel="tag">c++</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/callback/" rel="tag">callback</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/centos7/" rel="tag">centos7</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/cherry-pick/" rel="tag">cherry-pick</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/chrome/" rel="tag">chrome</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/chromium/" rel="tag">chromium</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/cluster/" rel="tag">cluster</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/cocoapods/" rel="tag">cocoapods</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/cocos2dx/" rel="tag">cocos2dx</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/commonjs/" rel="tag">commonjs</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/cookie/" rel="tag">cookie</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/css/" rel="tag">css</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/cycle/" rel="tag">cycle</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/debounce/" rel="tag">debounce</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/devops/" rel="tag">devops</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/docker/" rel="tag">docker</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/docusaurus/" rel="tag">docusaurus</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/docusaurus-v2/" rel="tag">docusaurus v2</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/esmodule/" rel="tag">esmodule</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/extensions/" rel="tag">extensions</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/firefox/" rel="tag">firefox</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/gcc/" rel="tag">gcc</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/git/" rel="tag">git</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/gradient/" rel="tag">gradient</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/gulp/" rel="tag">gulp</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hao360/" rel="tag">hao360</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/http/" rel="tag">http</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/https/" rel="tag">https</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/iOS/" rel="tag">iOS</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ionic/" rel="tag">ionic</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ios/" rel="tag">ios</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/javascript/" rel="tag">javascript</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/js/" rel="tag">js</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/k3s/" rel="tag">k3s</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/k8s/" rel="tag">k8s</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/lambda%E8%A1%A8%E8%BE%BE%E5%BC%8F/" rel="tag">lambda表达式</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/libcocos2d-2013-lib/" rel="tag">libcocos2d_2013.lib</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/lodash/" rel="tag">lodash</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/meta-program/" rel="tag">meta program</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/mini-star/" rel="tag">mini-star</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/nginx/" rel="tag">nginx</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/node/" rel="tag">node</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/node-orm/" rel="tag">node-orm</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/nodejs/" rel="tag">nodejs</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/nox/" rel="tag">nox</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/npm/" rel="tag">npm</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/objective-c/" rel="tag">objective-c</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ohmyzsh/" rel="tag">ohmyzsh</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/pod/" rel="tag">pod</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/pomelo/" rel="tag">pomelo</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/pubg/" rel="tag">pubg</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/python/" rel="tag">python</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/react-virtualized/" rel="tag">react-virtualized</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/requirejs/" rel="tag">requirejs</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/rfc/" rel="tag">rfc</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/safari/" rel="tag">safari</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/sequelizejs/" rel="tag">sequelizejs</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/session/" rel="tag">session</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ssl/" rel="tag">ssl</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/stacking-context/" rel="tag">stacking context</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/sticky/" rel="tag">sticky</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/svg/" rel="tag">svg</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/swarm/" rel="tag">swarm</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/swift/" rel="tag">swift</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/tailwindcss/" rel="tag">tailwindcss</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/throttle/" rel="tag">throttle</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/traefik/" rel="tag">traefik</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/typescript/" rel="tag">typescript</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/unity/" rel="tag">unity</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/upyun/" rel="tag">upyun</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/utf-8/" rel="tag">utf-8</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/vercel/" rel="tag">vercel</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/vim/" rel="tag">vim</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/vmware/" rel="tag">vmware</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/webpack/" rel="tag">webpack</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/webpack-dev-server/" rel="tag">webpack-dev-server</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/webpack-stats-viewer/" rel="tag">webpack-stats-viewer</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/weixin/" rel="tag">weixin</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/wsl/" rel="tag">wsl</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/wsl2/" rel="tag">wsl2</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/z-index/" rel="tag">z-index</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/zustand/" rel="tag">zustand</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E4%BA%A7%E7%A0%94%E6%95%88%E8%83%BD/" rel="tag">产研效能</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E4%BB%A3%E7%A0%81%E4%BB%93%E5%BA%93/" rel="tag">代码仓库</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E4%BB%A3%E7%A0%81%E4%BC%98%E5%8C%96/" rel="tag">代码优化</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%89%8D%E7%AB%AF/" rel="tag">前端</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%90%8E%E5%8F%B0/" rel="tag">后台</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%A3%81%E7%BA%B8/" rel="tag">壁纸</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%AD%97%E8%8A%82%E8%B7%B3%E5%8A%A8/" rel="tag">字节跳动</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" rel="tag">学习笔记</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%AE%88%E6%9C%9B%E5%85%88%E9%94%8B/" rel="tag">守望先锋</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%AE%89%E5%85%A8/" rel="tag">安全</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%B7%A5%E7%A8%8B%E5%8C%96/" rel="tag">工程化</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%B8%B8%E7%94%A8%E6%8A%80%E5%B7%A7/" rel="tag">常用技巧</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%BC%80%E5%8F%91%E7%AC%94%E8%AE%B0/" rel="tag">开发笔记</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%BE%AE%E4%BF%A1/" rel="tag">微信</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%BE%AE%E5%86%85%E6%A0%B8/" rel="tag">微内核</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%BE%AE%E5%89%8D%E7%AB%AF/" rel="tag">微前端</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%BF%AB%E6%8D%B7%E6%96%B9%E5%BC%8F/" rel="tag">快捷方式</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/" rel="tag">性能优化</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%8C%81%E4%B9%85%E5%8C%96%E5%AD%98%E5%82%A8/" rel="tag">持久化存储</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%91%87%E6%A0%91%E4%BC%98%E5%8C%96/" rel="tag">摇树优化</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/" rel="tag">数据库</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%96%87%E6%A1%A3/" rel="tag">文档</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%97%B6%E9%97%B4%E6%A0%BC%E5%BC%8F/" rel="tag">时间格式</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%9C%8D%E5%8A%A1%E5%99%A8/" rel="tag">服务器</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%98/" rel="tag">每日一题</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%B3%A8%E5%86%8C%E8%A1%A8/" rel="tag">注册表</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%B8%B2%E6%9F%93/" rel="tag">渲染</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%B8%B8%E6%88%8F%E5%BC%80%E5%8F%91/" rel="tag">游戏开发</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%BA%90%E7%A0%81%E5%AE%9A%E4%BD%8D/" rel="tag">源码定位</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%BA%90%E7%A0%81%E8%A7%A3%E6%9E%90/" rel="tag">源码解析</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%88%B6%E5%AD%90%E5%85%B3%E7%B3%BB/" rel="tag">父子关系</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%89%88%E6%9C%AC%E5%8F%B7/" rel="tag">版本号</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%8A%B6%E6%80%81%E7%AE%A1%E7%90%86/" rel="tag">状态管理</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%AE%97%E6%B3%95/" rel="tag">算法</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%BD%91%E7%AB%99%E5%8A%AB%E6%8C%81/" rel="tag">网站劫持</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%BD%91%E7%BB%9C/" rel="tag">网络</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%83%A1%E8%A8%80%E4%B9%B1%E8%AF%AD/" rel="tag">胡言乱语</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%93%9D%E5%9B%BE/" rel="tag">蓝图</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%B7%A8%E5%9F%9F/" rel="tag">跨域</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%B7%A8%E5%B9%B3%E5%8F%B0/" rel="tag">跨平台</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%B8%A9%E5%9D%91/" rel="tag">踩坑</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%92%93%E9%B1%BC%E7%BD%91%E7%AB%99/" rel="tag">钓鱼网站</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%97%AD%E5%8C%85/" rel="tag">闭包</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%9B%86%E7%BE%A4/" rel="tag">集群</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%9D%99%E6%80%81%E7%BD%91%E7%AB%99/" rel="tag">静态网站</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%9D%A2%E8%AF%95/" rel="tag">面试</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%A1%B9%E7%9B%AE%E7%AE%A1%E7%90%86/" rel="tag">项目管理</a></li></ul>
+                    </div>
+                </section>
+                
+                
+                
+                <section class="switch-part switch-part3">
+                    <div id="js-friends">
+                    
+                      <a class="main-nav-link switch-friends-link" target="_blank" rel="noopener" href="https://hexo.io">Hexo</a>
+                    
+                      <a class="main-nav-link switch-friends-link" target="_blank" rel="noopener" href="https://pages.github.com/">GitHub</a>
+                    
+                      <a class="main-nav-link switch-friends-link" target="_blank" rel="noopener" href="http://moxfive.xyz/">MOxFIVE</a>
+                    
+                      <a class="main-nav-link switch-friends-link" target="_blank" rel="noopener" href="https://github.com/msgbyte/tailchat">Tailchat</a>
+                    
+                    </div>
+                </section>
+                
+
+                
+                
+                <section class="switch-part switch-part4">
+                
+                    <div id="js-aboutme">一个兴趣使然的程序员 上海,上班族,27岁. 熟练掌握Nodejs, Html5, C Sharp, Unity技术</div>
+                </section>
+                
+            </div>
+        </div>
+    </header>                
+</div>
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+      <div class="overlay">
+          <div class="slider-trigger"></div>
+          <h1 class="header-author js-mobile-header hide"><a href="/" title="回到主页"></a></h1>
+      </div>
+    <div class="intrude-less">
+        <header id="header" class="inner">
+            <a href="/" class="profilepic">
+                <img src="/img/avatar.png" class="animated zoomIn">
+            </a>
+            <hgroup>
+              <h1 class="header-author"><a href="/" title="回到主页"></a></h1>
+            </hgroup>
+            
+            <nav class="header-menu">
+                <ul>
+                
+                    <li><a href="/">主页</a></li>
+                
+                    <li><a href="/archives/">所有文章</a></li>
+                
+                    <li><a href="/show/">作品展示</a></li>
+                
+                    <li><a href="/tags/">标签云</a></li>
+                
+                    <li><a href="/about/">关于我</a></li>
+                
+                <div class="clearfix"></div>
+                </ul>
+            </nav>
+            <nav class="header-nav">
+                        <ul class="social">
+                            
+                                <a class="fa Email" target="_blank" href="mailto:moonrailgun@gmail.com" title="Email"></a>
+                            
+                                <a class="fa GitHub" target="_blank" href="https://github.com/moonrailgun" title="GitHub"></a>
+                            
+                                <a class="fa RSS" target="_blank" href="/atom.xml" title="RSS"></a>
+                            
+                        </ul>
+            </nav>
+        </header>                
+    </div>
+    <link class="menu-list" tags="标签" friends="友情链接" about="关于我"/>
+</nav>
+      <div class="body-wrap"><article id="post-前端编写全栈应用技术选型——rn、weex、apicloud到底选哪个" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/posts/481f2de4/" class="article-date">
+      <time datetime="2017-10-24T06:20:47.000Z" itemprop="datePublished">2017-10-24</time>
+</a>
+
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      前端编写全栈应用技术选型——rn、weex、apicloud到底选哪个
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+
+        
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Apicloud/" rel="tag">Apicloud</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ReactNative/" rel="tag">ReactNative</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Weex/" rel="tag">Weex</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/js/" rel="tag">js</a></li></ul>
+    </div>
+
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>本文主要是经过部分调研，几种技术栈的初步调研与入门使用。以及部分网络资料的整理下得出的带有一部分主观判断的结论，并因互联网发展迅速的关系可能会有一定的时效性，因此在阅读本文的时候请读者酌情根据当前情况进行自己的思考与结论。</p>
+<h2 id="关于Apicloud"><a href="#关于Apicloud" class="headerlink" title="关于Apicloud"></a>关于Apicloud</h2><p><a target="_blank" rel="noopener" href="http://www.apicloud.com/">apicloud</a>是国内一家闭源的html5移动端app解决方案提供商。用纯html的方式生成页面并通过原生注入jsbridge来与js进行交互。处理原生事件与页面切换。对于开发人员来说，是纯html+一个api事件。无需接触到任何底层，并如果有特殊需求可以自行开发原生应用模块来进行拓展。<br>因为闭源的关系，国内社区并不是很火。因此名气不是很大。<br>类似产品有<a target="_blank" rel="noopener" href="http://www.appcan.cn/">AppCan</a>、<a target="_blank" rel="noopener" href="http://www.dcloud.io/">Dcloud</a>、<a target="_blank" rel="noopener" href="http://www.wex5.com/wex5/">WeX5</a></p>
+<h2 id="技术比较"><a href="#技术比较" class="headerlink" title="技术比较"></a>技术比较</h2><p>首先是一个对比表来区别几种技术栈。</p>
+<table>
+<thead>
+<tr>
+<th align="center">技术特点</th>
+<th align="center">Native</th>
+<th align="center">ReactNative</th>
+<th align="center">Weex</th>
+<th align="center">Apicloud</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">学习成本</td>
+<td align="center">高</td>
+<td align="center">中</td>
+<td align="center">中</td>
+<td align="center"><strong>低</strong></td>
+</tr>
+<tr>
+<td align="center">开发成本</td>
+<td align="center">高</td>
+<td align="center">中</td>
+<td align="center"><strong>低</strong></td>
+<td align="center"><strong>低</strong></td>
+</tr>
+<tr>
+<td align="center">调试难度</td>
+<td align="center">难</td>
+<td align="center">难</td>
+<td align="center"><strong>简单</strong></td>
+<td align="center">中</td>
+</tr>
+<tr>
+<td align="center">控制台输出</td>
+<td align="center"><strong>支持</strong></td>
+<td align="center"><strong>支持</strong></td>
+<td align="center"><strong>支持</strong></td>
+<td align="center">不支持</td>
+</tr>
+<tr>
+<td align="center">断点调试</td>
+<td align="center"><strong>支持</strong></td>
+<td align="center"><strong>支持</strong></td>
+<td align="center"><strong>支持</strong></td>
+<td align="center">不支持</td>
+</tr>
+<tr>
+<td align="center">开发工具</td>
+<td align="center"><strong>官方提供IDE</strong></td>
+<td align="center">官方提供终端</td>
+<td align="center">官方提供终端</td>
+<td align="center"><strong>官方提供IDE</strong></td>
+</tr>
+<tr>
+<td align="center">模拟器/真机</td>
+<td align="center">必须</td>
+<td align="center">必须</td>
+<td align="center"><strong>非必须</strong></td>
+<td align="center">必须</td>
+</tr>
+<tr>
+<td align="center">开发硬件需求(ios)</td>
+<td align="center">Mac</td>
+<td align="center">Mac</td>
+<td align="center"><strong>无</strong></td>
+<td align="center"><strong>无</strong></td>
+</tr>
+<tr>
+<td align="center">应用硬件需求(ios)</td>
+<td align="center"><strong>All</strong></td>
+<td align="center">Android 4.1 (API 16), iOS 8.0+</td>
+<td align="center">Android 4.1 (API 16), iOS 8.0+ and WebKit 534.30+</td>
+<td align="center"><em>(未找到)</em></td>
+</tr>
+<tr>
+<td align="center">可拓展性</td>
+<td align="center"><strong>高</strong></td>
+<td align="center">中</td>
+<td align="center">中</td>
+<td align="center">低</td>
+</tr>
+<tr>
+<td align="center">优化难度</td>
+<td align="center"><strong>低</strong></td>
+<td align="center">中</td>
+<td align="center">中</td>
+<td align="center">高</td>
+</tr>
+<tr>
+<td align="center">渲染流畅</td>
+<td align="center"><strong>高</strong></td>
+<td align="center"><strong>高</strong></td>
+<td align="center"><strong>高</strong></td>
+<td align="center">中</td>
+</tr>
+<tr>
+<td align="center">渲染方式</td>
+<td align="center"><strong>原生图形库</strong></td>
+<td align="center">Virtual DOM</td>
+<td align="center">Virtual DOM</td>
+<td align="center">Webview</td>
+</tr>
+<tr>
+<td align="center">布局方式</td>
+<td align="center">XML</td>
+<td align="center">React</td>
+<td align="center">Vue</td>
+<td align="center"><strong>Html</strong></td>
+</tr>
+<tr>
+<td align="center">样式写法</td>
+<td align="center">属性</td>
+<td align="center">基于css的对象</td>
+<td align="center">阉割版css</td>
+<td align="center"><strong>原生css</strong></td>
+</tr>
+<tr>
+<td align="center">代码结构</td>
+<td align="center"><strong>基于类</strong></td>
+<td align="center"><strong>基于类</strong></td>
+<td align="center"><strong>基于类</strong></td>
+<td align="center">基于Page</td>
+</tr>
+<tr>
+<td align="center">代码架构</td>
+<td align="center">MVC</td>
+<td align="center"><strong>MVVM</strong></td>
+<td align="center"><strong>MVVM</strong></td>
+<td align="center">无</td>
+</tr>
+<tr>
+<td align="center">技术栈</td>
+<td align="center">JAVA+Android SDK;<br>OC/Swift + cocoa</td>
+<td align="center">React+ReactNative</td>
+<td align="center">Vue+Weex</td>
+<td align="center"><strong>Html+Apicloud api</strong></td>
+</tr>
+<tr>
+<td align="center">社区活跃度</td>
+<td align="center"><strong>活跃</strong></td>
+<td align="center"><strong>活跃</strong></td>
+<td align="center">一般</td>
+<td align="center">不活跃</td>
+</tr>
+<tr>
+<td align="center">开源闭源</td>
+<td align="center">开源(安卓,核心代码闭源);<br>闭源(ios)</td>
+<td align="center">开源</td>
+<td align="center">开源</td>
+<td align="center">闭源</td>
+</tr>
+<tr>
+<td align="center">开源协议</td>
+<td align="center">Apache(安卓)</td>
+<td align="center"><a target="_blank" rel="noopener" href="https://github.com/facebook/react-native/blob/master/LICENSE">BSD</a></td>
+<td align="center"><a target="_blank" rel="noopener" href="https://github.com/apache/incubator-weex/blob/master/LICENSE">Apache</a></td>
+<td align="center">/</td>
+</tr>
+<tr>
+<td align="center">支持公司</td>
+<td align="center"><strong>谷歌苹果</strong></td>
+<td align="center"><strong>Facebook</strong></td>
+<td align="center"><strong>阿里巴巴</strong></td>
+<td align="center">活了3年的小公司</td>
+</tr>
+<tr>
+<td align="center">坑量</td>
+<td align="center"><strong>少</strong></td>
+<td align="center">多</td>
+<td align="center">多</td>
+<td align="center"><strong>少</strong></td>
+</tr>
+<tr>
+<td align="center">遇坑概率</td>
+<td align="center"><strong>小</strong></td>
+<td align="center">大</td>
+<td align="center">大</td>
+<td align="center"><strong>小</strong></td>
+</tr>
+<tr>
+<td align="center">专业著作</td>
+<td align="center">《Android从入门到翻墙》;<br>《IOS从买Mac到装Windows》</td>
+<td align="center">《ReactNative从入坑到弃坑》</td>
+<td align="center">《Weex从信任到骂KPI》</td>
+<td align="center">无</td>
+</tr>
+</tbody></table>
+<p>以上大概是我个人总结出来的各个技术栈的区别。</p>
+<h2 id="关于KPI"><a href="#关于KPI" class="headerlink" title="关于KPI"></a>关于KPI</h2><p>为什么要在这里提一下KPI呢。就不得不说一说阿里传统。阿里的工资水平是基于 <em>关键绩效指标</em> 来进行升迁评估。因此为了个人、小组的工资待遇，必须要给上级做出点成绩来。也就是说要考虑到阿里的项目是不是基于这个原则来开源的项目。<br>(PS: 据网络流传阿里内部自己都不用weex)<br>这就是为什么业内普遍对weex很冷淡，而weex本身也没有花太多力气去推广。</p>
+<h2 id="关于技术选择"><a href="#关于技术选择" class="headerlink" title="关于技术选择"></a>关于技术选择</h2><p>为什么说是技术选择呢？因为技术不是产品，技术是一种创新的态度。产品，要求的是稳，快。而技术，要的是新。如果是考虑技术的话。我会选择ReactNative 或者 Weex。这两者都是基于现代前端的MVVM架构诞生的以HTML技术编写原生应用的产品。它们不是用的手机端的html解释器与渲染引擎，而是以标签与嵌套描述原生组件的技术。因此它们的渲染效率可以直追原生应用。<br>但是，它们尚不是一个很成熟的技术，不像原生技术有多年沉淀，不像html有厚重的历史。它们作为前端最前沿的技术（应当还要算上<code>NativeScript</code>），它们还比较年轻，换种说法就是坑比较多。在网上找找，大部分文章都是ReactNative踩坑大全、Weex踩过的坑。不可否认它们能够做出比较成熟，渲染效率也不错的APP应用。但是如果是作为一个产品的话，我们不得不计算上使用这个技术所需要花费的时间成本。</p>
+<h2 id="关于产品选择"><a href="#关于产品选择" class="headerlink" title="关于产品选择"></a>关于产品选择</h2><p>如果只是为了实现一个产品的话。那么我推荐使用<code>Apicloud</code>等以html渲染方式的技术。其内核是<code>cordova</code>，前身是<code>phonegap</code>，也是前段跨平台编写原生应用的老前辈了。技术也是已经达到了一个相对成熟的地步。因为野心不大，所以坑少。牺牲一部分不明显的渲染效率来换取稳定且成熟的实现方式，我认为是一种很明智的选择。举个最简单例子。一个页面，原生渲染需要消耗10ms,而cordova需要消耗50ms。其中渲染效率相差整整5倍，然而实际上用户并不能感受到这之间明显的差别。当然如果是需要比较复杂的动画效果的话，这个问题可能会被放大。(人眼辨别连续运动的物体只需要每秒24帧，但是却可以很明显的感觉到每秒60帧与每秒30帧的区别)<br>其问题还在于，对于喜欢折腾的技术人员来说，使用旧技术去做产品是一件很无趣的事情。如果是我自己的项目，我绝对不会去使用该类技术。因为真的很无聊。</p>
+<h2 id="代码风格"><a href="#代码风格" class="headerlink" title="代码风格"></a>代码风格</h2><p>代码风格很重要，因为很明显的可以影响程序员的编写效率。一个好的框架可以极大程度上改变工作的进度。<br>这里截取一部分代码，来感受下各个技术栈之间的差异。  </p>
+<p>React: <a target="_blank" rel="noopener" href="https://github.com/fbsamples/f8app">F8App</a></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> React = <span class="built_in">require</span>(<span class="string">&#x27;React&#x27;</span>);</span><br><span class="line"><span class="keyword">var</span> AppState = <span class="built_in">require</span>(<span class="string">&#x27;AppState&#x27;</span>);</span><br><span class="line"><span class="keyword">var</span> LoginScreen = <span class="built_in">require</span>(<span class="string">&#x27;./login/LoginScreen&#x27;</span>);</span><br><span class="line"><span class="keyword">var</span> PushNotificationsController = <span class="built_in">require</span>(<span class="string">&#x27;./PushNotificationsController&#x27;</span>);</span><br><span class="line"><span class="keyword">var</span> StyleSheet = <span class="built_in">require</span>(<span class="string">&#x27;StyleSheet&#x27;</span>);</span><br><span class="line"><span class="keyword">var</span> F8Navigator = <span class="built_in">require</span>(<span class="string">&#x27;F8Navigator&#x27;</span>);</span><br><span class="line"><span class="keyword">var</span> CodePush = <span class="built_in">require</span>(<span class="string">&#x27;react-native-code-push&#x27;</span>);</span><br><span class="line"><span class="keyword">var</span> View = <span class="built_in">require</span>(<span class="string">&#x27;View&#x27;</span>);</span><br><span class="line"><span class="keyword">var</span> StatusBar = <span class="built_in">require</span>(<span class="string">&#x27;StatusBar&#x27;</span>);</span><br><span class="line"><span class="keyword">var</span> &#123;</span><br><span class="line">  loadConfig,</span><br><span class="line">  loadMaps,</span><br><span class="line">  loadNotifications,</span><br><span class="line">  loadSessions,</span><br><span class="line">  loadFriendsSchedules,</span><br><span class="line">  loadSurveys,</span><br><span class="line">&#125; = <span class="built_in">require</span>(<span class="string">&#x27;./actions&#x27;</span>);</span><br><span class="line"><span class="keyword">var</span> &#123; updateInstallation &#125; = <span class="built_in">require</span>(<span class="string">&#x27;./actions/installation&#x27;</span>);</span><br><span class="line"><span class="keyword">var</span> &#123; connect &#125; = <span class="built_in">require</span>(<span class="string">&#x27;react-redux&#x27;</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> &#123; version &#125; = <span class="built_in">require</span>(<span class="string">&#x27;./env.js&#x27;</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> F8App = React.createClass(&#123;</span><br><span class="line">  componentDidMount: <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    AppState.addEventListener(<span class="string">&#x27;change&#x27;</span>, <span class="built_in">this</span>.handleAppStateChange);</span><br><span class="line"></span><br><span class="line">    <span class="comment">// <span class="doctag">TODO:</span> Make this list smaller, we basically download the whole internet</span></span><br><span class="line">    <span class="built_in">this</span>.props.dispatch(loadNotifications());</span><br><span class="line">    <span class="built_in">this</span>.props.dispatch(loadMaps());</span><br><span class="line">    <span class="built_in">this</span>.props.dispatch(loadConfig());</span><br><span class="line">    <span class="built_in">this</span>.props.dispatch(loadSessions());</span><br><span class="line">    <span class="built_in">this</span>.props.dispatch(loadFriendsSchedules());</span><br><span class="line">    <span class="built_in">this</span>.props.dispatch(loadSurveys());</span><br><span class="line"></span><br><span class="line">    updateInstallation(&#123;version&#125;);</span><br><span class="line">    CodePush.sync(&#123;<span class="attr">installMode</span>: CodePush.InstallMode.ON_NEXT_RESUME&#125;);</span><br><span class="line">  &#125;,</span><br><span class="line"></span><br><span class="line">  componentWillUnmount: <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    AppState.removeEventListener(<span class="string">&#x27;change&#x27;</span>, <span class="built_in">this</span>.handleAppStateChange);</span><br><span class="line">  &#125;,</span><br><span class="line"></span><br><span class="line">  handleAppStateChange: <span class="function"><span class="keyword">function</span>(<span class="params">appState</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (appState === <span class="string">&#x27;active&#x27;</span>) &#123;</span><br><span class="line">      <span class="built_in">this</span>.props.dispatch(loadSessions());</span><br><span class="line">      <span class="built_in">this</span>.props.dispatch(loadNotifications());</span><br><span class="line">      <span class="built_in">this</span>.props.dispatch(loadSurveys());</span><br><span class="line">      CodePush.sync(&#123;<span class="attr">installMode</span>: CodePush.InstallMode.ON_NEXT_RESUME&#125;);</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;,</span><br><span class="line"></span><br><span class="line">  render: <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (!<span class="built_in">this</span>.props.isLoggedIn) &#123;</span><br><span class="line">      <span class="keyword">return</span> <span class="xml"><span class="tag">&lt;<span class="name">LoginScreen</span> /&gt;</span></span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> (</span><br><span class="line">      &lt;View style=&#123;styles.container&#125;&gt;</span><br><span class="line">        &lt;StatusBar</span><br><span class="line">          translucent=&#123;<span class="literal">true</span>&#125;</span><br><span class="line">          backgroundColor=<span class="string">&quot;rgba(0, 0, 0, 0.2)&quot;</span></span><br><span class="line">          barStyle=<span class="string">&quot;light-content&quot;</span></span><br><span class="line">         /&gt;</span><br><span class="line">        &lt;F8Navigator /&gt;</span><br><span class="line">        &lt;PushNotificationsController /&gt;</span><br><span class="line">      &lt;/View&gt;</span><br><span class="line">    );</span><br><span class="line">  &#125;,</span><br><span class="line"></span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> styles = StyleSheet.create(&#123;</span><br><span class="line">  container: &#123;</span><br><span class="line">    flex: <span class="number">1</span>,</span><br><span class="line">  &#125;,</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">select</span>(<span class="params">store</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> &#123;</span><br><span class="line">    isLoggedIn: store.user.isLoggedIn || store.user.hasSkippedLogin,</span><br><span class="line">  &#125;;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="built_in">module</span>.exports = connect(select)(F8App);</span><br></pre></td></tr></table></figure>
+
+<p>React 应用是基于组件(或者说类)，其特点是不直接接触html代码，而是返回一个虚拟dom，根据虚拟dom来修改前端显示。其所有的组件(包括根容器)都是基于<code>React.Component</code>这个类进行实现的，开发者要做的都是复写他的方法(主要是<code>render</code>方法)</p>
+<hr>
+<p>Weex: <a target="_blank" rel="noopener" href="https://github.com/zwwill/yanxuan-weex-demo">yanxuan-weex-demo</a></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br></pre></td><td class="code"><pre><span class="line">&lt;template&gt;</span><br><span class="line">    &lt;div <span class="class"><span class="keyword">class</span></span>=<span class="string">&quot;wrapper&quot;</span>&gt;</span><br><span class="line">        &lt;text <span class="class"><span class="keyword">class</span></span>=<span class="string">&quot;tlt iconfont&quot;</span>&gt;&#123;&#123;title&#125;&#125; &amp;#xe74b;&lt;/text&gt;</span><br><span class="line">        &lt;div <span class="class"><span class="keyword">class</span></span>=<span class="string">&quot;box&quot;</span>&gt;</span><br><span class="line">            &lt;div <span class="class"><span class="keyword">class</span></span>=<span class="string">&quot;box-item&quot;</span> v-<span class="keyword">for</span>=<span class="string">&quot;i in items&quot;</span> @click=<span class="string">&quot;jumpWeb(i.url)&quot;</span>&gt;</span><br><span class="line">                &lt;image <span class="class"><span class="keyword">class</span></span>=<span class="string">&quot;i-image&quot;</span> resize=<span class="string">&quot;cover&quot;</span> :src=<span class="string">&quot;i.bg&quot;</span>&gt;&lt;/image&gt;</span><br><span class="line">                &lt;text <span class="class"><span class="keyword">class</span></span>=<span class="string">&quot;i-name&quot;</span>&gt;&#123;&#123;i.name&#125;&#125;&lt;/text&gt;</span><br><span class="line">                &lt;div <span class="class"><span class="keyword">class</span></span>=<span class="string">&quot;i-price&quot;</span>&gt;<span class="xml"><span class="tag">&lt;<span class="name">text</span> <span class="attr">class</span>=<span class="string">&quot;i-price-n&quot;</span>&gt;</span>&#123;&#123;i.price&#125;&#125;<span class="tag">&lt;/<span class="name">text</span>&gt;</span></span><span class="xml"><span class="tag">&lt;<span class="name">text</span> <span class="attr">class</span>=<span class="string">&quot;i-price-t&quot;</span>&gt;</span>元起<span class="tag">&lt;/<span class="name">text</span>&gt;</span></span>&lt;/div&gt;</span><br><span class="line">                &lt;text <span class="class"><span class="keyword">class</span></span>=<span class="string">&quot;i-state&quot;</span> v-<span class="keyword">if</span>=<span class="string">&quot;i.state&quot;</span>&gt;&#123;&#123;i.state&#125;&#125;&lt;/text&gt;</span><br><span class="line">            &lt;/div&gt;</span><br><span class="line">        &lt;/div&gt;</span><br><span class="line">    &lt;/div&gt;</span><br><span class="line">&lt;/template&gt;</span><br><span class="line">&lt;style scoped&gt;</span><br><span class="line">    .iconfont &#123;</span><br><span class="line">        font-family:iconfont;</span><br><span class="line">    &#125;</span><br><span class="line">    .wrapper&#123;</span><br><span class="line">        background-color: #fff;</span><br><span class="line">        padding-bottom: 6px;</span><br><span class="line">    &#125;</span><br><span class="line">    .tlt&#123;</span><br><span class="line">        text-align: center;</span><br><span class="line">        font-size: 30px;</span><br><span class="line">        margin-top: 30px;</span><br><span class="line">        margin-bottom: 26px;</span><br><span class="line">        color:#333;</span><br><span class="line">    &#125;</span><br><span class="line">    .box&#123;</span><br><span class="line">        display: flex;</span><br><span class="line">        flex-direction: row;</span><br><span class="line">        flex-wrap: wrap;</span><br><span class="line">        justify-content: center;</span><br><span class="line">        width: 750px;</span><br><span class="line">    &#125;</span><br><span class="line">    .box-item&#123;</span><br><span class="line">        width: 350px;</span><br><span class="line">        height: 226px;</span><br><span class="line">        margin: 5px;</span><br><span class="line">        padding: 20px;</span><br><span class="line">        background-color: #efefef;</span><br><span class="line">    &#125;</span><br><span class="line">    .i-name&#123;</span><br><span class="line">        position: relative;</span><br><span class="line">        color:#333;</span><br><span class="line">        font-size: 28px;</span><br><span class="line">        width: 300px;</span><br><span class="line">    &#125;</span><br><span class="line">    .i-price&#123;</span><br><span class="line">        position: relative;</span><br><span class="line">        margin-top: 10px;</span><br><span class="line">        display: flex;</span><br><span class="line">        flex-direction: row;</span><br><span class="line">    &#125;</span><br><span class="line">    .i-price-n&#123;</span><br><span class="line">        color:#333;</span><br><span class="line">        font-size: 36px;</span><br><span class="line">    &#125;</span><br><span class="line">    .i-price-t&#123;</span><br><span class="line">        color:#333;</span><br><span class="line">        font-size: 24px;</span><br><span class="line">        margin-top: 12px;</span><br><span class="line">    &#125;</span><br><span class="line">    .i-state&#123;</span><br><span class="line">        position: relative;</span><br><span class="line">        font-size: 20px;</span><br><span class="line">        color:#b8a989;</span><br><span class="line">        width: 70px;</span><br><span class="line">        margin-top: 10px;</span><br><span class="line">        padding: 5px;</span><br><span class="line">        line-height: 20px;</span><br><span class="line">        text-align: center;</span><br><span class="line">        border-width: 1px;</span><br><span class="line">        border-color: #b8a989;</span><br><span class="line">        border-radius: 4px;</span><br><span class="line">    &#125;</span><br><span class="line">    .i-image&#123;</span><br><span class="line">        position: absolute;</span><br><span class="line">        top:<span class="number">0</span>;</span><br><span class="line">        left: <span class="number">0</span>;</span><br><span class="line">        width: 350px;</span><br><span class="line">        height: 226px;</span><br><span class="line">    &#125;</span><br><span class="line">&lt;/style&gt;</span><br><span class="line">&lt;script&gt;</span><br><span class="line">    <span class="keyword">var</span> navigator = weex.requireModule(<span class="string">&#x27;navigator&#x27;</span>)</span><br><span class="line">    <span class="keyword">import</span> util <span class="keyword">from</span> <span class="string">&#x27;../../src/assets/util&#x27;</span>;</span><br><span class="line">    <span class="keyword">export</span> <span class="keyword">default</span> &#123;</span><br><span class="line">        props:[<span class="string">&quot;title&quot;</span>,<span class="string">&quot;items&quot;</span>],</span><br><span class="line">        data () &#123;</span><br><span class="line">            <span class="keyword">return</span> &#123;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;,</span><br><span class="line">        methods: &#123;</span><br><span class="line">            jumpWeb (_url) &#123;</span><br><span class="line">                <span class="keyword">if</span>(!_url) <span class="keyword">return</span>;</span><br><span class="line">                <span class="keyword">const</span> url = <span class="built_in">this</span>.$getConfig().bundleUrl;</span><br><span class="line">                navigator.push(&#123;</span><br><span class="line">                    url: util.setBundleUrl(url, <span class="string">&#x27;page/web.js?weburl=&#x27;</span>+_url) ,</span><br><span class="line">                    animated: <span class="string">&quot;true&quot;</span></span><br><span class="line">                &#125;);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure>
+
+<p>Weex2.x 是基于Vue作为前端驱动。一个vue文件是由<code>template</code>, <code>script</code>, <code>style</code>三个标签组成的。相比<code>React</code>更加趋近与网页端的写法。最后返回给解释器一个大对象，来对dom进行操作。当然我个人是不喜欢这种返回一个大对象的方式的。曾经也有一个类似操作一个大对象的前端工具叫<code>grunt</code>，然后被<code>gulp</code>取代了。。。</p>
+<hr>
+<p>Apicloud: <a target="_blank" rel="noopener" href="https://github.com/moonrailgun/Answer">Answer</a></p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br><span class="line">164</span><br><span class="line">165</span><br><span class="line">166</span><br><span class="line">167</span><br><span class="line">168</span><br><span class="line">169</span><br><span class="line">170</span><br><span class="line">171</span><br><span class="line">172</span><br><span class="line">173</span><br><span class="line">174</span><br><span class="line">175</span><br><span class="line">176</span><br><span class="line">177</span><br><span class="line">178</span><br><span class="line">179</span><br><span class="line">180</span><br><span class="line">181</span><br><span class="line">182</span><br><span class="line">183</span><br><span class="line">184</span><br><span class="line">185</span><br><span class="line">186</span><br><span class="line">187</span><br><span class="line">188</span><br><span class="line">189</span><br><span class="line">190</span><br><span class="line">191</span><br><span class="line">192</span><br><span class="line">193</span><br><span class="line">194</span><br><span class="line">195</span><br><span class="line">196</span><br><span class="line">197</span><br><span class="line">198</span><br><span class="line">199</span><br><span class="line">200</span><br><span class="line">201</span><br><span class="line">202</span><br><span class="line">203</span><br><span class="line">204</span><br><span class="line">205</span><br><span class="line">206</span><br><span class="line">207</span><br><span class="line">208</span><br><span class="line">209</span><br><span class="line">210</span><br><span class="line">211</span><br><span class="line">212</span><br><span class="line">213</span><br><span class="line">214</span><br><span class="line">215</span><br><span class="line">216</span><br><span class="line">217</span><br><span class="line">218</span><br><span class="line">219</span><br><span class="line">220</span><br><span class="line">221</span><br><span class="line">222</span><br><span class="line">223</span><br><span class="line">224</span><br><span class="line">225</span><br><span class="line">226</span><br><span class="line">227</span><br><span class="line">228</span><br><span class="line">229</span><br><span class="line">230</span><br><span class="line">231</span><br><span class="line">232</span><br><span class="line">233</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;!doctype <span class="meta-keyword">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">&quot;UTF-8&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">&quot;viewport&quot;</span></span></span><br><span class="line"><span class="tag">          <span class="attr">content</span>=<span class="string">&quot;maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0&quot;</span>/&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">&quot;format-detection&quot;</span> <span class="attr">content</span>=<span class="string">&quot;telephone=no,email=no,date=no,address=no&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">title</span>&gt;</span><span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">link</span> <span class="attr">rel</span>=<span class="string">&quot;stylesheet&quot;</span> <span class="attr">type</span>=<span class="string">&quot;text/css&quot;</span> <span class="attr">href</span>=<span class="string">&quot;../../css/api.css&quot;</span>/&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">link</span> <span class="attr">rel</span>=<span class="string">&quot;stylesheet&quot;</span> <span class="attr">type</span>=<span class="string">&quot;text/css&quot;</span> <span class="attr">href</span>=<span class="string">&quot;../../css/aui.css&quot;</span>/&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">style</span>&gt;</span></span><br><span class="line"><span class="css">        <span class="selector-id">#userHeader</span> &#123;</span></span><br><span class="line">            text-align: center;</span><br><span class="line">            padding: 10px 0;</span><br><span class="line"><span class="css">            <span class="selector-tag">background-color</span>: <span class="selector-id">#FFFFFF</span>;</span></span><br><span class="line">            margin-bottom: 10px;</span><br><span class="line">        &#125;</span><br><span class="line"><span class="css">        <span class="selector-id">#userHeader</span> <span class="selector-tag">img</span> &#123;</span></span><br><span class="line">            border-radius: 100%;</span><br><span class="line">            width: 120px;</span><br><span class="line">            height: 120px;</span><br><span class="line">        &#125;</span><br><span class="line"><span class="css">        <span class="selector-id">#userHeader</span> <span class="selector-tag">h1</span> &#123;</span></span><br><span class="line">            font-size: 20px;</span><br><span class="line">        &#125;</span><br><span class="line"><span class="css">        <span class="selector-id">#userButton</span> &#123;</span></span><br><span class="line">            display: -webkit-box;</span><br><span class="line">            padding-bottom: 10px;</span><br><span class="line">        &#125;</span><br><span class="line"><span class="css">        <span class="selector-id">#userButton</span> <span class="selector-class">.aui-col-xs-6</span> &#123;</span></span><br><span class="line">            padding: 0 6px;</span><br><span class="line">        &#125;</span><br><span class="line"><span class="css">        <span class="selector-id">#userButton</span> <span class="selector-class">.aui-col-xs-6</span> <span class="selector-class">.aui-btn</span> &#123;</span></span><br><span class="line">            width: 100%;</span><br><span class="line">            line-height: 26px;</span><br><span class="line">        &#125;</span><br><span class="line"><span class="css">        <span class="selector-id">#userInfo</span> &#123;</span></span><br><span class="line"><span class="css">            <span class="selector-tag">background-color</span>: <span class="selector-id">#FFFFFF</span>;</span></span><br><span class="line">            padding: 0 12px;</span><br><span class="line">            margin-bottom: 10px;</span><br><span class="line">        &#125;</span><br><span class="line"><span class="css">        <span class="selector-id">#userInfo</span> <span class="selector-tag">li</span> &#123;</span></span><br><span class="line"><span class="css">            <span class="selector-tag">border-bottom</span>: 1<span class="selector-tag">px</span> <span class="selector-tag">solid</span> <span class="selector-id">#e3e3e3</span>;</span></span><br><span class="line">            line-height: 56px;</span><br><span class="line">        &#125;</span><br><span class="line"><span class="css">        <span class="selector-id">#userInfo</span> <span class="selector-tag">li</span><span class="selector-pseudo">:last-child</span> &#123;</span></span><br><span class="line">            border-bottom: 0;</span><br><span class="line">        &#125;</span><br><span class="line"><span class="css">        <span class="selector-id">#userInfo</span> <span class="selector-tag">li</span> <span class="selector-tag">div</span> &#123;</span></span><br><span class="line">            display: inline-block;</span><br><span class="line">            margin-right: 15px;</span><br><span class="line"><span class="css">            <span class="selector-tag">color</span>: <span class="selector-id">#8f8f94</span>;</span></span><br><span class="line">        &#125;</span><br><span class="line">    <span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;aui-content&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">&quot;userHeader&quot;</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">img</span> <span class="attr">id</span>=<span class="string">&quot;info-head&quot;</span> <span class="attr">src</span>=<span class="string">&quot;../../image/default_head.jpg&quot;</span>/&gt;</span></span><br><span class="line"></span><br><span class="line">        <span class="tag">&lt;<span class="name">h1</span> <span class="attr">id</span>=<span class="string">&quot;info-name&quot;</span>&gt;</span><span class="symbol">&amp;nbsp;</span><span class="tag">&lt;/<span class="name">h1</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">ul</span> <span class="attr">id</span>=<span class="string">&quot;userInfo&quot;</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">li</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">div</span>&gt;</span>性别<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">span</span> <span class="attr">id</span>=<span class="string">&quot;info-sex&quot;</span>&gt;</span><span class="symbol">&amp;nbsp;</span><span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">li</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">div</span>&gt;</span>学校<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">span</span> <span class="attr">id</span>=<span class="string">&quot;info-school&quot;</span>&gt;</span><span class="symbol">&amp;nbsp;</span><span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">li</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">div</span>&gt;</span>身份<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">span</span> <span class="attr">id</span>=<span class="string">&quot;info-role&quot;</span>&gt;</span><span class="symbol">&amp;nbsp;</span><span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">li</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">div</span>&gt;</span>简介<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">span</span> <span class="attr">id</span>=<span class="string">&quot;info-intro&quot;</span>&gt;</span><span class="symbol">&amp;nbsp;</span><span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">        <span class="comment">&lt;!--&lt;li&gt;--&gt;</span></span><br><span class="line">            <span class="comment">&lt;!--&lt;div&gt;话题&lt;/div&gt;--&gt;</span></span><br><span class="line">            <span class="comment">&lt;!--&lt;span id=&quot;info-topic-num&quot;&gt;&amp;nbsp;&lt;/span&gt;--&gt;</span></span><br><span class="line">        <span class="comment">&lt;!--&lt;/li&gt;--&gt;</span></span><br><span class="line">        <span class="comment">&lt;!--&lt;li&gt;--&gt;</span></span><br><span class="line">            <span class="comment">&lt;!--&lt;div&gt;回复&lt;/div&gt;--&gt;</span></span><br><span class="line">            <span class="comment">&lt;!--&lt;span id=&quot;info-reply-num&quot;&gt;&amp;nbsp;&lt;/span&gt;--&gt;</span></span><br><span class="line">        <span class="comment">&lt;!--&lt;/li&gt;--&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">ul</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">&quot;userButton&quot;</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;aui-col-xs-6&quot;</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;aui-btn aui-btn-default&quot;</span> <span class="attr">onclick</span>=<span class="string">&quot;AddFriend();&quot;</span>&gt;</span>关注<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;aui-col-xs-6&quot;</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;aui-btn aui-btn-danger&quot;</span> <span class="attr">onclick</span>=<span class="string">&quot;SendMessage();&quot;</span>&gt;</span>发消息<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">&quot;text/javascript&quot;</span> <span class="attr">src</span>=<span class="string">&quot;../../script/api.js&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">&quot;text/javascript&quot;</span>&gt;</span></span><br><span class="line"><span class="javascript">    <span class="keyword">var</span> userId;</span></span><br><span class="line"><span class="javascript">    <span class="keyword">var</span> userName, headImgUrl;</span></span><br><span class="line"><span class="javascript">    <span class="keyword">var</span> defaultHeadImg = <span class="string">&#x27;../../image/default_head.jpg&#x27;</span>;</span></span><br><span class="line"><span class="javascript">    apiready = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span></span><br><span class="line"><span class="javascript">        $api.fixStatusBar($api.dom(<span class="string">&#x27;header&#x27;</span>));</span></span><br><span class="line"><span class="javascript">        <span class="keyword">var</span> pageParam = api.pageParam;</span></span><br><span class="line">        userId = pageParam.userId;</span><br><span class="line">        UpdateUserInfo(userId);</span><br><span class="line">    &#125;;</span><br><span class="line"><span class="javascript">    <span class="function"><span class="keyword">function</span> <span class="title">UpdateUserInfo</span>(<span class="params">userId</span>) </span>&#123;</span></span><br><span class="line"><span class="javascript">        <span class="keyword">if</span>(!!userId)&#123;</span></span><br><span class="line"><span class="javascript">            <span class="keyword">var</span> model = api.require(<span class="string">&#x27;model&#x27;</span>);</span></span><br><span class="line"><span class="javascript">            <span class="keyword">var</span> query = api.require(<span class="string">&#x27;query&#x27;</span>);</span></span><br><span class="line"><span class="javascript">            query.createQuery(<span class="function"><span class="keyword">function</span> (<span class="params">ret, err</span>) </span>&#123;</span></span><br><span class="line"><span class="javascript">                <span class="keyword">if</span> (ret &amp;&amp; ret.qid) &#123;</span></span><br><span class="line"><span class="javascript">                    <span class="keyword">var</span> queryId = ret.qid;</span></span><br><span class="line"><span class="javascript">                    query.whereEqual(&#123;<span class="attr">qid</span>: ret.qid, <span class="attr">column</span>: <span class="string">&#x27;id&#x27;</span>, <span class="attr">value</span>: userId&#125;);</span></span><br><span class="line"><span class="javascript">                    query.include(&#123;<span class="attr">qid</span>: ret.qid, <span class="attr">column</span>: <span class="string">&#x27;profile&#x27;</span>&#125;);</span></span><br><span class="line">                    model.findAll(&#123;</span><br><span class="line">                        class: &quot;user&quot;,</span><br><span class="line">                        qid: queryId</span><br><span class="line"><span class="javascript">                    &#125;, <span class="function"><span class="keyword">function</span> (<span class="params">ret, err</span>) </span>&#123;</span></span><br><span class="line"><span class="javascript">                        <span class="keyword">if</span> (ret) &#123;</span></span><br><span class="line"><span class="javascript">                            <span class="keyword">var</span> userInfo = ret[<span class="number">0</span>];</span></span><br><span class="line"><span class="javascript">                            <span class="keyword">var</span> nickname = userName = userInfo.nickname;</span></span><br><span class="line"><span class="javascript">                            <span class="keyword">var</span> url = headImgUrl = userInfo.avatar ? userInfo.avatar.url : defaultHeadImg;</span></span><br><span class="line"><span class="javascript">                            <span class="keyword">var</span> profile = userInfo.profile || &#123;</span></span><br><span class="line"><span class="javascript">                                        role: <span class="string">&#x27;未知&#x27;</span>,</span></span><br><span class="line"><span class="javascript">                                        school: <span class="string">&#x27;未知&#x27;</span>,</span></span><br><span class="line"><span class="javascript">                                        intro: <span class="string">&#x27;这家伙很懒什么都没写&#x27;</span>,</span></span><br><span class="line"><span class="javascript">                                        sex: <span class="string">&#x27;未知&#x27;</span></span></span><br><span class="line">                                    &#125;;</span><br><span class="line"><span class="javascript">                            $api.attr($api.byId(<span class="string">&#x27;info-head&#x27;</span>), <span class="string">&#x27;src&#x27;</span>, url);</span></span><br><span class="line"><span class="javascript">                            $api.html($api.byId(<span class="string">&#x27;info-name&#x27;</span>), nickname);</span></span><br><span class="line"><span class="javascript">                            $api.html($api.byId(<span class="string">&#x27;info-sex&#x27;</span>), profile.sex);</span></span><br><span class="line"><span class="javascript">                            $api.html($api.byId(<span class="string">&#x27;info-school&#x27;</span>), profile.school);</span></span><br><span class="line"><span class="javascript">                            $api.html($api.byId(<span class="string">&#x27;info-role&#x27;</span>), profile.school);</span></span><br><span class="line"><span class="javascript">                            $api.html($api.byId(<span class="string">&#x27;info-intro&#x27;</span>), profile.intro);</span></span><br><span class="line">                        &#125;</span><br><span class="line">                    &#125;);</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"><span class="javascript">    <span class="comment">//添加好友</span></span></span><br><span class="line"><span class="javascript">    <span class="function"><span class="keyword">function</span> <span class="title">AddFriend</span>(<span class="params"></span>) </span>&#123;</span></span><br><span class="line"><span class="javascript">        <span class="keyword">var</span> myUserInfo = $api.getStorage(<span class="string">&#x27;userInfo&#x27;</span>);</span></span><br><span class="line"><span class="javascript">        <span class="keyword">if</span> (!!myUserInfo &amp;&amp; !!myUserInfo.userId &amp;&amp; !!userId) &#123;</span></span><br><span class="line">            api.showProgress(&#123;</span><br><span class="line"><span class="javascript">                style: <span class="string">&#x27;default&#x27;</span>,</span></span><br><span class="line"><span class="javascript">                animationType: <span class="string">&#x27;fade&#x27;</span>,</span></span><br><span class="line"><span class="javascript">                title: <span class="string">&#x27;努力加载中...&#x27;</span>,</span></span><br><span class="line"><span class="javascript">                text: <span class="string">&#x27;先喝杯茶...&#x27;</span></span></span><br><span class="line">            &#125;);</span><br><span class="line"><span class="javascript">            <span class="keyword">var</span> myUserId = myUserInfo.userId;</span></span><br><span class="line"><span class="javascript">            <span class="keyword">var</span> model = api.require(<span class="string">&#x27;model&#x27;</span>);</span></span><br><span class="line"><span class="javascript">            <span class="keyword">var</span> query = api.require(<span class="string">&#x27;query&#x27;</span>);</span></span><br><span class="line"><span class="javascript">            query.createQuery(<span class="function"><span class="keyword">function</span> (<span class="params">ret, err</span>) </span>&#123;</span></span><br><span class="line"><span class="javascript">                <span class="keyword">if</span> (ret &amp;&amp; ret.qid) &#123;</span></span><br><span class="line"><span class="javascript">                    <span class="keyword">var</span> queryId = ret.qid;</span></span><br><span class="line"><span class="javascript">                    query.whereEqual(&#123;<span class="attr">qid</span>: queryId, <span class="attr">column</span>: <span class="string">&#x27;userId&#x27;</span>, <span class="attr">value</span>: myUserId&#125;);</span></span><br><span class="line">                    model.findAll(&#123;</span><br><span class="line">                        class: &quot;Friends&quot;,</span><br><span class="line">                        qid: queryId</span><br><span class="line"><span class="javascript">                    &#125;, <span class="function"><span class="keyword">function</span> (<span class="params">ret, err</span>) </span>&#123;</span></span><br><span class="line"><span class="javascript">                        <span class="keyword">if</span> (!!ret &amp;&amp; ret.length &gt; <span class="number">0</span>) &#123;</span></span><br><span class="line"><span class="javascript">                            <span class="comment">//有该条数据</span></span></span><br><span class="line"><span class="javascript">                            <span class="keyword">var</span> data = ret[<span class="number">0</span>];</span></span><br><span class="line"><span class="javascript">                            <span class="keyword">var</span> id = data.id;</span></span><br><span class="line"><span class="javascript">                            <span class="keyword">var</span> friends = data.friends;</span></span><br><span class="line"><span class="javascript">                            <span class="keyword">if</span> (!!friends.default) &#123;</span></span><br><span class="line"><span class="javascript">                                <span class="keyword">if</span> (friends.default.indexOf(userId) &gt;= <span class="number">0</span>) &#123;</span></span><br><span class="line"><span class="javascript">                                    <span class="comment">//已经添加过</span></span></span><br><span class="line"><span class="javascript">                                    api.toast(&#123;<span class="attr">msg</span>: <span class="string">&#x27;已经添加过该好友了&#x27;</span>&#125;);</span></span><br><span class="line"><span class="javascript">                                    <span class="keyword">return</span>;</span></span><br><span class="line"><span class="javascript">                                &#125; <span class="keyword">else</span> &#123;</span></span><br><span class="line">                                    friends.default.push(userId);</span><br><span class="line">                                &#125;</span><br><span class="line"><span class="javascript">                            &#125; <span class="keyword">else</span> &#123;</span></span><br><span class="line">                                friends.default = [userId];</span><br><span class="line">                            &#125;</span><br><span class="line">                            model.updateById(&#123;</span><br><span class="line">                                class: &#x27;Friends&#x27;,</span><br><span class="line">                                id: id,</span><br><span class="line">                                value: &#123;</span><br><span class="line">                                    friends: friends</span><br><span class="line">                                &#125;</span><br><span class="line"><span class="javascript">                            &#125;, <span class="function"><span class="keyword">function</span> (<span class="params">ret, err</span>) </span>&#123;</span></span><br><span class="line">                                api.hideProgress();</span><br><span class="line"><span class="javascript">                                <span class="keyword">if</span> (!!ret) &#123;</span></span><br><span class="line"><span class="javascript">                                    api.toast(&#123;<span class="attr">msg</span>: <span class="string">&#x27;添加好友成功&#x27;</span>&#125;);</span></span><br><span class="line"><span class="javascript">                                &#125; <span class="keyword">else</span> &#123;</span></span><br><span class="line"><span class="javascript">                                    api.toast(&#123;<span class="attr">msg</span>: <span class="string">&#x27;网络异常&#x27;</span>&#125;);</span></span><br><span class="line">                                &#125;</span><br><span class="line">                            &#125;)</span><br><span class="line"><span class="javascript">                        &#125; <span class="keyword">else</span> <span class="keyword">if</span> (!!ret &amp;&amp; ret.length == <span class="number">0</span>) &#123;</span></span><br><span class="line"><span class="javascript">                            <span class="comment">//没有该条数据</span></span></span><br><span class="line">                            api.hideProgress();</span><br><span class="line">                            model.insert(&#123;</span><br><span class="line">                                class: &#x27;Friends&#x27;,</span><br><span class="line">                                value: &#123;</span><br><span class="line">                                    userId: userId,</span><br><span class="line">                                    friends: &#123;</span><br><span class="line"><span class="javascript">                                        <span class="keyword">default</span>: [userId]</span></span><br><span class="line">                                    &#125;</span><br><span class="line">                                &#125;</span><br><span class="line">                            &#125;);</span><br><span class="line"><span class="javascript">                            api.toast(&#123;<span class="attr">msg</span>: <span class="string">&#x27;添加好友成功&#x27;</span>&#125;);</span></span><br><span class="line">                        &#125;</span><br><span class="line">                    &#125;);</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;);</span><br><span class="line"><span class="javascript">        &#125; <span class="keyword">else</span> &#123;</span></span><br><span class="line"><span class="javascript">            api.toast(&#123;<span class="attr">msg</span>: <span class="string">&#x27;您尚未登录&#x27;</span>&#125;);</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"><span class="javascript">    <span class="comment">//发送消息</span></span></span><br><span class="line"><span class="javascript">    <span class="function"><span class="keyword">function</span> <span class="title">SendMessage</span>(<span class="params"></span>) </span>&#123;</span></span><br><span class="line"><span class="javascript">        <span class="keyword">if</span> (!!userId &amp;&amp; !!userName &amp;&amp; !!headImgUrl) &#123;</span></span><br><span class="line">            api.openWin(&#123;</span><br><span class="line"><span class="javascript">                name: <span class="string">&#x27;chattingFrame&#x27;</span>,</span></span><br><span class="line"><span class="javascript">                url: <span class="string">&#x27;../message/chattingFrame.html&#x27;</span>,</span></span><br><span class="line">                pageParam: &#123;</span><br><span class="line">                    targetId: userId,</span><br><span class="line">                    targetName: userName,</span><br><span class="line">                    headImgUrl: headImgUrl,</span><br><span class="line"><span class="javascript">                    conversationType: <span class="string">&#x27;PRIVATE&#x27;</span></span></span><br><span class="line">                &#125;</span><br><span class="line">            &#125;);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>而<code>Apicloud</code>这种技术就是基于html实现的，而每个html对应一个网页对应一个窗口。和普通的网页编写非常类似。这也就是为什么该项技术成熟的原因。因为完全就是玩个的编写方式。当然区别就是提供了一个可以供js调用的原生服务的接口。</p>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>具体选择哪项技术，要根据自己的实际需求来决定。任何脱离实际需求的选择都是耍流氓。<br>但是，如果决定选择ReactNative或者Weex这样注定是未来趋势的新技术的话。就必须做好不断踩坑的打算，毕竟我们需要给予这些技术以发展的时间。当然，reactjs与vue已经是相对成熟的技术了，如果是为了学习的话。顺便学习一门新的技术也是一个不错的决定。</p>
+
+      
+    </div>
+    
+  </div>
+  
+    
+    <div class="copyright">
+        <p><span>本文标题:</span><a href="/posts/481f2de4/">前端编写全栈应用技术选型——rn、weex、apicloud到底选哪个</a></p>
+        <p><span>文章作者:</span><a href="/" title="回到主页"></a></p>
+        <p><span>发布时间:</span>2017-10-24, 14:20:47</p>
+        <p><span>最后更新:</span>2024-10-07, 14:18:00</p>
+        <p>
+            <span>原始链接:</span><a class="post-url" href="/posts/481f2de4/" title="前端编写全栈应用技术选型——rn、weex、apicloud到底选哪个">http://www.moonrailgun.com/posts/481f2de4/</a>
+            <span class="copy-path" data-clipboard-text="原文: http://www.moonrailgun.com/posts/481f2de4/　　作者: " title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
+            <script> var clipboard = new Clipboard('.copy-path'); </script>
+        </p>
+        <p>
+            <span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license noopener" target="_blank" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" title="CC BY-NC-SA 4.0 International" target = "_blank">"署名-非商用-相同方式共享 4.0"</a> 转载请保留原文链接及作者。
+        </p>
+    </div>
+
+
+
+    <nav id="article-nav">
+        
+            <div id="article-nav-newer" class="article-nav-title">
+                <a href="/posts/743c31e9/">
+                    python学习笔记
+                </a>
+            </div>
+        
+        
+            <div id="article-nav-older" class="article-nav-title">
+                <a href="/posts/e5320d32/">
+                    node遇见问题汇总
+                </a>
+            </div>
+        
+    </nav>
+
+  
+</article>
+
+    <div id="toc" class="toc-article">
+        <strong class="toc-title">文章目录</strong>
+        
+            <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%89%8D%E8%A8%80"><span class="toc-number">1.</span> <span class="toc-text">前言</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%85%B3%E4%BA%8EApicloud"><span class="toc-number">2.</span> <span class="toc-text">关于Apicloud</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%8A%80%E6%9C%AF%E6%AF%94%E8%BE%83"><span class="toc-number">3.</span> <span class="toc-text">技术比较</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%85%B3%E4%BA%8EKPI"><span class="toc-number">4.</span> <span class="toc-text">关于KPI</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%85%B3%E4%BA%8E%E6%8A%80%E6%9C%AF%E9%80%89%E6%8B%A9"><span class="toc-number">5.</span> <span class="toc-text">关于技术选择</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%85%B3%E4%BA%8E%E4%BA%A7%E5%93%81%E9%80%89%E6%8B%A9"><span class="toc-number">6.</span> <span class="toc-text">关于产品选择</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BB%A3%E7%A0%81%E9%A3%8E%E6%A0%BC"><span class="toc-number">7.</span> <span class="toc-text">代码风格</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%80%BB%E7%BB%93"><span class="toc-number">8.</span> <span class="toc-text">总结</span></a></li></ol>
+        
+    </div>
+    <style>
+        .left-col .switch-btn,
+        .left-col .switch-area {
+            display: none;
+        }
+        .toc-level-3 i,
+        .toc-level-3 ol {
+            display: none !important;
+        }
+    </style>
+
+    <input type="button" id="tocButton" value="隐藏目录"  title="点击按钮隐藏或者显示文章目录">
+
+    <script>
+        yiliaConfig.toc = ["隐藏目录", "显示目录", !!"false"];
+    </script>
+
+
+
+    
+<div class="share">
+    
+        <div class="bdsharebuttonbox">
+            <a href="#" class="fa fa-twitter bds_twi" data-cmd="twi" title="分享到推特"></a>
+            <a href="#" class="fa fa-weibo bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
+            <a href="#" class="fa fa-qq bds_sqq" data-cmd="sqq" title="分享给 QQ 好友"></a>
+            <a href="#" class="fa fa-files-o bds_copy" data-cmd="copy" title="复制网址"></a>
+            <a href="#" class="fa fa fa-envelope-o bds_mail" data-cmd="mail" title="通过邮件分享"></a>
+            <a href="#" class="fa fa-weixin bds_weixin" data-cmd="weixin" title="生成文章二维码"></a>
+            <a href="#" class="fa fa-share-alt bds_more" data-cmd="more"></i></a>
+        </div>
+        <script>
+            window._bd_share_config={
+                "common":{"bdSnsKey":{},"bdText":"前端编写全栈应用技术选型——rn、weex、apicloud到底选哪个　| moonrailgun - 兴趣使然的工程师 — 个人技术展示　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+        </script>
+    
+
+    
+</div>
+
+
+
+
+
+
+
+    
+
+
+
+
+    <div class="scroll" id="post-nav-button">
+        
+            <a href="/posts/743c31e9/" title="上一篇: python学习笔记">
+                <i class="fa fa-angle-left"></i>
+            </a>
+        
+
+        <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
+
+        
+            <a href="/posts/e5320d32/" title="下一篇: node遇见问题汇总">
+                <i class="fa fa-angle-right"></i>
+            </a>
+        
+    </div>
+
+    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/posts/9ec26053/">国际标准保留端口列表</a></li><li class="post-list-item"><a class="post-list-link" href="/posts/cee56102/">记录一次docker占用过大导致磁盘爆炸的问题</a></li><li class="post-list-item"><a class="post-list-link" href="/posts/8aed9be/">打工人必备！实现JS控制的SVG渐变图标，让你的页面更加生动有趣</a></li><li class="post-list-item"><a class="post-list-link" href="/posts/cecd0a5c/">你可能不需要微前端，但你一定会需要微内核</a></li><li class="post-list-item"><a class="post-list-link" href="/posts/8a830324/">利用 webpack-stats-viewer 分析 react-virtualized 摇树优化失效问题</a></li><li class="post-list-item"><a class="post-list-link" href="/posts/6c6ef04/">React Query 简明设计哲学入门指北</a></li><li class="post-list-item"><a class="post-list-link" href="/posts/14043fbf/">小即是美 —— 简约而不简单的状态管理工具zustand</a></li><li class="post-list-item"><a class="post-list-link" href="/posts/2674f04a/">谈论从把多项目合并成一个项目中获得的收益</a></li><li class="post-list-item"><a class="post-list-link" href="/posts/15675e42/">webpack 打包分析 —— 通过分析工具优化体积问题</a></li><li class="post-list-item"><a class="post-list-link" href="/posts/8aa07df9/">元编程快速入门</a></li><li class="post-list-item"><a class="post-list-link" href="/posts/32dfd7d0/">k3s安装小记</a></li><li class="post-list-item"><a class="post-list-link" href="/posts/da6d1d53/">源码快速定位工具 source-ref</a></li><li class="post-list-item"><a class="post-list-link" href="/posts/a9d2669b/">Garfish 源码解析 —— 一个微应用是如何被挂载的</a></li><li class="post-list-item"><a class="post-list-link" href="/posts/e678c77b/">把代码仓库当做数据库，github action持久化存储新思路</a></li><li class="post-list-item"><a class="post-list-link" href="/posts/9632e7e0/">如何让团队项目白嫖 vercel 的免费服务</a></li><li class="post-list-item"><a class="post-list-link" href="/posts/406cd832/">CentOS7 安装gcc手册</a></li><li class="post-list-item"><a class="post-list-link" href="/posts/e7e551d1/">k3s安装 OpenFaaS小记</a></li><li class="post-list-item"><a class="post-list-link" href="/posts/f9bc948a/">为什么我选择Tailwindcss</a></li><li class="post-list-item"><a class="post-list-link" href="/posts/e536db3/">每日一题 —— 混杂整数序列按规则进行重新排序</a></li><li class="post-list-item"><a class="post-list-link" href="/posts/a409424d/">Webpack是个什么鬼——了解编译结果</a></li><li class="post-list-item"><a class="post-list-link" href="/posts/1daba7c3/">TRPG Engine 的项目工程化实践</a></li><li class="post-list-item"><a class="post-list-link" href="/posts/4b9f1f29/">记一个多平台End of Line的坑</a></li><li class="post-list-item"><a class="post-list-link" href="/posts/4c9731f9/">requirejs踩坑记录</a></li><li class="post-list-item"><a class="post-list-link" href="/posts/a118f8f2/">Chrome 笔记 - 处理异常 ERR_UNSAFE_PORT</a></li><li class="post-list-item"><a class="post-list-link" href="/posts/968454a3/">Vercel 国内无法访问</a></li><li class="post-list-item"><a class="post-list-link" href="/posts/6719aaf5/">关于人生, 关于生老病死</a></li><li class="post-list-item"><a class="post-list-link" href="/posts/Infinity/">HTTPS客户端证书校验</a></li><li class="post-list-item"><a class="post-list-link" href="/posts/443581a5/">字节跳动面试记录</a></li><li class="post-list-item"><a class="post-list-link" href="/posts/db9cb7ec/">CORS 现代浏览器跨域请求简明手册</a></li><li class="post-list-item"><a class="post-list-link" href="/posts/da49e84e/">HTTP中的各种缓存标签</a></li><li class="post-list-item"><a class="post-list-link" href="/posts/28f21ef5/">如何开发与坚持维护一个企业级的开源项目</a></li><li class="post-list-item"><a class="post-list-link" href="/posts/74598ef5/">从 Webpack 到 Snowpack, 编译速度提升十倍以上——TRPG Engine迁移小记</a></li><li class="post-list-item"><a class="post-list-link" href="/posts/191d7ea8/">TRPG Engine —— 一个功能完善即时通讯解决方案</a></li><li class="post-list-item"><a class="post-list-link" href="/posts/80587f52/">React 注意事项</a></li><li class="post-list-item"><a class="post-list-link" href="/posts/c09e1fbc/">又拍云整站网页存放到OSS的解决方案</a></li><li class="post-list-item"><a class="post-list-link" href="/posts/bdc192d2/">记一次重启网络服务后网络不通的调试</a></li><li class="post-list-item"><a class="post-list-link" href="/posts/ed7510e5/">让Chrome显示完整网址</a></li><li class="post-list-item"><a class="post-list-link" href="/posts/86a1d2a7/">adb devices无法获取夜神模拟器的解决方案</a></li><li class="post-list-item"><a class="post-list-link" href="/posts/303de4fd/">新服务器必做二三事</a></li><li class="post-list-item"><a class="post-list-link" href="/posts/856c955/">快速构建软件文档——docusaurus v2</a></li><li class="post-list-item"><a class="post-list-link" href="/posts/87881b14/">wsl2入坑指南</a></li><li class="post-list-item"><a class="post-list-link" href="/posts/3d731f17/">浅谈节流(throttle)与防抖动(debounce)</a></li><li class="post-list-item"><a class="post-list-link" href="/posts/3acd928b/">Docker Swarm 模型配合 traefik 实现集群sticky实践</a></li><li class="post-list-item"><a class="post-list-link" href="/posts/49d9534d/">Vim 操作笔记</a></li><li class="post-list-item"><a class="post-list-link" href="/posts/b0357b9f/">zIndex与层叠上下文Stacking Context</a></li><li class="post-list-item"><a class="post-list-link" href="/posts/d0843649/">Unicode编码解明</a></li><li class="post-list-item"><a class="post-list-link" href="/posts/2a644d07/">简单实现一个callback回调的包装器</a></li><li class="post-list-item"><a class="post-list-link" href="/posts/ec6df031/">Git骚操作之从一个分支中批量将离散的commit 迁移到另一个分支</a></li><li class="post-list-item"><a class="post-list-link" href="/posts/5cf47e08/">Let's Encrypt免费通配符证书申请</a></li><li class="post-list-item"><a class="post-list-link" href="/posts/c9e0808c/">MySQL 查询优化笔记</a></li><li class="post-list-item"><a class="post-list-link" href="/posts/6769ba51/">Linux 小资源服务器使用经验总结</a></li><li class="post-list-item"><a class="post-list-link" href="/posts/f3750712/">玩PUBG时运行VMware被禁止进入游戏的解决方案</a></li><li class="post-list-item"><a class="post-list-link" href="/posts/74202a7b/">TRPG Engine开发手册——数据库框架迁移</a></li><li class="post-list-item"><a class="post-list-link" href="/posts/c2b55725/">zsh插件推荐</a></li><li class="post-list-item"><a class="post-list-link" href="/posts/87b6010f/">git使用方法简明教程 - 团队篇</a></li><li class="post-list-item"><a class="post-list-link" href="/posts/71513ccb/">Vue学习笔记</a></li><li class="post-list-item"><a class="post-list-link" href="/posts/84bdf0ad/">如何实现方法既能实现函数式编程又能获取结果进行比较——实现形如add(1)(2)(3)...(n)的方法</a></li><li class="post-list-item"><a class="post-list-link" href="/posts/113e84a8/">Firefox、safari的session无法匹配的原因</a></li><li class="post-list-item"><a class="post-list-link" href="/posts/5d639031/">nginx使用笔记</a></li><li class="post-list-item"><a class="post-list-link" href="/posts/33f59699/">ReactNative踩坑记录与学习笔记</a></li><li class="post-list-item"><a class="post-list-link" href="/posts/30a497b6/">Linux常用命令记录</a></li><li class="post-list-item"><a class="post-list-link" href="/posts/1555da82/">微信开发踩过的坑</a></li><li class="post-list-item"><a class="post-list-link" href="/posts/61069dee/">Linux服务安全——记一次网络攻击</a></li><li class="post-list-item"><a class="post-list-link" href="/posts/743c31e9/">python学习笔记</a></li><li class="post-list-item"><a class="post-list-link" href="/posts/481f2de4/">前端编写全栈应用技术选型——rn、weex、apicloud到底选哪个</a></li><li class="post-list-item"><a class="post-list-link" href="/posts/e5320d32/">node遇见问题汇总</a></li><li class="post-list-item"><a class="post-list-link" href="/posts/13f139b9/">blender学习笔记 - 权重传递</a></li><li class="post-list-item"><a class="post-list-link" href="/posts/484f55d5/">如何配置Apache虚拟主机服务</a></li><li class="post-list-item"><a class="post-list-link" href="/posts/82986f1f/">gulp工具使用笔记</a></li><li class="post-list-item"><a class="post-list-link" href="/posts/993cf839/">Webpack打包工具性能优化</a></li><li class="post-list-item"><a class="post-list-link" href="/posts/8857c74e/">团队使用git方法简明教程</a></li><li class="post-list-item"><a class="post-list-link" href="/posts/3d280206/">blender渲染笔记 - Cycle渲染</a></li><li class="post-list-item"><a class="post-list-link" href="/posts/a1900bf0/">blender建模笔记 - 多拉多</a></li><li class="post-list-item"><a class="post-list-link" href="/posts/546fd07e/">Atom编辑器使用记录</a></li><li class="post-list-item"><a class="post-list-link" href="/posts/6eb62c08/">Unreal学习笔记 - 扇形攻击范围检测</a></li><li class="post-list-item"><a class="post-list-link" href="/posts/78c43660/">Unreal学习笔记 - 创建边沿发光材质</a></li><li class="post-list-item"><a class="post-list-link" href="/posts/bf34fac6/">MikuMikuCombat开发笔记 - 武器</a></li><li class="post-list-item"><a class="post-list-link" href="/posts/e6d9d22d/">MikuMikuCombat开发笔记 - 道具</a></li><li class="post-list-item"><a class="post-list-link" href="/posts/fbf9499/">MikuMikuCombat开发笔记 - 角色</a></li><li class="post-list-item"><a class="post-list-link" href="/posts/e8bbfe80/">Unreal学习笔记 - 蓝图使用手册</a></li><li class="post-list-item"><a class="post-list-link" href="/posts/b9028042/">blender学习笔记 - 常用快捷键</a></li><li class="post-list-item"><a class="post-list-link" href="/posts/bbd25313/">Unreal学习笔记 - 绘制准心</a></li><li class="post-list-item"><a class="post-list-link" href="/posts/4b5cc73c/">Unreal学习笔记 - 图形选项</a></li><li class="post-list-item"><a class="post-list-link" href="/posts/a16e855a/">blender学习笔记 - 自动切换透视模式</a></li><li class="post-list-item"><a class="post-list-link" href="/posts/67516082/">Unreal学习笔记 - 使用JoinSession成功加入服务器但是无法跳转到服务器当前地图</a></li><li class="post-list-item"><a class="post-list-link" href="/posts/4de36f08/">Unreal学习笔记 - 使用steam来进行多人联机</a></li><li class="post-list-item"><a class="post-list-link" href="/posts/754e67fa/">Unreal学习笔记 - 修复右键菜单</a></li><li class="post-list-item"><a class="post-list-link" href="/posts/bc2e19a6/">Unreal学习笔记 - 综合</a></li><li class="post-list-item"><a class="post-list-link" href="/posts/7e9cc815/">MMD静画渲染2</a></li><li class="post-list-item"><a class="post-list-link" href="/posts/d0f79e7e/">ionic——使用本地代理服务器解决http跨域问题</a></li><li class="post-list-item"><a class="post-list-link" href="/posts/22ded819/">MMD静画渲染</a></li><li class="post-list-item"><a class="post-list-link" href="/posts/b97c82c9/">网络不好怎么办？通过分析找出原因</a></li><li class="post-list-item"><a class="post-list-link" href="/posts/8efd96c8/">Unity物理碰撞</a></li><li class="post-list-item"><a class="post-list-link" href="/posts/39072aba/">总结一些好用的ios第三方库</a></li><li class="post-list-item"><a class="post-list-link" href="/posts/61ce6e4d/">iOS编程——让NSURL认识特殊字符</a></li><li class="post-list-item"><a class="post-list-link" href="/posts/5d2107c5/">任务栏快速启动真实地址</a></li><li class="post-list-item"><a class="post-list-link" href="/posts/47ac9736/">iOS编程时需要注意的一些问题</a></li><li class="post-list-item"><a class="post-list-link" href="/posts/bb904004/">国际化标准时间格式</a></li><li class="post-list-item"><a class="post-list-link" href="/posts/862a051d/">Mac中的字符中英文问题</a></li><li class="post-list-item"><a class="post-list-link" href="/posts/49910e89/">解决Unity跑酷模板Endless Run中shader报错的问题</a></li><li class="post-list-item"><a class="post-list-link" href="/posts/49add7c0/">Cocos2dx学习笔记——lambda表达式的引用捕获</a></li><li class="post-list-item"><a class="post-list-link" href="/posts/922ef0f9/">Cocos2dx学习笔记——Ref对象管理之保留与释放</a></li><li class="post-list-item"><a class="post-list-link" href="/posts/664de550/">Cocos2dx学习笔记——编译器提示LINK1104无法打开文件“libcocos2d_2013.lib”的问题</a></li><li class="post-list-item"><a class="post-list-link" href="/posts/e80f349e/">如何获取TexturePacker 1年免费软件授权</a></li><li class="post-list-item"><a class="post-list-link" href="/posts/d0d3ce00/">Cocos2dx学习笔记——节点与层的父子坐标区别</a></li><li class="post-list-item"><a class="post-list-link" href="/posts/a79c8a43/">Cocos2dx学习笔记——CCLog无法使用的问题</a></li><li class="post-list-item"><a class="post-list-link" href="/posts/900c706f/">新型钓鱼网站骗术</a></li><li class="post-list-item"><a class="post-list-link" href="/posts/74057083/">Cocos2dx学习笔记——C++的一些约定</a></li><li class="post-list-item"><a class="post-list-link" href="/posts/1ba44de6/">Cocos2dx学习笔记——引擎版本号的选择</a></li><li class="post-list-item"><a class="post-list-link" href="/posts/531c197b/">Cocos2dx学习笔记——CSLoader创建FileNode的报错问题</a></li><li class="post-list-item"><a class="post-list-link" href="/posts/990c5d7a/">Cocos2dx学习笔记——cocos-ext头文件编译问题</a></li><li class="post-list-item"><a class="post-list-link" href="/posts/44a80e28/">git使用方法简明教程 - 个人篇</a></li><li class="post-list-item"><a class="post-list-link" href="/posts/fa08ab46/">pomelo框架制作游戏初探(二) - 登陆模块</a></li><li class="post-list-item"><a class="post-list-link" href="/posts/2d40853/">pomelo框架制作游戏初探(一)</a></li></ul>
+
+
+
+
+    <script>
+        
+    </script>
+</div>
+      <footer id="footer">
+    <div class="outer">
+        <div id="footer-info">
+            <div class="footer-left">
+                <i class="fa fa-copyright"></i>
+                2016-2024 moonrailgun
+                | <a target="_blank" href="https://beian.miit.gov.cn/">沪ICP备19001187号-1</a>
+                | <a target="_blank" href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=31011302006539">
+                    <img src="/img/beian.png"/>
+                    <span>沪公网安备 31011302006539号</span>
+                  </a>
+                | <a title="本网站由又拍云提供CDN加速/云存储服务" href="https://www.upyun.com/?utm_source=lianmeng&utm_medium=referral" target="_blank" rel="noopener noreferrer"><img src="/img/upyun_logo.png" height="18" style="vertical-align: bottom;" /></a>
+            </div>
+            <div class="footer-right">
+                <a href="http://hexo.io/" target="_blank" title="快速、简洁且高效的博客框架">Hexo</a>  Theme <a href="https://github.com/MOxFIVE/hexo-theme-yelee" target="_blank" title="简而不减 Hexo 双栏博客主题  v3.5">Yelee</a> by MOxFIVE <i class="fa fa-heart animated infinite pulse"></i>
+            </div>
+        </div>
+        
+            <div class="visit">
+                
+                    <span id="busuanzi_container_site_pv" style='display:none'>
+                        <span id="site-visit" title="本站到访数"><i class="fa fa-user" aria-hidden="true"></i><span id="busuanzi_value_site_uv"></span>
+                        </span>
+                    </span>
+                
+                
+                    <span>| </span>
+                
+                
+                    <span id="busuanzi_container_page_pv" style='display:none'>
+                        <span id="page-visit"  title="本页阅读量"><i class="fa fa-eye animated infinite pulse" aria-hidden="true"></i><span id="busuanzi_value_page_pv"></span>
+                        </span>
+                    </span>
+                
+            </div>
+        
+    </div>
+</footer>
+
+    </div>
+    
+<script data-main="/js/main.js" src="https://lib.baomitu.com/require.js/2.2.0/require.min.js"></script>
+
+    <script>
+        $(document).ready(function() {
+            var iPad = window.navigator.userAgent.indexOf('iPad');
+            if (iPad > -1 || $(".left-col").css("display") === "none") {
+                var bgColorList = ["#9db3f4", "#414141", "#e5a859", "#f5dfc6", "#c084a0", "#847e72", "#cd8390", "#996731"];
+                var bgColor = Math.ceil(Math.random() * (bgColorList.length - 1));
+                $("body").css({"background-color": bgColorList[bgColor], "background-size": "cover"});
+            }
+            else {
+                var backgroundnum = 5;
+                var backgroundimg = "url(/background/bg-x.jpg)".replace(/x/gi, Math.ceil(Math.random() * backgroundnum));
+                $("body").css({"background": backgroundimg, "background-attachment": "fixed", "background-size": "cover"});
+            }
+        })
+    </script>
+
+
+
+
+
+<div class="scroll" id="scroll">
+    <a href="#" title="返回顶部"><i class="fa fa-arrow-up"></i></a>
+    <a href="#comments" onclick="load$hide();" title="查看评论"><i class="fa fa-comments-o"></i></a>
+    <a href="#footer" title="转到底部"><i class="fa fa-arrow-down"></i></a>
+</div>
+<script>
+    // Open in New Window
+    
+        var oOpenInNew = {
+            
+            
+            
+            
+            
+            
+             archives: ".archive-article-title", 
+             miniArchives: "a.post-list-link", 
+            
+             friends: "#js-friends a", 
+             socail: ".social a" 
+        }
+        for (var x in oOpenInNew) {
+            $(oOpenInNew[x]).attr("target", "_blank");
+        }
+    
+</script>
+
+<!-- <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"> -->
+<script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js">
+</script>
+
+  </div>
+</body>
+</html>

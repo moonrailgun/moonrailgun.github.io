@@ -1,0 +1,554 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>moonrailgun - 兴趣使然的工程师 — 个人技术展示</title>
+  <icon>http://www.moonrailgun.com/icon.png</icon>
+  
+  <link href="http://www.moonrailgun.com/atom.xml" rel="self"/>
+  
+  <link href="http://www.moonrailgun.com/"/>
+  <updated>2024-10-07T06:18:00.809Z</updated>
+  <id>http://www.moonrailgun.com/</id>
+  
+  <author>
+    <name>moonrailgun</name>
+    
+  </author>
+  
+  <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>国际标准保留端口列表</title>
+    <link href="http://www.moonrailgun.com/posts/9ec26053/"/>
+    <id>http://www.moonrailgun.com/posts/9ec26053/</id>
+    <published>2024-10-07T06:18:00.809Z</published>
+    <updated>2024-10-07T06:18:00.809Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;https://www.iana.org/assignments/service-names-port-numbers/service-names-port-numbers.xhtml&quot;&gt;Service Name and Transport</summary>
+        
+      
+    
+    
+    
+    
+    <category term="rfc" scheme="http://www.moonrailgun.com/tags/rfc/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>记录一次docker占用过大导致磁盘爆炸的问题</title>
+    <link href="http://www.moonrailgun.com/posts/cee56102/"/>
+    <id>http://www.moonrailgun.com/posts/cee56102/</id>
+    <published>2024-07-15T14:49:01.000Z</published>
+    <updated>2024-10-07T06:18:00.811Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;背景&quot;&gt;&lt;a href=&quot;#背景&quot; class=&quot;headerlink&quot; title=&quot;背景&quot;&gt;&lt;/a&gt;背景&lt;/h2&gt;&lt;p&gt;通过告警发现磁盘被占满&lt;/p&gt;
+&lt;h2 id=&quot;解决方式&quot;&gt;&lt;a href=&quot;#解决方式&quot; class=&quot;headerlink&quot;</summary>
+        
+      
+    
+    
+    
+    
+    <category term="Linux" scheme="http://www.moonrailgun.com/tags/Linux/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>打工人必备！实现JS控制的SVG渐变图标，让你的页面更加生动有趣</title>
+    <link href="http://www.moonrailgun.com/posts/8aed9be/"/>
+    <id>http://www.moonrailgun.com/posts/8aed9be/</id>
+    <published>2023-10-12T14:22:01.000Z</published>
+    <updated>2024-10-07T06:18:00.810Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;在我们开发界面时，有时候渐变的图像会相比固定颜色的图形更加富有层次感与有趣。熟悉css的同学都知道，我们可以通过样式让背景呈现一个线性的渐变图片，比如这样:&lt;/p&gt;
+&lt;figure class=&quot;highlight css&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td</summary>
+        
+      
+    
+    
+    
+    
+    <category term="svg" scheme="http://www.moonrailgun.com/tags/svg/"/>
+    
+    <category term="gradient" scheme="http://www.moonrailgun.com/tags/gradient/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>你可能不需要微前端，但你一定会需要微内核</title>
+    <link href="http://www.moonrailgun.com/posts/cecd0a5c/"/>
+    <id>http://www.moonrailgun.com/posts/cecd0a5c/</id>
+    <published>2023-05-24T11:20:36.000Z</published>
+    <updated>2024-10-07T06:18:00.809Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;先聊聊微前端&quot;&gt;&lt;a href=&quot;#先聊聊微前端&quot; class=&quot;headerlink&quot; title=&quot;先聊聊微前端&quot;&gt;&lt;/a&gt;先聊聊微前端&lt;/h2&gt;&lt;p&gt;阿里巴巴的一篇 &lt;a</summary>
+        
+      
+    
+    
+    
+    
+    <category term="微前端" scheme="http://www.moonrailgun.com/tags/%E5%BE%AE%E5%89%8D%E7%AB%AF/"/>
+    
+    <category term="微内核" scheme="http://www.moonrailgun.com/tags/%E5%BE%AE%E5%86%85%E6%A0%B8/"/>
+    
+    <category term="mini-star" scheme="http://www.moonrailgun.com/tags/mini-star/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>利用 webpack-stats-viewer 分析 react-virtualized 摇树优化失效问题</title>
+    <link href="http://www.moonrailgun.com/posts/8a830324/"/>
+    <id>http://www.moonrailgun.com/posts/8a830324/</id>
+    <published>2023-03-31T07:51:34.000Z</published>
+    <updated>2024-10-07T06:18:00.809Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;背景&quot;&gt;&lt;a href=&quot;#背景&quot; class=&quot;headerlink&quot; title=&quot;背景&quot;&gt;&lt;/a&gt;背景&lt;/h2&gt;&lt;p&gt;在项目性能优化过程中，发现 react-virtualized 依赖过重，经过初步分析是因为react-virtualized</summary>
+        
+      
+    
+    
+    
+    
+    <category term="webpack" scheme="http://www.moonrailgun.com/tags/webpack/"/>
+    
+    <category term="webpack-stats-viewer" scheme="http://www.moonrailgun.com/tags/webpack-stats-viewer/"/>
+    
+    <category term="react-virtualized" scheme="http://www.moonrailgun.com/tags/react-virtualized/"/>
+    
+    <category term="性能优化" scheme="http://www.moonrailgun.com/tags/%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/"/>
+    
+    <category term="摇树优化" scheme="http://www.moonrailgun.com/tags/%E6%91%87%E6%A0%91%E4%BC%98%E5%8C%96/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>React Query 简明设计哲学入门指北</title>
+    <link href="http://www.moonrailgun.com/posts/6c6ef04/"/>
+    <id>http://www.moonrailgun.com/posts/6c6ef04/</id>
+    <published>2023-03-09T11:35:11.000Z</published>
+    <updated>2024-10-07T06:18:00.805Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;&lt;img src=&quot;/images/react-query/1.png&quot;&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Github &lt;a</summary>
+        
+      
+    
+    
+    
+    
+    <category term="React" scheme="http://www.moonrailgun.com/tags/React/"/>
+    
+    <category term="React Query" scheme="http://www.moonrailgun.com/tags/React-Query/"/>
+    
+    <category term="状态管理" scheme="http://www.moonrailgun.com/tags/%E7%8A%B6%E6%80%81%E7%AE%A1%E7%90%86/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>小即是美 —— 简约而不简单的状态管理工具zustand</title>
+    <link href="http://www.moonrailgun.com/posts/14043fbf/"/>
+    <id>http://www.moonrailgun.com/posts/14043fbf/</id>
+    <published>2022-12-13T09:27:12.000Z</published>
+    <updated>2024-10-07T06:18:00.810Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;我用过或了解过前端业界大部分流行的状态管理库。他们有的很复杂，有的很简单。有的用了一些深度改造的手段来优化细节，有的则是平铺直叙的告诉所有使用者发生了变化。在技术方案诡异多变与层出不穷的当下，只有一个状态管理库让我深深着迷，她极度精简到让我觉得不能再简单了，但是她也足够完备</summary>
+        
+      
+    
+    
+    
+    
+    <category term="typescript" scheme="http://www.moonrailgun.com/tags/typescript/"/>
+    
+    <category term="状态管理" scheme="http://www.moonrailgun.com/tags/%E7%8A%B6%E6%80%81%E7%AE%A1%E7%90%86/"/>
+    
+    <category term="zustand" scheme="http://www.moonrailgun.com/tags/zustand/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>谈论从把多项目合并成一个项目中获得的收益</title>
+    <link href="http://www.moonrailgun.com/posts/2674f04a/"/>
+    <id>http://www.moonrailgun.com/posts/2674f04a/</id>
+    <published>2022-10-17T07:18:34.000Z</published>
+    <updated>2024-10-07T06:18:00.811Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;在开源社区流行着这样两种项目管理的方式:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;多repo仓库管理 (multirepos)&lt;/li&gt;
+&lt;li&gt;单repo仓库但是多包管理 (monorepos)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;在很早的时候, 我的项目 &lt;a</summary>
+        
+      
+    
+    
+    
+    
+    <category term="Tailchat" scheme="http://www.moonrailgun.com/tags/Tailchat/"/>
+    
+    <category term="项目管理" scheme="http://www.moonrailgun.com/tags/%E9%A1%B9%E7%9B%AE%E7%AE%A1%E7%90%86/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>webpack 打包分析 —— 通过分析工具优化体积问题</title>
+    <link href="http://www.moonrailgun.com/posts/15675e42/"/>
+    <id>http://www.moonrailgun.com/posts/15675e42/</id>
+    <published>2022-10-03T05:42:50.000Z</published>
+    <updated>2024-10-07T06:18:00.808Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;背景&quot;&gt;&lt;a href=&quot;#背景&quot; class=&quot;headerlink&quot;</summary>
+        
+      
+    
+    
+    
+    
+    <category term="javascript" scheme="http://www.moonrailgun.com/tags/javascript/"/>
+    
+    <category term="webpack" scheme="http://www.moonrailgun.com/tags/webpack/"/>
+    
+    <category term="代码优化" scheme="http://www.moonrailgun.com/tags/%E4%BB%A3%E7%A0%81%E4%BC%98%E5%8C%96/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>元编程快速入门</title>
+    <link href="http://www.moonrailgun.com/posts/8aa07df9/"/>
+    <id>http://www.moonrailgun.com/posts/8aa07df9/</id>
+    <published>2022-09-20T09:27:49.000Z</published>
+    <updated>2024-10-07T06:18:00.809Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;什么是元编程-Metaprogramming&quot;&gt;&lt;a href=&quot;#什么是元编程-Metaprogramming&quot; class=&quot;headerlink&quot;</summary>
+        
+      
+    
+    
+    
+    
+    <category term="meta program" scheme="http://www.moonrailgun.com/tags/meta-program/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>k3s安装小记</title>
+    <link href="http://www.moonrailgun.com/posts/32dfd7d0/"/>
+    <id>http://www.moonrailgun.com/posts/32dfd7d0/</id>
+    <published>2022-08-31T02:52:43.000Z</published>
+    <updated>2024-10-07T06:18:00.808Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;&lt;a href=&quot;https://k3s.io/&quot;&gt;官方网站&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id=&quot;外网访问k3s集群&quot;&gt;&lt;a href=&quot;#外网访问k3s集群&quot; class=&quot;headerlink&quot;</summary>
+        
+      
+    
+    
+    
+    
+    <category term="学习笔记" scheme="http://www.moonrailgun.com/tags/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
+    
+    <category term="k3s" scheme="http://www.moonrailgun.com/tags/k3s/"/>
+    
+    <category term="devops" scheme="http://www.moonrailgun.com/tags/devops/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>源码快速定位工具 source-ref</title>
+    <link href="http://www.moonrailgun.com/posts/da6d1d53/"/>
+    <id>http://www.moonrailgun.com/posts/da6d1d53/</id>
+    <published>2022-07-06T03:23:29.000Z</published>
+    <updated>2024-10-07T06:18:00.811Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;背景&quot;&gt;&lt;a href=&quot;#背景&quot; class=&quot;headerlink&quot; title=&quot;背景&quot;&gt;&lt;/a&gt;背景&lt;/h2&gt;&lt;p&gt;&lt;code&gt;source-ref&lt;/code&gt;</summary>
+        
+      
+    
+    
+    
+    
+    <category term="源码定位" scheme="http://www.moonrailgun.com/tags/%E6%BA%90%E7%A0%81%E5%AE%9A%E4%BD%8D/"/>
+    
+    <category term="产研效能" scheme="http://www.moonrailgun.com/tags/%E4%BA%A7%E7%A0%94%E6%95%88%E8%83%BD/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Garfish 源码解析 —— 一个微应用是如何被挂载的</title>
+    <link href="http://www.moonrailgun.com/posts/a9d2669b/"/>
+    <id>http://www.moonrailgun.com/posts/a9d2669b/</id>
+    <published>2022-06-29T03:50:27.000Z</published>
+    <updated>2024-10-07T06:18:00.804Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;背景&quot;&gt;&lt;a href=&quot;#背景&quot; class=&quot;headerlink&quot; title=&quot;背景&quot;&gt;&lt;/a&gt;背景&lt;/h2&gt;&lt;p&gt;&lt;code&gt;Garfish&lt;/code&gt; 是字节跳动 &lt;code&gt;web infra&lt;/code&gt;</summary>
+        
+      
+    
+    
+    
+    
+    <category term="学习笔记" scheme="http://www.moonrailgun.com/tags/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
+    
+    <category term="Garfish" scheme="http://www.moonrailgun.com/tags/Garfish/"/>
+    
+    <category term="源码解析" scheme="http://www.moonrailgun.com/tags/%E6%BA%90%E7%A0%81%E8%A7%A3%E6%9E%90/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>把代码仓库当做数据库，github action持久化存储新思路</title>
+    <link href="http://www.moonrailgun.com/posts/e678c77b/"/>
+    <id>http://www.moonrailgun.com/posts/e678c77b/</id>
+    <published>2022-05-25T16:04:48.000Z</published>
+    <updated>2024-10-07T06:18:00.810Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;背景&quot;&gt;&lt;a href=&quot;#背景&quot; class=&quot;headerlink&quot; title=&quot;背景&quot;&gt;&lt;/a&gt;背景&lt;/h2&gt;&lt;p&gt;我想做一个rss订阅机器人，通过一个定时任务定期将我关注的内容推送到我的 &lt;code&gt;Tailchat&lt;/code&gt;</summary>
+        
+      
+    
+    
+    
+    
+    <category term="代码仓库" scheme="http://www.moonrailgun.com/tags/%E4%BB%A3%E7%A0%81%E4%BB%93%E5%BA%93/"/>
+    
+    <category term="Github" scheme="http://www.moonrailgun.com/tags/Github/"/>
+    
+    <category term="Github Action" scheme="http://www.moonrailgun.com/tags/Github-Action/"/>
+    
+    <category term="持久化存储" scheme="http://www.moonrailgun.com/tags/%E6%8C%81%E4%B9%85%E5%8C%96%E5%AD%98%E5%82%A8/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>如何让团队项目白嫖 vercel 的免费服务</title>
+    <link href="http://www.moonrailgun.com/posts/9632e7e0/"/>
+    <id>http://www.moonrailgun.com/posts/9632e7e0/</id>
+    <published>2022-04-03T14:17:06.000Z</published>
+    <updated>2024-10-07T06:18:00.810Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;背景&quot;&gt;&lt;a href=&quot;#背景&quot; class=&quot;headerlink&quot; title=&quot;背景&quot;&gt;&lt;/a&gt;背景&lt;/h2&gt;&lt;p&gt;&lt;code&gt;Vercel&lt;/code&gt; 是一个对 &lt;code&gt;Hobby&lt;/code&gt;</summary>
+        
+      
+    
+    
+    
+    
+    <category term="vercel" scheme="http://www.moonrailgun.com/tags/vercel/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>CentOS7 安装gcc手册</title>
+    <link href="http://www.moonrailgun.com/posts/406cd832/"/>
+    <id>http://www.moonrailgun.com/posts/406cd832/</id>
+    <published>2022-03-25T15:52:36.000Z</published>
+    <updated>2024-10-07T06:18:00.803Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;众所周知，&lt;code&gt;gcc&lt;/code&gt;版本数都已经两位数了，yum源的直接安装gcc的最新版本还停留在&lt;code&gt;4.8.5&lt;/code&gt;。而对于部分c++的应用来说，高版本的&lt;code&gt;gcc&lt;/code&gt;是必不可少的。而现在中文网络上教你升级gcc的办法都是手动下载</summary>
+        
+      
+    
+    
+    
+    
+    <category term="centos7" scheme="http://www.moonrailgun.com/tags/centos7/"/>
+    
+    <category term="gcc" scheme="http://www.moonrailgun.com/tags/gcc/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>k3s安装 OpenFaaS小记</title>
+    <link href="http://www.moonrailgun.com/posts/e7e551d1/"/>
+    <id>http://www.moonrailgun.com/posts/e7e551d1/</id>
+    <published>2021-12-01T12:47:23.000Z</published>
+    <updated>2024-10-07T06:18:00.807Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;官方手册&quot;&gt;&lt;a href=&quot;#官方手册&quot; class=&quot;headerlink&quot; title=&quot;官方手册&quot;&gt;&lt;/a&gt;官方手册&lt;/h2&gt;&lt;p&gt;&lt;a</summary>
+        
+      
+    
+    
+    
+    
+    <category term="学习笔记" scheme="http://www.moonrailgun.com/tags/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
+    
+    <category term="k3s" scheme="http://www.moonrailgun.com/tags/k3s/"/>
+    
+    <category term="k8s" scheme="http://www.moonrailgun.com/tags/k8s/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>为什么我选择Tailwindcss</title>
+    <link href="http://www.moonrailgun.com/posts/f9bc948a/"/>
+    <id>http://www.moonrailgun.com/posts/f9bc948a/</id>
+    <published>2021-07-16T01:27:09.000Z</published>
+    <updated>2024-10-07T06:18:00.808Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;前端的CSS发展经历了许多方案, 从早期的无序到后面的BEM，从自写到&lt;code&gt;bootstrap&lt;/code&gt;的火爆，从 &lt;code&gt;single css file&lt;/code&gt; 到 &lt;code&gt;css module&lt;/code&gt; 到 &lt;code&gt;css in</summary>
+        
+      
+    
+    
+    
+    
+    <category term="css" scheme="http://www.moonrailgun.com/tags/css/"/>
+    
+    <category term="tailwindcss" scheme="http://www.moonrailgun.com/tags/tailwindcss/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>每日一题 —— 混杂整数序列按规则进行重新排序</title>
+    <link href="http://www.moonrailgun.com/posts/e536db3/"/>
+    <id>http://www.moonrailgun.com/posts/e536db3/</id>
+    <published>2021-06-07T02:02:42.000Z</published>
+    <updated>2024-10-07T06:18:00.811Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;&lt;strong&gt;背景:&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;假设我们取一个数字 x 并执行以下任一操作：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;a:将 x 除以 3 (如果可以被 3 除)&lt;/li&gt;
+&lt;li&gt;b:将 x 乘以 2&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;每次操作后，记下结果。如果从</summary>
+        
+      
+    
+    
+    
+    
+    <category term="算法" scheme="http://www.moonrailgun.com/tags/%E7%AE%97%E6%B3%95/"/>
+    
+    <category term="每日一题" scheme="http://www.moonrailgun.com/tags/%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%98/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Webpack是个什么鬼——了解编译结果</title>
+    <link href="http://www.moonrailgun.com/posts/a409424d/"/>
+    <id>http://www.moonrailgun.com/posts/a409424d/</id>
+    <published>2021-06-05T12:46:30.000Z</published>
+    <updated>2024-10-07T06:18:00.806Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;简述&quot;&gt;&lt;a href=&quot;#简述&quot; class=&quot;headerlink&quot; title=&quot;简述&quot;&gt;&lt;/a&gt;简述&lt;/h2&gt;&lt;p&gt;&lt;code&gt;webpack&lt;/code&gt;</summary>
+        
+      
+    
+    
+    
+    
+    <category term="webpack" scheme="http://www.moonrailgun.com/tags/webpack/"/>
+    
+    <category term="esmodule" scheme="http://www.moonrailgun.com/tags/esmodule/"/>
+    
+    <category term="commonjs" scheme="http://www.moonrailgun.com/tags/commonjs/"/>
+    
+  </entry>
+  
+</feed>

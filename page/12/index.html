@@ -1,0 +1,755 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+
+    <!--[if lt IE 9]>
+        <style>body {display: none; background: none !important} </style>
+        <meta http-equiv="Refresh" Content="0; url=//outdatedbrowser.com/" />
+    <![endif]-->
+
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<meta name="format-detection" content="telephone=no" />
+<meta name="author" content="moonrailgun" />
+<meta name="description" content="一个兴趣使然的软件攻城狮的个人博客。兴趣是最好的老师。"/>
+<script async defer data-website-id="be33e45e-5666-46a7-8080-e9e2be720b72" src="https://umami.moonrailgun.com/script.js"></script>
+<script async defer src="https://tianji.moonrailgun.com/tracker.js" data-website-id="clp2l64d2435nmm5dcfc6hcoz"></script>
+
+
+    
+    
+
+
+<meta property="og:type" content="website">
+<meta property="og:title" content="moonrailgun - 兴趣使然的工程师 — 个人技术展示">
+<meta property="og:url" content="http://www.moonrailgun.com/page/12/index.html">
+<meta property="og:site_name" content="moonrailgun - 兴趣使然的工程师 — 个人技术展示">
+<meta property="og:locale">
+<meta property="article:author" content="moonrailgun">
+<meta name="twitter:card" content="summary">
+
+<link rel="apple-touch-icon" href= "/apple-touch-icon.png">
+
+
+    <link rel="alternate" href="/atom.xml" title="moonrailgun - 兴趣使然的工程师 — 个人技术展示" type="application/atom+xml">
+
+
+
+    <link rel="shortcut icon" href="/favicon.png">
+
+
+
+
+
+    <link href="https://lib.baomitu.com/fancybox/2.1.5/jquery.fancybox.min.css" rel="stylesheet">
+
+
+
+    <script src="https://lib.baomitu.com/pace/1.0.2/pace.min.js"></script>
+    <link href="https://lib.baomitu.com/pace/1.0.2/themes/blue/pace-theme-minimal.css" rel="stylesheet">
+
+
+
+<link rel="stylesheet" href="/css/style.css">
+
+
+
+
+<link href="https://lib.baomitu.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
+
+
+<title>moonrailgun - 兴趣使然的工程师 — 个人技术展示</title>
+
+<script src="https://lib.baomitu.com/jquery/2.2.4/jquery.min.js"></script>
+<script src="https://lib.baomitu.com/clipboard.js/1.5.10/clipboard.min.js"></script>
+
+<script>
+    var yiliaConfig = {
+        fancybox: true,
+        animate: false,
+        isHome: true,
+        isPost: false,
+        isArchive: false,
+        isTag: false,
+        isCategory: false,
+        fancybox_js: "https://lib.baomitu.com/fancybox/2.1.5/jquery.fancybox.min.js",
+        scrollreveal: "https://lib.baomitu.com/scrollReveal.js/3.1.4/scrollreveal.min.js",
+        search: true
+    }
+</script>
+
+
+    <script> yiliaConfig.jquery_ui = [false]; </script>
+
+
+
+    <script> yiliaConfig.rootUrl = "\/";</script>
+
+
+
+
+
+
+<!-- plausible.io -->
+<script defer data-domain="moonrailgun.com" src="https://plausible.io/js/script.file-downloads.hash.outbound-links.pageview-props.revenue.tagged-events.js"></script>
+<script>window.plausible = window.plausible || function() { (window.plausible.q = window.plausible.q || []).push(arguments) }</script>
+
+<meta name="generator" content="Hexo 5.2.0"></head>
+
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+    <header id="header" class="inner">
+        <a href="/" class="profilepic">
+            <img src="/img/avatar.png" class="animated zoomIn">
+        </a>
+        <hgroup>
+          <h1 class="header-author"><a href="/"></a></h1>
+        </hgroup>
+
+        
+
+        
+            <form id="search-form">
+            <input type="text" id="local-search-input" name="q" placeholder="search..." class="search form-control" autocomplete="off" autocorrect="off" searchonload="false" />
+            <i class="fa fa-times" onclick="resetSearch()"></i>
+            </form>
+            <div id="local-search-result"></div>
+            <p class='no-result'>No results found <i class='fa fa-spinner fa-pulse'></i></p>
+        
+
+
+        
+            <div id="switch-btn" class="switch-btn">
+                <div class="icon">
+                    <div class="icon-ctn">
+                        <div class="icon-wrap icon-house" data-idx="0">
+                            <div class="birdhouse"></div>
+                            <div class="birdhouse_holes"></div>
+                        </div>
+                        <div class="icon-wrap icon-ribbon hide" data-idx="1">
+                            <div class="ribbon"></div>
+                        </div>
+                        
+                        <div class="icon-wrap icon-link hide" data-idx="2">
+                            <div class="loopback_l"></div>
+                            <div class="loopback_r"></div>
+                        </div>
+                        
+                        
+                        <div class="icon-wrap icon-me hide" data-idx="3">
+                            <div class="user"></div>
+                            <div class="shoulder"></div>
+                        </div>
+                        
+                    </div>
+                    
+                </div>
+                <div class="tips-box hide">
+                    <div class="tips-arrow"></div>
+                    <ul class="tips-inner">
+                        <li>菜单</li>
+                        <li>标签</li>
+                        
+                        <li>友情链接</li>
+                        
+                        
+                        <li>关于我</li>
+                        
+                    </ul>
+                </div>
+            </div>
+        
+
+        <div id="switch-area" class="switch-area">
+            <div class="switch-wrap">
+                <section class="switch-part switch-part1">
+                    <nav class="header-menu">
+                        <ul>
+                        
+                            <li><a href="/">主页</a></li>
+                        
+                            <li><a href="/archives/">所有文章</a></li>
+                        
+                            <li><a href="/show/">作品展示</a></li>
+                        
+                            <li><a href="/tags/">标签云</a></li>
+                        
+                            <li><a href="/about/">关于我</a></li>
+                        
+                        </ul>
+                    </nav>
+                    <nav class="header-nav">
+                        <ul class="social">
+                            
+                                <a class="fa Email" href="mailto:moonrailgun@gmail.com" title="Email"></a>
+                            
+                                <a class="fa GitHub" target="_blank" rel="noopener" href="https://github.com/moonrailgun" title="GitHub"></a>
+                            
+                                <a class="fa RSS" href="/atom.xml" title="RSS"></a>
+                            
+                        </ul>
+                    </nav>
+                </section>
+                
+                
+                <section class="switch-part switch-part2">
+                    <div class="widget tagcloud" id="js-tagcloud">
+                        <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Apache/" rel="tag">Apache</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Apicloud/" rel="tag">Apicloud</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Blender/" rel="tag">Blender</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/C/" rel="tag">C++</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/CCLog/" rel="tag">CCLog</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/CORS/" rel="tag">CORS</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/CSLoader/" rel="tag">CSLoader</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ES6/" rel="tag">ES6</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/GMT/" rel="tag">GMT</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Garfish/" rel="tag">Garfish</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Github/" rel="tag">Github</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Github-Action/" rel="tag">Github Action</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/HTML/" rel="tag">HTML</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/HTML5/" rel="tag">HTML5</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/HTTPS/" rel="tag">HTTPS</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/LINK1104/" rel="tag">LINK1104</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Linux/" rel="tag">Linux</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/MMD/" rel="tag">MMD</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/MikuMikuCombat/" rel="tag">MikuMikuCombat</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/MySQL/" rel="tag">MySQL</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/NSURL/" rel="tag">NSURL</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/NodeJS/" rel="tag">NodeJS</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/OOM-Killer/" rel="tag">OOM Killer</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/PHP/" rel="tag">PHP</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/React/" rel="tag">React</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/React-Query/" rel="tag">React Query</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ReactNative/" rel="tag">ReactNative</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Ref/" rel="tag">Ref</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/SQL/" rel="tag">SQL</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/SSL/" rel="tag">SSL</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Session/" rel="tag">Session</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Shader/" rel="tag">Shader</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Snowpack/" rel="tag">Snowpack</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Steam/" rel="tag">Steam</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Swap/" rel="tag">Swap</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/TRPG/" rel="tag">TRPG</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/TRPG-Engine/" rel="tag">TRPG Engine</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Tailchat/" rel="tag">Tailchat</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/TexturePacker/" rel="tag">TexturePacker</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Ubuntu-18-04/" rel="tag">Ubuntu 18.04</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Unicode/" rel="tag">Unicode</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Unity/" rel="tag">Unity</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Unreal/" rel="tag">Unreal</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Vue/" rel="tag">Vue</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Webpack/" rel="tag">Webpack</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Weex/" rel="tag">Weex</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/WhiteWord/" rel="tag">WhiteWord</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/adb/" rel="tag">adb</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/android/" rel="tag">android</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/atom/" rel="tag">atom</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/auth/" rel="tag">auth</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/autorelease/" rel="tag">autorelease</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/blender/" rel="tag">blender</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/c/" rel="tag">c++</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/callback/" rel="tag">callback</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/centos7/" rel="tag">centos7</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/cherry-pick/" rel="tag">cherry-pick</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/chrome/" rel="tag">chrome</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/chromium/" rel="tag">chromium</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/cluster/" rel="tag">cluster</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/cocoapods/" rel="tag">cocoapods</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/cocos2dx/" rel="tag">cocos2dx</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/commonjs/" rel="tag">commonjs</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/cookie/" rel="tag">cookie</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/css/" rel="tag">css</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/cycle/" rel="tag">cycle</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/debounce/" rel="tag">debounce</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/devops/" rel="tag">devops</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/docker/" rel="tag">docker</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/docusaurus/" rel="tag">docusaurus</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/docusaurus-v2/" rel="tag">docusaurus v2</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/esmodule/" rel="tag">esmodule</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/extensions/" rel="tag">extensions</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/firefox/" rel="tag">firefox</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/gcc/" rel="tag">gcc</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/git/" rel="tag">git</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/gradient/" rel="tag">gradient</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/gulp/" rel="tag">gulp</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hao360/" rel="tag">hao360</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/http/" rel="tag">http</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/https/" rel="tag">https</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/iOS/" rel="tag">iOS</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ionic/" rel="tag">ionic</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ios/" rel="tag">ios</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/javascript/" rel="tag">javascript</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/js/" rel="tag">js</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/k3s/" rel="tag">k3s</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/k8s/" rel="tag">k8s</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/lambda%E8%A1%A8%E8%BE%BE%E5%BC%8F/" rel="tag">lambda表达式</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/libcocos2d-2013-lib/" rel="tag">libcocos2d_2013.lib</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/lodash/" rel="tag">lodash</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/meta-program/" rel="tag">meta program</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/mini-star/" rel="tag">mini-star</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/nginx/" rel="tag">nginx</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/node/" rel="tag">node</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/node-orm/" rel="tag">node-orm</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/nodejs/" rel="tag">nodejs</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/nox/" rel="tag">nox</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/npm/" rel="tag">npm</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/objective-c/" rel="tag">objective-c</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ohmyzsh/" rel="tag">ohmyzsh</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/pod/" rel="tag">pod</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/pomelo/" rel="tag">pomelo</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/pubg/" rel="tag">pubg</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/python/" rel="tag">python</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/react-virtualized/" rel="tag">react-virtualized</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/requirejs/" rel="tag">requirejs</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/rfc/" rel="tag">rfc</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/safari/" rel="tag">safari</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/sequelizejs/" rel="tag">sequelizejs</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/session/" rel="tag">session</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ssl/" rel="tag">ssl</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/stacking-context/" rel="tag">stacking context</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/sticky/" rel="tag">sticky</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/svg/" rel="tag">svg</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/swarm/" rel="tag">swarm</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/swift/" rel="tag">swift</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/tailwindcss/" rel="tag">tailwindcss</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/throttle/" rel="tag">throttle</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/traefik/" rel="tag">traefik</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/typescript/" rel="tag">typescript</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/unity/" rel="tag">unity</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/upyun/" rel="tag">upyun</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/utf-8/" rel="tag">utf-8</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/vercel/" rel="tag">vercel</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/vim/" rel="tag">vim</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/vmware/" rel="tag">vmware</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/webpack/" rel="tag">webpack</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/webpack-dev-server/" rel="tag">webpack-dev-server</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/webpack-stats-viewer/" rel="tag">webpack-stats-viewer</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/weixin/" rel="tag">weixin</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/wsl/" rel="tag">wsl</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/wsl2/" rel="tag">wsl2</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/z-index/" rel="tag">z-index</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/zustand/" rel="tag">zustand</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E4%BA%A7%E7%A0%94%E6%95%88%E8%83%BD/" rel="tag">产研效能</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E4%BB%A3%E7%A0%81%E4%BB%93%E5%BA%93/" rel="tag">代码仓库</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E4%BB%A3%E7%A0%81%E4%BC%98%E5%8C%96/" rel="tag">代码优化</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%89%8D%E7%AB%AF/" rel="tag">前端</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%90%8E%E5%8F%B0/" rel="tag">后台</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%A3%81%E7%BA%B8/" rel="tag">壁纸</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%AD%97%E8%8A%82%E8%B7%B3%E5%8A%A8/" rel="tag">字节跳动</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" rel="tag">学习笔记</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%AE%88%E6%9C%9B%E5%85%88%E9%94%8B/" rel="tag">守望先锋</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%AE%89%E5%85%A8/" rel="tag">安全</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%B7%A5%E7%A8%8B%E5%8C%96/" rel="tag">工程化</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%B8%B8%E7%94%A8%E6%8A%80%E5%B7%A7/" rel="tag">常用技巧</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%BC%80%E5%8F%91%E7%AC%94%E8%AE%B0/" rel="tag">开发笔记</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%BE%AE%E4%BF%A1/" rel="tag">微信</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%BE%AE%E5%86%85%E6%A0%B8/" rel="tag">微内核</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%BE%AE%E5%89%8D%E7%AB%AF/" rel="tag">微前端</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%BF%AB%E6%8D%B7%E6%96%B9%E5%BC%8F/" rel="tag">快捷方式</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/" rel="tag">性能优化</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%8C%81%E4%B9%85%E5%8C%96%E5%AD%98%E5%82%A8/" rel="tag">持久化存储</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%91%87%E6%A0%91%E4%BC%98%E5%8C%96/" rel="tag">摇树优化</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/" rel="tag">数据库</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%96%87%E6%A1%A3/" rel="tag">文档</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%97%B6%E9%97%B4%E6%A0%BC%E5%BC%8F/" rel="tag">时间格式</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%9C%8D%E5%8A%A1%E5%99%A8/" rel="tag">服务器</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%98/" rel="tag">每日一题</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%B3%A8%E5%86%8C%E8%A1%A8/" rel="tag">注册表</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%B8%B2%E6%9F%93/" rel="tag">渲染</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%B8%B8%E6%88%8F%E5%BC%80%E5%8F%91/" rel="tag">游戏开发</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%BA%90%E7%A0%81%E5%AE%9A%E4%BD%8D/" rel="tag">源码定位</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%BA%90%E7%A0%81%E8%A7%A3%E6%9E%90/" rel="tag">源码解析</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%88%B6%E5%AD%90%E5%85%B3%E7%B3%BB/" rel="tag">父子关系</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%89%88%E6%9C%AC%E5%8F%B7/" rel="tag">版本号</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%8A%B6%E6%80%81%E7%AE%A1%E7%90%86/" rel="tag">状态管理</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%AE%97%E6%B3%95/" rel="tag">算法</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%BD%91%E7%AB%99%E5%8A%AB%E6%8C%81/" rel="tag">网站劫持</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%BD%91%E7%BB%9C/" rel="tag">网络</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%83%A1%E8%A8%80%E4%B9%B1%E8%AF%AD/" rel="tag">胡言乱语</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%93%9D%E5%9B%BE/" rel="tag">蓝图</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%B7%A8%E5%9F%9F/" rel="tag">跨域</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%B7%A8%E5%B9%B3%E5%8F%B0/" rel="tag">跨平台</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%B8%A9%E5%9D%91/" rel="tag">踩坑</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%92%93%E9%B1%BC%E7%BD%91%E7%AB%99/" rel="tag">钓鱼网站</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%97%AD%E5%8C%85/" rel="tag">闭包</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%9B%86%E7%BE%A4/" rel="tag">集群</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%9D%99%E6%80%81%E7%BD%91%E7%AB%99/" rel="tag">静态网站</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%9D%A2%E8%AF%95/" rel="tag">面试</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%A1%B9%E7%9B%AE%E7%AE%A1%E7%90%86/" rel="tag">项目管理</a></li></ul>
+                    </div>
+                </section>
+                
+                
+                
+                <section class="switch-part switch-part3">
+                    <div id="js-friends">
+                    
+                      <a class="main-nav-link switch-friends-link" target="_blank" rel="noopener" href="https://hexo.io">Hexo</a>
+                    
+                      <a class="main-nav-link switch-friends-link" target="_blank" rel="noopener" href="https://pages.github.com/">GitHub</a>
+                    
+                      <a class="main-nav-link switch-friends-link" target="_blank" rel="noopener" href="http://moxfive.xyz/">MOxFIVE</a>
+                    
+                      <a class="main-nav-link switch-friends-link" target="_blank" rel="noopener" href="https://github.com/msgbyte/tailchat">Tailchat</a>
+                    
+                    </div>
+                </section>
+                
+
+                
+                
+                <section class="switch-part switch-part4">
+                
+                    <div id="js-aboutme">一个兴趣使然的程序员 上海,上班族,27岁. 熟练掌握Nodejs, Html5, C Sharp, Unity技术</div>
+                </section>
+                
+            </div>
+        </div>
+    </header>                
+</div>
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+      <div class="overlay">
+          <div class="slider-trigger"></div>
+          <h1 class="header-author js-mobile-header hide"><a href="/" title="回到主页"></a></h1>
+      </div>
+    <div class="intrude-less">
+        <header id="header" class="inner">
+            <a href="/" class="profilepic">
+                <img src="/img/avatar.png" class="animated zoomIn">
+            </a>
+            <hgroup>
+              <h1 class="header-author"><a href="/" title="回到主页"></a></h1>
+            </hgroup>
+            
+            <nav class="header-menu">
+                <ul>
+                
+                    <li><a href="/">主页</a></li>
+                
+                    <li><a href="/archives/">所有文章</a></li>
+                
+                    <li><a href="/show/">作品展示</a></li>
+                
+                    <li><a href="/tags/">标签云</a></li>
+                
+                    <li><a href="/about/">关于我</a></li>
+                
+                <div class="clearfix"></div>
+                </ul>
+            </nav>
+            <nav class="header-nav">
+                        <ul class="social">
+                            
+                                <a class="fa Email" target="_blank" href="mailto:moonrailgun@gmail.com" title="Email"></a>
+                            
+                                <a class="fa GitHub" target="_blank" href="https://github.com/moonrailgun" title="GitHub"></a>
+                            
+                                <a class="fa RSS" target="_blank" href="/atom.xml" title="RSS"></a>
+                            
+                        </ul>
+            </nav>
+        </header>                
+    </div>
+    <link class="menu-list" tags="标签" friends="友情链接" about="关于我"/>
+</nav>
+      <div class="body-wrap">
+  
+    <article id="post-Cocos2dx学习笔记——源文件编译问题" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/posts/990c5d7a/" class="article-date">
+      <time datetime="2016-03-14T05:06:01.000Z" itemprop="datePublished">2016-03-14</time>
+</a>
+
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/posts/990c5d7a/">Cocos2dx学习笔记——cocos-ext头文件编译问题</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <p>开始学习的过程中遇到一个问题。就是跟着教程学习使用如何使用TableView的时候，为使用当时引入了一个名为<code>cocos-ext.h</code>的头文件而产生了大量的报错。我当时很诧异因为我一切步骤都是按照教程的步骤来的。后来我发现了原因所在。因为我为了更好的研究代码使用的是cocos2d的源码生成的项目。而不是使用预编译的版本。而环境搭建时对于基本头文件的路径有所优化，而源码中仍旧使用的是老版本的路径方式。所以解决方案如下：<br>不断循环编译。在编译报告中点开关于<code>无法打开源文件extensions\...</code>的报错项目。将其改为如<code>#include &quot;ExtensionExport.h&quot;</code>这样的格式。再重新生成直到没有报错为止。</p>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/cocos2dx/" rel="tag">cocos2dx</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/extensions/" rel="tag">extensions</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%B8%B8%E6%88%8F%E5%BC%80%E5%8F%91/" rel="tag">游戏开发</a></li></ul>
+    </div>
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-git使用方法简明教程 - 个人篇" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/posts/44a80e28/" class="article-date">
+      <time datetime="2015-12-19T03:45:29.000Z" itemprop="datePublished">2015-12-19</time>
+</a>
+
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/posts/44a80e28/">git使用方法简明教程 - 个人篇</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <h2 id="git使用"><a href="#git使用" class="headerlink" title="git使用"></a>git使用</h2><h3 id="什么是git"><a href="#什么是git" class="headerlink" title="什么是git"></a>什么是git</h3><p>git就是一个管理你项目代码，监控你代码的变更记录的一款软件。</p>
+<h3 id="下载git"><a href="#下载git" class="headerlink" title="下载git"></a>下载git</h3><p>在git官网上下载，推荐是带有gui的版本。下载地址自行百度</p>
+<h3 id="Bash-和-GUI"><a href="#Bash-和-GUI" class="headerlink" title="Bash 和 GUI"></a>Bash 和 GUI</h3><p>下载安装完毕后右键菜单会多出来两项。分别为git bash和git gui。bash为git的命令行版本，gui为git的gui版本。在一个文件夹下右键选择其中之一。就是在当前文件下打开该工具<br>PS: git bash 也可以当做普通的命令行来使用</p>
+<h3 id="项目的创建与删除"><a href="#项目的创建与删除" class="headerlink" title="项目的创建与删除"></a>项目的创建与删除</h3><h4 id="创建"><a href="#创建" class="headerlink" title="创建"></a>创建</h4><p>在项目文件的根目录下右键，选中git bash。输入命令</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git init</span><br></pre></td></tr></table></figure>
+<p>完成git文件创建，会在该目录下创建一个隐藏的文件夹 <code>.git</code><br>该文件夹就是管理你代码的监控文件，文件夹总大小略大于你所有文本文件总大小</p>
+<h4 id="删除"><a href="#删除" class="headerlink" title="删除"></a>删除</h4><p>文件夹设置为<strong>显示隐藏的项目</strong>，把<code>.git</code>文件夹删除就可以完成git项目的删除</p>
+<h2 id="代码管理"><a href="#代码管理" class="headerlink" title="代码管理"></a>代码管理</h2><p>代码管理对于新手来说并不建议使用bash版本的git。因为过于复杂。一般bash用于处理gui版本无法处理的一些复杂的git管理操作。因此这里使用gui版本进行。<br>对于个人使用。一个简单的主分支即可。主分支一般默认起名叫master。我会在之后的团队协作使用git的教程中详细说明分支的相关内容。</p>
+<h3 id="代码提交-commit"><a href="#代码提交-commit" class="headerlink" title="代码提交 commit"></a>代码提交 commit</h3><p>当代码与之前版本不同时，git把有过改动的文件列出来。点击缓存改动。将改动的文件添加到将要提交的队列。在提交描述处填写该次提交改动的描述，点击提交完成代码的提交。<br>注意，此处的提交是指提交到本地的git项目中。并不是提交到网上的代码仓库。当然也可以不提交到网上。<br><strong>描述格式</strong>:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">描述详情</span><br><span class="line"></span><br><span class="line">描述细节1</span><br><span class="line">描述细节2</span><br></pre></td></tr></table></figure>
+
+<p><strong>个人用的推荐的描述格式</strong>:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">XXX功能</span><br><span class="line"></span><br><span class="line">ADD XXX功能</span><br><span class="line">UPDATE 优化了XXX的逻辑</span><br><span class="line">DELETE 删除冗余代码</span><br><span class="line">FIXED 修复了不能XXX的BUG</span><br></pre></td></tr></table></figure>
+
+<h3 id="代码上传-push"><a href="#代码上传-push" class="headerlink" title="代码上传 push"></a>代码上传 push</h3><p>代码上传是指将git项目提交带网络上的代码仓库中<br>上传必须知道三个东西:</p>
+<ul>
+<li>git仓库的地址</li>
+<li>git仓库的个人账号</li>
+<li>git仓库的个人密码</li>
+</ul>
+<p>在git gui中直接点击上传即可。在目标版本库中填入仓库的地址。然后上传的过程中会一一询问账号和密码。正确填写完成上传。</p>
+<h3 id="代码克隆-clone"><a href="#代码克隆-clone" class="headerlink" title="代码克隆 clone"></a>代码克隆 clone</h3><p>代码克隆很简单。一局代码完事</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git <span class="built_in">clone</span> 项目的地址</span><br></pre></td></tr></table></figure>
+
+<h3 id="历史记录-history"><a href="#历史记录-history" class="headerlink" title="历史记录 history"></a>历史记录 history</h3><p>git gui左上角版本库中点击图示master分支(或所有分支)的历史完成查看</p>
+<h3 id="忽略文件-gitignore"><a href="#忽略文件-gitignore" class="headerlink" title="忽略文件 .gitignore"></a>忽略文件 .gitignore</h3><p>在项目的根目录创建.gitignore，可以忽略该文件的改动。不添加到git跟踪中格式支持通配符。一般用于忽略ide或者二进制打包生成的文件。<br>注释使用#<br><strong>examples</strong>:<br>.idea/<br>node_modules/<br>*.tmp</p>
+<h2 id="使用github-for-windows进行简易处理"><a href="#使用github-for-windows进行简易处理" class="headerlink" title="使用github for windows进行简易处理"></a>使用github for windows进行简易处理</h2><p>github 官网提供了一个面向github的gui简易版本，可以帮助用户很方便的进行代码的管理，支持的基本操作有：</p>
+<ul>
+<li>代码clone</li>
+<li>添加项目</li>
+<li>创建项目</li>
+<li>.gitignore管理</li>
+<li>remote远程管理</li>
+<li>分支切换</li>
+<li>代码提交</li>
+<li>代码上传</li>
+<li>代码同步</li>
+<li>pull请求</li>
+<li>分支比较</li>
+<li>历史查看</li>
+<li>…</li>
+</ul>
+<h2 id="常用的一些代码仓库"><a href="#常用的一些代码仓库" class="headerlink" title="常用的一些代码仓库"></a>常用的一些代码仓库</h2><p>这里推荐一些流行的网络代码管理的提交平台，通过网络平台可以更好的分享代码，团队合作</p>
+<h4 id="国外"><a href="#国外" class="headerlink" title="国外:"></a>国外:</h4><ul>
+<li>github</li>
+<li>google code(墙)</li>
+<li>bitbucket</li>
+<li>gitlab</li>
+</ul>
+<h4 id="国内"><a href="#国内" class="headerlink" title="国内:"></a>国内:</h4><ul>
+<li>oschina</li>
+<li>code</li>
+<li>GitCafe</li>
+</ul>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/git/" rel="tag">git</a></li></ul>
+    </div>
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-pomelo框架制作游戏初探（二）" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/posts/fa08ab46/" class="article-date">
+      <time datetime="2015-12-09T05:58:39.000Z" itemprop="datePublished">2015-12-09</time>
+</a>
+
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/posts/fa08ab46/">pomelo框架制作游戏初探(二) - 登陆模块</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <p>好的那么接上篇<a href="/posts/2d40853/">pomelo框架制作游戏初探（一）</a><br>上篇初步介绍了pomelo框架的环境搭建与基本使用。那么现在开始来正式做一个项目吧，本次我想要做的项目是我自己根据Minecraft来的灵感想要做的一款沙盒类游戏，这里主要记录服务端与服务端交互的逻辑部分。</p>
+<h2 id="主界面"><a href="#主界面" class="headerlink" title="主界面"></a>主界面</h2><p><img src="/images/pomelo/login.jpg"></p>
+<h2 id="文件结构"><a href="#文件结构" class="headerlink" title="文件结构"></a>文件结构</h2><ul>
+<li>/game-server #服务端代码</li>
+<li>/shared #共用逻辑</li>
+<li>/web-server #前端代码</li>
+</ul>
+<h2 id="服务端配置"><a href="#服务端配置" class="headerlink" title="服务端配置"></a>服务端配置</h2><h3 id="配置文件"><a href="#配置文件" class="headerlink" title="配置文件"></a>配置文件</h3><p>在pomelo框架下。服务端是基于一个JSON文件来实现服务端各个部分的数据交互的。该文件位于<code>/game-server/config/servers.json</code>。  </p>
+<p><strong>servers.json</strong></p>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    <span class="attr">&quot;development&quot;</span>: &#123;</span><br><span class="line">        <span class="attr">&quot;connector&quot;</span>: [</span><br><span class="line">            &#123;</span><br><span class="line">                <span class="attr">&quot;id&quot;</span>: <span class="string">&quot;connector-server-1&quot;</span>,</span><br><span class="line">                <span class="attr">&quot;host&quot;</span>: <span class="string">&quot;127.0.0.1&quot;</span>,</span><br><span class="line">                <span class="attr">&quot;port&quot;</span>: <span class="number">3150</span>,</span><br><span class="line">                <span class="attr">&quot;clientHost&quot;</span>: <span class="string">&quot;127.0.0.1&quot;</span>,</span><br><span class="line">                <span class="attr">&quot;clientPort&quot;</span>: <span class="number">3010</span>,</span><br><span class="line">                <span class="attr">&quot;frontend&quot;</span>: <span class="literal">true</span></span><br><span class="line">            &#125;</span><br><span class="line">        ]</span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="attr">&quot;production&quot;</span>: &#123;</span><br><span class="line">        <span class="attr">&quot;connector&quot;</span>: [</span><br><span class="line">            &#123;</span><br><span class="line">                <span class="attr">&quot;id&quot;</span>: <span class="string">&quot;connector-server-1&quot;</span>,</span><br><span class="line">                <span class="attr">&quot;host&quot;</span>: <span class="string">&quot;127.0.0.1&quot;</span>,</span><br><span class="line">                <span class="attr">&quot;port&quot;</span>: <span class="number">3150</span>,</span><br><span class="line">                <span class="attr">&quot;clientHost&quot;</span>: <span class="string">&quot;127.0.0.1&quot;</span>,</span><br><span class="line">                <span class="attr">&quot;clientPort&quot;</span>: <span class="number">3010</span>,</span><br><span class="line">                <span class="attr">&quot;frontend&quot;</span>: <span class="literal">true</span></span><br><span class="line">            &#125;</span><br><span class="line">        ]</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>其中，有development和production两个参数分别表示开发环境和生产环境，来实现本地调试与正式运行相分离。下属为服务器的分类，常见的有connector服务器，chat服务器，gate服务器，area服务器等等，标识各种业务功能，如gate服务器负责负载均衡，将用户分配到不同的服务器处理。服务器分类下是一个数组。数组中每一个对象就是一个服务器的具体配置，配置的参数为:</p>
+<ul>
+<li>id #服务器的唯一标识</li>
+<li>host #服务器的ip地址</li>
+<li>port #服务器的连接端口号</li>
+<li>clientHost #面向客户端的ip，可不填</li>
+<li>clientPort #面向客户端的端口号，可不填</li>
+<li>frontend #客户端是否可见，当该值为true时clientHost与clientPort有效。默认为false</li>
+<li>…</li>
+</ul>
+<p>现在我想要添加一个gate服务器，来负责将连接的用户分配一个connector服务器来达到负载均衡的目的。那么我在<code>servers.json</code>的相应的地方加入这么一行参数：<br><code>&quot;gate&quot;: [&#123;&quot;id&quot;: &quot;gate-server-1&quot;,&quot;host&quot;: &quot;127.0.0.1&quot;,&quot;clientPort&quot;: 3014,&quot;frontend&quot;: true&#125;]</code><br><a href="#%E6%B7%BB%E5%8A%A0%E6%9C%8D%E5%8A%A1%E5%99%A8">如何添加服务器&gt;&gt;</a></p>
+<h3 id="添加服务器"><a href="#添加服务器" class="headerlink" title="添加服务器"></a>添加服务器</h3><p>对于pomelo来说，添加服务器很简单。如果代码按照规范写的话只需要修改<code>servers.json</code>配置文件即可。注意如果是要添加一个新的服务器类型的话需要在<code>/game-server/config/adminServers.json</code>中添加配置。否则直接修改<code>servers.json</code>配置文件会报错。如本例中添加了一个gate服务器类型：</p>
+<p><strong>adminServers.json</strong></p>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">[</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="attr">&quot;type&quot;</span>: <span class="string">&quot;connector&quot;</span>,</span><br><span class="line">        <span class="attr">&quot;token&quot;</span>: <span class="string">&quot;agarxhqb98rpajloaxn34ga8xrunpagkjwlaw3ruxnpaagl29w4rxn&quot;</span></span><br><span class="line">    &#125;,</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="attr">&quot;type&quot;</span>: <span class="string">&quot;gate&quot;</span>,</span><br><span class="line">        <span class="attr">&quot;token&quot;</span>: <span class="string">&quot;agarxhqb98rpajloaxn34ga8xrunpagkjwlaw3ruxnpaagl29w4rxn&quot;</span></span><br><span class="line">    &#125;</span><br><span class="line">]</span><br></pre></td></tr></table></figure>
+
+<h2 id="客户端连接"><a href="#客户端连接" class="headerlink" title="客户端连接"></a>客户端连接</h2><h3 id="API"><a href="#API" class="headerlink" title="API"></a>API</h3><p>pomelo 框架提供了对客户端的API接口。这里暂时只讨论web端的API</p>
+<ul>
+<li>pomelo.init(params, cb) #初始化</li>
+<li>pomelo.request(route, msg, cb) #客户端请求</li>
+<li>pomelo.notify(route, msg) #客户端无回调请求</li>
+<li>pomelo.on(route, cb) #客户端响应</li>
+<li>pomelo.disconnect() #断开连接</li>
+</ul>
+<h3 id="客户端"><a href="#客户端" class="headerlink" title="客户端"></a>客户端</h3><p>当打开网页时直接调用该代码。向gate服务器请求登陆</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">	pomelo.init(&#123;</span><br><span class="line">	    host: <span class="string">&quot;127.0.0.1&quot;</span>,</span><br><span class="line">	    port: <span class="number">3014</span>,</span><br><span class="line">	    log: <span class="literal">true</span></span><br><span class="line">	&#125;, <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">        <span class="comment">//发送请求</span></span><br><span class="line">	    pomelo.request(<span class="string">&quot;gate.gateHandler.queryEntry&quot;</span>, &#123;<span class="attr">uid</span>: <span class="number">1</span>&#125;, <span class="function"><span class="keyword">function</span> (<span class="params">data</span>) </span>&#123;</span><br><span class="line">	        alert(<span class="built_in">JSON</span>.stringify(data));</span><br><span class="line">	        pomelo.disconnect();</span><br><span class="line">	    &#125;);</span><br><span class="line">	&#125;)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>初始化pomelo连接后，向服务器的<code>gate.gateHandler.queryEntry</code>请求数据，传递参数为<code>&#123;uid: 1&#125;</code>。</p>
+<h3 id="服务端"><a href="#服务端" class="headerlink" title="服务端"></a>服务端</h3><p>** /game-server/app/servers/gate/handler/gateHandler.js <strong>修改代码如下</strong>:</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> Code = <span class="built_in">require</span>(<span class="string">&#x27;../../../../../shared/code&#x27;</span>);</span><br><span class="line"></span><br><span class="line"><span class="built_in">module</span>.exports = <span class="function"><span class="keyword">function</span>(<span class="params">app</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">new</span> Handler(app);</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> Handler = <span class="function"><span class="keyword">function</span>(<span class="params">app</span>) </span>&#123;</span><br><span class="line">    <span class="built_in">this</span>.app = app;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="comment">//连接请求</span></span><br><span class="line">Handler.prototype.queryEntry = <span class="function"><span class="keyword">function</span>(<span class="params">msg, session, next</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> uid = msg.uid;<span class="comment">//用户唯一标识</span></span><br><span class="line">    <span class="keyword">if</span> (!uid) &#123;</span><br><span class="line">        next(<span class="literal">null</span>, &#123;<span class="attr">code</span>: Code.FAIL&#125;);</span><br><span class="line">        <span class="keyword">return</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">var</span> connectors = <span class="built_in">this</span>.app.getServersByType(<span class="string">&#x27;connector&#x27;</span>);<span class="comment">//获取服务器列表</span></span><br><span class="line">    <span class="keyword">if</span> (!connectors || connectors.length === <span class="number">0</span>) &#123;</span><br><span class="line">        next(<span class="literal">null</span>, &#123;<span class="attr">code</span>: Code.GATE.FA_NO_SERVER_AVAILABLE&#125;);<span class="comment">//没有可用的服务器</span></span><br><span class="line">        <span class="keyword">return</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">var</span> res = connectors[<span class="number">0</span>];<span class="comment">//分配服务器</span></span><br><span class="line">    next(<span class="literal">null</span>, &#123;<span class="attr">code</span>: Code.OK, <span class="attr">host</span>: res.host, <span class="attr">port</span>: res.clientPort&#125;);<span class="comment">//将分配数据传递给下层</span></span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<p>其中code是一个客户端与服务端共用的数据集合。位于shared文件夹内<br><strong>/shared/code.js</strong></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">module</span>.exports = &#123;</span><br><span class="line">    OK: <span class="number">200</span>,</span><br><span class="line">    FAIL: <span class="number">500</span>,</span><br><span class="line"></span><br><span class="line">    ENTRY: &#123;</span><br><span class="line">        FA_TOKEN_INVALID: <span class="number">1001</span>,</span><br><span class="line">        FA_TOKEN_EXPIRE: <span class="number">1002</span>,</span><br><span class="line">        FA_USER_NOT_EXIST: <span class="number">1003</span></span><br><span class="line">    &#125;,</span><br><span class="line"></span><br><span class="line">    GATE: &#123;</span><br><span class="line">        FA_NO_SERVER_AVAILABLE: <span class="number">2001</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<h3 id="尝试连接"><a href="#尝试连接" class="headerlink" title="尝试连接"></a>尝试连接</h3><p>当出现下图提示则说明连接正常。向gate服务器请求连接。gate服务器向用户分配了一个可用的连接服务器的IP与端口号<br><img src="/images/pomelo/gateRequest.jpg"></p>
+<h2 id="客户端处理登陆请求"><a href="#客户端处理登陆请求" class="headerlink" title="客户端处理登陆请求"></a>客户端处理登陆请求</h2><p>好了。基本的请求分配服务器已经完成了。但是我们不能直接这么用。我们需要一个用户管理器去验证用户的账号密码，管理角色信息等等。这一部分和普通的网页是一致的。因此完全可以放在前端代码中写。<code>web-server</code>是基于express写的web服务器。这里直接在其中添加对账号与密码的验证。因为与pomelo框架无关所以不多累述。直接放出代码<br><strong>/web-server/app.js</strong> 添加</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//登陆</span></span><br><span class="line">app.post(<span class="string">&#x27;/login&#x27;</span>, <span class="function"><span class="keyword">function</span>(<span class="params">req, res</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> msg = req.body;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">var</span> username = msg.username;</span><br><span class="line">    <span class="keyword">var</span> pwd = msg.password;</span><br><span class="line">    <span class="keyword">if</span> (!username || !pwd) &#123;</span><br><span class="line">        res.send(&#123;<span class="attr">code</span>: <span class="number">500</span>&#125;);</span><br><span class="line">        <span class="keyword">return</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    userDao.getUserByName(username, <span class="function"><span class="keyword">function</span>(<span class="params">err, user</span>) </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (err || !user) &#123;</span><br><span class="line">            <span class="built_in">console</span>.log(<span class="string">&#x27;username not exist!&#x27;</span>);</span><br><span class="line">            res.send(&#123;<span class="attr">code</span>: <span class="number">500</span>&#125;);</span><br><span class="line">            <span class="keyword">return</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span> (pwd !== user.password) &#123;</span><br><span class="line">            <span class="comment">// TODO code</span></span><br><span class="line">            <span class="comment">// password is wrong</span></span><br><span class="line">            <span class="built_in">console</span>.log(<span class="string">&#x27;password incorrect!&#x27;</span>);</span><br><span class="line">            res.send(&#123;<span class="attr">code</span>: <span class="number">501</span>&#125;);</span><br><span class="line">            <span class="keyword">return</span>;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="built_in">console</span>.log(username + <span class="string">&#x27; login!&#x27;</span>);</span><br><span class="line">        res.send(&#123;<span class="attr">code</span>: <span class="number">200</span>, <span class="attr">token</span>: Token.create(user.id, <span class="built_in">Date</span>.now(), secret), <span class="attr">uid</span>: user.id&#125;);</span><br><span class="line">    &#125;);</span><br><span class="line">&#125;);</span><br><span class="line"><span class="comment">//注册</span></span><br><span class="line">app.post(<span class="string">&#x27;/register&#x27;</span>, <span class="function"><span class="keyword">function</span>(<span class="params">req, res</span>) </span>&#123;</span><br><span class="line">    <span class="comment">//console.log(&#x27;req.params&#x27;);</span></span><br><span class="line">    <span class="keyword">var</span> msg = req.body;</span><br><span class="line">    <span class="keyword">if</span> (!msg.name || !msg.password) &#123;</span><br><span class="line">        res.send(&#123;<span class="attr">code</span>: <span class="number">500</span>&#125;);</span><br><span class="line">        <span class="keyword">return</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    userDao.createUser(msg.name, msg.password, <span class="string">&#x27;&#x27;</span>, <span class="function"><span class="keyword">function</span>(<span class="params">err, user</span>) </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (err || !user) &#123;</span><br><span class="line">            <span class="built_in">console</span>.error(err);</span><br><span class="line">            <span class="keyword">if</span> (err &amp;&amp; err.code === <span class="number">1062</span>) &#123;</span><br><span class="line">                res.send(&#123;<span class="attr">code</span>: <span class="number">501</span>&#125;);</span><br><span class="line">            &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                res.send(&#123;<span class="attr">code</span>: <span class="number">500</span>&#125;);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            <span class="built_in">console</span>.log(<span class="string">&#x27;A new user was created! --&#x27;</span> + msg.name);</span><br><span class="line">            res.send(&#123;<span class="attr">code</span>: <span class="number">200</span>, <span class="attr">token</span>: Token.create(user.id, <span class="built_in">Date</span>.now(), secret), <span class="attr">uid</span>: user.id&#125;);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<p>其中 <strong>userDao</strong> 是数据库用户管理对象。根据自己数据库来编写，用户从数据库中存取用户数据</p>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/NodeJS/" rel="tag">NodeJS</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/WhiteWord/" rel="tag">WhiteWord</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/pomelo/" rel="tag">pomelo</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%B8%B8%E6%88%8F%E5%BC%80%E5%8F%91/" rel="tag">游戏开发</a></li></ul>
+    </div>
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-pomelo框架制作游戏初探（一）" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/posts/2d40853/" class="article-date">
+      <time datetime="2015-11-26T07:29:34.000Z" itemprop="datePublished">2015-11-26</time>
+</a>
+
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/posts/2d40853/">pomelo框架制作游戏初探(一)</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>很早就关注过NodeJS的高性能服务端开发。所以很早就想要用NodeJS作为后台服务器来开发一款网络游戏。<br>自己写过原生的游戏服务端然而性能并不高。本地测试就会占用很大一部分资源，可以预见的是原生开发的难度远远大于基于框架开发。毕竟框架虽然需要一定的学习成本但是毕竟框架是无数程序员不断优化的成果。写出来的东西一定是好过自己单干的。<br>因此在一定的市场调查（其实就是推度娘）过后我选中了网易开发的pomelo框架。有完整的DEMO，和完善的文档（顺便吐个槽，国人开发的东西API文档居然全是用的英文）</p>
+<h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><p><a target="_blank" rel="noopener" href="https://github.com/NetEase/pomelo/wiki/%E5%AE%89%E8%A3%85pomelo">此处为官网WIKI</a></p>
+<h3 id="windows环境"><a href="#windows环境" class="headerlink" title="windows环境"></a>windows环境</h3><ul>
+<li><a target="_blank" rel="noopener" href="http://nodejs.org/download/">NodeJS</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.python.org/">python</a>(2.5&lt;version&lt;3.0)</li>
+<li>VC++ 编译器，包含在Visual Studio 2010中（VC++ 2010 Express亦可）。对于windows8的用户，需要安装Microsoft Visual Studio C++ 2012。<h3 id="Mac-OS环境"><a href="#Mac-OS环境" class="headerlink" title="Mac OS环境"></a>Mac OS环境</h3></li>
+<li><a target="_blank" rel="noopener" href="http://nodejs.org/download/">NodeJS</a></li>
+<li><a target="_blank" rel="noopener" href="https://developer.apple.com/downloads/index.action?q=xcode">Xcode Command Line Tools</a>或者<a target="_blank" rel="noopener" href="https://developer.apple.com/xcode/">Xcode</a>的完整包</li>
+<li>make工具</li>
+</ul>
+<h3 id="pomelo"><a href="#pomelo" class="headerlink" title="pomelo"></a>pomelo</h3><p>npm 安装</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ npm install pomelo -g</span><br></pre></td></tr></table></figure>
+<p>git 安装</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ git <span class="built_in">clone</span> https://github.com/NetEase/pomelo.git</span><br><span class="line">$ <span class="built_in">cd</span> pomelo</span><br><span class="line">$ npm install -g</span><br></pre></td></tr></table></figure>
+
+<h2 id="HelloWorld"><a href="#HelloWorld" class="headerlink" title="HelloWorld"></a>HelloWorld</h2><h3 id="新建项目"><a href="#新建项目" class="headerlink" title="新建项目"></a>新建项目</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ mkdir HelloWorld</span><br><span class="line">$ <span class="built_in">cd</span> HelloWorld</span><br><span class="line">$ pomelo init</span><br></pre></td></tr></table></figure>
+<p>或</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ pomelo init ./HelloWorld</span><br></pre></td></tr></table></figure>
+<p>两者等价</p>
+<p>然后进入HelloWorld文件夹，安装依赖包</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ sh npm-install.sh</span><br></pre></td></tr></table></figure>
+<p>npm-install.sh的逻辑就是分别进入该项目的两个主要文件夹game-server和web-server<br>使用npm install命令安装文件依赖</p>
+<h3 id="启动项目"><a href="#启动项目" class="headerlink" title="启动项目"></a>启动项目</h3><p>启动项目需要分别进入两个主要文件夹<br>启动game-server服务器：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ <span class="built_in">cd</span> game-server</span><br><span class="line">$ pomelo start</span><br></pre></td></tr></table></figure>
+<p>启动web-server服务器：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ <span class="built_in">cd</span> web-server</span><br><span class="line">$ node app </span><br></pre></td></tr></table></figure>
+
+<p>node [appName]是NodeJS启动传统NodeJS应用的方法，至于pomelo start的作用尚不明确。暂时无需理会</p>
+<h3 id="运行项目"><a href="#运行项目" class="headerlink" title="运行项目"></a>运行项目</h3><p>根据启动web-server的提示打开 <a target="_blank" rel="noopener" href="http://127.0.0.1:3001/">http://127.0.0.1:3001/</a> 。点击按钮发生产生响应。则说明服务器正常。否则则说明服务器不连通。可以通过<a target="_blank" rel="noopener" href="http://nodejs.netease.com/">Pomelo Club</a>咨询排除错误<br><img src="https://github.com/NetEase/pomelo/wiki/images/helloworld_test_snapshot.png"></p>
+<h3 id="关闭项目"><a href="#关闭项目" class="headerlink" title="关闭项目"></a>关闭项目</h3><p>官方给出的关闭方法是</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ <span class="built_in">cd</span> game-server</span><br><span class="line">$ pomelo stop	<span class="comment">#正常关闭</span></span><br></pre></td></tr></table></figure>
+<p>或</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ <span class="built_in">cd</span> game-server</span><br><span class="line">$ pomelo <span class="built_in">kill</span>	<span class="comment">#强制关闭</span></span><br></pre></td></tr></table></figure>
+<p>然而我发现其实用Ctrl + C 也可以实现关闭服务器的作用，可以通过命令 <code>pomelo list</code> 查看到服务器已经被关闭。可能与pomelo kill命令同理</p>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/NodeJS/" rel="tag">NodeJS</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/WhiteWord/" rel="tag">WhiteWord</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/pomelo/" rel="tag">pomelo</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%B8%B8%E6%88%8F%E5%BC%80%E5%8F%91/" rel="tag">游戏开发</a></li></ul>
+    </div>
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
+  
+    <nav id="page-nav">
+      <a class="extend prev" rel="prev" href="/page/11/">Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/10/">10</a><a class="page-number" href="/page/11/">11</a><span class="page-number current">12</span>
+    </nav>
+  
+
+</div>
+      <footer id="footer">
+    <div class="outer">
+        <div id="footer-info">
+            <div class="footer-left">
+                <i class="fa fa-copyright"></i>
+                2016-2024 moonrailgun
+                | <a target="_blank" href="https://beian.miit.gov.cn/">沪ICP备19001187号-1</a>
+                | <a target="_blank" href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=31011302006539">
+                    <img src="/img/beian.png"/>
+                    <span>沪公网安备 31011302006539号</span>
+                  </a>
+                | <a title="本网站由又拍云提供CDN加速/云存储服务" href="https://www.upyun.com/?utm_source=lianmeng&utm_medium=referral" target="_blank" rel="noopener noreferrer"><img src="/img/upyun_logo.png" height="18" style="vertical-align: bottom;" /></a>
+            </div>
+            <div class="footer-right">
+                <a href="http://hexo.io/" target="_blank" title="快速、简洁且高效的博客框架">Hexo</a>  Theme <a href="https://github.com/MOxFIVE/hexo-theme-yelee" target="_blank" title="简而不减 Hexo 双栏博客主题  v3.5">Yelee</a> by MOxFIVE <i class="fa fa-heart animated infinite pulse"></i>
+            </div>
+        </div>
+        
+            <div class="visit">
+                
+                    <span id="busuanzi_container_site_pv" style='display:none'>
+                        <span id="site-visit" title="本站到访数"><i class="fa fa-user" aria-hidden="true"></i><span id="busuanzi_value_site_uv"></span>
+                        </span>
+                    </span>
+                
+                
+                    <span>| </span>
+                
+                
+                    <span id="busuanzi_container_page_pv" style='display:none'>
+                        <span id="page-visit"  title="本页阅读量"><i class="fa fa-eye animated infinite pulse" aria-hidden="true"></i><span id="busuanzi_value_page_pv"></span>
+                        </span>
+                    </span>
+                
+            </div>
+        
+    </div>
+</footer>
+
+    </div>
+    
+<script data-main="/js/main.js" src="https://lib.baomitu.com/require.js/2.2.0/require.min.js"></script>
+
+    <script>
+        $(document).ready(function() {
+            var iPad = window.navigator.userAgent.indexOf('iPad');
+            if (iPad > -1 || $(".left-col").css("display") === "none") {
+                var bgColorList = ["#9db3f4", "#414141", "#e5a859", "#f5dfc6", "#c084a0", "#847e72", "#cd8390", "#996731"];
+                var bgColor = Math.ceil(Math.random() * (bgColorList.length - 1));
+                $("body").css({"background-color": bgColorList[bgColor], "background-size": "cover"});
+            }
+            else {
+                var backgroundnum = 5;
+                var backgroundimg = "url(/background/bg-x.jpg)".replace(/x/gi, Math.ceil(Math.random() * backgroundnum));
+                $("body").css({"background": backgroundimg, "background-attachment": "fixed", "background-size": "cover"});
+            }
+        })
+    </script>
+
+
+
+
+
+<div class="scroll" id="scroll">
+    <a href="#" title="返回顶部"><i class="fa fa-arrow-up"></i></a>
+    <a href="#comments" onclick="load$hide();" title="查看评论"><i class="fa fa-comments-o"></i></a>
+    <a href="#footer" title="转到底部"><i class="fa fa-arrow-down"></i></a>
+</div>
+<script>
+    // Open in New Window
+    
+        var oOpenInNew = {
+            
+            
+            
+            
+            
+            
+             archives: ".archive-article-title", 
+             miniArchives: "a.post-list-link", 
+            
+             friends: "#js-friends a", 
+             socail: ".social a" 
+        }
+        for (var x in oOpenInNew) {
+            $(oOpenInNew[x]).attr("target", "_blank");
+        }
+    
+</script>
+
+<!-- <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"> -->
+<script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js">
+</script>
+
+  </div>
+</body>
+</html>

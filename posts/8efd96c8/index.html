@@ -1,0 +1,553 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+
+    <!--[if lt IE 9]>
+        <style>body {display: none; background: none !important} </style>
+        <meta http-equiv="Refresh" Content="0; url=//outdatedbrowser.com/" />
+    <![endif]-->
+
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<meta name="format-detection" content="telephone=no" />
+<meta name="author" content="moonrailgun" />
+<meta name="description" content="一个兴趣使然的软件攻城狮的个人博客。兴趣是最好的老师。"/>
+<script async defer data-website-id="be33e45e-5666-46a7-8080-e9e2be720b72" src="https://umami.moonrailgun.com/script.js"></script>
+<script async defer src="https://tianji.moonrailgun.com/tracker.js" data-website-id="clp2l64d2435nmm5dcfc6hcoz"></script>
+
+
+
+<meta name="description" content="unity物理碰撞大致能分为两大类：碰撞与触发。其碰撞具体属性由物体上的碰撞器组件（Collider）决定。而物体的物理性质由物体上的刚体组件（Rigidbody）决定。为使两个物体满足碰撞&#x2F;触发条件。必须满足如下条件：  两个物体所在的层（Layer）为可相互碰撞的两个层 两个物体都必须有碰撞器组件 两个物体中至少有一个物体拥有刚体组件  满足如上条件方可使物体产生碰撞事件 碰撞与触发不同。碰撞">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Unity物理碰撞">
+<meta property="og:url" content="http://www.moonrailgun.com/posts/8efd96c8/index.html">
+<meta property="og:site_name" content="moonrailgun - 兴趣使然的工程师 — 个人技术展示">
+<meta property="og:description" content="unity物理碰撞大致能分为两大类：碰撞与触发。其碰撞具体属性由物体上的碰撞器组件（Collider）决定。而物体的物理性质由物体上的刚体组件（Rigidbody）决定。为使两个物体满足碰撞&#x2F;触发条件。必须满足如下条件：  两个物体所在的层（Layer）为可相互碰撞的两个层 两个物体都必须有碰撞器组件 两个物体中至少有一个物体拥有刚体组件  满足如上条件方可使物体产生碰撞事件 碰撞与触发不同。碰撞">
+<meta property="og:locale">
+<meta property="article:published_time" content="2016-07-22T02:56:50.000Z">
+<meta property="article:modified_time" content="2024-10-07T06:18:00.805Z">
+<meta property="article:author" content="moonrailgun">
+<meta property="article:tag" content="游戏开发">
+<meta property="article:tag" content="unity">
+<meta name="twitter:card" content="summary">
+
+<link rel="apple-touch-icon" href= "/apple-touch-icon.png">
+
+
+    <link rel="alternate" href="/atom.xml" title="moonrailgun - 兴趣使然的工程师 — 个人技术展示" type="application/atom+xml">
+
+
+
+    <link rel="shortcut icon" href="/favicon.png">
+
+
+
+
+
+    <link href="https://lib.baomitu.com/fancybox/2.1.5/jquery.fancybox.min.css" rel="stylesheet">
+
+
+
+    <script src="https://lib.baomitu.com/pace/1.0.2/pace.min.js"></script>
+    <link href="https://lib.baomitu.com/pace/1.0.2/themes/blue/pace-theme-minimal.css" rel="stylesheet">
+
+
+
+<link rel="stylesheet" href="/css/style.css">
+
+
+
+
+<link href="https://lib.baomitu.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
+
+
+<title>Unity物理碰撞 | moonrailgun - 兴趣使然的工程师 — 个人技术展示</title>
+
+<script src="https://lib.baomitu.com/jquery/2.2.4/jquery.min.js"></script>
+<script src="https://lib.baomitu.com/clipboard.js/1.5.10/clipboard.min.js"></script>
+
+<script>
+    var yiliaConfig = {
+        fancybox: true,
+        animate: false,
+        isHome: false,
+        isPost: true,
+        isArchive: false,
+        isTag: false,
+        isCategory: false,
+        fancybox_js: "https://lib.baomitu.com/fancybox/2.1.5/jquery.fancybox.min.js",
+        scrollreveal: "https://lib.baomitu.com/scrollReveal.js/3.1.4/scrollreveal.min.js",
+        search: true
+    }
+</script>
+
+
+    <script> yiliaConfig.jquery_ui = [false]; </script>
+
+
+
+    <script> yiliaConfig.rootUrl = "\/";</script>
+
+
+
+
+
+
+<!-- plausible.io -->
+<script defer data-domain="moonrailgun.com" src="https://plausible.io/js/script.file-downloads.hash.outbound-links.pageview-props.revenue.tagged-events.js"></script>
+<script>window.plausible = window.plausible || function() { (window.plausible.q = window.plausible.q || []).push(arguments) }</script>
+
+<meta name="generator" content="Hexo 5.2.0"></head>
+
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+    <header id="header" class="inner">
+        <a href="/" class="profilepic">
+            <img src="/img/avatar.png" class="animated zoomIn">
+        </a>
+        <hgroup>
+          <h1 class="header-author"><a href="/"></a></h1>
+        </hgroup>
+
+        
+
+        
+            <form id="search-form">
+            <input type="text" id="local-search-input" name="q" placeholder="search..." class="search form-control" autocomplete="off" autocorrect="off" searchonload="false" />
+            <i class="fa fa-times" onclick="resetSearch()"></i>
+            </form>
+            <div id="local-search-result"></div>
+            <p class='no-result'>No results found <i class='fa fa-spinner fa-pulse'></i></p>
+        
+
+
+        
+            <div id="switch-btn" class="switch-btn">
+                <div class="icon">
+                    <div class="icon-ctn">
+                        <div class="icon-wrap icon-house" data-idx="0">
+                            <div class="birdhouse"></div>
+                            <div class="birdhouse_holes"></div>
+                        </div>
+                        <div class="icon-wrap icon-ribbon hide" data-idx="1">
+                            <div class="ribbon"></div>
+                        </div>
+                        
+                        <div class="icon-wrap icon-link hide" data-idx="2">
+                            <div class="loopback_l"></div>
+                            <div class="loopback_r"></div>
+                        </div>
+                        
+                        
+                        <div class="icon-wrap icon-me hide" data-idx="3">
+                            <div class="user"></div>
+                            <div class="shoulder"></div>
+                        </div>
+                        
+                    </div>
+                    
+                </div>
+                <div class="tips-box hide">
+                    <div class="tips-arrow"></div>
+                    <ul class="tips-inner">
+                        <li>菜单</li>
+                        <li>标签</li>
+                        
+                        <li>友情链接</li>
+                        
+                        
+                        <li>关于我</li>
+                        
+                    </ul>
+                </div>
+            </div>
+        
+
+        <div id="switch-area" class="switch-area">
+            <div class="switch-wrap">
+                <section class="switch-part switch-part1">
+                    <nav class="header-menu">
+                        <ul>
+                        
+                            <li><a href="/">主页</a></li>
+                        
+                            <li><a href="/archives/">所有文章</a></li>
+                        
+                            <li><a href="/show/">作品展示</a></li>
+                        
+                            <li><a href="/tags/">标签云</a></li>
+                        
+                            <li><a href="/about/">关于我</a></li>
+                        
+                        </ul>
+                    </nav>
+                    <nav class="header-nav">
+                        <ul class="social">
+                            
+                                <a class="fa Email" href="mailto:moonrailgun@gmail.com" title="Email"></a>
+                            
+                                <a class="fa GitHub" target="_blank" rel="noopener" href="https://github.com/moonrailgun" title="GitHub"></a>
+                            
+                                <a class="fa RSS" href="/atom.xml" title="RSS"></a>
+                            
+                        </ul>
+                    </nav>
+                </section>
+                
+                
+                <section class="switch-part switch-part2">
+                    <div class="widget tagcloud" id="js-tagcloud">
+                        <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Apache/" rel="tag">Apache</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Apicloud/" rel="tag">Apicloud</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Blender/" rel="tag">Blender</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/C/" rel="tag">C++</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/CCLog/" rel="tag">CCLog</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/CORS/" rel="tag">CORS</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/CSLoader/" rel="tag">CSLoader</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ES6/" rel="tag">ES6</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/GMT/" rel="tag">GMT</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Garfish/" rel="tag">Garfish</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Github/" rel="tag">Github</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Github-Action/" rel="tag">Github Action</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/HTML/" rel="tag">HTML</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/HTML5/" rel="tag">HTML5</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/HTTPS/" rel="tag">HTTPS</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/LINK1104/" rel="tag">LINK1104</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Linux/" rel="tag">Linux</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/MMD/" rel="tag">MMD</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/MikuMikuCombat/" rel="tag">MikuMikuCombat</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/MySQL/" rel="tag">MySQL</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/NSURL/" rel="tag">NSURL</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/NodeJS/" rel="tag">NodeJS</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/OOM-Killer/" rel="tag">OOM Killer</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/PHP/" rel="tag">PHP</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/React/" rel="tag">React</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/React-Query/" rel="tag">React Query</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ReactNative/" rel="tag">ReactNative</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Ref/" rel="tag">Ref</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/SQL/" rel="tag">SQL</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/SSL/" rel="tag">SSL</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Session/" rel="tag">Session</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Shader/" rel="tag">Shader</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Snowpack/" rel="tag">Snowpack</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Steam/" rel="tag">Steam</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Swap/" rel="tag">Swap</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/TRPG/" rel="tag">TRPG</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/TRPG-Engine/" rel="tag">TRPG Engine</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Tailchat/" rel="tag">Tailchat</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/TexturePacker/" rel="tag">TexturePacker</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Ubuntu-18-04/" rel="tag">Ubuntu 18.04</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Unicode/" rel="tag">Unicode</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Unity/" rel="tag">Unity</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Unreal/" rel="tag">Unreal</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Vue/" rel="tag">Vue</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Webpack/" rel="tag">Webpack</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Weex/" rel="tag">Weex</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/WhiteWord/" rel="tag">WhiteWord</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/adb/" rel="tag">adb</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/android/" rel="tag">android</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/atom/" rel="tag">atom</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/auth/" rel="tag">auth</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/autorelease/" rel="tag">autorelease</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/blender/" rel="tag">blender</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/c/" rel="tag">c++</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/callback/" rel="tag">callback</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/centos7/" rel="tag">centos7</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/cherry-pick/" rel="tag">cherry-pick</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/chrome/" rel="tag">chrome</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/chromium/" rel="tag">chromium</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/cluster/" rel="tag">cluster</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/cocoapods/" rel="tag">cocoapods</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/cocos2dx/" rel="tag">cocos2dx</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/commonjs/" rel="tag">commonjs</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/cookie/" rel="tag">cookie</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/css/" rel="tag">css</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/cycle/" rel="tag">cycle</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/debounce/" rel="tag">debounce</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/devops/" rel="tag">devops</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/docker/" rel="tag">docker</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/docusaurus/" rel="tag">docusaurus</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/docusaurus-v2/" rel="tag">docusaurus v2</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/esmodule/" rel="tag">esmodule</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/extensions/" rel="tag">extensions</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/firefox/" rel="tag">firefox</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/gcc/" rel="tag">gcc</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/git/" rel="tag">git</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/gradient/" rel="tag">gradient</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/gulp/" rel="tag">gulp</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hao360/" rel="tag">hao360</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/http/" rel="tag">http</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/https/" rel="tag">https</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/iOS/" rel="tag">iOS</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ionic/" rel="tag">ionic</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ios/" rel="tag">ios</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/javascript/" rel="tag">javascript</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/js/" rel="tag">js</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/k3s/" rel="tag">k3s</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/k8s/" rel="tag">k8s</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/lambda%E8%A1%A8%E8%BE%BE%E5%BC%8F/" rel="tag">lambda表达式</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/libcocos2d-2013-lib/" rel="tag">libcocos2d_2013.lib</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/lodash/" rel="tag">lodash</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/meta-program/" rel="tag">meta program</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/mini-star/" rel="tag">mini-star</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/nginx/" rel="tag">nginx</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/node/" rel="tag">node</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/node-orm/" rel="tag">node-orm</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/nodejs/" rel="tag">nodejs</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/nox/" rel="tag">nox</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/npm/" rel="tag">npm</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/objective-c/" rel="tag">objective-c</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ohmyzsh/" rel="tag">ohmyzsh</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/pod/" rel="tag">pod</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/pomelo/" rel="tag">pomelo</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/pubg/" rel="tag">pubg</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/python/" rel="tag">python</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/react-virtualized/" rel="tag">react-virtualized</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/requirejs/" rel="tag">requirejs</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/rfc/" rel="tag">rfc</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/safari/" rel="tag">safari</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/sequelizejs/" rel="tag">sequelizejs</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/session/" rel="tag">session</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ssl/" rel="tag">ssl</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/stacking-context/" rel="tag">stacking context</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/sticky/" rel="tag">sticky</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/svg/" rel="tag">svg</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/swarm/" rel="tag">swarm</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/swift/" rel="tag">swift</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/tailwindcss/" rel="tag">tailwindcss</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/throttle/" rel="tag">throttle</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/traefik/" rel="tag">traefik</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/typescript/" rel="tag">typescript</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/unity/" rel="tag">unity</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/upyun/" rel="tag">upyun</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/utf-8/" rel="tag">utf-8</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/vercel/" rel="tag">vercel</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/vim/" rel="tag">vim</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/vmware/" rel="tag">vmware</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/webpack/" rel="tag">webpack</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/webpack-dev-server/" rel="tag">webpack-dev-server</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/webpack-stats-viewer/" rel="tag">webpack-stats-viewer</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/weixin/" rel="tag">weixin</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/wsl/" rel="tag">wsl</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/wsl2/" rel="tag">wsl2</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/z-index/" rel="tag">z-index</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/zustand/" rel="tag">zustand</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E4%BA%A7%E7%A0%94%E6%95%88%E8%83%BD/" rel="tag">产研效能</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E4%BB%A3%E7%A0%81%E4%BB%93%E5%BA%93/" rel="tag">代码仓库</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E4%BB%A3%E7%A0%81%E4%BC%98%E5%8C%96/" rel="tag">代码优化</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%89%8D%E7%AB%AF/" rel="tag">前端</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%90%8E%E5%8F%B0/" rel="tag">后台</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%A3%81%E7%BA%B8/" rel="tag">壁纸</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%AD%97%E8%8A%82%E8%B7%B3%E5%8A%A8/" rel="tag">字节跳动</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" rel="tag">学习笔记</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%AE%88%E6%9C%9B%E5%85%88%E9%94%8B/" rel="tag">守望先锋</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%AE%89%E5%85%A8/" rel="tag">安全</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%B7%A5%E7%A8%8B%E5%8C%96/" rel="tag">工程化</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%B8%B8%E7%94%A8%E6%8A%80%E5%B7%A7/" rel="tag">常用技巧</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%BC%80%E5%8F%91%E7%AC%94%E8%AE%B0/" rel="tag">开发笔记</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%BE%AE%E4%BF%A1/" rel="tag">微信</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%BE%AE%E5%86%85%E6%A0%B8/" rel="tag">微内核</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%BE%AE%E5%89%8D%E7%AB%AF/" rel="tag">微前端</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%BF%AB%E6%8D%B7%E6%96%B9%E5%BC%8F/" rel="tag">快捷方式</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/" rel="tag">性能优化</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%8C%81%E4%B9%85%E5%8C%96%E5%AD%98%E5%82%A8/" rel="tag">持久化存储</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%91%87%E6%A0%91%E4%BC%98%E5%8C%96/" rel="tag">摇树优化</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/" rel="tag">数据库</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%96%87%E6%A1%A3/" rel="tag">文档</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%97%B6%E9%97%B4%E6%A0%BC%E5%BC%8F/" rel="tag">时间格式</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%9C%8D%E5%8A%A1%E5%99%A8/" rel="tag">服务器</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%98/" rel="tag">每日一题</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%B3%A8%E5%86%8C%E8%A1%A8/" rel="tag">注册表</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%B8%B2%E6%9F%93/" rel="tag">渲染</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%B8%B8%E6%88%8F%E5%BC%80%E5%8F%91/" rel="tag">游戏开发</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%BA%90%E7%A0%81%E5%AE%9A%E4%BD%8D/" rel="tag">源码定位</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%BA%90%E7%A0%81%E8%A7%A3%E6%9E%90/" rel="tag">源码解析</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%88%B6%E5%AD%90%E5%85%B3%E7%B3%BB/" rel="tag">父子关系</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%89%88%E6%9C%AC%E5%8F%B7/" rel="tag">版本号</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%8A%B6%E6%80%81%E7%AE%A1%E7%90%86/" rel="tag">状态管理</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%AE%97%E6%B3%95/" rel="tag">算法</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%BD%91%E7%AB%99%E5%8A%AB%E6%8C%81/" rel="tag">网站劫持</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%BD%91%E7%BB%9C/" rel="tag">网络</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%83%A1%E8%A8%80%E4%B9%B1%E8%AF%AD/" rel="tag">胡言乱语</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%93%9D%E5%9B%BE/" rel="tag">蓝图</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%B7%A8%E5%9F%9F/" rel="tag">跨域</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%B7%A8%E5%B9%B3%E5%8F%B0/" rel="tag">跨平台</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%B8%A9%E5%9D%91/" rel="tag">踩坑</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%92%93%E9%B1%BC%E7%BD%91%E7%AB%99/" rel="tag">钓鱼网站</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%97%AD%E5%8C%85/" rel="tag">闭包</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%9B%86%E7%BE%A4/" rel="tag">集群</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%9D%99%E6%80%81%E7%BD%91%E7%AB%99/" rel="tag">静态网站</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%9D%A2%E8%AF%95/" rel="tag">面试</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%A1%B9%E7%9B%AE%E7%AE%A1%E7%90%86/" rel="tag">项目管理</a></li></ul>
+                    </div>
+                </section>
+                
+                
+                
+                <section class="switch-part switch-part3">
+                    <div id="js-friends">
+                    
+                      <a class="main-nav-link switch-friends-link" target="_blank" rel="noopener" href="https://hexo.io">Hexo</a>
+                    
+                      <a class="main-nav-link switch-friends-link" target="_blank" rel="noopener" href="https://pages.github.com/">GitHub</a>
+                    
+                      <a class="main-nav-link switch-friends-link" target="_blank" rel="noopener" href="http://moxfive.xyz/">MOxFIVE</a>
+                    
+                      <a class="main-nav-link switch-friends-link" target="_blank" rel="noopener" href="https://github.com/msgbyte/tailchat">Tailchat</a>
+                    
+                    </div>
+                </section>
+                
+
+                
+                
+                <section class="switch-part switch-part4">
+                
+                    <div id="js-aboutme">一个兴趣使然的程序员 上海,上班族,27岁. 熟练掌握Nodejs, Html5, C Sharp, Unity技术</div>
+                </section>
+                
+            </div>
+        </div>
+    </header>                
+</div>
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+      <div class="overlay">
+          <div class="slider-trigger"></div>
+          <h1 class="header-author js-mobile-header hide"><a href="/" title="回到主页"></a></h1>
+      </div>
+    <div class="intrude-less">
+        <header id="header" class="inner">
+            <a href="/" class="profilepic">
+                <img src="/img/avatar.png" class="animated zoomIn">
+            </a>
+            <hgroup>
+              <h1 class="header-author"><a href="/" title="回到主页"></a></h1>
+            </hgroup>
+            
+            <nav class="header-menu">
+                <ul>
+                
+                    <li><a href="/">主页</a></li>
+                
+                    <li><a href="/archives/">所有文章</a></li>
+                
+                    <li><a href="/show/">作品展示</a></li>
+                
+                    <li><a href="/tags/">标签云</a></li>
+                
+                    <li><a href="/about/">关于我</a></li>
+                
+                <div class="clearfix"></div>
+                </ul>
+            </nav>
+            <nav class="header-nav">
+                        <ul class="social">
+                            
+                                <a class="fa Email" target="_blank" href="mailto:moonrailgun@gmail.com" title="Email"></a>
+                            
+                                <a class="fa GitHub" target="_blank" href="https://github.com/moonrailgun" title="GitHub"></a>
+                            
+                                <a class="fa RSS" target="_blank" href="/atom.xml" title="RSS"></a>
+                            
+                        </ul>
+            </nav>
+        </header>                
+    </div>
+    <link class="menu-list" tags="标签" friends="友情链接" about="关于我"/>
+</nav>
+      <div class="body-wrap"><article id="post-Unity物理碰撞" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/posts/8efd96c8/" class="article-date">
+      <time datetime="2016-07-22T02:56:50.000Z" itemprop="datePublished">2016-07-22</time>
+</a>
+
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Unity物理碰撞
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+
+        
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/unity/" rel="tag">unity</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%B8%B8%E6%88%8F%E5%BC%80%E5%8F%91/" rel="tag">游戏开发</a></li></ul>
+    </div>
+
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <p>unity物理碰撞大致能分为两大类：碰撞与触发。其碰撞具体属性由物体上的碰撞器组件（Collider）决定。而物体的物理性质由物体上的刚体组件（Rigidbody）决定。为使两个物体满足碰撞/触发条件。必须满足如下条件：</p>
+<ul>
+<li>两个物体所在的层（Layer）为可相互碰撞的两个层</li>
+<li>两个物体都必须有碰撞器组件</li>
+<li>两个物体中至少有一个物体拥有刚体组件</li>
+</ul>
+<p>满足如上条件方可使物体产生碰撞事件</p>
+<p>碰撞与触发不同。碰撞会阻碍物体运动而触发不会。其区别由碰撞器组件上Is Trigger标识区别<br>碰撞函数：<br>OnCollisionEnter/OnCollisionExit/OnCollisionStay<br>触发函数：<br>OnTriggerEnter/OnTriggerExit/OnTriggerStay</p>
+
+      
+    </div>
+    
+  </div>
+  
+    
+    <div class="copyright">
+        <p><span>本文标题:</span><a href="/posts/8efd96c8/">Unity物理碰撞</a></p>
+        <p><span>文章作者:</span><a href="/" title="回到主页"></a></p>
+        <p><span>发布时间:</span>2016-07-22, 10:56:50</p>
+        <p><span>最后更新:</span>2024-10-07, 14:18:00</p>
+        <p>
+            <span>原始链接:</span><a class="post-url" href="/posts/8efd96c8/" title="Unity物理碰撞">http://www.moonrailgun.com/posts/8efd96c8/</a>
+            <span class="copy-path" data-clipboard-text="原文: http://www.moonrailgun.com/posts/8efd96c8/　　作者: " title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
+            <script> var clipboard = new Clipboard('.copy-path'); </script>
+        </p>
+        <p>
+            <span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license noopener" target="_blank" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" title="CC BY-NC-SA 4.0 International" target = "_blank">"署名-非商用-相同方式共享 4.0"</a> 转载请保留原文链接及作者。
+        </p>
+    </div>
+
+
+
+    <nav id="article-nav">
+        
+            <div id="article-nav-newer" class="article-nav-title">
+                <a href="/posts/b97c82c9/">
+                    网络不好怎么办？通过分析找出原因
+                </a>
+            </div>
+        
+        
+            <div id="article-nav-older" class="article-nav-title">
+                <a href="/posts/39072aba/">
+                    总结一些好用的ios第三方库
+                </a>
+            </div>
+        
+    </nav>
+
+  
+</article>
+
+    <div id="toc" class="toc-article">
+        <strong class="toc-title">文章目录</strong>
+        
+            
+        
+    </div>
+    <style>
+        .left-col .switch-btn,
+        .left-col .switch-area {
+            display: none;
+        }
+        .toc-level-3 i,
+        .toc-level-3 ol {
+            display: none !important;
+        }
+    </style>
+
+    <input type="button" id="tocButton" value="隐藏目录"  title="点击按钮隐藏或者显示文章目录">
+
+    <script>
+        yiliaConfig.toc = ["隐藏目录", "显示目录", !!"false"];
+    </script>
+
+
+
+    
+<div class="share">
+    
+        <div class="bdsharebuttonbox">
+            <a href="#" class="fa fa-twitter bds_twi" data-cmd="twi" title="分享到推特"></a>
+            <a href="#" class="fa fa-weibo bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
+            <a href="#" class="fa fa-qq bds_sqq" data-cmd="sqq" title="分享给 QQ 好友"></a>
+            <a href="#" class="fa fa-files-o bds_copy" data-cmd="copy" title="复制网址"></a>
+            <a href="#" class="fa fa fa-envelope-o bds_mail" data-cmd="mail" title="通过邮件分享"></a>
+            <a href="#" class="fa fa-weixin bds_weixin" data-cmd="weixin" title="生成文章二维码"></a>
+            <a href="#" class="fa fa-share-alt bds_more" data-cmd="more"></i></a>
+        </div>
+        <script>
+            window._bd_share_config={
+                "common":{"bdSnsKey":{},"bdText":"Unity物理碰撞　| moonrailgun - 兴趣使然的工程师 — 个人技术展示　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+        </script>
+    
+
+    
+</div>
+
+
+
+
+
+
+
+    
+
+
+
+
+    <div class="scroll" id="post-nav-button">
+        
+            <a href="/posts/b97c82c9/" title="上一篇: 网络不好怎么办？通过分析找出原因">
+                <i class="fa fa-angle-left"></i>
+            </a>
+        
+
+        <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
+
+        
+            <a href="/posts/39072aba/" title="下一篇: 总结一些好用的ios第三方库">
+                <i class="fa fa-angle-right"></i>
+            </a>
+        
+    </div>
+
+    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/posts/9ec26053/">国际标准保留端口列表</a></li><li class="post-list-item"><a class="post-list-link" href="/posts/cee56102/">记录一次docker占用过大导致磁盘爆炸的问题</a></li><li class="post-list-item"><a class="post-list-link" href="/posts/8aed9be/">打工人必备！实现JS控制的SVG渐变图标，让你的页面更加生动有趣</a></li><li class="post-list-item"><a class="post-list-link" href="/posts/cecd0a5c/">你可能不需要微前端，但你一定会需要微内核</a></li><li class="post-list-item"><a class="post-list-link" href="/posts/8a830324/">利用 webpack-stats-viewer 分析 react-virtualized 摇树优化失效问题</a></li><li class="post-list-item"><a class="post-list-link" href="/posts/6c6ef04/">React Query 简明设计哲学入门指北</a></li><li class="post-list-item"><a class="post-list-link" href="/posts/14043fbf/">小即是美 —— 简约而不简单的状态管理工具zustand</a></li><li class="post-list-item"><a class="post-list-link" href="/posts/2674f04a/">谈论从把多项目合并成一个项目中获得的收益</a></li><li class="post-list-item"><a class="post-list-link" href="/posts/15675e42/">webpack 打包分析 —— 通过分析工具优化体积问题</a></li><li class="post-list-item"><a class="post-list-link" href="/posts/8aa07df9/">元编程快速入门</a></li><li class="post-list-item"><a class="post-list-link" href="/posts/32dfd7d0/">k3s安装小记</a></li><li class="post-list-item"><a class="post-list-link" href="/posts/da6d1d53/">源码快速定位工具 source-ref</a></li><li class="post-list-item"><a class="post-list-link" href="/posts/a9d2669b/">Garfish 源码解析 —— 一个微应用是如何被挂载的</a></li><li class="post-list-item"><a class="post-list-link" href="/posts/e678c77b/">把代码仓库当做数据库，github action持久化存储新思路</a></li><li class="post-list-item"><a class="post-list-link" href="/posts/9632e7e0/">如何让团队项目白嫖 vercel 的免费服务</a></li><li class="post-list-item"><a class="post-list-link" href="/posts/406cd832/">CentOS7 安装gcc手册</a></li><li class="post-list-item"><a class="post-list-link" href="/posts/e7e551d1/">k3s安装 OpenFaaS小记</a></li><li class="post-list-item"><a class="post-list-link" href="/posts/f9bc948a/">为什么我选择Tailwindcss</a></li><li class="post-list-item"><a class="post-list-link" href="/posts/e536db3/">每日一题 —— 混杂整数序列按规则进行重新排序</a></li><li class="post-list-item"><a class="post-list-link" href="/posts/a409424d/">Webpack是个什么鬼——了解编译结果</a></li><li class="post-list-item"><a class="post-list-link" href="/posts/1daba7c3/">TRPG Engine 的项目工程化实践</a></li><li class="post-list-item"><a class="post-list-link" href="/posts/4b9f1f29/">记一个多平台End of Line的坑</a></li><li class="post-list-item"><a class="post-list-link" href="/posts/4c9731f9/">requirejs踩坑记录</a></li><li class="post-list-item"><a class="post-list-link" href="/posts/a118f8f2/">Chrome 笔记 - 处理异常 ERR_UNSAFE_PORT</a></li><li class="post-list-item"><a class="post-list-link" href="/posts/968454a3/">Vercel 国内无法访问</a></li><li class="post-list-item"><a class="post-list-link" href="/posts/6719aaf5/">关于人生, 关于生老病死</a></li><li class="post-list-item"><a class="post-list-link" href="/posts/Infinity/">HTTPS客户端证书校验</a></li><li class="post-list-item"><a class="post-list-link" href="/posts/443581a5/">字节跳动面试记录</a></li><li class="post-list-item"><a class="post-list-link" href="/posts/db9cb7ec/">CORS 现代浏览器跨域请求简明手册</a></li><li class="post-list-item"><a class="post-list-link" href="/posts/da49e84e/">HTTP中的各种缓存标签</a></li><li class="post-list-item"><a class="post-list-link" href="/posts/28f21ef5/">如何开发与坚持维护一个企业级的开源项目</a></li><li class="post-list-item"><a class="post-list-link" href="/posts/74598ef5/">从 Webpack 到 Snowpack, 编译速度提升十倍以上——TRPG Engine迁移小记</a></li><li class="post-list-item"><a class="post-list-link" href="/posts/191d7ea8/">TRPG Engine —— 一个功能完善即时通讯解决方案</a></li><li class="post-list-item"><a class="post-list-link" href="/posts/80587f52/">React 注意事项</a></li><li class="post-list-item"><a class="post-list-link" href="/posts/c09e1fbc/">又拍云整站网页存放到OSS的解决方案</a></li><li class="post-list-item"><a class="post-list-link" href="/posts/bdc192d2/">记一次重启网络服务后网络不通的调试</a></li><li class="post-list-item"><a class="post-list-link" href="/posts/ed7510e5/">让Chrome显示完整网址</a></li><li class="post-list-item"><a class="post-list-link" href="/posts/86a1d2a7/">adb devices无法获取夜神模拟器的解决方案</a></li><li class="post-list-item"><a class="post-list-link" href="/posts/303de4fd/">新服务器必做二三事</a></li><li class="post-list-item"><a class="post-list-link" href="/posts/856c955/">快速构建软件文档——docusaurus v2</a></li><li class="post-list-item"><a class="post-list-link" href="/posts/87881b14/">wsl2入坑指南</a></li><li class="post-list-item"><a class="post-list-link" href="/posts/3d731f17/">浅谈节流(throttle)与防抖动(debounce)</a></li><li class="post-list-item"><a class="post-list-link" href="/posts/3acd928b/">Docker Swarm 模型配合 traefik 实现集群sticky实践</a></li><li class="post-list-item"><a class="post-list-link" href="/posts/49d9534d/">Vim 操作笔记</a></li><li class="post-list-item"><a class="post-list-link" href="/posts/b0357b9f/">zIndex与层叠上下文Stacking Context</a></li><li class="post-list-item"><a class="post-list-link" href="/posts/d0843649/">Unicode编码解明</a></li><li class="post-list-item"><a class="post-list-link" href="/posts/2a644d07/">简单实现一个callback回调的包装器</a></li><li class="post-list-item"><a class="post-list-link" href="/posts/ec6df031/">Git骚操作之从一个分支中批量将离散的commit 迁移到另一个分支</a></li><li class="post-list-item"><a class="post-list-link" href="/posts/5cf47e08/">Let's Encrypt免费通配符证书申请</a></li><li class="post-list-item"><a class="post-list-link" href="/posts/c9e0808c/">MySQL 查询优化笔记</a></li><li class="post-list-item"><a class="post-list-link" href="/posts/6769ba51/">Linux 小资源服务器使用经验总结</a></li><li class="post-list-item"><a class="post-list-link" href="/posts/f3750712/">玩PUBG时运行VMware被禁止进入游戏的解决方案</a></li><li class="post-list-item"><a class="post-list-link" href="/posts/74202a7b/">TRPG Engine开发手册——数据库框架迁移</a></li><li class="post-list-item"><a class="post-list-link" href="/posts/c2b55725/">zsh插件推荐</a></li><li class="post-list-item"><a class="post-list-link" href="/posts/87b6010f/">git使用方法简明教程 - 团队篇</a></li><li class="post-list-item"><a class="post-list-link" href="/posts/71513ccb/">Vue学习笔记</a></li><li class="post-list-item"><a class="post-list-link" href="/posts/84bdf0ad/">如何实现方法既能实现函数式编程又能获取结果进行比较——实现形如add(1)(2)(3)...(n)的方法</a></li><li class="post-list-item"><a class="post-list-link" href="/posts/113e84a8/">Firefox、safari的session无法匹配的原因</a></li><li class="post-list-item"><a class="post-list-link" href="/posts/5d639031/">nginx使用笔记</a></li><li class="post-list-item"><a class="post-list-link" href="/posts/33f59699/">ReactNative踩坑记录与学习笔记</a></li><li class="post-list-item"><a class="post-list-link" href="/posts/30a497b6/">Linux常用命令记录</a></li><li class="post-list-item"><a class="post-list-link" href="/posts/1555da82/">微信开发踩过的坑</a></li><li class="post-list-item"><a class="post-list-link" href="/posts/61069dee/">Linux服务安全——记一次网络攻击</a></li><li class="post-list-item"><a class="post-list-link" href="/posts/743c31e9/">python学习笔记</a></li><li class="post-list-item"><a class="post-list-link" href="/posts/481f2de4/">前端编写全栈应用技术选型——rn、weex、apicloud到底选哪个</a></li><li class="post-list-item"><a class="post-list-link" href="/posts/e5320d32/">node遇见问题汇总</a></li><li class="post-list-item"><a class="post-list-link" href="/posts/13f139b9/">blender学习笔记 - 权重传递</a></li><li class="post-list-item"><a class="post-list-link" href="/posts/484f55d5/">如何配置Apache虚拟主机服务</a></li><li class="post-list-item"><a class="post-list-link" href="/posts/82986f1f/">gulp工具使用笔记</a></li><li class="post-list-item"><a class="post-list-link" href="/posts/993cf839/">Webpack打包工具性能优化</a></li><li class="post-list-item"><a class="post-list-link" href="/posts/8857c74e/">团队使用git方法简明教程</a></li><li class="post-list-item"><a class="post-list-link" href="/posts/3d280206/">blender渲染笔记 - Cycle渲染</a></li><li class="post-list-item"><a class="post-list-link" href="/posts/a1900bf0/">blender建模笔记 - 多拉多</a></li><li class="post-list-item"><a class="post-list-link" href="/posts/546fd07e/">Atom编辑器使用记录</a></li><li class="post-list-item"><a class="post-list-link" href="/posts/6eb62c08/">Unreal学习笔记 - 扇形攻击范围检测</a></li><li class="post-list-item"><a class="post-list-link" href="/posts/78c43660/">Unreal学习笔记 - 创建边沿发光材质</a></li><li class="post-list-item"><a class="post-list-link" href="/posts/bf34fac6/">MikuMikuCombat开发笔记 - 武器</a></li><li class="post-list-item"><a class="post-list-link" href="/posts/e6d9d22d/">MikuMikuCombat开发笔记 - 道具</a></li><li class="post-list-item"><a class="post-list-link" href="/posts/fbf9499/">MikuMikuCombat开发笔记 - 角色</a></li><li class="post-list-item"><a class="post-list-link" href="/posts/e8bbfe80/">Unreal学习笔记 - 蓝图使用手册</a></li><li class="post-list-item"><a class="post-list-link" href="/posts/b9028042/">blender学习笔记 - 常用快捷键</a></li><li class="post-list-item"><a class="post-list-link" href="/posts/bbd25313/">Unreal学习笔记 - 绘制准心</a></li><li class="post-list-item"><a class="post-list-link" href="/posts/4b5cc73c/">Unreal学习笔记 - 图形选项</a></li><li class="post-list-item"><a class="post-list-link" href="/posts/a16e855a/">blender学习笔记 - 自动切换透视模式</a></li><li class="post-list-item"><a class="post-list-link" href="/posts/67516082/">Unreal学习笔记 - 使用JoinSession成功加入服务器但是无法跳转到服务器当前地图</a></li><li class="post-list-item"><a class="post-list-link" href="/posts/4de36f08/">Unreal学习笔记 - 使用steam来进行多人联机</a></li><li class="post-list-item"><a class="post-list-link" href="/posts/754e67fa/">Unreal学习笔记 - 修复右键菜单</a></li><li class="post-list-item"><a class="post-list-link" href="/posts/bc2e19a6/">Unreal学习笔记 - 综合</a></li><li class="post-list-item"><a class="post-list-link" href="/posts/7e9cc815/">MMD静画渲染2</a></li><li class="post-list-item"><a class="post-list-link" href="/posts/d0f79e7e/">ionic——使用本地代理服务器解决http跨域问题</a></li><li class="post-list-item"><a class="post-list-link" href="/posts/22ded819/">MMD静画渲染</a></li><li class="post-list-item"><a class="post-list-link" href="/posts/b97c82c9/">网络不好怎么办？通过分析找出原因</a></li><li class="post-list-item"><a class="post-list-link" href="/posts/8efd96c8/">Unity物理碰撞</a></li><li class="post-list-item"><a class="post-list-link" href="/posts/39072aba/">总结一些好用的ios第三方库</a></li><li class="post-list-item"><a class="post-list-link" href="/posts/61ce6e4d/">iOS编程——让NSURL认识特殊字符</a></li><li class="post-list-item"><a class="post-list-link" href="/posts/5d2107c5/">任务栏快速启动真实地址</a></li><li class="post-list-item"><a class="post-list-link" href="/posts/47ac9736/">iOS编程时需要注意的一些问题</a></li><li class="post-list-item"><a class="post-list-link" href="/posts/bb904004/">国际化标准时间格式</a></li><li class="post-list-item"><a class="post-list-link" href="/posts/862a051d/">Mac中的字符中英文问题</a></li><li class="post-list-item"><a class="post-list-link" href="/posts/49910e89/">解决Unity跑酷模板Endless Run中shader报错的问题</a></li><li class="post-list-item"><a class="post-list-link" href="/posts/49add7c0/">Cocos2dx学习笔记——lambda表达式的引用捕获</a></li><li class="post-list-item"><a class="post-list-link" href="/posts/922ef0f9/">Cocos2dx学习笔记——Ref对象管理之保留与释放</a></li><li class="post-list-item"><a class="post-list-link" href="/posts/664de550/">Cocos2dx学习笔记——编译器提示LINK1104无法打开文件“libcocos2d_2013.lib”的问题</a></li><li class="post-list-item"><a class="post-list-link" href="/posts/e80f349e/">如何获取TexturePacker 1年免费软件授权</a></li><li class="post-list-item"><a class="post-list-link" href="/posts/d0d3ce00/">Cocos2dx学习笔记——节点与层的父子坐标区别</a></li><li class="post-list-item"><a class="post-list-link" href="/posts/a79c8a43/">Cocos2dx学习笔记——CCLog无法使用的问题</a></li><li class="post-list-item"><a class="post-list-link" href="/posts/900c706f/">新型钓鱼网站骗术</a></li><li class="post-list-item"><a class="post-list-link" href="/posts/74057083/">Cocos2dx学习笔记——C++的一些约定</a></li><li class="post-list-item"><a class="post-list-link" href="/posts/1ba44de6/">Cocos2dx学习笔记——引擎版本号的选择</a></li><li class="post-list-item"><a class="post-list-link" href="/posts/531c197b/">Cocos2dx学习笔记——CSLoader创建FileNode的报错问题</a></li><li class="post-list-item"><a class="post-list-link" href="/posts/990c5d7a/">Cocos2dx学习笔记——cocos-ext头文件编译问题</a></li><li class="post-list-item"><a class="post-list-link" href="/posts/44a80e28/">git使用方法简明教程 - 个人篇</a></li><li class="post-list-item"><a class="post-list-link" href="/posts/fa08ab46/">pomelo框架制作游戏初探(二) - 登陆模块</a></li><li class="post-list-item"><a class="post-list-link" href="/posts/2d40853/">pomelo框架制作游戏初探(一)</a></li></ul>
+
+
+
+
+    <script>
+        
+    </script>
+</div>
+      <footer id="footer">
+    <div class="outer">
+        <div id="footer-info">
+            <div class="footer-left">
+                <i class="fa fa-copyright"></i>
+                2016-2024 moonrailgun
+                | <a target="_blank" href="https://beian.miit.gov.cn/">沪ICP备19001187号-1</a>
+                | <a target="_blank" href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=31011302006539">
+                    <img src="/img/beian.png"/>
+                    <span>沪公网安备 31011302006539号</span>
+                  </a>
+                | <a title="本网站由又拍云提供CDN加速/云存储服务" href="https://www.upyun.com/?utm_source=lianmeng&utm_medium=referral" target="_blank" rel="noopener noreferrer"><img src="/img/upyun_logo.png" height="18" style="vertical-align: bottom;" /></a>
+            </div>
+            <div class="footer-right">
+                <a href="http://hexo.io/" target="_blank" title="快速、简洁且高效的博客框架">Hexo</a>  Theme <a href="https://github.com/MOxFIVE/hexo-theme-yelee" target="_blank" title="简而不减 Hexo 双栏博客主题  v3.5">Yelee</a> by MOxFIVE <i class="fa fa-heart animated infinite pulse"></i>
+            </div>
+        </div>
+        
+            <div class="visit">
+                
+                    <span id="busuanzi_container_site_pv" style='display:none'>
+                        <span id="site-visit" title="本站到访数"><i class="fa fa-user" aria-hidden="true"></i><span id="busuanzi_value_site_uv"></span>
+                        </span>
+                    </span>
+                
+                
+                    <span>| </span>
+                
+                
+                    <span id="busuanzi_container_page_pv" style='display:none'>
+                        <span id="page-visit"  title="本页阅读量"><i class="fa fa-eye animated infinite pulse" aria-hidden="true"></i><span id="busuanzi_value_page_pv"></span>
+                        </span>
+                    </span>
+                
+            </div>
+        
+    </div>
+</footer>
+
+    </div>
+    
+<script data-main="/js/main.js" src="https://lib.baomitu.com/require.js/2.2.0/require.min.js"></script>
+
+    <script>
+        $(document).ready(function() {
+            var iPad = window.navigator.userAgent.indexOf('iPad');
+            if (iPad > -1 || $(".left-col").css("display") === "none") {
+                var bgColorList = ["#9db3f4", "#414141", "#e5a859", "#f5dfc6", "#c084a0", "#847e72", "#cd8390", "#996731"];
+                var bgColor = Math.ceil(Math.random() * (bgColorList.length - 1));
+                $("body").css({"background-color": bgColorList[bgColor], "background-size": "cover"});
+            }
+            else {
+                var backgroundnum = 5;
+                var backgroundimg = "url(/background/bg-x.jpg)".replace(/x/gi, Math.ceil(Math.random() * backgroundnum));
+                $("body").css({"background": backgroundimg, "background-attachment": "fixed", "background-size": "cover"});
+            }
+        })
+    </script>
+
+
+
+
+
+<div class="scroll" id="scroll">
+    <a href="#" title="返回顶部"><i class="fa fa-arrow-up"></i></a>
+    <a href="#comments" onclick="load$hide();" title="查看评论"><i class="fa fa-comments-o"></i></a>
+    <a href="#footer" title="转到底部"><i class="fa fa-arrow-down"></i></a>
+</div>
+<script>
+    // Open in New Window
+    
+        var oOpenInNew = {
+            
+            
+            
+            
+            
+            
+             archives: ".archive-article-title", 
+             miniArchives: "a.post-list-link", 
+            
+             friends: "#js-friends a", 
+             socail: ".social a" 
+        }
+        for (var x in oOpenInNew) {
+            $(oOpenInNew[x]).attr("target", "_blank");
+        }
+    
+</script>
+
+<!-- <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"> -->
+<script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js">
+</script>
+
+  </div>
+</body>
+</html>

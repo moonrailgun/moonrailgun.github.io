@@ -1,0 +1,689 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+
+    <!--[if lt IE 9]>
+        <style>body {display: none; background: none !important} </style>
+        <meta http-equiv="Refresh" Content="0; url=//outdatedbrowser.com/" />
+    <![endif]-->
+
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<meta name="format-detection" content="telephone=no" />
+<meta name="author" content="moonrailgun" />
+<meta name="description" content="一个兴趣使然的软件攻城狮的个人博客。兴趣是最好的老师。"/>
+<script async defer data-website-id="be33e45e-5666-46a7-8080-e9e2be720b72" src="https://umami.moonrailgun.com/script.js"></script>
+<script async defer src="https://tianji.moonrailgun.com/tracker.js" data-website-id="clp2l64d2435nmm5dcfc6hcoz"></script>
+
+
+
+<meta name="description" content="First of all一个人维护一个项目很久了, 差不多是时候总结一些经验做一些些输出了。因此来汇总一下这些年我对我的开源项目TRPG Engine做的工程化实践。 首先，我们要明确一点，即为什么要做工程化:  提升开发效率 降低开发成本 提升产品质量 降低企业成本  所有的代码, 所有的技术都依托于业务, 所有的手段都是为了最终目的而服务的。因此我们工程化最终目的就是提高产出。 Git wor">
+<meta property="og:type" content="article">
+<meta property="og:title" content="TRPG Engine 的项目工程化实践">
+<meta property="og:url" content="http://www.moonrailgun.com/posts/1daba7c3/index.html">
+<meta property="og:site_name" content="moonrailgun - 兴趣使然的工程师 — 个人技术展示">
+<meta property="og:description" content="First of all一个人维护一个项目很久了, 差不多是时候总结一些经验做一些些输出了。因此来汇总一下这些年我对我的开源项目TRPG Engine做的工程化实践。 首先，我们要明确一点，即为什么要做工程化:  提升开发效率 降低开发成本 提升产品质量 降低企业成本  所有的代码, 所有的技术都依托于业务, 所有的手段都是为了最终目的而服务的。因此我们工程化最终目的就是提高产出。 Git wor">
+<meta property="og:locale">
+<meta property="og:image" content="http://www.moonrailgun.com/images/git/1.jpeg">
+<meta property="article:published_time" content="2021-06-04T09:08:01.000Z">
+<meta property="article:modified_time" content="2024-10-07T06:18:00.805Z">
+<meta property="article:author" content="moonrailgun">
+<meta property="article:tag" content="TRPG Engine">
+<meta property="article:tag" content="工程化">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://www.moonrailgun.com/images/git/1.jpeg">
+
+<link rel="apple-touch-icon" href= "/apple-touch-icon.png">
+
+
+    <link rel="alternate" href="/atom.xml" title="moonrailgun - 兴趣使然的工程师 — 个人技术展示" type="application/atom+xml">
+
+
+
+    <link rel="shortcut icon" href="/favicon.png">
+
+
+
+
+
+    <link href="https://lib.baomitu.com/fancybox/2.1.5/jquery.fancybox.min.css" rel="stylesheet">
+
+
+
+    <script src="https://lib.baomitu.com/pace/1.0.2/pace.min.js"></script>
+    <link href="https://lib.baomitu.com/pace/1.0.2/themes/blue/pace-theme-minimal.css" rel="stylesheet">
+
+
+
+<link rel="stylesheet" href="/css/style.css">
+
+
+
+
+<link href="https://lib.baomitu.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
+
+
+<title>TRPG Engine 的项目工程化实践 | moonrailgun - 兴趣使然的工程师 — 个人技术展示</title>
+
+<script src="https://lib.baomitu.com/jquery/2.2.4/jquery.min.js"></script>
+<script src="https://lib.baomitu.com/clipboard.js/1.5.10/clipboard.min.js"></script>
+
+<script>
+    var yiliaConfig = {
+        fancybox: true,
+        animate: false,
+        isHome: false,
+        isPost: true,
+        isArchive: false,
+        isTag: false,
+        isCategory: false,
+        fancybox_js: "https://lib.baomitu.com/fancybox/2.1.5/jquery.fancybox.min.js",
+        scrollreveal: "https://lib.baomitu.com/scrollReveal.js/3.1.4/scrollreveal.min.js",
+        search: true
+    }
+</script>
+
+
+    <script> yiliaConfig.jquery_ui = [false]; </script>
+
+
+
+    <script> yiliaConfig.rootUrl = "\/";</script>
+
+
+
+
+
+
+<!-- plausible.io -->
+<script defer data-domain="moonrailgun.com" src="https://plausible.io/js/script.file-downloads.hash.outbound-links.pageview-props.revenue.tagged-events.js"></script>
+<script>window.plausible = window.plausible || function() { (window.plausible.q = window.plausible.q || []).push(arguments) }</script>
+
+<meta name="generator" content="Hexo 5.2.0"></head>
+
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+    <header id="header" class="inner">
+        <a href="/" class="profilepic">
+            <img src="/img/avatar.png" class="animated zoomIn">
+        </a>
+        <hgroup>
+          <h1 class="header-author"><a href="/"></a></h1>
+        </hgroup>
+
+        
+
+        
+            <form id="search-form">
+            <input type="text" id="local-search-input" name="q" placeholder="search..." class="search form-control" autocomplete="off" autocorrect="off" searchonload="false" />
+            <i class="fa fa-times" onclick="resetSearch()"></i>
+            </form>
+            <div id="local-search-result"></div>
+            <p class='no-result'>No results found <i class='fa fa-spinner fa-pulse'></i></p>
+        
+
+
+        
+            <div id="switch-btn" class="switch-btn">
+                <div class="icon">
+                    <div class="icon-ctn">
+                        <div class="icon-wrap icon-house" data-idx="0">
+                            <div class="birdhouse"></div>
+                            <div class="birdhouse_holes"></div>
+                        </div>
+                        <div class="icon-wrap icon-ribbon hide" data-idx="1">
+                            <div class="ribbon"></div>
+                        </div>
+                        
+                        <div class="icon-wrap icon-link hide" data-idx="2">
+                            <div class="loopback_l"></div>
+                            <div class="loopback_r"></div>
+                        </div>
+                        
+                        
+                        <div class="icon-wrap icon-me hide" data-idx="3">
+                            <div class="user"></div>
+                            <div class="shoulder"></div>
+                        </div>
+                        
+                    </div>
+                    
+                </div>
+                <div class="tips-box hide">
+                    <div class="tips-arrow"></div>
+                    <ul class="tips-inner">
+                        <li>菜单</li>
+                        <li>标签</li>
+                        
+                        <li>友情链接</li>
+                        
+                        
+                        <li>关于我</li>
+                        
+                    </ul>
+                </div>
+            </div>
+        
+
+        <div id="switch-area" class="switch-area">
+            <div class="switch-wrap">
+                <section class="switch-part switch-part1">
+                    <nav class="header-menu">
+                        <ul>
+                        
+                            <li><a href="/">主页</a></li>
+                        
+                            <li><a href="/archives/">所有文章</a></li>
+                        
+                            <li><a href="/show/">作品展示</a></li>
+                        
+                            <li><a href="/tags/">标签云</a></li>
+                        
+                            <li><a href="/about/">关于我</a></li>
+                        
+                        </ul>
+                    </nav>
+                    <nav class="header-nav">
+                        <ul class="social">
+                            
+                                <a class="fa Email" href="mailto:moonrailgun@gmail.com" title="Email"></a>
+                            
+                                <a class="fa GitHub" target="_blank" rel="noopener" href="https://github.com/moonrailgun" title="GitHub"></a>
+                            
+                                <a class="fa RSS" href="/atom.xml" title="RSS"></a>
+                            
+                        </ul>
+                    </nav>
+                </section>
+                
+                
+                <section class="switch-part switch-part2">
+                    <div class="widget tagcloud" id="js-tagcloud">
+                        <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Apache/" rel="tag">Apache</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Apicloud/" rel="tag">Apicloud</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Blender/" rel="tag">Blender</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/C/" rel="tag">C++</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/CCLog/" rel="tag">CCLog</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/CORS/" rel="tag">CORS</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/CSLoader/" rel="tag">CSLoader</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ES6/" rel="tag">ES6</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/GMT/" rel="tag">GMT</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Garfish/" rel="tag">Garfish</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Github/" rel="tag">Github</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Github-Action/" rel="tag">Github Action</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/HTML/" rel="tag">HTML</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/HTML5/" rel="tag">HTML5</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/HTTPS/" rel="tag">HTTPS</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/LINK1104/" rel="tag">LINK1104</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Linux/" rel="tag">Linux</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/MMD/" rel="tag">MMD</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/MikuMikuCombat/" rel="tag">MikuMikuCombat</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/MySQL/" rel="tag">MySQL</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/NSURL/" rel="tag">NSURL</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/NodeJS/" rel="tag">NodeJS</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/OOM-Killer/" rel="tag">OOM Killer</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/PHP/" rel="tag">PHP</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/React/" rel="tag">React</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/React-Query/" rel="tag">React Query</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ReactNative/" rel="tag">ReactNative</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Ref/" rel="tag">Ref</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/SQL/" rel="tag">SQL</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/SSL/" rel="tag">SSL</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Session/" rel="tag">Session</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Shader/" rel="tag">Shader</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Snowpack/" rel="tag">Snowpack</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Steam/" rel="tag">Steam</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Swap/" rel="tag">Swap</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/TRPG/" rel="tag">TRPG</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/TRPG-Engine/" rel="tag">TRPG Engine</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Tailchat/" rel="tag">Tailchat</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/TexturePacker/" rel="tag">TexturePacker</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Ubuntu-18-04/" rel="tag">Ubuntu 18.04</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Unicode/" rel="tag">Unicode</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Unity/" rel="tag">Unity</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Unreal/" rel="tag">Unreal</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Vue/" rel="tag">Vue</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Webpack/" rel="tag">Webpack</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Weex/" rel="tag">Weex</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/WhiteWord/" rel="tag">WhiteWord</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/adb/" rel="tag">adb</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/android/" rel="tag">android</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/atom/" rel="tag">atom</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/auth/" rel="tag">auth</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/autorelease/" rel="tag">autorelease</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/blender/" rel="tag">blender</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/c/" rel="tag">c++</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/callback/" rel="tag">callback</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/centos7/" rel="tag">centos7</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/cherry-pick/" rel="tag">cherry-pick</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/chrome/" rel="tag">chrome</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/chromium/" rel="tag">chromium</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/cluster/" rel="tag">cluster</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/cocoapods/" rel="tag">cocoapods</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/cocos2dx/" rel="tag">cocos2dx</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/commonjs/" rel="tag">commonjs</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/cookie/" rel="tag">cookie</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/css/" rel="tag">css</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/cycle/" rel="tag">cycle</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/debounce/" rel="tag">debounce</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/devops/" rel="tag">devops</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/docker/" rel="tag">docker</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/docusaurus/" rel="tag">docusaurus</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/docusaurus-v2/" rel="tag">docusaurus v2</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/esmodule/" rel="tag">esmodule</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/extensions/" rel="tag">extensions</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/firefox/" rel="tag">firefox</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/gcc/" rel="tag">gcc</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/git/" rel="tag">git</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/gradient/" rel="tag">gradient</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/gulp/" rel="tag">gulp</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hao360/" rel="tag">hao360</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/http/" rel="tag">http</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/https/" rel="tag">https</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/iOS/" rel="tag">iOS</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ionic/" rel="tag">ionic</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ios/" rel="tag">ios</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/javascript/" rel="tag">javascript</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/js/" rel="tag">js</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/k3s/" rel="tag">k3s</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/k8s/" rel="tag">k8s</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/lambda%E8%A1%A8%E8%BE%BE%E5%BC%8F/" rel="tag">lambda表达式</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/libcocos2d-2013-lib/" rel="tag">libcocos2d_2013.lib</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/lodash/" rel="tag">lodash</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/meta-program/" rel="tag">meta program</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/mini-star/" rel="tag">mini-star</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/nginx/" rel="tag">nginx</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/node/" rel="tag">node</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/node-orm/" rel="tag">node-orm</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/nodejs/" rel="tag">nodejs</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/nox/" rel="tag">nox</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/npm/" rel="tag">npm</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/objective-c/" rel="tag">objective-c</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ohmyzsh/" rel="tag">ohmyzsh</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/pod/" rel="tag">pod</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/pomelo/" rel="tag">pomelo</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/pubg/" rel="tag">pubg</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/python/" rel="tag">python</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/react-virtualized/" rel="tag">react-virtualized</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/requirejs/" rel="tag">requirejs</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/rfc/" rel="tag">rfc</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/safari/" rel="tag">safari</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/sequelizejs/" rel="tag">sequelizejs</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/session/" rel="tag">session</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ssl/" rel="tag">ssl</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/stacking-context/" rel="tag">stacking context</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/sticky/" rel="tag">sticky</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/svg/" rel="tag">svg</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/swarm/" rel="tag">swarm</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/swift/" rel="tag">swift</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/tailwindcss/" rel="tag">tailwindcss</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/throttle/" rel="tag">throttle</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/traefik/" rel="tag">traefik</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/typescript/" rel="tag">typescript</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/unity/" rel="tag">unity</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/upyun/" rel="tag">upyun</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/utf-8/" rel="tag">utf-8</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/vercel/" rel="tag">vercel</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/vim/" rel="tag">vim</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/vmware/" rel="tag">vmware</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/webpack/" rel="tag">webpack</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/webpack-dev-server/" rel="tag">webpack-dev-server</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/webpack-stats-viewer/" rel="tag">webpack-stats-viewer</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/weixin/" rel="tag">weixin</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/wsl/" rel="tag">wsl</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/wsl2/" rel="tag">wsl2</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/z-index/" rel="tag">z-index</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/zustand/" rel="tag">zustand</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E4%BA%A7%E7%A0%94%E6%95%88%E8%83%BD/" rel="tag">产研效能</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E4%BB%A3%E7%A0%81%E4%BB%93%E5%BA%93/" rel="tag">代码仓库</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E4%BB%A3%E7%A0%81%E4%BC%98%E5%8C%96/" rel="tag">代码优化</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%89%8D%E7%AB%AF/" rel="tag">前端</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%90%8E%E5%8F%B0/" rel="tag">后台</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%A3%81%E7%BA%B8/" rel="tag">壁纸</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%AD%97%E8%8A%82%E8%B7%B3%E5%8A%A8/" rel="tag">字节跳动</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" rel="tag">学习笔记</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%AE%88%E6%9C%9B%E5%85%88%E9%94%8B/" rel="tag">守望先锋</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%AE%89%E5%85%A8/" rel="tag">安全</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%B7%A5%E7%A8%8B%E5%8C%96/" rel="tag">工程化</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%B8%B8%E7%94%A8%E6%8A%80%E5%B7%A7/" rel="tag">常用技巧</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%BC%80%E5%8F%91%E7%AC%94%E8%AE%B0/" rel="tag">开发笔记</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%BE%AE%E4%BF%A1/" rel="tag">微信</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%BE%AE%E5%86%85%E6%A0%B8/" rel="tag">微内核</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%BE%AE%E5%89%8D%E7%AB%AF/" rel="tag">微前端</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%BF%AB%E6%8D%B7%E6%96%B9%E5%BC%8F/" rel="tag">快捷方式</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/" rel="tag">性能优化</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%8C%81%E4%B9%85%E5%8C%96%E5%AD%98%E5%82%A8/" rel="tag">持久化存储</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%91%87%E6%A0%91%E4%BC%98%E5%8C%96/" rel="tag">摇树优化</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/" rel="tag">数据库</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%96%87%E6%A1%A3/" rel="tag">文档</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%97%B6%E9%97%B4%E6%A0%BC%E5%BC%8F/" rel="tag">时间格式</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%9C%8D%E5%8A%A1%E5%99%A8/" rel="tag">服务器</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%98/" rel="tag">每日一题</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%B3%A8%E5%86%8C%E8%A1%A8/" rel="tag">注册表</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%B8%B2%E6%9F%93/" rel="tag">渲染</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%B8%B8%E6%88%8F%E5%BC%80%E5%8F%91/" rel="tag">游戏开发</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%BA%90%E7%A0%81%E5%AE%9A%E4%BD%8D/" rel="tag">源码定位</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%BA%90%E7%A0%81%E8%A7%A3%E6%9E%90/" rel="tag">源码解析</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%88%B6%E5%AD%90%E5%85%B3%E7%B3%BB/" rel="tag">父子关系</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%89%88%E6%9C%AC%E5%8F%B7/" rel="tag">版本号</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%8A%B6%E6%80%81%E7%AE%A1%E7%90%86/" rel="tag">状态管理</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%AE%97%E6%B3%95/" rel="tag">算法</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%BD%91%E7%AB%99%E5%8A%AB%E6%8C%81/" rel="tag">网站劫持</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%BD%91%E7%BB%9C/" rel="tag">网络</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%83%A1%E8%A8%80%E4%B9%B1%E8%AF%AD/" rel="tag">胡言乱语</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%93%9D%E5%9B%BE/" rel="tag">蓝图</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%B7%A8%E5%9F%9F/" rel="tag">跨域</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%B7%A8%E5%B9%B3%E5%8F%B0/" rel="tag">跨平台</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%B8%A9%E5%9D%91/" rel="tag">踩坑</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%92%93%E9%B1%BC%E7%BD%91%E7%AB%99/" rel="tag">钓鱼网站</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%97%AD%E5%8C%85/" rel="tag">闭包</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%9B%86%E7%BE%A4/" rel="tag">集群</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%9D%99%E6%80%81%E7%BD%91%E7%AB%99/" rel="tag">静态网站</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%9D%A2%E8%AF%95/" rel="tag">面试</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%A1%B9%E7%9B%AE%E7%AE%A1%E7%90%86/" rel="tag">项目管理</a></li></ul>
+                    </div>
+                </section>
+                
+                
+                
+                <section class="switch-part switch-part3">
+                    <div id="js-friends">
+                    
+                      <a class="main-nav-link switch-friends-link" target="_blank" rel="noopener" href="https://hexo.io">Hexo</a>
+                    
+                      <a class="main-nav-link switch-friends-link" target="_blank" rel="noopener" href="https://pages.github.com/">GitHub</a>
+                    
+                      <a class="main-nav-link switch-friends-link" target="_blank" rel="noopener" href="http://moxfive.xyz/">MOxFIVE</a>
+                    
+                      <a class="main-nav-link switch-friends-link" target="_blank" rel="noopener" href="https://github.com/msgbyte/tailchat">Tailchat</a>
+                    
+                    </div>
+                </section>
+                
+
+                
+                
+                <section class="switch-part switch-part4">
+                
+                    <div id="js-aboutme">一个兴趣使然的程序员 上海,上班族,27岁. 熟练掌握Nodejs, Html5, C Sharp, Unity技术</div>
+                </section>
+                
+            </div>
+        </div>
+    </header>                
+</div>
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+      <div class="overlay">
+          <div class="slider-trigger"></div>
+          <h1 class="header-author js-mobile-header hide"><a href="/" title="回到主页"></a></h1>
+      </div>
+    <div class="intrude-less">
+        <header id="header" class="inner">
+            <a href="/" class="profilepic">
+                <img src="/img/avatar.png" class="animated zoomIn">
+            </a>
+            <hgroup>
+              <h1 class="header-author"><a href="/" title="回到主页"></a></h1>
+            </hgroup>
+            
+            <nav class="header-menu">
+                <ul>
+                
+                    <li><a href="/">主页</a></li>
+                
+                    <li><a href="/archives/">所有文章</a></li>
+                
+                    <li><a href="/show/">作品展示</a></li>
+                
+                    <li><a href="/tags/">标签云</a></li>
+                
+                    <li><a href="/about/">关于我</a></li>
+                
+                <div class="clearfix"></div>
+                </ul>
+            </nav>
+            <nav class="header-nav">
+                        <ul class="social">
+                            
+                                <a class="fa Email" target="_blank" href="mailto:moonrailgun@gmail.com" title="Email"></a>
+                            
+                                <a class="fa GitHub" target="_blank" href="https://github.com/moonrailgun" title="GitHub"></a>
+                            
+                                <a class="fa RSS" target="_blank" href="/atom.xml" title="RSS"></a>
+                            
+                        </ul>
+            </nav>
+        </header>                
+    </div>
+    <link class="menu-list" tags="标签" friends="友情链接" about="关于我"/>
+</nav>
+      <div class="body-wrap"><article id="post-TRPG Engine 项目工程化实践" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/posts/1daba7c3/" class="article-date">
+      <time datetime="2021-06-04T09:08:01.000Z" itemprop="datePublished">2021-06-04</time>
+</a>
+
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      TRPG Engine 的项目工程化实践
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+
+        
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/TRPG-Engine/" rel="tag">TRPG Engine</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%B7%A5%E7%A8%8B%E5%8C%96/" rel="tag">工程化</a></li></ul>
+    </div>
+
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <h2 id="First-of-all"><a href="#First-of-all" class="headerlink" title="First of all"></a>First of all</h2><p>一个人维护一个项目很久了, 差不多是时候总结一些经验做一些些输出了。因此来汇总一下这些年我对我的开源项目<code>TRPG Engine</code>做的工程化实践。</p>
+<p>首先，我们要明确一点，即为什么要做工程化:</p>
+<ul>
+<li>提升开发效率</li>
+<li>降低开发成本</li>
+<li>提升产品质量</li>
+<li>降低企业成本</li>
+</ul>
+<p>所有的代码, 所有的技术都依托于业务, 所有的手段都是为了最终目的而服务的。因此我们工程化最终目的就是提高产出。</p>
+<h2 id="Git-workflow"><a href="#Git-workflow" class="headerlink" title="Git workflow"></a>Git workflow</h2><p><img src="/images/git/1.jpeg"></p>
+<p>参考文章:</p>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://guides.github.com/introduction/flow/">Understanding the GitHub flow</a></li>
+<li><a target="_blank" rel="noopener" href="https://nvie.com/posts/a-successful-git-branching-model/">https://nvie.com/posts/a-successful-git-branching-model/</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.atlassian.com/git/tutorials/comparing-workflows/gitflow-workflow">https://www.atlassian.com/git/tutorials/comparing-workflows/gitflow-workflow</a></li>
+</ul>
+<h2 id="Commitlint"><a href="#Commitlint" class="headerlink" title="Commitlint"></a>Commitlint</h2><p>使用 <code>Commitlint</code> 来保证项目成员或者外部贡献者的提交确保同样的格式。</p>
+<p><code>TRPG Engine</code>是使用 <a target="_blank" rel="noopener" href="https://github.com/conventional-changelog/commitlint"><code>commitlint</code></a> 来实现的提交内容校验</p>
+<p>一般常用的一种提交方式是 <code>angular</code> 格式。</p>
+<p>例:</p>
+<figure class="highlight http"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">fix</span>: some message</span><br><span class="line"></span><br><span class="line"><span class="attribute">fix(scope)</span>: some message</span><br></pre></td></tr></table></figure>
+<p>参考文档: <a target="_blank" rel="noopener" href="https://github.com/angular/angular/blob/master/CONTRIBUTING.md#-commit-message-format">https://github.com/angular/angular/blob/master/CONTRIBUTING.md#-commit-message-format</a></p>
+<p>提交的类型说明:</p>
+<figure class="highlight maxima"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">feat：新功能（<span class="built_in">feature</span>）</span><br><span class="line"><span class="built_in">fix</span>：修补bug</span><br><span class="line">docs：文档（documentation）</span><br><span class="line"><span class="built_in">style</span>： 格式（不影响代码运行的变动）</span><br><span class="line">refactor：重构（即不是新增功能，也不是修改bug的代码变动）</span><br><span class="line">perf：性能优化</span><br><span class="line">test：增加测试</span><br><span class="line">chore：构建过程或辅助工具的变动</span><br></pre></td></tr></table></figure>
+<p><a target="_blank" rel="noopener" href="https://github.com/angular/angular/blob/master/CONTRIBUTING.md#type">https://github.com/angular/angular/blob/master/CONTRIBUTING.md#type</a></p>
+<h4 id="通过标准的-commit-message-可以生成Change-log"><a href="#通过标准的-commit-message-可以生成Change-log" class="headerlink" title="通过标准的 commit message 可以生成Change log"></a>通过标准的 commit message 可以生成<code>Change log</code></h4><p>基于git commit message来自动收集并生成<code>CHANGELOG</code></p>
+<p>在升版本时可以通过<code>standard-version</code>来实现<code>package.json</code> version和changelog一起生成</p>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://www.npmjs.com/package/conventional-changelog">conventional-changelog</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.npmjs.com/package/standard-version">standard-version</a></li>
+</ul>
+<h2 id="Prettier-and-Eslint"><a href="#Prettier-and-Eslint" class="headerlink" title="Prettier and Eslint"></a>Prettier and Eslint</h2><p>确保项目有一个统一的格式是非常重要, 可以有效的防止贡献者因为不统一的格式带来的提交变更过大。</p>
+<p>试想一下，一个人用的是4空格缩进，另一个人用的是2空格缩进。那么会来带的协作上的问题并导致<code>code review</code>无法正常进行</p>
+<p>目前前端流行使用<code>prettier</code> + <code>eslint</code>的组合来确保项目的格式统一。</p>
+<p><code>prettier</code>是目前前端流行的<code>Formatter</code>工具, 用于保证项目能具有统一的格式，各大编辑器平台都具有插件支持，同时也支持许多语言</p>
+<blockquote>
+<ul>
+<li>官方文档: <a target="_blank" rel="noopener" href="https://prettier.io/">https://prettier.io/</a></li>
+</ul>
+</blockquote>
+<p><code>eslint</code> 是一款确保你的代码质量的工具，特别是融合了<code>tslint</code>后更加成为了前端代码质量保证的唯一选择。其功能与prettier有部分交集，因此在同时使用两者时需要使用<code>eslint</code>的<code>prettier</code>预设来确保不会出现冲突</p>
+<blockquote>
+<ul>
+<li>官方文档：<a target="_blank" rel="noopener" href="https://eslint.org/">https://eslint.org/</a></li>
+<li><a target="_blank" rel="noopener" href="https://github.com/prettier/eslint-config-prettier">eslint-config-prettier</a></li>
+</ul>
+</blockquote>
+<p>另外推荐一个跨语言的格式工具, <a target="_blank" rel="noopener" href="https://editorconfig.org/">EditorConfig</a>, 虽然功能没有<code>prettier</code>这么强大，但是他的优势是跨语言，更加具有通用性。</p>
+<h4 id="使用-lint-staged-来在工程化运行时中确保格式正确"><a href="#使用-lint-staged-来在工程化运行时中确保格式正确" class="headerlink" title="使用 lint-staged 来在工程化运行时中确保格式正确"></a>使用 lint-staged 来在工程化运行时中确保格式正确</h4><ul>
+<li><a target="_blank" rel="noopener" href="https://www.npmjs.com/package/lint-staged">lint-staged</a></li>
+</ul>
+<h2 id="Testing-and-benchmark"><a href="#Testing-and-benchmark" class="headerlink" title="Testing and benchmark"></a>Testing and benchmark</h2><p>单元测试与基准测试是程序员要面对的两大关键测试方式。</p>
+<p>单元测试应当用于几乎所有的代码, 来确保代码不出错(主要是可以防止其他协作者无意间改坏你的代码)</p>
+<p>而基准测试用于对性能要求较高的场合，比如后端的高并发场景，以及前端的高CPU计算(By the way, 对于前端的高CPU场景我建议是使用web worker来处理，这样可以使用多线程而不会影响用户正常操作)</p>
+<h4 id="如何写单元测试"><a href="#如何写单元测试" class="headerlink" title="如何写单元测试"></a>如何写单元测试</h4><p>总所周知，一个纯函数是最好测的。那么单元测试的存在就相当于监督我们时刻注意将一些可以抽象出来的纯函数抽象出来，来方便写单元测试。能有效提高代码质量。</p>
+<p>而对于一些副作用比较大的场景，我们需要想办法构建其上下文。比如<code>TRPG Engine</code>的后端代码，单元测试就是真实起了一个空白的数据库, redis, 和后端实例，通过数据库操作以及及时清理测试过的数据库代码来保证环境干净</p>
+<p>对于比较难以测试的前端组件, <code>TRPG Engine</code>的做法是打快照，通过快照的变更告知开发者是否有一个 <strong>预期/非预期</strong> 的变更出现</p>
+<p>单元测试的存在也应当集成到CI中，以确保每次执行都可用。</p>
+<h2 id="Bundler"><a href="#Bundler" class="headerlink" title="Bundler"></a>Bundler</h2><p>在现代前端编程中, 打包编译是前端不得不重视的一环。</p>
+<p>从less scss等css拓展语言, 到ts, coffee的js拓展。</p>
+<p>从babel的es6,7,8,9支持, 到各种动态加载, 各种优化压缩。</p>
+<p>面对日益复杂的现状，前端已经离不开打包工具的存在。</p>
+<p>一般来说，我们常用的打包工具是<code>webpack</code>。<code>webpack</code>大而全，并提供足够的自定义化能力。是目前来说前端业务开发打包的不二之选。但成也萧何败萧何，<code>webpack</code>虽然十分强大, 但是配置非常非常复杂，甚至有webpack工程师这一说法，因此在一些特殊场景下, 我也十分推荐一些其他的打包工具。</p>
+<ul>
+<li>如果是开发一个依赖库，我推荐 <a target="_blank" rel="noopener" href="https://rollupjs.org/guide/en/">rollup</a>，小巧轻便，也兼容多种导出方式。</li>
+<li>如果是开发一个小项目，不想写很多<code>webpack</code>配置, 我推荐<a target="_blank" rel="noopener" href="https://github.com/parcel-bundler/parcel">parcel</a></li>
+<li>如果受限于系统资源，在开发环境下因为webpack的大量资源占用, 很难有一个良好的开发体验，那么我推荐<a target="_blank" rel="noopener" href="https://www.snowpack.dev/">snowpack</a>, 可以见我的另一篇博文: <a href="/posts/74598ef5">从 Webpack 到 Snowpack, 编译速度提升十倍以上——TRPG Engine迁移小记</a><blockquote>
+<p>至于 <code>vite</code>, 我没有用过很难给出一个比较好的评价.</p>
+</blockquote>
+</li>
+</ul>
+<h2 id="CI-CD"><a href="#CI-CD" class="headerlink" title="CI/CD"></a>CI/CD</h2><p>Continuous Integration and Continuous Delivery<br>持续集成与持续交付</p>
+<p>市面上有很多免费的CI系统, 比如 <code>travis</code>, <code>appveyor</code>, <code>circleci</code>, <code>github action</code>等等, 再比如gitlab自带的ci系统。</p>
+<p>总的来说都大同小异, 我们使用CI系统无非是关注单元测试有没有跑通，如何可以的话顺便输出一份coverage覆盖率报告。如果再可以的话可以把代码编译了以后输出编译报告。来方便衡量每一次提交的代码质量。</p>
+<p>一般来说CI/CD都放在一起来讲，因为只是最终的输出不一样罢了。</p>
+<p>CD可以做一些每次提交都编译文件, 或者往特殊分支提交就部署页面的功能。(比如每次向<code>docs</code>提交代码都编译文档并部署到远程服务器上)</p>
+<h2 id="Analytics-and-Monitor"><a href="#Analytics-and-Monitor" class="headerlink" title="Analytics and Monitor"></a>Analytics and Monitor</h2><p>一些现成的分析服务:</p>
+<ul>
+<li><code>Google Analytics</code></li>
+<li><code>Datadog</code></li>
+<li><code>Posthog</code></li>
+<li><code>Sentry Tracking</code></li>
+<li><code>Grafana</code></li>
+<li><code>uptimerobot</code></li>
+</ul>
+<p>这些工具是帮助你的项目在上线后能分析或监控的方式。通过这些工具可以收集用户的行为，检测服务可用性等。</p>
+<p>监控可以帮助你的服务稳定可靠，发生宕机的情况能够第一时间发现，减少用户损失。没有监控的服务就是没有地图和罗盘的轮船 —— 什么时候沉默？天知道!</p>
+<p>而用户行为收集是下一步迭代的重要依据，如果是用户比较少用的功能则可以考虑减慢开发进度。</p>
+<p>对于监控，我推荐<code>posthog</code>，这是一款新兴的分析系统。推荐的理由很简单，因为他是开源的，我们可以自己部署，然后把他的数据进行二次加工与处理。</p>
+<h2 id="Performance"><a href="#Performance" class="headerlink" title="Performance"></a>Performance</h2><p>性能是提升用户体验的重要一环，即常规感知中的“卡不卡”。</p>
+<p>我们有很多方式去提升性能，比如采集用户的首屏渲染时间，比如手动打开devtool去对具体某个操作进行堆栈分析，再比如用Lighthouse跑个分 —— google的工具都非常棒。</p>
+<p>参考文档:</p>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/API/Performance">Performance</a></li>
+</ul>
+<h2 id="Logging"><a href="#Logging" class="headerlink" title="Logging"></a>Logging</h2><p>日志应当是我们分析问题最关键的一步，重视日志是一个有一定规模的项目最基本的一步。</p>
+<p>大部分项目都会记录本地日志，但本地日志过于原始，很难产生一定价值。目前业内流行的方案是为日志单独准备一个<code>elasticsearch</code>服务, 所有日志中心化到一个数据库，再通过配套的 <code>kibana</code> 进行数据检索。</p>
+<p>另外使用外部日志中心的好处在于项目的微服务化与集群化。因为项目离开单实例部署后日志分散在各地，更加难以查询问题。</p>
+<p>对于 <code>TRPG Engine</code> 来说，目前使用的第三方日志服务是 <code>Loggly</code>, 因为<code>ELK</code>部署较耗资源，而其他大多数的日志服务都是收费的。<code>Loggly</code>具有一定的免费额度, 但是对中文编码不是很友好。</p>
+<p>相关资源:</p>
+<ul>
+<li>local file</li>
+<li><code>Loggly</code></li>
+<li><code>ELK</code></li>
+<li>阿里云日志腾讯云日志等服务商…</li>
+</ul>
+<h2 id="Error-Report"><a href="#Error-Report" class="headerlink" title="Error Report"></a>Error Report</h2><p>除了日志, 我们可能需要一个单独的错误汇报中心。因为日志是一种被动式的、托底的问题查找方式。一个主动的错误汇报会让我们更早介入问题以防止更大的错误扩散。</p>
+<p><code>TRPG Engine</code>使用了<code>Sentry</code>作为错误汇报中心。开源，云服务具有一定免费额度，错误汇报可以带上堆栈信息和相关上下文，并且新的错误会发送邮件到相关人员。</p>
+<p>开源对于企业的意义在于能够自己部署，企业也可以部署自己的sentry，就像是gitlab一样</p>
+<ul>
+<li><code>Sentry</code></li>
+</ul>
+<h2 id="Develop-for-Distributed"><a href="#Develop-for-Distributed" class="headerlink" title="Develop for Distributed"></a>Develop for Distributed</h2><p>有一点比较重要的就是在开始一个项目的时候就要考虑到之后的场景。在开发时就需要考虑分布式部署的场景。至少对于可能有分布式的场景进行一层抽象，就算现在不做，以后也要做。这点<code>TRPG Engine</code>走过很多弯路。</p>
+<ul>
+<li>比如日志，需要考虑使用外部日志的情况</li>
+<li>比如文件管理，需要考虑使用云文件</li>
+<li>比如配置，需要考虑使用外部的配置中心</li>
+<li>比如缓存，少用内存缓存而用外部缓存</li>
+<li>比如数据库 —— 当然这个大多数情况不用操心，除非用的是sqlite</li>
+</ul>
+<p>因为现代的程序架构早就不是以前一台服务器打天下的时候了。有效组合各个服务可以帮助程序快速增长。</p>
+<h2 id="Coding-with-config"><a href="#Coding-with-config" class="headerlink" title="Coding with config"></a>Coding with config</h2><p>基于配置的代码会使你的程序更加灵活。特别是线上情况往往不适合发布，或者长期故障。通过配置我们可以将一部分代码关闭以保证整体代码可用性。</p>
+<p>很多公司的功能开发分成两种管理方案，一种是做功能时切出一个功能分支，等到开发完毕后再合并到主分支。</p>
+<p>还有一种方案是持续合并到主干分支，但是由配置来将新功能关闭。</p>
+<p>说不清那种方案好，但是基于配置进行开发给与工程化代码更加灵活。</p>
+<h2 id="Read-with-Document-and-Comment"><a href="#Read-with-Document-and-Comment" class="headerlink" title="Read with Document and Comment"></a>Read with Document and Comment</h2><p>文档也是工程化代码的实践</p>
+<p>一个静态文档网站可以帮助使用者快速理解整个项目</p>
+<p>一行注释可以帮助代码阅读者理解你的用意，更重要的是可以防止其他的协作者在不了解你的用意的情况下改坏代码。</p>
+<p>好的开源项目一定有足够文档，而一个好的企业项目代码中一定有很多注释。</p>
+<p>对于企业业务项目来说，文档可能没有办法强制要求，但是需要明确一点的是注释是为自己写的，试想一下，一个复杂一点的方法，等一个月后，还能保证自己能理解当时自己的用意么？</p>
+<h2 id="Flexible-Architecture"><a href="#Flexible-Architecture" class="headerlink" title="Flexible Architecture"></a>Flexible Architecture</h2><p>可变、灵活架构。</p>
+<p>一个项目想要换底层架构是非常困难且痛苦的，想要解决这个问题，只有架构预先进行足够的设计，提前预想未来5年10年的业务变更。</p>
+<p>比如插件化的架构就能保证业务代码的可拓展性。</p>
+<p><a target="_blank" rel="noopener" href="https://ministar.moonrailgun.com/">MiniStar: 一个用于实现微内核(插件化)架构的前端框架</a></p>
+<h2 id="Dockerize"><a href="#Dockerize" class="headerlink" title="Dockerize"></a>Dockerize</h2><p><code>docker</code>是现在开发的趋势，统一且单一的环境。</p>
+<p>做过以前代码部署的工程师一定了解在不同环境下部署程序的痛苦，就算打包成一个<code>war</code>包也可能会有各种环境导致的奇怪问题。而docker就是解决这个问题的工具。</p>
+<p>在实际中有很多使用场景:</p>
+<ul>
+<li>统一开发环境(统一开发环境)</li>
+<li>快速部署(无需搭建环境)</li>
+<li>集群部署(k8s, docker swarm)</li>
+</ul>
+
+      
+    </div>
+    
+  </div>
+  
+    
+    <div class="copyright">
+        <p><span>本文标题:</span><a href="/posts/1daba7c3/">TRPG Engine 的项目工程化实践</a></p>
+        <p><span>文章作者:</span><a href="/" title="回到主页"></a></p>
+        <p><span>发布时间:</span>2021-06-04, 17:08:01</p>
+        <p><span>最后更新:</span>2024-10-07, 14:18:00</p>
+        <p>
+            <span>原始链接:</span><a class="post-url" href="/posts/1daba7c3/" title="TRPG Engine 的项目工程化实践">http://www.moonrailgun.com/posts/1daba7c3/</a>
+            <span class="copy-path" data-clipboard-text="原文: http://www.moonrailgun.com/posts/1daba7c3/　　作者: " title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
+            <script> var clipboard = new Clipboard('.copy-path'); </script>
+        </p>
+        <p>
+            <span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license noopener" target="_blank" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" title="CC BY-NC-SA 4.0 International" target = "_blank">"署名-非商用-相同方式共享 4.0"</a> 转载请保留原文链接及作者。
+        </p>
+    </div>
+
+
+
+    <nav id="article-nav">
+        
+            <div id="article-nav-newer" class="article-nav-title">
+                <a href="/posts/a409424d/">
+                    Webpack是个什么鬼——了解编译结果
+                </a>
+            </div>
+        
+        
+            <div id="article-nav-older" class="article-nav-title">
+                <a href="/posts/4b9f1f29/">
+                    记一个多平台End of Line的坑
+                </a>
+            </div>
+        
+    </nav>
+
+  
+</article>
+
+    <div id="toc" class="toc-article">
+        <strong class="toc-title">文章目录</strong>
+        
+            <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#First-of-all"><span class="toc-number">1.</span> <span class="toc-text">First of all</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Git-workflow"><span class="toc-number">2.</span> <span class="toc-text">Git workflow</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Commitlint"><span class="toc-number">3.</span> <span class="toc-text">Commitlint</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E9%80%9A%E8%BF%87%E6%A0%87%E5%87%86%E7%9A%84-commit-message-%E5%8F%AF%E4%BB%A5%E7%94%9F%E6%88%90Change-log"><span class="toc-number">3.0.1.</span> <span class="toc-text">通过标准的 commit message 可以生成Change log</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Prettier-and-Eslint"><span class="toc-number">4.</span> <span class="toc-text">Prettier and Eslint</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BD%BF%E7%94%A8-lint-staged-%E6%9D%A5%E5%9C%A8%E5%B7%A5%E7%A8%8B%E5%8C%96%E8%BF%90%E8%A1%8C%E6%97%B6%E4%B8%AD%E7%A1%AE%E4%BF%9D%E6%A0%BC%E5%BC%8F%E6%AD%A3%E7%A1%AE"><span class="toc-number">4.0.1.</span> <span class="toc-text">使用 lint-staged 来在工程化运行时中确保格式正确</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Testing-and-benchmark"><span class="toc-number">5.</span> <span class="toc-text">Testing and benchmark</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%A6%82%E4%BD%95%E5%86%99%E5%8D%95%E5%85%83%E6%B5%8B%E8%AF%95"><span class="toc-number">5.0.1.</span> <span class="toc-text">如何写单元测试</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Bundler"><span class="toc-number">6.</span> <span class="toc-text">Bundler</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#CI-CD"><span class="toc-number">7.</span> <span class="toc-text">CI&#x2F;CD</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Analytics-and-Monitor"><span class="toc-number">8.</span> <span class="toc-text">Analytics and Monitor</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Performance"><span class="toc-number">9.</span> <span class="toc-text">Performance</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Logging"><span class="toc-number">10.</span> <span class="toc-text">Logging</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Error-Report"><span class="toc-number">11.</span> <span class="toc-text">Error Report</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Develop-for-Distributed"><span class="toc-number">12.</span> <span class="toc-text">Develop for Distributed</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Coding-with-config"><span class="toc-number">13.</span> <span class="toc-text">Coding with config</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Read-with-Document-and-Comment"><span class="toc-number">14.</span> <span class="toc-text">Read with Document and Comment</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Flexible-Architecture"><span class="toc-number">15.</span> <span class="toc-text">Flexible Architecture</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Dockerize"><span class="toc-number">16.</span> <span class="toc-text">Dockerize</span></a></li></ol>
+        
+    </div>
+    <style>
+        .left-col .switch-btn,
+        .left-col .switch-area {
+            display: none;
+        }
+        .toc-level-3 i,
+        .toc-level-3 ol {
+            display: none !important;
+        }
+    </style>
+
+    <input type="button" id="tocButton" value="隐藏目录"  title="点击按钮隐藏或者显示文章目录">
+
+    <script>
+        yiliaConfig.toc = ["隐藏目录", "显示目录", !!"false"];
+    </script>
+
+
+
+    
+<div class="share">
+    
+        <div class="bdsharebuttonbox">
+            <a href="#" class="fa fa-twitter bds_twi" data-cmd="twi" title="分享到推特"></a>
+            <a href="#" class="fa fa-weibo bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
+            <a href="#" class="fa fa-qq bds_sqq" data-cmd="sqq" title="分享给 QQ 好友"></a>
+            <a href="#" class="fa fa-files-o bds_copy" data-cmd="copy" title="复制网址"></a>
+            <a href="#" class="fa fa fa-envelope-o bds_mail" data-cmd="mail" title="通过邮件分享"></a>
+            <a href="#" class="fa fa-weixin bds_weixin" data-cmd="weixin" title="生成文章二维码"></a>
+            <a href="#" class="fa fa-share-alt bds_more" data-cmd="more"></i></a>
+        </div>
+        <script>
+            window._bd_share_config={
+                "common":{"bdSnsKey":{},"bdText":"TRPG Engine 的项目工程化实践　| moonrailgun - 兴趣使然的工程师 — 个人技术展示　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+        </script>
+    
+
+    
+</div>
+
+
+
+
+
+
+
+    
+
+
+
+
+    <div class="scroll" id="post-nav-button">
+        
+            <a href="/posts/a409424d/" title="上一篇: Webpack是个什么鬼——了解编译结果">
+                <i class="fa fa-angle-left"></i>
+            </a>
+        
+
+        <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
+
+        
+            <a href="/posts/4b9f1f29/" title="下一篇: 记一个多平台End of Line的坑">
+                <i class="fa fa-angle-right"></i>
+            </a>
+        
+    </div>
+
+    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/posts/9ec26053/">国际标准保留端口列表</a></li><li class="post-list-item"><a class="post-list-link" href="/posts/cee56102/">记录一次docker占用过大导致磁盘爆炸的问题</a></li><li class="post-list-item"><a class="post-list-link" href="/posts/8aed9be/">打工人必备！实现JS控制的SVG渐变图标，让你的页面更加生动有趣</a></li><li class="post-list-item"><a class="post-list-link" href="/posts/cecd0a5c/">你可能不需要微前端，但你一定会需要微内核</a></li><li class="post-list-item"><a class="post-list-link" href="/posts/8a830324/">利用 webpack-stats-viewer 分析 react-virtualized 摇树优化失效问题</a></li><li class="post-list-item"><a class="post-list-link" href="/posts/6c6ef04/">React Query 简明设计哲学入门指北</a></li><li class="post-list-item"><a class="post-list-link" href="/posts/14043fbf/">小即是美 —— 简约而不简单的状态管理工具zustand</a></li><li class="post-list-item"><a class="post-list-link" href="/posts/2674f04a/">谈论从把多项目合并成一个项目中获得的收益</a></li><li class="post-list-item"><a class="post-list-link" href="/posts/15675e42/">webpack 打包分析 —— 通过分析工具优化体积问题</a></li><li class="post-list-item"><a class="post-list-link" href="/posts/8aa07df9/">元编程快速入门</a></li><li class="post-list-item"><a class="post-list-link" href="/posts/32dfd7d0/">k3s安装小记</a></li><li class="post-list-item"><a class="post-list-link" href="/posts/da6d1d53/">源码快速定位工具 source-ref</a></li><li class="post-list-item"><a class="post-list-link" href="/posts/a9d2669b/">Garfish 源码解析 —— 一个微应用是如何被挂载的</a></li><li class="post-list-item"><a class="post-list-link" href="/posts/e678c77b/">把代码仓库当做数据库，github action持久化存储新思路</a></li><li class="post-list-item"><a class="post-list-link" href="/posts/9632e7e0/">如何让团队项目白嫖 vercel 的免费服务</a></li><li class="post-list-item"><a class="post-list-link" href="/posts/406cd832/">CentOS7 安装gcc手册</a></li><li class="post-list-item"><a class="post-list-link" href="/posts/e7e551d1/">k3s安装 OpenFaaS小记</a></li><li class="post-list-item"><a class="post-list-link" href="/posts/f9bc948a/">为什么我选择Tailwindcss</a></li><li class="post-list-item"><a class="post-list-link" href="/posts/e536db3/">每日一题 —— 混杂整数序列按规则进行重新排序</a></li><li class="post-list-item"><a class="post-list-link" href="/posts/a409424d/">Webpack是个什么鬼——了解编译结果</a></li><li class="post-list-item"><a class="post-list-link" href="/posts/1daba7c3/">TRPG Engine 的项目工程化实践</a></li><li class="post-list-item"><a class="post-list-link" href="/posts/4b9f1f29/">记一个多平台End of Line的坑</a></li><li class="post-list-item"><a class="post-list-link" href="/posts/4c9731f9/">requirejs踩坑记录</a></li><li class="post-list-item"><a class="post-list-link" href="/posts/a118f8f2/">Chrome 笔记 - 处理异常 ERR_UNSAFE_PORT</a></li><li class="post-list-item"><a class="post-list-link" href="/posts/968454a3/">Vercel 国内无法访问</a></li><li class="post-list-item"><a class="post-list-link" href="/posts/6719aaf5/">关于人生, 关于生老病死</a></li><li class="post-list-item"><a class="post-list-link" href="/posts/Infinity/">HTTPS客户端证书校验</a></li><li class="post-list-item"><a class="post-list-link" href="/posts/443581a5/">字节跳动面试记录</a></li><li class="post-list-item"><a class="post-list-link" href="/posts/db9cb7ec/">CORS 现代浏览器跨域请求简明手册</a></li><li class="post-list-item"><a class="post-list-link" href="/posts/da49e84e/">HTTP中的各种缓存标签</a></li><li class="post-list-item"><a class="post-list-link" href="/posts/28f21ef5/">如何开发与坚持维护一个企业级的开源项目</a></li><li class="post-list-item"><a class="post-list-link" href="/posts/74598ef5/">从 Webpack 到 Snowpack, 编译速度提升十倍以上——TRPG Engine迁移小记</a></li><li class="post-list-item"><a class="post-list-link" href="/posts/191d7ea8/">TRPG Engine —— 一个功能完善即时通讯解决方案</a></li><li class="post-list-item"><a class="post-list-link" href="/posts/80587f52/">React 注意事项</a></li><li class="post-list-item"><a class="post-list-link" href="/posts/c09e1fbc/">又拍云整站网页存放到OSS的解决方案</a></li><li class="post-list-item"><a class="post-list-link" href="/posts/bdc192d2/">记一次重启网络服务后网络不通的调试</a></li><li class="post-list-item"><a class="post-list-link" href="/posts/ed7510e5/">让Chrome显示完整网址</a></li><li class="post-list-item"><a class="post-list-link" href="/posts/86a1d2a7/">adb devices无法获取夜神模拟器的解决方案</a></li><li class="post-list-item"><a class="post-list-link" href="/posts/303de4fd/">新服务器必做二三事</a></li><li class="post-list-item"><a class="post-list-link" href="/posts/856c955/">快速构建软件文档——docusaurus v2</a></li><li class="post-list-item"><a class="post-list-link" href="/posts/87881b14/">wsl2入坑指南</a></li><li class="post-list-item"><a class="post-list-link" href="/posts/3d731f17/">浅谈节流(throttle)与防抖动(debounce)</a></li><li class="post-list-item"><a class="post-list-link" href="/posts/3acd928b/">Docker Swarm 模型配合 traefik 实现集群sticky实践</a></li><li class="post-list-item"><a class="post-list-link" href="/posts/49d9534d/">Vim 操作笔记</a></li><li class="post-list-item"><a class="post-list-link" href="/posts/b0357b9f/">zIndex与层叠上下文Stacking Context</a></li><li class="post-list-item"><a class="post-list-link" href="/posts/d0843649/">Unicode编码解明</a></li><li class="post-list-item"><a class="post-list-link" href="/posts/2a644d07/">简单实现一个callback回调的包装器</a></li><li class="post-list-item"><a class="post-list-link" href="/posts/ec6df031/">Git骚操作之从一个分支中批量将离散的commit 迁移到另一个分支</a></li><li class="post-list-item"><a class="post-list-link" href="/posts/5cf47e08/">Let's Encrypt免费通配符证书申请</a></li><li class="post-list-item"><a class="post-list-link" href="/posts/c9e0808c/">MySQL 查询优化笔记</a></li><li class="post-list-item"><a class="post-list-link" href="/posts/6769ba51/">Linux 小资源服务器使用经验总结</a></li><li class="post-list-item"><a class="post-list-link" href="/posts/f3750712/">玩PUBG时运行VMware被禁止进入游戏的解决方案</a></li><li class="post-list-item"><a class="post-list-link" href="/posts/74202a7b/">TRPG Engine开发手册——数据库框架迁移</a></li><li class="post-list-item"><a class="post-list-link" href="/posts/c2b55725/">zsh插件推荐</a></li><li class="post-list-item"><a class="post-list-link" href="/posts/87b6010f/">git使用方法简明教程 - 团队篇</a></li><li class="post-list-item"><a class="post-list-link" href="/posts/71513ccb/">Vue学习笔记</a></li><li class="post-list-item"><a class="post-list-link" href="/posts/84bdf0ad/">如何实现方法既能实现函数式编程又能获取结果进行比较——实现形如add(1)(2)(3)...(n)的方法</a></li><li class="post-list-item"><a class="post-list-link" href="/posts/113e84a8/">Firefox、safari的session无法匹配的原因</a></li><li class="post-list-item"><a class="post-list-link" href="/posts/5d639031/">nginx使用笔记</a></li><li class="post-list-item"><a class="post-list-link" href="/posts/33f59699/">ReactNative踩坑记录与学习笔记</a></li><li class="post-list-item"><a class="post-list-link" href="/posts/30a497b6/">Linux常用命令记录</a></li><li class="post-list-item"><a class="post-list-link" href="/posts/1555da82/">微信开发踩过的坑</a></li><li class="post-list-item"><a class="post-list-link" href="/posts/61069dee/">Linux服务安全——记一次网络攻击</a></li><li class="post-list-item"><a class="post-list-link" href="/posts/743c31e9/">python学习笔记</a></li><li class="post-list-item"><a class="post-list-link" href="/posts/481f2de4/">前端编写全栈应用技术选型——rn、weex、apicloud到底选哪个</a></li><li class="post-list-item"><a class="post-list-link" href="/posts/e5320d32/">node遇见问题汇总</a></li><li class="post-list-item"><a class="post-list-link" href="/posts/13f139b9/">blender学习笔记 - 权重传递</a></li><li class="post-list-item"><a class="post-list-link" href="/posts/484f55d5/">如何配置Apache虚拟主机服务</a></li><li class="post-list-item"><a class="post-list-link" href="/posts/82986f1f/">gulp工具使用笔记</a></li><li class="post-list-item"><a class="post-list-link" href="/posts/993cf839/">Webpack打包工具性能优化</a></li><li class="post-list-item"><a class="post-list-link" href="/posts/8857c74e/">团队使用git方法简明教程</a></li><li class="post-list-item"><a class="post-list-link" href="/posts/3d280206/">blender渲染笔记 - Cycle渲染</a></li><li class="post-list-item"><a class="post-list-link" href="/posts/a1900bf0/">blender建模笔记 - 多拉多</a></li><li class="post-list-item"><a class="post-list-link" href="/posts/546fd07e/">Atom编辑器使用记录</a></li><li class="post-list-item"><a class="post-list-link" href="/posts/6eb62c08/">Unreal学习笔记 - 扇形攻击范围检测</a></li><li class="post-list-item"><a class="post-list-link" href="/posts/78c43660/">Unreal学习笔记 - 创建边沿发光材质</a></li><li class="post-list-item"><a class="post-list-link" href="/posts/bf34fac6/">MikuMikuCombat开发笔记 - 武器</a></li><li class="post-list-item"><a class="post-list-link" href="/posts/e6d9d22d/">MikuMikuCombat开发笔记 - 道具</a></li><li class="post-list-item"><a class="post-list-link" href="/posts/fbf9499/">MikuMikuCombat开发笔记 - 角色</a></li><li class="post-list-item"><a class="post-list-link" href="/posts/e8bbfe80/">Unreal学习笔记 - 蓝图使用手册</a></li><li class="post-list-item"><a class="post-list-link" href="/posts/b9028042/">blender学习笔记 - 常用快捷键</a></li><li class="post-list-item"><a class="post-list-link" href="/posts/bbd25313/">Unreal学习笔记 - 绘制准心</a></li><li class="post-list-item"><a class="post-list-link" href="/posts/4b5cc73c/">Unreal学习笔记 - 图形选项</a></li><li class="post-list-item"><a class="post-list-link" href="/posts/a16e855a/">blender学习笔记 - 自动切换透视模式</a></li><li class="post-list-item"><a class="post-list-link" href="/posts/67516082/">Unreal学习笔记 - 使用JoinSession成功加入服务器但是无法跳转到服务器当前地图</a></li><li class="post-list-item"><a class="post-list-link" href="/posts/4de36f08/">Unreal学习笔记 - 使用steam来进行多人联机</a></li><li class="post-list-item"><a class="post-list-link" href="/posts/754e67fa/">Unreal学习笔记 - 修复右键菜单</a></li><li class="post-list-item"><a class="post-list-link" href="/posts/bc2e19a6/">Unreal学习笔记 - 综合</a></li><li class="post-list-item"><a class="post-list-link" href="/posts/7e9cc815/">MMD静画渲染2</a></li><li class="post-list-item"><a class="post-list-link" href="/posts/d0f79e7e/">ionic——使用本地代理服务器解决http跨域问题</a></li><li class="post-list-item"><a class="post-list-link" href="/posts/22ded819/">MMD静画渲染</a></li><li class="post-list-item"><a class="post-list-link" href="/posts/b97c82c9/">网络不好怎么办？通过分析找出原因</a></li><li class="post-list-item"><a class="post-list-link" href="/posts/8efd96c8/">Unity物理碰撞</a></li><li class="post-list-item"><a class="post-list-link" href="/posts/39072aba/">总结一些好用的ios第三方库</a></li><li class="post-list-item"><a class="post-list-link" href="/posts/61ce6e4d/">iOS编程——让NSURL认识特殊字符</a></li><li class="post-list-item"><a class="post-list-link" href="/posts/5d2107c5/">任务栏快速启动真实地址</a></li><li class="post-list-item"><a class="post-list-link" href="/posts/47ac9736/">iOS编程时需要注意的一些问题</a></li><li class="post-list-item"><a class="post-list-link" href="/posts/bb904004/">国际化标准时间格式</a></li><li class="post-list-item"><a class="post-list-link" href="/posts/862a051d/">Mac中的字符中英文问题</a></li><li class="post-list-item"><a class="post-list-link" href="/posts/49910e89/">解决Unity跑酷模板Endless Run中shader报错的问题</a></li><li class="post-list-item"><a class="post-list-link" href="/posts/49add7c0/">Cocos2dx学习笔记——lambda表达式的引用捕获</a></li><li class="post-list-item"><a class="post-list-link" href="/posts/922ef0f9/">Cocos2dx学习笔记——Ref对象管理之保留与释放</a></li><li class="post-list-item"><a class="post-list-link" href="/posts/664de550/">Cocos2dx学习笔记——编译器提示LINK1104无法打开文件“libcocos2d_2013.lib”的问题</a></li><li class="post-list-item"><a class="post-list-link" href="/posts/e80f349e/">如何获取TexturePacker 1年免费软件授权</a></li><li class="post-list-item"><a class="post-list-link" href="/posts/d0d3ce00/">Cocos2dx学习笔记——节点与层的父子坐标区别</a></li><li class="post-list-item"><a class="post-list-link" href="/posts/a79c8a43/">Cocos2dx学习笔记——CCLog无法使用的问题</a></li><li class="post-list-item"><a class="post-list-link" href="/posts/900c706f/">新型钓鱼网站骗术</a></li><li class="post-list-item"><a class="post-list-link" href="/posts/74057083/">Cocos2dx学习笔记——C++的一些约定</a></li><li class="post-list-item"><a class="post-list-link" href="/posts/1ba44de6/">Cocos2dx学习笔记——引擎版本号的选择</a></li><li class="post-list-item"><a class="post-list-link" href="/posts/531c197b/">Cocos2dx学习笔记——CSLoader创建FileNode的报错问题</a></li><li class="post-list-item"><a class="post-list-link" href="/posts/990c5d7a/">Cocos2dx学习笔记——cocos-ext头文件编译问题</a></li><li class="post-list-item"><a class="post-list-link" href="/posts/44a80e28/">git使用方法简明教程 - 个人篇</a></li><li class="post-list-item"><a class="post-list-link" href="/posts/fa08ab46/">pomelo框架制作游戏初探(二) - 登陆模块</a></li><li class="post-list-item"><a class="post-list-link" href="/posts/2d40853/">pomelo框架制作游戏初探(一)</a></li></ul>
+
+
+
+
+    <script>
+        
+    </script>
+</div>
+      <footer id="footer">
+    <div class="outer">
+        <div id="footer-info">
+            <div class="footer-left">
+                <i class="fa fa-copyright"></i>
+                2016-2024 moonrailgun
+                | <a target="_blank" href="https://beian.miit.gov.cn/">沪ICP备19001187号-1</a>
+                | <a target="_blank" href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=31011302006539">
+                    <img src="/img/beian.png"/>
+                    <span>沪公网安备 31011302006539号</span>
+                  </a>
+                | <a title="本网站由又拍云提供CDN加速/云存储服务" href="https://www.upyun.com/?utm_source=lianmeng&utm_medium=referral" target="_blank" rel="noopener noreferrer"><img src="/img/upyun_logo.png" height="18" style="vertical-align: bottom;" /></a>
+            </div>
+            <div class="footer-right">
+                <a href="http://hexo.io/" target="_blank" title="快速、简洁且高效的博客框架">Hexo</a>  Theme <a href="https://github.com/MOxFIVE/hexo-theme-yelee" target="_blank" title="简而不减 Hexo 双栏博客主题  v3.5">Yelee</a> by MOxFIVE <i class="fa fa-heart animated infinite pulse"></i>
+            </div>
+        </div>
+        
+            <div class="visit">
+                
+                    <span id="busuanzi_container_site_pv" style='display:none'>
+                        <span id="site-visit" title="本站到访数"><i class="fa fa-user" aria-hidden="true"></i><span id="busuanzi_value_site_uv"></span>
+                        </span>
+                    </span>
+                
+                
+                    <span>| </span>
+                
+                
+                    <span id="busuanzi_container_page_pv" style='display:none'>
+                        <span id="page-visit"  title="本页阅读量"><i class="fa fa-eye animated infinite pulse" aria-hidden="true"></i><span id="busuanzi_value_page_pv"></span>
+                        </span>
+                    </span>
+                
+            </div>
+        
+    </div>
+</footer>
+
+    </div>
+    
+<script data-main="/js/main.js" src="https://lib.baomitu.com/require.js/2.2.0/require.min.js"></script>
+
+    <script>
+        $(document).ready(function() {
+            var iPad = window.navigator.userAgent.indexOf('iPad');
+            if (iPad > -1 || $(".left-col").css("display") === "none") {
+                var bgColorList = ["#9db3f4", "#414141", "#e5a859", "#f5dfc6", "#c084a0", "#847e72", "#cd8390", "#996731"];
+                var bgColor = Math.ceil(Math.random() * (bgColorList.length - 1));
+                $("body").css({"background-color": bgColorList[bgColor], "background-size": "cover"});
+            }
+            else {
+                var backgroundnum = 5;
+                var backgroundimg = "url(/background/bg-x.jpg)".replace(/x/gi, Math.ceil(Math.random() * backgroundnum));
+                $("body").css({"background": backgroundimg, "background-attachment": "fixed", "background-size": "cover"});
+            }
+        })
+    </script>
+
+
+
+
+
+<div class="scroll" id="scroll">
+    <a href="#" title="返回顶部"><i class="fa fa-arrow-up"></i></a>
+    <a href="#comments" onclick="load$hide();" title="查看评论"><i class="fa fa-comments-o"></i></a>
+    <a href="#footer" title="转到底部"><i class="fa fa-arrow-down"></i></a>
+</div>
+<script>
+    // Open in New Window
+    
+        var oOpenInNew = {
+            
+            
+            
+            
+            
+            
+             archives: ".archive-article-title", 
+             miniArchives: "a.post-list-link", 
+            
+             friends: "#js-friends a", 
+             socail: ".social a" 
+        }
+        for (var x in oOpenInNew) {
+            $(oOpenInNew[x]).attr("target", "_blank");
+        }
+    
+</script>
+
+<!-- <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"> -->
+<script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js">
+</script>
+
+  </div>
+</body>
+</html>
